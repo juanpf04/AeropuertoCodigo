@@ -1,7 +1,7 @@
 package negocio.Modelo;
 
 public class TModelo {
-	
+
 	private int id;
 	private String nombre;
 	private String motor;
@@ -10,7 +10,6 @@ public class TModelo {
 	public TModelo() {
 	}
 
-	
 	public int getId() {
 		return this.id;
 	}

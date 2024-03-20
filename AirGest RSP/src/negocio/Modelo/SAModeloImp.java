@@ -6,11 +6,11 @@ package negocio.Modelo;
 import java.util.List;
 
 /** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author usuario_local
-* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+ * <!-- begin-UML-doc -->
+ * <!-- end-UML-doc -->
+ * @author usuario_local
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
 public class SAModeloImp implements SAModelo {
 	/** 
 	* (non-Javadoc)

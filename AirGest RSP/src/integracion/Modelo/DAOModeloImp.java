@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 /** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author usuario_local
-* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+ * <!-- begin-UML-doc -->
+ * <!-- end-UML-doc -->
+ * @author usuario_local
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
 public class DAOModeloImp implements DAOModelo {
 	/** 
 	* (non-Javadoc)
@@ -105,23 +105,23 @@ public class DAOModeloImp implements DAOModelo {
 	}
 
 	public TModelo leerModeloPorId(int id) {
-		
+
 		JSONObject data = new JSONObject();
-		
+
 		try {
 			data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));
 		} catch (FileNotFoundException e) {
-			
+
 			return null;
 		}
-		
+
 		TModelo modelo = new TModelo();
-		
+
 		modelo.setId(id);
 		modelo.setActivo(data.getBoolean("activo"));
 		modelo.setNombre(data.getString("nombre"));
 		modelo.setMotor(data.getString("motor"));
-		
+
 		return modelo;
 	}
 }
