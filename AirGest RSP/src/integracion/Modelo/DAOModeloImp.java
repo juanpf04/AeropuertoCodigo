@@ -1,6 +1,3 @@
-/**
- * 
- */
 package integracion.Modelo;
 
 import negocio.Modelo.TModelo;
@@ -13,18 +10,14 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author usuario_local
- * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class DAOModeloImp implements DAOModelo {
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#leerModeloPorNombre(String nombre)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#leerModeloPorNombre(String nombre)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public TModelo leerModeloPorNombre(String nombre) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -32,11 +25,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#altaModelo(TModelo tModelo)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#altaModelo(TModelo tModelo)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public int altaModelo(TModelo tModelo) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -44,11 +39,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#modificarModelo(TModelo tModelo)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#modificarModelo(TModelo tModelo)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean modificarModelo(TModelo tModelo) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -56,11 +53,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#bajaModelo(int id)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#bajaModelo(int id)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean bajaModelo(int id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -68,11 +67,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#consultarTodosModelos()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#consultarTodosModelos()
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public List consultarTodosModelos() {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -80,11 +81,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#vincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#vincularModelo(int idModelo, int idAerolinea)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean vincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -92,11 +95,13 @@ public class DAOModeloImp implements DAOModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#desvincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see DAOModelo#desvincularModelo(int idModelo, int idAerolinea)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean desvincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub
