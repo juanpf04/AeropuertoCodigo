@@ -9,9 +9,11 @@ public class Prueba {
 	public static void main(String[] args) {
 		DAOModelo modelo = new DAOModeloImp();
 		
-		TModelo tranfer = modelo.leerModeloPorId(1);
+		modelo.altaModelo(new TModelo(-1, true, "blavla", "v8"));
 		
-		System.out.println(tranfer.getMotor());
+		TModelo tranfer = modelo.leerModeloPorId(4);
+		
+		System.out.println(tranfer);
 	}
 
 }

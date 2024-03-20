@@ -1,5 +1,7 @@
 package negocio.modelo;
 
+import org.json.JSONObject;
+
 public class TModelo {
 
 	private int id;
@@ -8,6 +10,13 @@ public class TModelo {
 	private boolean activo;
 
 	public TModelo() {
+	}
+
+	public TModelo(int id, boolean activo, String nombre, String motor) {
+		this.id = id;
+		this.activo = activo;
+		this.nombre = nombre;
+		this.motor = motor;
 	}
 
 	public int getId() {
@@ -40,5 +49,21 @@ public class TModelo {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	@Override
+	public String toString() {
+		return "id: " + this.id + "\nnombre: " + nombre + "\nmotor: " + motor + "\nactivo: " + activo;
+	}
+
+	public JSONObject toJSON() {
+		JSONObject jo = new JSONObject();
+		
+		jo.put("id", this.id);
+		jo.put("nombre", this.nombre);
+		jo.put("motor", this.motor);
+		jo.put("activo", this.activo);
+		
+		return jo;
 	}
 }
