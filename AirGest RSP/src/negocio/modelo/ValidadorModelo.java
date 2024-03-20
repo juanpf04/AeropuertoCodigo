@@ -3,7 +3,8 @@ package negocio.modelo;
 public class ValidadorModelo {
 
 	public static boolean comprobarDatosModelo(TModelo tModelo) {
-		return comprobarId(tModelo.getId()) && comprobarNombre(tModelo.getNombre()) && comprobarMotor(tModelo.getMotor());
+		return comprobarId(tModelo.getId()) && comprobarNombre(tModelo.getNombre())
+				&& comprobarMotor(tModelo.getMotor());
 	}
 
 	public static boolean comprobarId(int id) {
