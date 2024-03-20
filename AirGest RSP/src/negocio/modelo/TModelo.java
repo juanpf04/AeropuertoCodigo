@@ -58,12 +58,12 @@ public class TModelo {
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
-		
+
 		jo.put("id", this.id);
 		jo.put("nombre", this.nombre);
 		jo.put("motor", this.motor);
 		jo.put("activo", this.activo);
-		
+
 		return jo;
 	}
 }

@@ -28,8 +28,8 @@ public class DAOModeloImp implements DAOModelo {
 			}
 
 			if (data.getString("nombre").equals(nombre)) {
-				return new TModelo(data.getInt("id"), data.getBoolean("activo"), data.getString("nombre"),
-						data.getString("motor"));
+				return new TModelo(data.getInt("id"), data.getString("nombre"), data.getString("motor"),
+						data.getBoolean("activo"));
 			}
 
 			i++;
@@ -101,10 +101,9 @@ public class DAOModeloImp implements DAOModelo {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				modelos.add(new TModelo(data.getInt("id"), data.getBoolean("activo"), data.getString("nombre"),
-						data.getString("motor")));
+				modelos.add(new TModelo(data.getInt("id"), data.getString("nombre"), data.getString("motor"),
+						data.getBoolean("activo")));
 			} catch (FileNotFoundException e) {
-				return null;
 			}
 		}
 
@@ -115,7 +114,7 @@ public class DAOModeloImp implements DAOModelo {
 	 * (non-Javadoc)
 	 * 
 	 * @see DAOModelo#vincularModelo(int idModelo, int idAerolinea)
-	 * @generated "UML to Java
+	 * @generated "UML a Java
 	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public boolean vincularModelo(int idModelo, int idAerolinea) {
@@ -129,7 +128,7 @@ public class DAOModeloImp implements DAOModelo {
 	 * (non-Javadoc)
 	 * 
 	 * @see DAOModelo#desvincularModelo(int idModelo, int idAerolinea)
-	 * @generated "UML to Java
+	 * @generated "UML a Java
 	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public boolean desvincularModelo(int idModelo, int idAerolinea) {
@@ -142,8 +141,8 @@ public class DAOModeloImp implements DAOModelo {
 	public TModelo leerModeloPorId(int id) {
 		try {
 			JSONObject data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));
-			return new TModelo(data.getInt("id"), data.getBoolean("activo"), data.getString("nombre"),
-					data.getString("motor"));
+			return new TModelo(data.getInt("id"), data.getString("nombre"), data.getString("motor"),
+					data.getBoolean("activo"));
 		} catch (FileNotFoundException e) {
 			return null;
 		}

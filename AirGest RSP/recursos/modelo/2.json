@@ -1,1 +1,6 @@
-{"motor":"Castro04 Biturbo","id":2,"nombre":"BOEING-744","activo":false}
+{
+	"motor": "v6",
+	"id": 2,
+	"nombre": "boeing-744",
+	"activo": false
+}

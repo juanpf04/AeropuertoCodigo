@@ -1,47 +1,17 @@
-/**
- * 
- */
 package negocio.factoria;
 
 import negocio.modelo.SAModelo;
+import negocio.modelo.SAModeloImp;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public abstract class FactoriaNegocio {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	private FactoriaNegocio instancia;
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	private static FactoriaNegocio instancia;
+
 	public static FactoriaNegocio getInstance() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		if (instancia == null)
+			instancia = new FactoriaNegocioImp();
+		return instancia;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public SAModelo crearSAModelo() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
-	}
+	public abstract SAModelo crearSAModelo();
 }
