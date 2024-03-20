@@ -7,9 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -48,7 +48,7 @@ public class DAOModeloImp implements DAOModelo {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(lista[lista.length - 1])));
 				id = data.getInt("id") + 1;
 			}
-			
+
 			tModelo.setId(id);
 
 			FileWriter archivo = new FileWriter("recursos/modelo/" + id + ".json");
@@ -63,46 +63,52 @@ public class DAOModeloImp implements DAOModelo {
 		return -1;
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see DAOModelo#modificarModelo(TModelo tModelo)
-	 * @generated "UML to Java
-	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public boolean modificarModelo(TModelo tModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		try {
+			FileWriter archivo = new FileWriter("recursos/modelo/" + tModelo.getId() + ".json");
+			archivo.write(tModelo.toJSON().toString());
+			archivo.close();
+
+			return true;
+		} catch (IOException e) {
+		}
 		return false;
-		// end-user-code
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see DAOModelo#bajaModelo(int id)
-	 * @generated "UML to Java
-	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public boolean bajaModelo(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		try {
+			JSONObject data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));
+
+			data.put("activo", false);
+
+			FileWriter archivo = new FileWriter("recursos/modelo/" + id + ".json");
+
+			archivo.write(data.toString());
+			archivo.close();
+
+			return true;
+		} catch (IOException e) {
+		}
 		return false;
-		// end-user-code
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see DAOModelo#consultarTodosModelos()
-	 * @generated "UML to Java
-	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public List consultarTodosModelos() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TModelo> consultarTodosModelos() {
+		File carpeta = new File("recursos/modelo");
+		File[] lista = carpeta.listFiles();
+
+		List<TModelo> modelos = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				modelos.add(new TModelo(data.getInt("id"), data.getBoolean("activo"), data.getString("nombre"),
+						data.getString("motor")));
+			} catch (FileNotFoundException e) {
+				return null;
+			}
+		}
+
+		return modelos;
 	}
 
 	/**
