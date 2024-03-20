@@ -12,11 +12,11 @@ public class TModelo {
 	public TModelo() {
 	}
 
-	public TModelo(int id, boolean activo, String nombre, String motor) {
+	public TModelo(int id, String nombre, String motor, boolean activo) {
 		this.id = id;
-		this.activo = activo;
 		this.nombre = nombre;
 		this.motor = motor;
+		this.activo = activo;
 	}
 
 	public int getId() {
