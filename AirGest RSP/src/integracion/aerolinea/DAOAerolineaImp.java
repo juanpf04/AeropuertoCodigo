@@ -1,9 +1,9 @@
 /**
  * 
  */
-package presentacion.modelo;
+package integracion.aerolinea;
 
-import javax.swing.JFrame;
+import negocio.aerolinea.TAerolinea;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,16 +11,16 @@ import javax.swing.JFrame;
  * @author javia
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class VistaFalloDesvincularModelo extends JFrame implements Observador {
+public class DAOAerolineaImp implements DAOAerolinea {
 	/** 
 	* (non-Javadoc)
-	* @see Observador#actualizaVista()
+	* @see DAOAerolinea#leerAerolineaPorId(int idAerolinea)
 	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
-	public void actualizaVista() {
+	public TAerolinea leerAerolineaPorId(int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub
-
+		return null;
 		// end-user-code
 	}
 }

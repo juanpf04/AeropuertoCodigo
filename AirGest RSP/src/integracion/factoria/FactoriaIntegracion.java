@@ -1,6 +1,7 @@
 package integracion.factoria;
 
 import integracion.modelo.DAOModelo;
+import integracion.modeloAerolinea.DAOModeloAerolinea;
 import integracion.avion.DAOAvion;
 import integracion.aerolinea.DAOAerolinea;
 
@@ -19,4 +20,6 @@ public abstract class FactoriaIntegracion {
 	public abstract DAOAvion crearDAOAvion();
 
 	public abstract DAOAerolinea crearDAOAeolinea();
+
+	public abstract DAOModeloAerolinea crearDAOModeloAerolinea();
 }

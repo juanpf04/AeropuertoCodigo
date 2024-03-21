@@ -15,9 +15,5 @@ public interface DAOModelo {
 
 	public List<TModelo> consultarTodosModelos();
 
-	public boolean vincularModelo(int idModelo, int idAerolinea);
-
-	public boolean desvincularModelo(int idModelo, int idAerolinea);
-
 	public TModelo leerModeloPorId(int id);
 }

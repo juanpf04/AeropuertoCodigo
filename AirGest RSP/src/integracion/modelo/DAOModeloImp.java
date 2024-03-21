@@ -110,30 +110,6 @@ public class DAOModeloImp implements DAOModelo {
 		return modelos;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#vincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean vincularModelo(int idModelo, int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
-	}
-
-	/** 
-	* (non-Javadoc)
-	* @see DAOModelo#desvincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean desvincularModelo(int idModelo, int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
-	}
-
 	public TModelo leerModeloPorId(int id) {
 		try {
 			JSONObject data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));

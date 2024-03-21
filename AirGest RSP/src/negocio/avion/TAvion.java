@@ -4,11 +4,12 @@
 package negocio.avion;
 
 import java.util.Date;
+import org.json.JSONObject;
 
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author Usuario
+ * @author javia
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class TAvion {
@@ -257,6 +258,40 @@ public class TAvion {
 		// begin-user-code
 		// TODO Auto-generated method stub
 
+		// end-user-code
+	}
+
+	/** 
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @param id
+	* @param numAsientos
+	* @param fechaFabricacion
+	* @param nombre
+	* @param matricula
+	* @param activo
+	* @param idAerolinea
+	* @param idModelo
+	* @param idHangar
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public TAvion(int id, int numAsientos, Date fechaFabricacion, String nombre, String matricula, boolean activo,
+			int idAerolinea, int idModelo, int idHangar) {
+		// begin-user-code
+		// TODO Auto-generated constructor stub
+		// end-user-code
+	}
+
+	/** 
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @return
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public JSONObject toJSON() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
 		// end-user-code
 	}
 }
