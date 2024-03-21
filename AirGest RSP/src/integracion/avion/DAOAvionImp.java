@@ -14,7 +14,7 @@ import negocio.avion.TAvion;
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class DAOAvionImp implements DAOAvion {
-	
+
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
 		// begin-user-code
 		// TODO Auto-generated method stub
