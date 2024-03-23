@@ -2,6 +2,7 @@ package negocio.modelo;
 
 import java.util.List;
 
+import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.modelo.DAOModelo;
 
@@ -24,16 +25,22 @@ public class SAModeloImp implements SAModelo {
 		return -1;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAModelo#bajaModelo(int id)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public boolean bajaModelo(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorModelo.comprobarId(id)) {
+			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
+			
+			TModelo leido = dm.leerModeloPorId(id);
+			
+			if (leido != null && leido.getActivo()){
+				DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+				
+				if (da.consultarAvionesActivosPorModelo(id).isEmpty()){
+					return dm.bajaModelo(id);
+				}
+			}
+		}
+
 		return false;
-		// end-user-code
 	}
 
 	public TModelo consultarModelo(int id) {
@@ -69,11 +76,13 @@ public class SAModeloImp implements SAModelo {
 		return false;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAModelo#vincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see SAModelo#vincularModelo(int idModelo, int idAerolinea)
+	 * @generated "UML a Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean vincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -81,11 +90,13 @@ public class SAModeloImp implements SAModelo {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAModelo#desvincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see SAModelo#desvincularModelo(int idModelo, int idAerolinea)
+	 * @generated "UML a Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public boolean desvincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub

@@ -112,12 +112,18 @@ public class TAvion {
 	public void setIdHangar(int idHangar) {
 		this.idHangar = idHangar;
 	}
+	
+	public String toString(){
+		return "Id: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: " + this.fechaFabricacion + "\nNombre: " + this.nombre + 
+				"\nMatrícula: " + this.matricula + "\nActivo: " + this.activo + "\nId Modelo: " + this.idModelo + "\nId Aerolínea: " + this.idAerolinea + 
+				"\nIdHangar: " + this.idHangar;
+	}
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
 
 		jo.put("id", this.id);
-		jo.put("numAsiento", this.numAsientos);
+		jo.put("numAsientos", this.numAsientos);
 		jo.put("fechaFabricacion", this.fechaFabricacion);
 		jo.put("nombre", this.nombre);
 		jo.put("matricula", this.matricula);

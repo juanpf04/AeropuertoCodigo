@@ -49,5 +49,11 @@ public class SAModeloImpTest {
 		assertFalse("Se ha modificado el modelo, al estar el nombre repetido, no debería dejar",
 				sm.modificarModelo(modelo));
 	}
-
+	
+	@Test
+	public void baja_modelo_aviones_activos(){
+		SAModelo sm = new SAModeloImp();
+		
+		assertTrue("No se puede dar de baja modelo con aviones activos", sm.bajaModelo(1));
+	}
 }

@@ -4,7 +4,7 @@
 	"fechaFabricacion": "2010/07/12",
 	"nombre": "hola",
 	"matricula" : "12345deqdG",
-	"activo": true,
+	"activo": false,
 	"idModelo": 1,
 	"idAerolinea": 1,
 	"idHangar": 1
