@@ -1,24 +1,23 @@
-/**
- * 
- */
+
 package presentacion.controlador;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
-public class ControladorImp extends Controlador {
-	/** 
-	* (non-Javadoc)
-	* @see Controlador#accion(int evento, Object datos)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void accion(int evento, Object datos) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+import negocio.factoria.FactoriaNegocio;
+import negocio.modelo.SAModelo;
+import negocio.modelo.TModelo;
+import presentacion.factoria.FactoriaPresentacion;
 
-		// end-user-code
+public class ControladorImp extends Controlador {
+	public void accion(int evento, Object datos) {
+		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
+		FactoriaNegocio fn = FactoriaNegocio.getInstance();
+
+		switch (evento) {
+		case EventosControlador.ALTA_MODELO:
+			SAModelo sm = fn.crearSAModelo();
+			sm.altaModelo((TModelo) datos);
+			// TODO actulizar vistas
+			break;
+
+		}
 	}
 }
