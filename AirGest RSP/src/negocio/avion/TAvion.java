@@ -121,10 +121,14 @@ public class TAvion {
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
-
+		JSONObject fecha = new JSONObject();
+		fecha.put("dia", this.fechaFabricacion.getDay());
+		fecha.put("mes", this.fechaFabricacion.getMonth());
+		fecha.put("anyo", this.fechaFabricacion.getYear());
+		
 		jo.put("id", this.id);
 		jo.put("numAsientos", this.numAsientos);
-		jo.put("fechaFabricacion", this.fechaFabricacion);
+		jo.put("fechaFabricacion", fecha);
 		jo.put("nombre", this.nombre);
 		jo.put("matricula", this.matricula);
 		jo.put("activo", this.activo);
