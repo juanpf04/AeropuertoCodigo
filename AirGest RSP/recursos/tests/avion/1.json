@@ -1,9 +1,13 @@
 {
 	"id": 1,
 	"numAsientos": 45,
-	"fechaFabricacion": "2010/04/12",
+	"fechaFabricacion": {
+		"dia": 12,
+		"mes": 04,
+		"anyo": 2010
+	},
 	"nombre": "keehdg",
-	"matricula" : "12345G",
+	"matricula": "12345G",
 	"activo": false,
 	"idModelo": 1,
 	"idAerolinea": 1,
