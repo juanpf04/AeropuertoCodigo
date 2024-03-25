@@ -12,7 +12,6 @@ import miscelanea.Utilidades;
 
 public class NegocioTest {
 
-	
 	@Test
 	public void modelo_test() {
 		Utilidades.esTest();
@@ -22,7 +21,7 @@ public class NegocioTest {
         for (Failure failure : resultado.getFailures()) 
             fallo += failure.toString()+"\n";
 
-        assertTrue("ha fallado "+ fallo, resultado.wasSuccessful());
+        assertTrue("\nHa fallado: " + "\n" + fallo, resultado.wasSuccessful());
 	}
 	
 	@Test
