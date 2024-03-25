@@ -51,7 +51,8 @@ public class DAOAvionImp implements DAOAvion {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")) {
+				boolean activo = data.getBoolean("activo");
+				if (data.getInt("idModelo") == idModelo && activo) {
 					
 					JSONObject jo = data.getJSONObject("fechaFabricacion");
 					
