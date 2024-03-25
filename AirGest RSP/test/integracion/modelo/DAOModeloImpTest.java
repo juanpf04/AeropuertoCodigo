@@ -16,4 +16,13 @@ public class DAOModeloImpTest {
 
 		assertTrue("Ha leido mal el fichero", dm.modificarModelo(modelo));
 	}
+	
+	@Test
+	public void alta_modelo_test() {
+		DAOModelo dm = new DAOModeloImp();
+
+		TModelo modelo = new TModelo(0, "pepita", "hola", true);
+
+		assertEquals("No ha devuelto el id correcto", 6, dm.altaModelo(modelo));
+	}
 }

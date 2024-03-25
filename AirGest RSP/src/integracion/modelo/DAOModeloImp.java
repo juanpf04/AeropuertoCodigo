@@ -13,10 +13,12 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import miscelanea.Utilidades;
+
 public class DAOModeloImp implements DAOModelo {
 
 	public TModelo leerModeloPorNombre(String nombre) {
-		File carpeta = new File("recursos/modelo");
+		File carpeta = new File(Utilidades.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 
 		int i = 0;
@@ -39,7 +41,7 @@ public class DAOModeloImp implements DAOModelo {
 	}
 
 	public int altaModelo(TModelo tModelo) {
-		File carpeta = new File("recursos/modelo");
+		File carpeta = new File(Utilidades.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 
 		try {
@@ -51,7 +53,7 @@ public class DAOModeloImp implements DAOModelo {
 
 			tModelo.setId(id);
 
-			FileWriter archivo = new FileWriter("recursos/modelo/" + id + ".json");
+			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + id + ".json");
 
 			archivo.write(tModelo.toJSON().toString());
 			archivo.close();
@@ -65,7 +67,7 @@ public class DAOModeloImp implements DAOModelo {
 
 	public boolean modificarModelo(TModelo tModelo) {
 		try {
-			FileWriter archivo = new FileWriter("recursos/modelo/" + tModelo.getId() + ".json");
+			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + tModelo.getId() + ".json");
 			archivo.write(tModelo.toJSON().toString());
 			archivo.close();
 
@@ -77,7 +79,7 @@ public class DAOModeloImp implements DAOModelo {
 
 	public boolean bajaModelo(int id) {
 		try {
-			JSONObject data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));
+			JSONObject data = new JSONObject(new JSONTokener(new FileReader(Utilidades.ruta("modelo") + id + ".json")));
 
 			data.put("activo", false);
 
@@ -112,7 +114,7 @@ public class DAOModeloImp implements DAOModelo {
 
 	public TModelo leerModeloPorId(int id) {
 		try {
-			JSONObject data = new JSONObject(new JSONTokener(new FileReader("recursos/modelo/" + id + ".json")));
+			JSONObject data = new JSONObject(new JSONTokener(new FileReader(Utilidades.ruta("modelo") + id + ".json")));
 			return new TModelo(data.getInt("id"), data.getString("nombre"), data.getString("motor"),
 					data.getBoolean("activo"));
 		} catch (FileNotFoundException e) {

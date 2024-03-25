@@ -1,0 +1,11 @@
+{
+	"id": 1,
+	"numAsientos": 45,
+	"fechaFabricacion": "2010/04/12",
+	"nombre": "keehdg",
+	"matricula" : "12345G",
+	"activo": false,
+	"idModelo": 1,
+	"idAerolinea": 1,
+	"idHangar": 1
+}
