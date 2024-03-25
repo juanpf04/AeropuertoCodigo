@@ -28,13 +28,13 @@ public class SAModeloImp implements SAModelo {
 	public boolean bajaModelo(int id) {
 		if (ValidadorModelo.comprobarId(id)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
-			
+
 			TModelo leido = dm.leerModeloPorId(id);
-			
-			if (leido != null && leido.getActivo()){
+
+			if (leido != null && leido.getActivo()) {
 				DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
-				
-				if (da.consultarAvionesActivosPorModelo(id).isEmpty()){
+
+				if (da.consultarAvionesActivosPorModelo(id).isEmpty()) {
 					return dm.bajaModelo(id);
 				}
 			}
@@ -76,13 +76,11 @@ public class SAModeloImp implements SAModelo {
 		return false;
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see SAModelo#vincularModelo(int idModelo, int idAerolinea)
-	 * @generated "UML a Java
-	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	/** 
+	* (non-Javadoc)
+	* @see SAModelo#vincularModelo(int idModelo, int idAerolinea)
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
 	public boolean vincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -90,13 +88,11 @@ public class SAModeloImp implements SAModelo {
 		// end-user-code
 	}
 
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see SAModelo#desvincularModelo(int idModelo, int idAerolinea)
-	 * @generated "UML a Java
-	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	/** 
+	* (non-Javadoc)
+	* @see SAModelo#desvincularModelo(int idModelo, int idAerolinea)
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
 	public boolean desvincularModelo(int idModelo, int idAerolinea) {
 		// begin-user-code
 		// TODO Auto-generated method stub

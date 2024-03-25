@@ -1,7 +1,7 @@
 
 package negocio.avion;
 
-import java.util.Date;
+import java.time.LocalDate;
 import org.json.JSONObject;
 
 public class TAvion {
@@ -10,7 +10,7 @@ public class TAvion {
 
 	private int numAsientos;
 
-	private Date fechaFabricacion;
+	private LocalDate fechaFabricacion;
 
 	private String nombre;
 
@@ -28,7 +28,7 @@ public class TAvion {
 
 	}
 
-	public TAvion(int id, int numAsientos, Date fechaFabricacion, String nombre, String matricula, boolean activo,
+	public TAvion(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula, boolean activo,
 			int idAerolinea, int idModelo, int idHangar) {
 		this.id = id;
 		this.numAsientos = numAsientos;
@@ -49,7 +49,7 @@ public class TAvion {
 		return this.numAsientos;
 	}
 
-	public Date getFechaFabricacion() {
+	public LocalDate getFechaFabricacion() {
 		return this.fechaFabricacion;
 	}
 
@@ -64,7 +64,7 @@ public class TAvion {
 	public boolean getActivo() {
 		return this.activo;
 	}
-	
+
 	public int getIdAerolinea() {
 		return this.idAerolinea;
 	}
@@ -76,16 +76,16 @@ public class TAvion {
 	public int getIdHangar() {
 		return this.idHangar;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public void setNumAsientos(int numAsientos) {
 		this.numAsientos = numAsientos;
 	}
 
-	public void setFechaFabricacion(Date fechaFabricacion) {
+	public void setFechaFabricacion(LocalDate fechaFabricacion) {
 		this.fechaFabricacion = fechaFabricacion;
 	}
 
@@ -112,20 +112,22 @@ public class TAvion {
 	public void setIdHangar(int idHangar) {
 		this.idHangar = idHangar;
 	}
-	
-	public String toString(){
-		return "Id: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: " + this.fechaFabricacion + "\nNombre: " + this.nombre + 
-				"\nMatrícula: " + this.matricula + "\nActivo: " + this.activo + "\nId Modelo: " + this.idModelo + "\nId Aerolínea: " + this.idAerolinea + 
-				"\nIdHangar: " + this.idHangar;
+
+	public String toString() {
+		return "Id: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: "
+				+ this.fechaFabricacion + "\nNombre: " + this.nombre + "\nMatrícula: " + this.matricula + "\nActivo: "
+				+ this.activo + "\nId Modelo: " + this.idModelo + "\nId Aerolínea: " + this.idAerolinea + "\nIdHangar: "
+				+ this.idHangar;
 	}
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
+
 		JSONObject fecha = new JSONObject();
-		fecha.put("dia", this.fechaFabricacion.getDay());
-		fecha.put("mes", this.fechaFabricacion.getMonth());
+		fecha.put("dia", this.fechaFabricacion.getDayOfMonth());
+		fecha.put("mes", this.fechaFabricacion.getMonthValue());
 		fecha.put("anyo", this.fechaFabricacion.getYear());
-		
+
 		jo.put("id", this.id);
 		jo.put("numAsientos", this.numAsientos);
 		jo.put("fechaFabricacion", fecha);

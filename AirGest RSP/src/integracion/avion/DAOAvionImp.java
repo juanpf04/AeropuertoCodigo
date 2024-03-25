@@ -9,18 +9,11 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import negocio.avion.TAvion;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class DAOAvionImp implements DAOAvion {
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
@@ -28,19 +21,20 @@ public class DAOAvionImp implements DAOAvion {
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
-		
+
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo){
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), null, data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"), 
+				if (data.getInt("idModelo") == idModelo) {
+					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), null,
+							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
 							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
 				}
 			} catch (FileNotFoundException e) {
-			
+
 			}
 		}
-		
+
 		return aviones;
 	}
 
@@ -49,19 +43,20 @@ public class DAOAvionImp implements DAOAvion {
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
-		
+
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")){
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), null, data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"), 
+				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")) {
+					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), null,
+							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
 							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
 				}
 			} catch (FileNotFoundException e) {
-			
+
 			}
 		}
-		
+
 		return aviones;
 	}
 }
