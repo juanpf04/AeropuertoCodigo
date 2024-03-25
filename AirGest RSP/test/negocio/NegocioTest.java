@@ -1,23 +1,28 @@
 package negocio;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import negocio.modelo.SAModeloImpTest;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import miscelanea.Utilidades;
+
 public class NegocioTest {
 
 	
 	@Test
 	public void modelo_test() {
+		Utilidades.esTest();
 		Result resultado = JUnitCore.runClasses(SAModeloImpTest.class);
 
+		String fallo = null;
         for (Failure failure : resultado.getFailures()) 
-            System.out.println(failure.toString());
+            fallo = failure.toString();
 
-        if (resultado.wasSuccessful()) 
-            System.out.println("Todos los tests han pasado.");
+        assertTrue("ha fallado "+ fallo, resultado.wasSuccessful());
 	}
 	
 	@Test
