@@ -18,9 +18,9 @@ public class NegocioTest {
 		Utilidades.esTest();
 		Result resultado = JUnitCore.runClasses(SAModeloImpTest.class);
 
-		String fallo = null;
+		String fallo = "";
         for (Failure failure : resultado.getFailures()) 
-            fallo = failure.toString();
+            fallo += failure.toString()+"\n";
 
         assertTrue("ha fallado "+ fallo, resultado.wasSuccessful());
 	}
