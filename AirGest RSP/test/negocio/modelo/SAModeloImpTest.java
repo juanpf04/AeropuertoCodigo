@@ -4,12 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import miscelanea.Utilidades;
+
 public class SAModeloImpTest {
 
 	private boolean inmodificable = true;
 
 	@Test
 	public void modificar_modelo_test() {
+		Utilidades.esTest();
+		
 		SAModelo sm = new SAModeloImp();
 
 		TModelo modelo = new TModelo(1, "boeing-888", "v8", inmodificable);
@@ -19,6 +23,8 @@ public class SAModeloImpTest {
 
 	@Test
 	public void modificar_modelo_no_activo_test() {
+		Utilidades.esTest();
+		
 		SAModelo sm = new SAModeloImp();
 
 		TModelo modelo = new TModelo(2, "boeing-744", "v6", inmodificable);
@@ -28,6 +34,8 @@ public class SAModeloImpTest {
 
 	@Test
 	public void modificar_modelo_nuevo_id_test() {
+		Utilidades.esTest();
+		
 		SAModelo sm = new SAModeloImp();
 
 		TModelo modelo = new TModelo(8, "boeing-744", "v6", inmodificable);
@@ -37,11 +45,14 @@ public class SAModeloImpTest {
 	
 	@Test
 	public void modificar_modelo_datos_no_validos_test() {
+		Utilidades.esTest();
 //		TODO
 	}
 
 	@Test
 	public void modificar_modelo_nombre_repetido_test() {
+		Utilidades.esTest();
+		
 		SAModelo sm = new SAModeloImp();
 
 		TModelo modelo = new TModelo(1, "boeing-744", "asas", inmodificable);
@@ -52,6 +63,8 @@ public class SAModeloImpTest {
 	
 	@Test
 	public void baja_modelo_aviones_activos(){
+		Utilidades.esTest();
+		
 		SAModelo sm = new SAModeloImp();
 		
 		assertTrue("No se puede dar de baja modelo con aviones activos", sm.bajaModelo(1));

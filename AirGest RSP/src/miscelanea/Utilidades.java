@@ -4,13 +4,12 @@ public class Utilidades {
 
 	public static boolean test = false;
 
-	public static void isJUnit() {
+	public static void esTest() {
 		test = true;
 	}
 
 	public static final String RUTA_BASE_DE_DATOS = "recursos/base de datos/";
 	public static final String RUTA_TESTS = "recursos/tests/";
-
 
 	public static final String ruta(String modulo) {
 		if(test)
