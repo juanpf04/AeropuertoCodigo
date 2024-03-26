@@ -8,13 +8,13 @@ import miscelanea.Utilidades;
 
 public class ValidadorModeloTest {
 	
-	private boolean inmodificable = true;
+	private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_datos_test() {
 		Utilidades.esTest();
 
-		TModelo modelo = new TModelo(1, "boeing-888", "v8", inmodificable);
+		TModelo modelo = new TModelo(1, "boeing-888", "PPM-98", noImporta);
 
 		assertTrue("fasfa", ValidadorModelo.comprobarDatosModelo(modelo));
 	}
@@ -52,8 +52,8 @@ public class ValidadorModeloTest {
 	public void comprobar_motor_test() {
 		Utilidades.esTest();
 
-		assertTrue("", ValidadorModelo.comprobarMotor(""));
-		assertTrue("", ValidadorModelo.comprobarMotor(""));
-		assertTrue("", ValidadorModelo.comprobarMotor(""));
+		assertTrue("1", ValidadorModelo.comprobarMotor("DFB-77"));
+		assertFalse("2", ValidadorModelo.comprobarMotor("GME-dd"));
+		assertFalse("3", ValidadorModelo.comprobarMotor("ded-88"));
 	}
 }
