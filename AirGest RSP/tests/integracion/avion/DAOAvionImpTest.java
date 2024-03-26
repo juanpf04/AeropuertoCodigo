@@ -15,9 +15,9 @@ public class DAOAvionImpTest {
 		Utilidades.esTest();
 		DAOAvion da = new DAOAvionImp();
 		
-		List<TAvion> avion = da.consultarAvionesPorModelo(1);
-
-		assertFalse("crazy", avion.isEmpty());
+		List<TAvion> aviones = da.consultarAvionesPorModelo(1);
+		
+		assertFalse("crazy", aviones.isEmpty());
 	}
 	
 	@Test
