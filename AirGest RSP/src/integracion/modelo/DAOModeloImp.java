@@ -45,15 +45,11 @@ public class DAOModeloImp implements DAOModelo {
 		File[] lista = carpeta.listFiles();
 
 		try {
-			int id = 1;
-			if (lista.length != 0) {
-				JSONObject data = new JSONObject(new JSONTokener(new FileReader(lista[lista.length - 1])));
-				id = data.getInt("id") + 1;
-			}
+			int id = lista.length + 1;
 
 			tModelo.setId(id);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + id + ".json");
+			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + String.format("%05d", id) + ".json");
 
 			archivo.write(tModelo.toJSON().toString());
 			archivo.close();
@@ -67,7 +63,8 @@ public class DAOModeloImp implements DAOModelo {
 
 	public boolean modificarModelo(TModelo tModelo) {
 		try {
-			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + tModelo.getId() + ".json");
+			FileWriter archivo = new FileWriter(
+					Utilidades.ruta("modelo") + String.format("%05d", tModelo.getId()) + ".json");
 			archivo.write(tModelo.toJSON().toString());
 			archivo.close();
 
@@ -79,11 +76,12 @@ public class DAOModeloImp implements DAOModelo {
 
 	public boolean bajaModelo(int id) {
 		try {
-			JSONObject data = new JSONObject(new JSONTokener(new FileReader(Utilidades.ruta("modelo") + id + ".json")));
+			JSONObject data = new JSONObject(
+					new JSONTokener(new FileReader(Utilidades.ruta("modelo") + String.format("%05d", id) + ".json")));
 
 			data.put("activo", false);
 
-			FileWriter archivo = new FileWriter("recursos/modelo/" + id + ".json");
+			FileWriter archivo = new FileWriter(Utilidades.ruta("modelo") + String.format("%05d", id) + ".json");
 
 			archivo.write(data.toString());
 			archivo.close();
@@ -95,7 +93,7 @@ public class DAOModeloImp implements DAOModelo {
 	}
 
 	public List<TModelo> consultarTodosModelos() {
-		File carpeta = new File("recursos/modelo");
+		File carpeta = new File(Utilidades.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 
 		List<TModelo> modelos = new ArrayList<>();
@@ -114,7 +112,8 @@ public class DAOModeloImp implements DAOModelo {
 
 	public TModelo leerModeloPorId(int id) {
 		try {
-			JSONObject data = new JSONObject(new JSONTokener(new FileReader(Utilidades.ruta("modelo") + id + ".json")));
+			JSONObject data = new JSONObject(
+					new JSONTokener(new FileReader(Utilidades.ruta("modelo") + String.format("%05d", id) + ".json")));
 			return new TModelo(data.getInt("id"), data.getString("nombre"), data.getString("motor"),
 					data.getBoolean("activo"));
 		} catch (FileNotFoundException e) {
