@@ -70,7 +70,7 @@ public class SAModeloImpTest {
 		TModelo tm = new TModelo();
 		tm.setId(1);
 
-		assertTrue("No se puede dar de baja modelo con aviones activos", sm.bajaModelo(tm));
+		assertTrue("No se puede dar de baja modelo con aviones activos", sm.bajaModelo(tm.getId()));
 	}
 
 	@Test
