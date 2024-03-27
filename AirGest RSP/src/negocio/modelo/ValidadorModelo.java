@@ -8,7 +8,7 @@ public class ValidadorModelo {
 	}
 
 	public static boolean comprobarId(int id) {
-		return id > 0;
+		return id >= 0;
 	}
 
 	public static boolean comprobarNombre(String nombre) {
