@@ -2,7 +2,6 @@
 package integracion.modeloAerolinea;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,17 +28,17 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 
 	public boolean desvincular(int idModelo, int idAerolinea) {
 		File f = new File(Utilidades.ruta("modeloAerolinea") + idModelo + "_" + idAerolinea + ".json");
-		
+
 		if (f.exists()) {
 			return f.delete();
 		}
-		
+
 		return false;
 	}
 
 	public boolean comprobarVinculacion(int idModelo, int idAerolinea) {
 		File f = new File(Utilidades.ruta("modeloAerolinea") + idModelo + "_" + idAerolinea + ".json");
-		
+
 		return f.exists();
 	}
 }
