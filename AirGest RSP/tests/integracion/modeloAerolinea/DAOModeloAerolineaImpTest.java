@@ -13,7 +13,7 @@ public class DAOModeloAerolineaImpTest {
 		Utilidades.esTest();
 		DAOModeloAerolinea dma = new DAOModeloAerolineaImp();
 
-		assertTrue("No existe vinculación", dma.comprobarVinculacion(2, 2));
+		assertTrue("No existe vinculación", dma.comprobarVinculacion(1, 1));
 	}
 
 	@Test
@@ -29,6 +29,6 @@ public class DAOModeloAerolineaImpTest {
 		Utilidades.esTest();
 		DAOModeloAerolinea dma = new DAOModeloAerolineaImp();
 
-		assertTrue("No se ha podido desvincular", dma.desvincular(3, 2));
+		assertTrue("No se ha podido desvincular", dma.desvincular(2, 2));
 	}
 }

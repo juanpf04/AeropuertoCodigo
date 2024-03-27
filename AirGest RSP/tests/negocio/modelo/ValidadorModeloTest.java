@@ -16,7 +16,7 @@ public class ValidadorModeloTest {
 
 		TModelo modelo = new TModelo(1, "boeing-888", "PPM-98", noImporta);
 
-		assertTrue("fasfa", ValidadorModelo.comprobarDatosModelo(modelo));
+		assertTrue("fasfa", ValidadorModelo.comprobarDatos(modelo));
 	}
 	
 	

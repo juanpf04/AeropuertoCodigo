@@ -14,8 +14,8 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 	public boolean vincular(int idModelo, int idAerolinea) {
 		try {
 			TModeloAerolinea tma = new TModeloAerolinea(idModelo, idAerolinea);
-			FileWriter archivo = new FileWriter(
-					Utilidades.ruta("modeloAerolinea") + idModelo + "_" + idAerolinea + ".json");
+			FileWriter archivo = new FileWriter(Utilidades.ruta("modeloAerolinea") + String.format("%05d", idModelo)
+					+ "_" + String.format("%05d", idAerolinea) + ".json");
 			archivo.write(tma.toJSON().toString());
 			archivo.close();
 			return true;
@@ -27,7 +27,8 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 	}
 
 	public boolean desvincular(int idModelo, int idAerolinea) {
-		File f = new File(Utilidades.ruta("modeloAerolinea") + idModelo + "_" + idAerolinea + ".json");
+		File f = new File(Utilidades.ruta("modeloAerolinea") + String.format("%05d", idModelo) + "_"
+				+ String.format("%05d", idAerolinea) + ".json");
 
 		if (f.exists()) {
 			return f.delete();
@@ -37,7 +38,8 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 	}
 
 	public boolean comprobarVinculacion(int idModelo, int idAerolinea) {
-		File f = new File(Utilidades.ruta("modeloAerolinea") + idModelo + "_" + idAerolinea + ".json");
+		File f = new File(Utilidades.ruta("modeloAerolinea") + String.format("%05d", idModelo) + "_"
+				+ String.format("%05d", idAerolinea) + ".json");
 
 		return f.exists();
 	}

@@ -14,7 +14,7 @@ import negocio.modeloAerolinea.ValidadorModeloAerolinea;
 public class SAModeloImp implements SAModelo {
 
 	public int altaModelo(TModelo tModelo) {
-		if (ValidadorModelo.comprobarDatosModelo(tModelo)) {
+		if (ValidadorModelo.comprobarDatos(tModelo)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 			TModelo leido = dm.leerModeloPorNombre(tModelo.getNombre());
 
@@ -64,7 +64,7 @@ public class SAModeloImp implements SAModelo {
 	}
 
 	public boolean modificarModelo(TModelo tModelo) {
-		if (ValidadorModelo.comprobarDatosModelo(tModelo)) {
+		if (ValidadorModelo.comprobarId(tModelo.getId()) && ValidadorModelo.comprobarDatos(tModelo)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 
 			int id = tModelo.getId();
@@ -85,7 +85,7 @@ public class SAModeloImp implements SAModelo {
 		int idModelo = tModeloAerolinea.getIdModelo();
 		int idAerolinea = tModeloAerolinea.getIdAerolinea();
 
-		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)) {
+		if (ValidadorModeloAerolinea.comprobarDatos(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
 
@@ -108,7 +108,7 @@ public class SAModeloImp implements SAModelo {
 		int idModelo = tModeloAerolinea.getIdModelo();
 		int idAerolinea = tModeloAerolinea.getIdAerolinea();
 
-		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)) {
+		if (ValidadorModeloAerolinea.comprobarDatos(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
 
