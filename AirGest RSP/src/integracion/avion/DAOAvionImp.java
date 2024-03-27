@@ -25,11 +25,11 @@ public class DAOAvionImp implements DAOAvion {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
 				if (data.getInt("idModelo") == idModelo) {
-					
+
 					JSONObject jo = data.getJSONObject("fechaFabricacion");
-					
+
 					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-					
+
 					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
 							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
 							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
@@ -52,11 +52,11 @@ public class DAOAvionImp implements DAOAvion {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
 				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")) {
-					
+
 					JSONObject jo = data.getJSONObject("fechaFabricacion");
-					
+
 					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-					
+
 					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
 							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
 							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));

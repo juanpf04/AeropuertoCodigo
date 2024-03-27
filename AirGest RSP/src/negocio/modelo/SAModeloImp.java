@@ -84,46 +84,46 @@ public class SAModeloImp implements SAModelo {
 	public boolean vincularModelo(TModeloAerolinea tModeloAerolinea) {
 		int idModelo = tModeloAerolinea.getIdModelo();
 		int idAerolinea = tModeloAerolinea.getIdAerolinea();
-		
-		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)){
+
+		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
-			
+
 			TModelo mLeido = dm.leerModeloPorId(idModelo);
 			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);
-			
+
 			if (mLeido != null && mLeido.getActivo() && aLeida != null && aLeida.getActivo()) {
 				DAOModeloAerolinea dma = FactoriaIntegracion.getInstance().crearDAOModeloAerolinea();
-				
-				if (!dma.comprobarVinculacion(idModelo, idAerolinea)){
+
+				if (!dma.comprobarVinculacion(idModelo, idAerolinea)) {
 					return dma.vincular(idModelo, idAerolinea);
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
 	public boolean desvincularModelo(TModeloAerolinea tModeloAerolinea) {
 		int idModelo = tModeloAerolinea.getIdModelo();
 		int idAerolinea = tModeloAerolinea.getIdAerolinea();
-		
-		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)){
+
+		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
-			
+
 			TModelo mLeido = dm.leerModeloPorId(idModelo);
 			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);
-			
+
 			if (mLeido != null && mLeido.getActivo() && aLeida != null && aLeida.getActivo()) {
 				DAOModeloAerolinea dma = FactoriaIntegracion.getInstance().crearDAOModeloAerolinea();
-				
-				if (dma.comprobarVinculacion(idModelo, idAerolinea)){
+
+				if (dma.comprobarVinculacion(idModelo, idAerolinea)) {
 					return dma.desvincular(idModelo, idAerolinea);
 				}
 			}
 		}
-		
+
 		return false;
 	}
 }
