@@ -2,9 +2,14 @@ package negocio.modelo;
 
 import java.util.List;
 
+import integracion.aerolinea.DAOAerolinea;
 import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.modelo.DAOModelo;
+import integracion.modeloAerolinea.DAOModeloAerolinea;
+import negocio.aerolinea.TAerolinea;
+import negocio.modeloAerolinea.TModeloAerolinea;
+import negocio.modeloAerolinea.ValidadorModeloAerolinea;
 
 public class SAModeloImp implements SAModelo {
 
@@ -25,7 +30,8 @@ public class SAModeloImp implements SAModelo {
 		return -1;
 	}
 
-	public boolean bajaModelo(int id) {
+	public boolean bajaModelo(TModelo tModelo) {
+		int id = tModelo.getId();
 		if (ValidadorModelo.comprobarId(id)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 
@@ -43,7 +49,8 @@ public class SAModeloImp implements SAModelo {
 		return false;
 	}
 
-	public TModelo consultarModelo(int id) {
+	public TModelo consultarModelo(TModelo tModelo) {
+		int id = tModelo.getId();
 		if (ValidadorModelo.comprobarId(id)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 
@@ -76,27 +83,49 @@ public class SAModeloImp implements SAModelo {
 		return false;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAModelo#vincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean vincularModelo(int idModelo, int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	public boolean vincularModelo(TModeloAerolinea tModeloAerolinea) {
+		int idModelo = tModeloAerolinea.getIdModelo();
+		int idAerolinea = tModeloAerolinea.getIdAerolinea();
+		
+		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)){
+			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
+			
+			TModelo mLeido = dm.leerModeloPorId(idModelo);
+			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);
+			
+			if (mLeido != null && mLeido.getActivo() && aLeida != null && aLeida.getActivo()) {
+				DAOModeloAerolinea dma = FactoriaIntegracion.getInstance().crearDAOModeloAerolinea();
+				
+				if (!dma.comprobarVinculacion(idModelo, idAerolinea)){
+					return dma.vincular(idModelo, idAerolinea);
+				}
+			}
+		}
+		
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAModelo#desvincularModelo(int idModelo, int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean desvincularModelo(int idModelo, int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	public boolean desvincularModelo(TModeloAerolinea tModeloAerolinea) {
+		int idModelo = tModeloAerolinea.getIdModelo();
+		int idAerolinea = tModeloAerolinea.getIdAerolinea();
+		
+		if (ValidadorModeloAerolinea.comprobarDatosModeloAerolinea(idModelo, idAerolinea)){
+			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
+			
+			TModelo mLeido = dm.leerModeloPorId(idModelo);
+			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);
+			
+			if (mLeido != null && mLeido.getActivo() && aLeida != null && aLeida.getActivo()) {
+				DAOModeloAerolinea dma = FactoriaIntegracion.getInstance().crearDAOModeloAerolinea();
+				
+				if (dma.comprobarVinculacion(idModelo, idAerolinea)){
+					return dma.desvincular(idModelo, idAerolinea);
+				}
+			}
+		}
+		
 		return false;
-		// end-user-code
 	}
 }
