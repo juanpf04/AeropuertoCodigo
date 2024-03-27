@@ -30,8 +30,7 @@ public class SAModeloImp implements SAModelo {
 		return -1;
 	}
 
-	public boolean bajaModelo(TModelo tModelo) {
-		int id = tModelo.getId();
+	public boolean bajaModelo(int id) {
 		if (ValidadorModelo.comprobarId(id)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 
@@ -49,8 +48,7 @@ public class SAModeloImp implements SAModelo {
 		return false;
 	}
 
-	public TModelo consultarModelo(TModelo tModelo) {
-		int id = tModelo.getId();
+	public TModelo consultarModelo(int id) {
 		if (ValidadorModelo.comprobarId(id)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
 

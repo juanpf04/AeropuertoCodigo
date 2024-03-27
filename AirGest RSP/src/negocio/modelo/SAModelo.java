@@ -8,9 +8,9 @@ public interface SAModelo {
 
 	int altaModelo(TModelo tModelo);
 
-	public boolean bajaModelo(TModelo tModelo);
+	public boolean bajaModelo(int id);
 
-	public TModelo consultarModelo(TModelo tModelo);
+	public TModelo consultarModelo(int id);
 
 	public List<TModelo> consultarTodosModelos();
 

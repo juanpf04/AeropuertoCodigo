@@ -23,13 +23,13 @@ public class ControladorImp extends Controlador {
 		
 		case EventosControlador.BAJA_MODELO:
 			sm = fn.crearSAModelo();
-			sm.bajaModelo((TModelo) datos);
+			sm.bajaModelo((int) datos);
 			// TODO actulizar vistas
 			break;
 			
 		case EventosControlador.CONSULTAR_MODELO_POR_ID:
 			sm = fn.crearSAModelo();
-			sm.consultarModelo((TModelo) datos);
+			sm.consultarModelo((int) datos);
 			// TODO actulizar vistas
 			break;
 			
