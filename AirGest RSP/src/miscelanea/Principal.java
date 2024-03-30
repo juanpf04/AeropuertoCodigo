@@ -1,8 +1,6 @@
 package miscelanea;
 
 import javax.swing.SwingUtilities;
-
-import presentacion.modelo.VistaAltaDeModelo;
 import presentacion.modelo.VistaGeneralModelo;
 
 public class Principal {

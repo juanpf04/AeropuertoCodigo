@@ -6,11 +6,11 @@ package integracion.hangar;
 import negocio.hangar.THangar;
 
 /** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author javia
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+ * <!-- begin-UML-doc -->
+ * <!-- end-UML-doc -->
+ * @author omlc1
+ * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
 public class DAOHangarImp implements DAOHangar {
 	/** 
 	* (non-Javadoc)

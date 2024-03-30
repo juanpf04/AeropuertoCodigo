@@ -9,6 +9,7 @@ import javax.swing.*;
 
 import presentacion.controlador.Controlador;
 import presentacion.controlador.ControladorImp;
+import presentacion.factoria.FactoriaPresentacion;
 
 @SuppressWarnings("serial")
 public class VistaGeneralModelo extends JFrame implements Observador {
@@ -39,11 +40,7 @@ public class VistaGeneralModelo extends JFrame implements Observador {
 		alta.addActionListener(new ActionListener () {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//ALTA MODELO ES == 0
-				//NO OS ENFADEIS CON NOSOTROS, POSIBLE FUMADA!!!!!!!!!!!!!!!!11
-				ControladorImp controlador = new ControladorImp();
-				controlador.accion(0);
-				//pero funciona B)
+				Observador altaModelo = FactoriaPresentacion.getInstance().crearVistaAltaModelo();
 			}
 		});
 		alta.setToolTipText("Aqui das de alta un modelo maquina");
@@ -51,7 +48,17 @@ public class VistaGeneralModelo extends JFrame implements Observador {
 		
 		//-------------------------------------------
 		JButton baja = new JButton("BAJA DE MODELO");
-		
+		baja.addActionListener(new ActionListener () {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//ALTA MODELO ES == 0
+				//NO OS ENFADEIS CON NOSOTROS, POSIBLE FUMADA!!!!!!!!!!!!!!!!11
+//				ControladorImp controlador = new ControladorImp();
+//				controlador.accion(1);
+//				//pero funciona B)
+			}
+		});
+		baja.setToolTipText("Aqui das de baja un modelo maquina");
 		botones.add(baja);
 		
 		//-------------------------------------------
