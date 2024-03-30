@@ -111,7 +111,7 @@ public class TAvion {
 
 	public void setIdHangar(int idHangar) {
 		this.idHangar = idHangar;
-	}	
+	}
 
 	public String toString() {
 		return "Id: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: "

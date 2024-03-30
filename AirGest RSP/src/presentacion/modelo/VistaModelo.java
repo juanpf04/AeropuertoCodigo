@@ -5,24 +5,24 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-import presentacion.controlador.Controlador;
-import presentacion.controlador.ControladorImp;
 import presentacion.factoria.FactoriaPresentacion;
 
-@SuppressWarnings("serial")
-public class VistaGeneralModelo extends JFrame implements Observador {
-
-	public VistaGeneralModelo() {
+public class VistaModelo extends JFrame implements Observador {
+	public VistaModelo() {
 		super("MODELO");
-		initGUI();
+		actualizaVista();
 		this.setSize(1000, 750); //hace que la ventana no salga tan chiquitita
 	}
 	
-	
-	public void initGUI() {
-		
+	@Override
+	public void actualizaVista() {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 		
@@ -91,22 +91,21 @@ public class VistaGeneralModelo extends JFrame implements Observador {
 		
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
-		
+		atras.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+			
+		});
+		principal.add(atras, BorderLayout.PAGE_END);
 		
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-	}
-	
-	
-	
-	
-	@Override
-	public void actualizaVista() {
-		// TODO Auto-generated method stub
 		
 	}
-
 }

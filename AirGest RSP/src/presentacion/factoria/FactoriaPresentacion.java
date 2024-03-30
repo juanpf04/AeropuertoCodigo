@@ -49,4 +49,8 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaExitoModificarModelo();
 
 	public abstract Observador crearVistaFalloModificarModelo();
+
+	public abstract Observador crearVistaModelo();
+
+	public abstract Observador CrearVistaPrincipal();
 }

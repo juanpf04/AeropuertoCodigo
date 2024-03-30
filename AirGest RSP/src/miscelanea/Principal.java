@@ -1,7 +1,8 @@
 package miscelanea;
 
 import javax.swing.SwingUtilities;
-import presentacion.modelo.VistaGeneralModelo;
+import presentacion.factoria.FactoriaPresentacion;
+import presentacion.modelo.Observador;	
 
 public class Principal {
 
@@ -9,8 +10,7 @@ public class Principal {
 		SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run() {
-                //VistaAltaDeModelo v = new VistaAltaDeModelo();
-            	VistaGeneralModelo v = new VistaGeneralModelo();
+            	Observador v = FactoriaPresentacion.getInstance().CrearVistaPrincipal();
             }
         });
 	}

@@ -1,5 +1,6 @@
 package presentacion.factoria;
 
+import presentacion.VistaPrincipal;
 import presentacion.modelo.*;
 
 public class FactoriaPresentacionImp extends FactoriaPresentacion {
@@ -78,5 +79,13 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador crearVistaFalloModificarModelo() {
 		return new VistaFalloModificarModelo();
+	}
+
+	public Observador crearVistaModelo() {
+		return new VistaModelo();
+	}
+
+	public Observador CrearVistaPrincipal() {
+		return new VistaPrincipal();
 	}
 }
