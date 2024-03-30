@@ -73,6 +73,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 				String motorLeido = textoMotor.getText();
 				TModelo transfer = new TModelo(0, nombreLeido, motorLeido, true);
 				controlador.accion(0, transfer);
+				//cerrar la pestaña aqui
 			}
 			
 		});
@@ -82,7 +83,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		principal.add(centro);
 		
 		this.setContentPane(principal);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
