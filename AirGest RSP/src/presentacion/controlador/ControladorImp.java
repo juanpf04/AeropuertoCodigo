@@ -6,18 +6,26 @@ import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
 import presentacion.factoria.FactoriaPresentacion;
+import presentacion.modelo.VistaAltaDeModelo;
 
 public class ControladorImp extends Controlador {
-	public void accion(int evento, Object datos) {
+	public void accion(int evento) {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
+		Object datos = 1; //NO puede ser un parametro de la accion porque en la ventana principal de cada modulo NO conocemos los datos aun
+		//los datos se conocen en cada ventana de cada accion, hay que inicializarlos a algo por ahora 
 
 		switch (evento) {
 		//MODELO
+		
 		case EventosControlador.ALTA_MODELO:
 			sm = fn.crearSAModelo();
-			sm.altaModelo((TModelo) datos);
+			//falta metodo que "reciba datos" para poder dar de alta el modelo(el correspondiente Object datos)
+			VistaAltaDeModelo altaModelo = new VistaAltaDeModelo();
+			TModelo datosAlta = altaModelo.crearTransfer();
+			sm.altaModelo(datosAlta); //ya actualiza la base de datos, dejando que actualizarVista solo muestre si es fallo o acierto
+			//llamar a ventana principal con el nombre del modulo en el que estamos y de la accion ?? 
 			// TODO actulizar vistas
 			break;
 

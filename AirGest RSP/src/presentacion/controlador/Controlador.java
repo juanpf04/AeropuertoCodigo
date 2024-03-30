@@ -10,5 +10,5 @@ public abstract class Controlador {
 		return instancia;
 	}
 
-	public abstract void accion(int evento, Object datos);
+	public abstract void accion(int evento);
 }
