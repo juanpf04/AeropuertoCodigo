@@ -1,6 +1,8 @@
 
 package presentacion.controlador;
 
+import java.util.List;
+
 import negocio.factoria.FactoriaNegocio;
 import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
@@ -13,60 +15,78 @@ public class ControladorImp extends Controlador {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
+		Observador vista = null;
+		boolean exito;
 
 		switch (evento) {
-		//MODELO
+		// MODELO
 
 		case EventosControlador.ALTA_MODELO:
 			sm = fn.crearSAModelo();
-			int num = sm.altaModelo((TModelo) datos);
-			// TODO actulizar vistas
-			if (num == -1) {
-				Observador falloAlta = fp.crearVistaFalloAltaModelo();
-				falloAlta.actualizaVista();
-			} else {
-				Observador exitoAlta = fp.crearVistaExitoAltaModelo();
-				exitoAlta.actualizaVista();
-			}
+			int id = sm.altaModelo((TModelo) datos);
+
+			if (id != -1)
+				vista = fp.crearVistaExitoAltaModelo();
+			else
+				vista = fp.crearVistaFalloAltaModelo();
 
 			break;
-
 		case EventosControlador.BAJA_MODELO:
 			sm = fn.crearSAModelo();
-			sm.bajaModelo((int) datos);
-			// TODO actulizar vistas
-			break;
+			exito = sm.bajaModelo((int) datos);
 
+			if (exito)
+				vista = fp.crearVistaExitoBajaModelo();
+			else
+				vista = fp.crearVistaFalloBajaModelo();
+
+			break;
 		case EventosControlador.CONSULTAR_MODELO_POR_ID:
 			sm = fn.crearSAModelo();
-			sm.consultarModelo((int) datos);
-			// TODO actulizar vistas
-			break;
+			TModelo modelo = sm.consultarModelo((int) datos);
+			vista = fp.crearVistaConsultarModeloPorId(); // necesita parametros
+															// no??
 
+			break;
 		case EventosControlador.CONSULTAR_TODOS_MODELOS:
 			sm = fn.crearSAModelo();
-			sm.consultarTodosModelos();
-			// TODO actulizar vistas
-			break;
+			List<TModelo> modelos = sm.consultarTodosModelos();
+			vista = fp.crearVistaConsultarTodosModelos(); // necesita parametros
+															// no??
 
+			break;
 		case EventosControlador.MODIFICAR_MODELO:
 			sm = fn.crearSAModelo();
-			sm.modificarModelo((TModelo) datos);
-			// TODO actulizar vistas
-			break;
+			exito = sm.modificarModelo((TModelo) datos);
 
+			if (exito)
+				vista = fp.crearVistaExitoModificarModelo();
+			else
+				vista = fp.crearVistaFalloModificarModelo();
+
+			break;
 		case EventosControlador.VINCULAR_MODELO:
 			sm = fn.crearSAModelo();
-			sm.vincularModelo((TModeloAerolinea) datos);
-			// TODO actulizar vistas
-			break;
+			exito = sm.vincularModelo((TModeloAerolinea) datos);
 
+			if (exito)
+				vista = fp.crearVistaExitoVincularModelo();
+			else
+				vista = fp.crearVistaFalloVincularModelo();
+
+			break;
 		case EventosControlador.DESVINCULAR_MODELO:
 			sm = fn.crearSAModelo();
-			sm.desvincularModelo((TModeloAerolinea) datos);
-			// TODO actulizar vistas
+			exito = sm.desvincularModelo((TModeloAerolinea) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoDesvincularModelo();
+			else
+				vista = fp.crearVistaFalloDesvincularModelo();
+
 			break;
 		}
 
+		vista.actualizaVista();
 	}
 }
