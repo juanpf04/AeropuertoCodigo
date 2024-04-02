@@ -1,4 +1,4 @@
-package miscelanea;
+package integracion;
 
 public class Utilidades {
 

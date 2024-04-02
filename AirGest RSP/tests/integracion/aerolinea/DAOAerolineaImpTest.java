@@ -3,7 +3,7 @@ package integracion.aerolinea;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.aerolinea.TAerolinea;
 
 public class DAOAerolineaImpTest {

@@ -8,10 +8,11 @@ import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
 import presentacion.factoria.FactoriaPresentacion;
-import presentacion.modelo.Observador;
+import presentacion.Observador;
 
 public class ControladorImp extends Controlador {
-	public void accion(int evento, Object datos) {
+
+	public void accion(EventosControlador evento, Object datos) {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
@@ -20,18 +21,32 @@ public class ControladorImp extends Controlador {
 
 		switch (evento) {
 		// MODELO
-
-		case EventosControlador.ALTA_MODELO:
+		case VISTA_PRINCIPAL:
+			vista = fp.CrearVistaPrincipal();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_MODELO:
+			vista = fp.crearVistaModelo();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_ALTA_MODELO:
+			vista = fp.crearVistaAltaModelo();
+			vista.actualizaVista(null);
+			break;
+		case ALTA_MODELO:
 			sm = fn.crearSAModelo();
 			int id = sm.altaModelo((TModelo) datos);
 
-			if (id != -1)
+			if (id != -1) {
 				vista = fp.crearVistaExitoAltaModelo();
-			else
+				vista.actualizaVista(id);
+			} else {
 				vista = fp.crearVistaFalloAltaModelo();
+				vista.actualizaVista(null);
+			}
 
 			break;
-		case EventosControlador.BAJA_MODELO:
+		case BAJA_MODELO:
 			sm = fn.crearSAModelo();
 			exito = sm.bajaModelo((int) datos);
 
@@ -40,22 +55,24 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloBajaModelo();
 
+			vista.actualizaVista(null);
+
 			break;
-		case EventosControlador.CONSULTAR_MODELO_POR_ID:
+		case CONSULTAR_MODELO_POR_ID:
 			sm = fn.crearSAModelo();
 			TModelo modelo = sm.consultarModelo((int) datos);
-			vista = fp.crearVistaConsultarModeloPorId(); // necesita parametros
-															// no??
+			vista = fp.crearVistaConsultarModeloPorId();
+			vista.actualizaVista(modelo);
 
 			break;
-		case EventosControlador.CONSULTAR_TODOS_MODELOS:
+		case CONSULTAR_TODOS_MODELOS:
 			sm = fn.crearSAModelo();
 			List<TModelo> modelos = sm.consultarTodosModelos();
-			vista = fp.crearVistaConsultarTodosModelos(); // necesita parametros
-															// no??
+			vista = fp.crearVistaConsultarTodosModelos();
+			vista.actualizaVista(modelos);
 
 			break;
-		case EventosControlador.MODIFICAR_MODELO:
+		case MODIFICAR_MODELO:
 			sm = fn.crearSAModelo();
 			exito = sm.modificarModelo((TModelo) datos);
 
@@ -64,8 +81,10 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloModificarModelo();
 
+			vista.actualizaVista(null);
+
 			break;
-		case EventosControlador.VINCULAR_MODELO:
+		case VINCULAR_MODELO:
 			sm = fn.crearSAModelo();
 			exito = sm.vincularModelo((TModeloAerolinea) datos);
 
@@ -74,8 +93,10 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloVincularModelo();
 
+			vista.actualizaVista(null);
+
 			break;
-		case EventosControlador.DESVINCULAR_MODELO:
+		case DESVINCULAR_MODELO:
 			sm = fn.crearSAModelo();
 			exito = sm.desvincularModelo((TModeloAerolinea) datos);
 
@@ -84,9 +105,9 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloDesvincularModelo();
 
+			vista.actualizaVista(null);
+
 			break;
 		}
-
-		vista.actualizaVista();
 	}
 }

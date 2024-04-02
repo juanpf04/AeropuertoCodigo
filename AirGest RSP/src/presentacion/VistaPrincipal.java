@@ -13,78 +13,82 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.factoria.FactoriaPresentacion;
-import presentacion.modelo.Observador;
+import presentacion.Observador;
+import presentacion.controlador.Controlador;
+import presentacion.controlador.EventosControlador;
 
 public class VistaPrincipal extends JFrame implements Observador {
 	public VistaPrincipal() {
 		super("MODELO");
-		actualizaVista();
 		this.setSize(1000, 750); //hace que la ventana no salga tan chiquitita
 	}
-	
+
 	@Override
-	public void actualizaVista() {
+	public void actualizaVista(Object datos) {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
-		
+
 		JLabel modulo = new JLabel("AIRGEST RSP"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		modulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS
 		principal.add(modulo, BorderLayout.PAGE_START);
-		
-		
+
 		JPanel botones = new JPanel();
 		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
 		
-		JButton alta = new JButton("MODELO");
-		alta.addActionListener(new ActionListener () {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Observador Modelo = FactoriaPresentacion.getInstance().crearVistaModelo();
-			}
-		});
-		alta.setToolTipText("MODULO MODELO");
-		botones.add(alta);
-		
+		Controlador ctrl = Controlador.getInstance();
+
 		//-------------------------------------------
-		JButton baja = new JButton("AVION");
-		baja.addActionListener(new ActionListener () {
+		
+		JButton modelo = new JButton("MODELO");
+		modelo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_MODELO, null);
 			}
 		});
-		baja.setToolTipText("MODULO AVION");
-		botones.add(baja);
-		
+		modelo.setToolTipText("MODULO MODELO");
+		botones.add(modelo);
+
+		//-------------------------------------------
+		JButton avion = new JButton("AVION");
+		avion.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		avion.setToolTipText("MODULO AVION");
+		botones.add(avion);
+
 		//-------------------------------------------
 		JButton consultarID = new JButton("AEROLINEA");
-		
+
 		botones.add(consultarID);
-		
+
 		//-------------------------------------------
 		JButton consultarTodos = new JButton("HANGAR");
-		
+
 		botones.add(consultarTodos);
-		
+
 		//-------------------------------------------
 		JButton modificar = new JButton("PERSONAL");
-		
+
 		botones.add(modificar);
-		
+
 		//-------------------------------------------
 		JButton vincular = new JButton("CONTRATO");
-		
+
 		botones.add(vincular);
-				
+
 		principal.add(botones, BorderLayout.CENTER);
-		
+
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-		
+
 	}
 }

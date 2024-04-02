@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import presentacion.Observador;
+
 public class VistaFalloAltaModelo extends JFrame implements Observador {
 
 	public VistaFalloAltaModelo() {
@@ -19,7 +21,7 @@ public class VistaFalloAltaModelo extends JFrame implements Observador {
 		this.setSize(1000, 750);
 	}
 
-	public void actualizaVista() {
+	public void actualizaVista(Object datos) {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
@@ -31,8 +33,6 @@ public class VistaFalloAltaModelo extends JFrame implements Observador {
 		JButton imagen = new JButton();
 		imagen.setIcon(new ImageIcon("recursos/iconos/fallo.png"));
 		principal.add(imagen, BorderLayout.CENTER);
-		
-		
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

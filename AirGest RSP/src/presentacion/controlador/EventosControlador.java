@@ -1,52 +1,68 @@
 package presentacion.controlador;
 
-public class EventosControlador {
-
-	public static final int ALTA_MODELO = 0;
-	public static final int BAJA_MODELO = 1;
-	public static final int CONSULTAR_MODELO_POR_ID = 2;
-	public static final int CONSULTAR_TODOS_MODELOS = 3;
-	public static final int MODIFICAR_MODELO = 4;
-	public static final int VINCULAR_MODELO = 5;
-	public static final int DESVINCULAR_MODELO = 6;
-
-	public static final int ALTA_AVION = 7;
-	public static final int BAJA_AVION = 8;
-	public static final int CONSULTAR_AVION_POR_ID = 9;
-	public static final int CONSULTAR_TODOS_AVIONES = 10;
-	public static final int MODIFICAR_AVION = 11;
-	public static final int MOSTRAR_AVIONES_POR_MODELO = 12;
-	public static final int MOSTRAR_AVIONES_POR_AEROLINEA = 13;
-	public static final int MOSTRAR_AVIONES_POR_HANGAR = 14;
-
-	public static final int ALTA_AEROLINEA = 15;
-	public static final int BAJA_AEROLINEA = 16;
-	public static final int CONSULTAR_AEROLINEA_POR_ID = 17;
-	public static final int CONSULTAR_TODOS_AEROLINEAS = 18;
-	public static final int MODIFICAR_AEROLINEA = 19;
-
-	public static final int ABRIR_CONTRATO = 20;
-	public static final int CERRAR_CONTRATO = 21;
-	public static final int BAJA_CONTRATO = 22;
-	public static final int ANYADIR_HANGAR_AL_CONTRATO = 23;
-	public static final int ELIMINAR_HANGAR_DEL_CONTRATO = 24;
-	public static final int CONSULTAR_CONTRATO_POR_ID = 25;
-	public static final int CONSULTAR_TODOS_CONTRATOS = 26;
-	public static final int MODIFICAR_CONTRATO = 27;
-	public static final int MODIFICAR_LINEA_CONTRATO = 28;
-	public static final int MOSTRAR_CONTRATOS_POR_AEROLINEA = 29;
-
-	public static final int ALTA_HANGAR = 30;
-	public static final int BAJA_HANGAR = 31;
-	public static final int CONSULTAR_HANGAR_POR_ID = 32;
-	public static final int CONSULTAR_TODOS_HANGARES = 33;
-	public static final int MODIFICAR_HANGAR = 34;
-
-	public static final int ALTA_PERSONAL = 35;
-	public static final int BAJA_PERSONAL = 36;
-	public static final int VINCULAR_PERSONAL = 37;
-	public static final int DESVINCULAR_PERSONAL = 38;
-	public static final int CONSULTAR_PERSONAL_POR_ID = 39;
-	public static final int CONSULTAR_PERSONAL_EXISTENTE = 40;
-	public static final int MODIFICAR_PERSONAL = 41;
+public enum EventosControlador {
+	
+	// VISTA GENERAL
+	VISTA_PRINCIPAL,
+	
+	// MODELO
+	VISTA_MODELO,
+	VISTA_ALTA_MODELO,
+    ALTA_MODELO,
+    BAJA_MODELO,
+    CONSULTAR_MODELO_POR_ID,
+    CONSULTAR_TODOS_MODELOS,
+    MODIFICAR_MODELO,
+    VINCULAR_MODELO,
+    DESVINCULAR_MODELO,
+    
+    // AVIÓN
+    VISTA_AVION,
+    ALTA_AVION,
+    BAJA_AVION,
+    CONSULTAR_AVION_POR_ID,
+    CONSULTAR_TODOS_AVIONES,
+    MODIFICAR_AVION,
+    MOSTRAR_AVIONES_POR_MODELO,
+    MOSTRAR_AVIONES_POR_AEROLINEA,
+    MOSTRAR_AVIONES_POR_HANGAR,
+    
+    // AEROLÍNEA
+    VISTA_AEROLINEA,
+    ALTA_AEROLINEA,
+    BAJA_AEROLINEA,
+    CONSULTAR_AEROLINEA_POR_ID,
+    CONSULTAR_TODOS_AEROLINEAS,
+    MODIFICAR_AEROLINEA,
+    
+    // CONTRATO
+    VISTA_CONTRATO,
+    ABRIR_CONTRATO,
+    CERRAR_CONTRATO,
+    BAJA_CONTRATO,
+    ANYADIR_HANGAR_AL_CONTRATO,
+    ELIMINAR_HANGAR_DEL_CONTRATO,
+    CONSULTAR_CONTRATO_POR_ID,
+    CONSULTAR_TODOS_CONTRATOS,
+    MODIFICAR_CONTRATO,
+    MODIFICAR_LINEA_CONTRATO,
+    MOSTRAR_CONTRATOS_POR_AEROLINEA,
+    
+    // HANGAR
+    VISTA_HANGAR,
+    ALTA_HANGAR,
+    BAJA_HANGAR,
+    CONSULTAR_HANGAR_POR_ID,
+    CONSULTAR_TODOS_HANGARES,
+    MODIFICAR_HANGAR,
+    
+    // PERSONAL
+    VISTA_PERSONAL,
+    ALTA_PERSONAL,
+    BAJA_PERSONAL,
+    VINCULAR_PERSONAL,
+    DESVINCULAR_PERSONAL,
+    CONSULTAR_PERSONAL_POR_ID,
+    CONSULTAR_PERSONAL_EXISTENTE,
+    MODIFICAR_PERSONAL
 }

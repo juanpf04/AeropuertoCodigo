@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.Test;
-import miscelanea.Utilidades;
+
+import integracion.Utilidades;
 import negocio.avion.TAvion;
 
 public class DAOAvionImpTest {

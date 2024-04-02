@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.modelo.TModelo;
 
 public class DAOModeloImpTest {

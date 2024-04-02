@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import presentacion.Observador;
+
 public class VistaBajaModelo extends JFrame implements Observador {
 
 	public VistaBajaModelo() {
@@ -43,8 +45,9 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		id.add(textoId);
 		centro.add(id);
 
-		//parece ser que hace la accion sin entrar en el actionListener
-		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		// parece ser que hace la accion sin entrar en el actionListener
+		// hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo
+		// el capullo)
 		JButton aceptar = new JButton("aceptar");
 		aceptar.addActionListener(new ActionListener() {
 
@@ -65,9 +68,11 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		this.pack();
 	}
 
-	public void actualizaVista() {//yo creo que es la que te muestra la vista de fallo o exito
-		// begin-user-code
-		// TODO Auto-generated method stub
+	public void actualizaVista(Object datos) {// yo creo que es la que te
+													// muestra la vista de fallo o
+												// exito
+												// begin-user-code
+												// TODO Auto-generated method stub
 
 		// end-user-code
 	}

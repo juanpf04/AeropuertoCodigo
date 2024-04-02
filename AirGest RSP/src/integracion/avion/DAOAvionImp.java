@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.avion.TAvion;
 
 public class DAOAvionImp implements DAOAvion {

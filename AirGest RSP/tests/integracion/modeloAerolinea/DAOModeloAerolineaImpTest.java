@@ -2,7 +2,7 @@ package integracion.modeloAerolinea;
 
 import org.junit.Test;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 
 import static org.junit.Assert.*;
 

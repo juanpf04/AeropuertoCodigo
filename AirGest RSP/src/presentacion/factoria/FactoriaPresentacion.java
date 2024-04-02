@@ -1,6 +1,6 @@
 package presentacion.factoria;
 
-import presentacion.modelo.Observador;
+import presentacion.Observador;
 
 public abstract class FactoriaPresentacion {
 

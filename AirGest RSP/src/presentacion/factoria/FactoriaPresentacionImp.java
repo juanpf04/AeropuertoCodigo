@@ -2,6 +2,7 @@ package presentacion.factoria;
 
 import presentacion.VistaPrincipal;
 import presentacion.modelo.*;
+import presentacion.Observador;
 
 public class FactoriaPresentacionImp extends FactoriaPresentacion {
 

@@ -5,6 +5,8 @@ import java.awt.Font;
 
 import javax.swing.*;
 
+import presentacion.Observador;
+
 public class VistaExitoAltaModelo extends JFrame implements Observador {
 
 	public VistaExitoAltaModelo() {
@@ -12,11 +14,11 @@ public class VistaExitoAltaModelo extends JFrame implements Observador {
 		this.setSize(1000, 750);
 	}
 
-	public void actualizaVista() {
+	public void actualizaVista(Object datos) {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel exito = new JLabel("Alta de Modelo exitosa!");
+		JLabel exito = new JLabel("Alta de Modelo exitosa! con id = " + (Integer) datos);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);

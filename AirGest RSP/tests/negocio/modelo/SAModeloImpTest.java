@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.modeloAerolinea.TModeloAerolinea;
 
 public class SAModeloImpTest {

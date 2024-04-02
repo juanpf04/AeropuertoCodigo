@@ -14,17 +14,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import negocio.modelo.TModelo;
+import presentacion.Observador;
 import presentacion.controlador.Controlador;
+import presentacion.controlador.EventosControlador;
 
 public class VistaAltaModelo extends JFrame implements Observador {
 
 	public VistaAltaModelo() {
 		super("Alta Modelo");
-		actualizaVista();
 		this.setSize(1000, 750);
 	}
 
-	public void actualizaVista() {
+	public void actualizaVista(Object datos) {
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
@@ -59,6 +60,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		motor.add(textoMotor);
 		centro.add(motor);
 
+		Controlador controlador = Controlador.getInstance();
 		//parece ser que hace la accion sin entrar en el actionListener
 		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
 		JButton aceptar = new JButton("ACEPTAR");
@@ -66,12 +68,10 @@ public class VistaAltaModelo extends JFrame implements Observador {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Controlador controlador = Controlador.getInstance();
 				String nombreLeido = textoNombre.getText();
 				String motorLeido = textoMotor.getText();
 				TModelo transfer = new TModelo(0, nombreLeido, motorLeido, true);
-				controlador.accion(0, transfer);
-				setVisible(false);
+				controlador.accion(EventosControlador.ALTA_MODELO, transfer);
 			}
 
 		});
@@ -79,16 +79,17 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		centro.add(aceptar);
 		principal.add(funcion);
 		principal.add(centro);
-		
+
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
-		atras.addActionListener(new ActionListener(){
+		atras.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				dispose();
+				controlador.accion(EventosControlador.VISTA_MODELO, null);
 			}
-			
+
 		});
 		principal.add(atras, BorderLayout.PAGE_END);
 

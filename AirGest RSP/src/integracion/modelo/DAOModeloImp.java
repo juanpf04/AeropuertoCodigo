@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 
 public class DAOModeloImp implements DAOModelo {
 

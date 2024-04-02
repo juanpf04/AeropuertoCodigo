@@ -9,7 +9,7 @@ import java.io.FileReader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.aerolinea.TAerolinea;
 
 public class DAOAerolineaImp implements DAOAerolinea {

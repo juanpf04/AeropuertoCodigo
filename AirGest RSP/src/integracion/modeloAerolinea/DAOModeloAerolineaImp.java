@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import miscelanea.Utilidades;
+import integracion.Utilidades;
 import negocio.modeloAerolinea.TModeloAerolinea;
 
 public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
