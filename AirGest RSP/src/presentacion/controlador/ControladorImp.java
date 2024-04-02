@@ -20,11 +20,12 @@ public class ControladorImp extends Controlador {
 		boolean exito;
 
 		switch (evento) {
-		// MODELO
+		
 		case VISTA_PRINCIPAL:
 			vista = fp.CrearVistaPrincipal();
 			vista.actualizaVista(null);
 			break;
+			
 		case VISTA_MODELO:
 			vista = fp.crearVistaModelo();
 			vista.actualizaVista(null);
@@ -33,6 +34,7 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaAltaModelo();
 			vista.actualizaVista(null);
 			break;
+		
 		case ALTA_MODELO:
 			sm = fn.crearSAModelo();
 			int id = sm.altaModelo((TModelo) datos);
