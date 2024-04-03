@@ -2,6 +2,7 @@ package presentacion.modelo;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,6 +20,7 @@ public class VistaExitoBajaModelo extends JFrame implements Observador {
 	}
 
 	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

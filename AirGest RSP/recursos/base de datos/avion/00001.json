@@ -8,7 +8,7 @@
 	},
 	"nombre": "keehdg",
 	"matricula": "12345G",
-	"activo": false,
+	"activo": true,
 	"idModelo": 1,
 	"idAerolinea": 1,
 	"idHangar": 1

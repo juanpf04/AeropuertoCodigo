@@ -2,6 +2,7 @@ package presentacion.modelo;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -20,12 +21,13 @@ public class VistaResultadoConsultarModeloPorId extends JFrame implements Observ
 	}
 
 	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 		
-		TModelo modelo = (TModelo) datos;
+		String modelo =  datos == null ? "" : ((TModelo) datos).toString();
 		
-		JLabel exito = new JLabel(modelo.toString());
+		JLabel exito = new JLabel(modelo);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);

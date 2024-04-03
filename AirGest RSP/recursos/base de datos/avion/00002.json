@@ -1,0 +1,15 @@
+{
+	"id": 2,
+	"numAsientos": 68,
+	"fechaFabricacion": {
+		"dia": 12,
+		"mes": 07,
+		"anyo": 2010
+	},
+	"nombre": "hola",
+	"matricula" : "12345deqdG",
+	"activo": false,
+	"idModelo": 1,
+	"idAerolinea": 1,
+	"idHangar": 1
+}

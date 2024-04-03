@@ -1,27 +1,117 @@
-/**
- * 
- */
 package presentacion.modelo;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.controlador.Controlador;
+import presentacion.controlador.EventosControlador;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Usuario
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class VistaModificarModelo extends JFrame implements Observador {
-	/** 
-	* (non-Javadoc)
-	* @see Observador#actualizaVista(Object datos)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void actualizaVista(Object datos) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	
+	public VistaModificarModelo() {
+		super("Modificar Modelo");
+		this.setSize(1000, 750);
+	}
 
-		// end-user-code
+	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+
+		JPanel principal = new JPanel();
+		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
+
+		JLabel funcion = new JLabel("Modificar Modelo");
+		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
+
+		JPanel centro = new JPanel();
+		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
+		
+		JPanel id = new JPanel();
+		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
+		JLabel etiquetaId = new JLabel("id: ");
+		etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		JTextField textoId = new JTextField();
+		textoId.setMaximumSize(new Dimension(200, 30));
+		textoId.setMinimumSize(new Dimension(200, 30));
+		textoId.setPreferredSize(new Dimension(200, 30));
+		id.add(etiquetaId);
+		id.add(textoId);
+		centro.add(id);
+
+		JPanel nombre = new JPanel();
+		nombre.setLayout(new BoxLayout(nombre, BoxLayout.LINE_AXIS));
+		JLabel etiquetaNombre = new JLabel("nombre: ");
+		etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		JTextField textoNombre = new JTextField();
+		textoNombre.setMaximumSize(new Dimension(200, 30));
+		textoNombre.setMinimumSize(new Dimension(200, 30));
+		textoNombre.setPreferredSize(new Dimension(200, 30));
+		nombre.add(etiquetaNombre);
+		nombre.add(textoNombre);
+		centro.add(nombre);
+
+		JPanel motor = new JPanel();
+		motor.setLayout(new BoxLayout(motor, BoxLayout.X_AXIS));
+		JLabel etiquetaMotor = new JLabel("motor:    ");
+		etiquetaMotor.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		JTextField textoMotor = new JTextField();
+		textoMotor.setMaximumSize(new Dimension(200, 30));
+		textoMotor.setMinimumSize(new Dimension(200, 30));
+		textoMotor.setPreferredSize(new Dimension(200, 30));
+		motor.add(etiquetaMotor);
+		motor.add(textoMotor);
+		centro.add(motor);
+
+		Controlador controlador = Controlador.getInstance();
+		//parece ser que hace la accion sin entrar en el actionListener
+		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		JButton aceptar = new JButton("ACEPTAR");
+		aceptar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int idLeido = Integer.valueOf(textoId.getText().isEmpty() ? "0" : textoId.getText());
+				String nombreLeido = textoNombre.getText();
+				String motorLeido = textoMotor.getText();
+				TModelo transfer = new TModelo(idLeido, nombreLeido, motorLeido, true);
+				controlador.accion(EventosControlador.MODIFICAR_MODELO, transfer);
+			}
+
+		});
+
+		centro.add(aceptar);
+		principal.add(funcion);
+		principal.add(centro);
+
+		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		atras.setToolTipText("Esto vuelve a la ventana anterior");
+		atras.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				controlador.accion(EventosControlador.VISTA_MODELO, null);
+			}
+
+		});
+		principal.add(atras, BorderLayout.PAGE_END);
+
+		this.setContentPane(principal);
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocation(200, 200);
+		this.pack();
 	}
 }

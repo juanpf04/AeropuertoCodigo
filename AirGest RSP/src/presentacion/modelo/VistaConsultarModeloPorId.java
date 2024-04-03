@@ -2,6 +2,7 @@ package presentacion.modelo;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +25,7 @@ public class VistaConsultarModeloPorId extends JFrame implements Observador {
 	}
 
 	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 

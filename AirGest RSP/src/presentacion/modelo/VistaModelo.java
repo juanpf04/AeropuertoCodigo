@@ -2,6 +2,7 @@ package presentacion.modelo;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,6 +26,7 @@ public class VistaModelo extends JFrame implements Observador {
 
 	@Override
 	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
@@ -87,16 +89,37 @@ public class VistaModelo extends JFrame implements Observador {
 
 		//-------------------------------------------
 		JButton modificar = new JButton("MODIFICAR MODELO");
+		
+		modificar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ctrl.accion(EventosControlador.VISTA_MODIFICAR_MODELO, null);
+			}
+		});
 
 		botones.add(modificar);
 
 		//-------------------------------------------
 		JButton vincular = new JButton("VINCULAR MODELO");
+		
+		vincular.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ctrl.accion(EventosControlador.VISTA_VINCULAR_MODELO, null);
+			}
+		});
 
 		botones.add(vincular);
 
 		//-------------------------------------------
 		JButton desvincular = new JButton("DESVINCULAR MODELO");
+		
+		desvincular.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ctrl.accion(EventosControlador.VISTA_DESVINCULAR_MODELO, null);
+			}
+		});
 
 		botones.add(desvincular);
 
