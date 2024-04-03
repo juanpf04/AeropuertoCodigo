@@ -30,10 +30,6 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaBajaModelo();
 	}
 
-	public Observador crearVistaConsultarTodosModelos() {
-		return new VistaConsultarTodosModelos();
-	}
-
 	public Observador crearVistaResultadoConsultarTodosModelos() {
 		return new VistaResultadoConsultarTodosModelos();
 	}

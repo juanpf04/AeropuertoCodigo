@@ -19,8 +19,8 @@ import presentacion.controlador.EventosControlador;
 
 public class VistaPrincipal extends JFrame implements Observador {
 	public VistaPrincipal() {
-		super("MODELO");
-		this.setSize(1000, 750); //hace que la ventana no salga tan chiquitita
+		super("AirGest RSP");
+		this.setSize(8000, 2000); //hace que la ventana no salga tan chiquitita
 	}
 
 	@Override

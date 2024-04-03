@@ -54,11 +54,8 @@ public class VistaModelo extends JFrame implements Observador {
 		baja.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//ALTA MODELO ES == 0
-				//NO OS ENFADEIS CON NOSOTROS, POSIBLE FUMADA!!!!!!!!!!!!!!!!11
-				//				ControladorImp controlador = new ControladorImp();
-				//				controlador.accion(1);
-				//				//pero funciona B)
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_BAJA_MODELO, null);
 			}
 		});
 		baja.setToolTipText("Aqui das de baja un modelo maquina");
@@ -67,11 +64,25 @@ public class VistaModelo extends JFrame implements Observador {
 		//-------------------------------------------
 		JButton consultarID = new JButton("CONSULTAR MODELO POR ID");
 
+		consultarID.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_CONSULTAR_MODELO_POR_ID, null);
+			}
+		});
 		botones.add(consultarID);
 
 		//-------------------------------------------
 		JButton consultarTodos = new JButton("CONSULTAR TODOS LOS MODELOS");
 
+		consultarTodos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ctrl.accion(EventosControlador.CONSULTAR_TODOS_MODELOS, null);
+			}
+		});
+		
 		botones.add(consultarTodos);
 
 		//-------------------------------------------

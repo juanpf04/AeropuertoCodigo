@@ -24,8 +24,6 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador crearVistaBajaModelo();
 
-	public abstract Observador crearVistaConsultarTodosModelos();
-
 	public abstract Observador crearVistaResultadoConsultarTodosModelos();
 
 	public abstract Observador crearVistaConsultarModeloPorId();

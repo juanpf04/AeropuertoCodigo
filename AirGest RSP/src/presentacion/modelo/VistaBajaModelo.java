@@ -12,18 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.controlador.Controlador;
+import presentacion.controlador.EventosControlador;
 
 public class VistaBajaModelo extends JFrame implements Observador {
 
 	public VistaBajaModelo() {
 		super("Baja Modelo");
-		initGUI();
 		this.setSize(1000, 750);
 	}
 
-	public void initGUI() {
-
+	public void actualizaVista(Object datos) {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
@@ -34,7 +35,7 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
 
 		JPanel id = new JPanel();
-		id.setLayout(new BoxLayout(id, BoxLayout.X_AXIS));
+		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
 		JLabel etiquetaId = new JLabel("id: ");
 		etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		JTextField textoId = new JTextField();
@@ -45,14 +46,15 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		id.add(textoId);
 		centro.add(id);
 
-		// parece ser que hace la accion sin entrar en el actionListener
-		// hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo
-		// el capullo)
-		JButton aceptar = new JButton("aceptar");
+		Controlador controlador = Controlador.getInstance();
+		//parece ser que hace la accion sin entrar en el actionListener
+		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				controlador.accion(EventosControlador.BAJA_MODELO, Integer.valueOf(textoId.getText().isEmpty() ? "0" : textoId.getText()));
 			}
 
 		});
@@ -61,19 +63,24 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
+		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		atras.setToolTipText("Esto vuelve a la ventana anterior");
+		atras.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				controlador.accion(EventosControlador.VISTA_MODELO, null);
+			}
+		});
+		
+		principal.add(atras);
+
+
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-	}
-
-	public void actualizaVista(Object datos) {// yo creo que es la que te
-													// muestra la vista de fallo o
-												// exito
-												// begin-user-code
-												// TODO Auto-generated method stub
-
-		// end-user-code
 	}
 }

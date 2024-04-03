@@ -37,7 +37,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
 
 		JPanel nombre = new JPanel();
-		nombre.setLayout(new BoxLayout(nombre, BoxLayout.X_AXIS));
+		nombre.setLayout(new BoxLayout(nombre, BoxLayout.LINE_AXIS));
 		JLabel etiquetaNombre = new JLabel("nombre: ");
 		etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		JTextField textoNombre = new JTextField();

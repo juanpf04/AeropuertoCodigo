@@ -30,7 +30,7 @@ public class VistaFalloAltaModelo extends JFrame implements Observador {
 		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);
 
-		JButton imagen = new JButton();
+		JLabel imagen = new JLabel();
 		imagen.setIcon(new ImageIcon("recursos/iconos/fallo.png"));
 		principal.add(imagen, BorderLayout.CENTER);
 

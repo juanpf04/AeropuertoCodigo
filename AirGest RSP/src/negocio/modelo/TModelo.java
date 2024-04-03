@@ -53,7 +53,7 @@ public class TModelo {
 
 	@Override
 	public String toString() {
-		return "id: " + this.id + "\nnombre: " + nombre + "\nmotor: " + motor + "\nactivo: " + activo;
+		return " id: " + this.id + "\n" + " nombre: " + nombre + "\n motor: " + motor + "\n activo: " + activo + "\n";
 	}
 
 	public JSONObject toJSON() {

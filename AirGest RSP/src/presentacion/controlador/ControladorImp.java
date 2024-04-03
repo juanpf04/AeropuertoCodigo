@@ -34,6 +34,26 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaAltaModelo();
 			vista.actualizaVista(null);
 			break;
+		case VISTA_BAJA_MODELO:
+			vista = fp.crearVistaBajaModelo();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_CONSULTAR_MODELO_POR_ID:
+			vista = fp.crearVistaConsultarModeloPorId();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_MODIFICAR_MODELO:
+			vista = fp.crearVistaModificarModelo();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_VINCULAR_MODELO:
+			vista = fp.crearVistaVincularModelo();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_DESVINCULAR_MODELO:
+			vista = fp.crearVistaDesvincularModelo();
+			vista.actualizaVista(null);
+			break;
 		
 		case ALTA_MODELO:
 			sm = fn.crearSAModelo();
@@ -63,14 +83,14 @@ public class ControladorImp extends Controlador {
 		case CONSULTAR_MODELO_POR_ID:
 			sm = fn.crearSAModelo();
 			TModelo modelo = sm.consultarModelo((int) datos);
-			vista = fp.crearVistaConsultarModeloPorId();
+			vista = fp.crearVistaResultadoConsultarModeloPorId();
 			vista.actualizaVista(modelo);
 
 			break;
 		case CONSULTAR_TODOS_MODELOS:
 			sm = fn.crearSAModelo();
 			List<TModelo> modelos = sm.consultarTodosModelos();
-			vista = fp.crearVistaConsultarTodosModelos();
+			vista = fp.crearVistaResultadoConsultarTodosModelos();
 			vista.actualizaVista(modelos);
 
 			break;
