@@ -1,11 +1,11 @@
-package principal;
+package main;
 
 
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 
-public class Principal {
+public class Main {
 
 	public static void main(String[] args) {
 
