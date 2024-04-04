@@ -75,18 +75,22 @@ public class VistaModificarModelo extends JFrame implements Observador {
 		centro.add(motor);
 
 		Controlador controlador = Controlador.getInstance();
-		//parece ser que hace la accion sin entrar en el actionListener
-		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int idLeido = Integer.valueOf(textoId.getText().isEmpty() ? "0" : textoId.getText());
-				String nombreLeido = textoNombre.getText();
-				String motorLeido = textoMotor.getText();
-				TModelo transfer = new TModelo(idLeido, nombreLeido, motorLeido, true);
-				controlador.accion(EventosControlador.MODIFICAR_MODELO, transfer);
+				try{
+					int idLeido = Integer.parseInt(textoId.getText());
+					String nombreLeido = textoNombre.getText();
+					String motorLeido = textoMotor.getText();
+					TModelo transfer = new TModelo(idLeido, nombreLeido, motorLeido, true);
+					controlador.accion(EventosControlador.MODIFICAR_MODELO, transfer);
+				} catch(NumberFormatException n) {
+					controlador.accion(EventosControlador.MODIFICAR_MODELO, new TModelo());
+				}
+				
 			}
 
 		});

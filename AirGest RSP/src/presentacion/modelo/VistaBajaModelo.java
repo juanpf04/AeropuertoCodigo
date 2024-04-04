@@ -49,14 +49,18 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		centro.add(id);
 
 		Controlador controlador = Controlador.getInstance();
-		//parece ser que hace la accion sin entrar en el actionListener
-		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controlador.accion(EventosControlador.BAJA_MODELO, Integer.valueOf(textoId.getText().isEmpty() ? "0" : textoId.getText()));
+				try{
+					int id = Integer.parseInt(textoId.getText());
+					controlador.accion(EventosControlador.BAJA_MODELO, id);
+				} catch(NumberFormatException n) {
+					controlador.accion(EventosControlador.BAJA_MODELO, 0);
+				}
 			}
 
 		});

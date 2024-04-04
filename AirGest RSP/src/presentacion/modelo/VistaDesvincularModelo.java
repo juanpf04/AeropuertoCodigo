@@ -63,17 +63,20 @@ public class VistaDesvincularModelo extends JFrame implements Observador {
 		centro.add(idAerolinea);
 
 		Controlador controlador = Controlador.getInstance();
-		//parece ser que hace la accion sin entrar en el actionListener
-		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int idModeloLeido = Integer.valueOf(textoIdModelo.getText().isEmpty() ? "0" : textoIdModelo.getText());
-				int idAerolineaLeido = Integer.valueOf(textoIdAerolinea.getText().isEmpty() ? "0" : textoIdAerolinea.getText());
-				TModeloAerolinea transfer = new TModeloAerolinea(idModeloLeido, idAerolineaLeido);
-				controlador.accion(EventosControlador.DESVINCULAR_MODELO, transfer);
+				try{
+					int idModeloLeido = Integer.valueOf(textoIdModelo.getText());
+					int idAerolineaLeido = Integer.valueOf(textoIdAerolinea.getText());
+					TModeloAerolinea transfer = new TModeloAerolinea(idModeloLeido, idAerolineaLeido);
+					controlador.accion(EventosControlador.DESVINCULAR_MODELO, transfer);
+				} catch(NumberFormatException n) {
+					controlador.accion(EventosControlador.DESVINCULAR_MODELO, new TModeloAerolinea());
+				}
 			}
 
 		});

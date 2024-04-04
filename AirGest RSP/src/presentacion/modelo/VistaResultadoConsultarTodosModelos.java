@@ -38,7 +38,6 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-//		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		JLabel imagen = new JLabel();

@@ -32,7 +32,7 @@ public class VistaModelo extends JFrame implements Observador {
 
 		JLabel modulo = new JLabel("MODELO"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS
+		modulo.setHorizontalAlignment(SwingConstants.CENTER); 
 		principal.add(modulo, BorderLayout.PAGE_START);
 
 		JPanel botones = new JPanel();

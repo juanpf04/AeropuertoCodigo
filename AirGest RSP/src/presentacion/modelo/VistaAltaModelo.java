@@ -63,8 +63,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		centro.add(motor);
 
 		Controlador controlador = Controlador.getInstance();
-		//parece ser que hace la accion sin entrar en el actionListener
-		//hay que frenar la ejecucion si no se pulsa aceptar(porque avanza solo el capullo)
+		
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
