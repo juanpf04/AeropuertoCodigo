@@ -93,6 +93,7 @@ public class VistaModelo extends JFrame implements Observador {
 		modificar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				ctrl.accion(EventosControlador.VISTA_MODIFICAR_MODELO, null);
 			}
 		});
@@ -105,6 +106,7 @@ public class VistaModelo extends JFrame implements Observador {
 		vincular.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				ctrl.accion(EventosControlador.VISTA_VINCULAR_MODELO, null);
 			}
 		});
@@ -117,6 +119,7 @@ public class VistaModelo extends JFrame implements Observador {
 		desvincular.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				ctrl.accion(EventosControlador.VISTA_DESVINCULAR_MODELO, null);
 			}
 		});

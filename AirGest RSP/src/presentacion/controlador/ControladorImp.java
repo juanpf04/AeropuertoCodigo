@@ -21,12 +21,12 @@ public class ControladorImp extends Controlador {
 
 		switch (evento) {
 		
-		case VISTA_PRINCIPAL:
+		case VISTA_PRINCIPAL:// VISTA GENERAL
 			vista = fp.CrearVistaPrincipal();
 			vista.actualizaVista(null);
 			break;
 			
-		case VISTA_MODELO:
+		case VISTA_MODELO:// VISTA MODELO
 			vista = fp.crearVistaModelo();
 			vista.actualizaVista(null);
 			break;
@@ -55,7 +55,7 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		
-		case ALTA_MODELO:
+		case ALTA_MODELO:// MODELO
 			sm = fn.crearSAModelo();
 			int id = sm.altaModelo((TModelo) datos);
 
@@ -129,6 +129,166 @@ public class ControladorImp extends Controlador {
 
 			vista.actualizaVista(null);
 
+			break;
+			
+		case VISTA_AVION:// VISTA AVIÓN
+			break;
+		case VISTA_ALTA_AVION:
+			break;
+		case VISTA_BAJA_AVION:
+			break;
+		case VISTA_CONSULTAR_AVION_POR_ID:
+			break;
+		case VISTA_CONSULTAR_TODOS_AVIONES:
+			break;
+		case VISTA_MODIFICAR_AVION:
+			break;
+		case VISTA_MOSTRAR_AVIONES_POR_MODELO:
+			break;
+		case VISTA_MOSTRAR_AVIONES_POR_AEROLINEA:
+			break;
+		case VISTA_MOSTRAR_AVIONES_POR_HANGAR:
+			break;
+			
+		case ALTA_AVION:// AVIÓN
+			break;
+		case BAJA_AVION:
+			break;
+		case CONSULTAR_AVION_POR_ID:
+			break;
+		case CONSULTAR_TODOS_AVIONES:
+			break;
+		case MODIFICAR_AVION:
+			break;
+		case MOSTRAR_AVIONES_POR_MODELO:
+			break;
+		case MOSTRAR_AVIONES_POR_AEROLINEA:
+			break;
+		case MOSTRAR_AVIONES_POR_HANGAR:
+			break;
+			
+		case VISTA_AEROLINEA:// VISTA AEROLÍNEA
+			break;
+		case VISTA_ALTA_AEROLINEA:
+			break;
+		case VISTA_BAJA_AEROLINEA:
+			break;
+		case VISTA_CONSULTAR_AEROLINEA_POR_ID:
+			break;
+		case VISTA_CONSULTAR_TODOS_AEROLINEAS:
+			break;
+		case VISTA_MODIFICAR_AEROLINEA:
+			break;
+			
+		case ALTA_AEROLINEA:// AEROLÍNEA
+			break;
+		case BAJA_AEROLINEA:
+			break;
+		case CONSULTAR_AEROLINEA_POR_ID:
+			break;
+		case CONSULTAR_TODOS_AEROLINEAS:
+			break;
+		case MODIFICAR_AEROLINEA:
+			break;
+			
+		case VISTA_CONTRATO:// VISTA CONTRATO
+			break;
+		case VISTA_ABRIR_CONTRATO:
+			break;
+		case VISTA_CERRAR_CONTRATO:
+			break;
+		case VISTA_BAJA_CONTRATO:
+			break;
+		case VISTA_ANYADIR_HANGAR_AL_CONTRATO:
+			break;
+		case VISTA_ELIMINAR_HANGAR_DEL_CONTRATO:
+			break;
+		case VISTA_CONSULTAR_CONTRATO_POR_ID:
+			break;
+		case VISTA_CONSULTAR_TODOS_CONTRATOS:
+			break;
+		case VISTA_MODIFICAR_CONTRATO:
+			break;
+		case VISTA_MODIFICAR_LINEA_CONTRATO:
+			break;
+		case VISTA_MOSTRAR_CONTRATOS_POR_AEROLINEA:
+			break;
+			
+		case ABRIR_CONTRATO:// CONTRATO
+			break;
+		case CERRAR_CONTRATO:
+			break;
+		case BAJA_CONTRATO:
+			break;
+		case ANYADIR_HANGAR_AL_CONTRATO:
+			break;
+		case ELIMINAR_HANGAR_DEL_CONTRATO:
+			break;
+		case CONSULTAR_CONTRATO_POR_ID:
+			break;
+		case CONSULTAR_TODOS_CONTRATOS:
+			break;
+		case MODIFICAR_CONTRATO:
+			break;
+		case MODIFICAR_LINEA_CONTRATO:
+			break;
+		case MOSTRAR_CONTRATOS_POR_AEROLINEA:
+			break;
+			
+		case VISTA_HANGAR:// VISTA HANGAR
+			break;
+		case VISTA_ALTA_HANGAR:
+			break;
+		case VISTA_BAJA_HANGAR:
+			break;
+		case VISTA_CONSULTAR_HANGAR_POR_ID:
+			break;
+		case VISTA_CONSULTAR_TODOS_HANGARES:
+			break;
+		case VISTA_MODIFICAR_HANGAR:
+			break;
+			
+		case ALTA_HANGAR:// HANGAR
+			break;
+		case BAJA_HANGAR:
+			break;
+		case CONSULTAR_HANGAR_POR_ID:
+			break;
+		case CONSULTAR_TODOS_HANGARES:
+			break;
+		case MODIFICAR_HANGAR:
+			break;
+			
+		case VISTA_PERSONAL:// VISTA PERSONAL
+			break;
+		case VISTA_ALTA_PERSONAL:
+			break;
+		case VISTA_BAJA_PERSONAL:
+			break;
+		case VISTA_VINCULAR_PERSONAL:
+			break;
+		case VISTA_DESVINCULAR_PERSONAL:
+			break;
+		case VISTA_CONSULTAR_PERSONAL_POR_ID:
+			break;
+		case VISTA_CONSULTAR_PERSONAL_EXISTENTE:
+			break;
+		case VISTA_MODIFICAR_PERSONAL:
+			break;
+			
+		case ALTA_PERSONAL:// PERSONAL
+			break;
+		case BAJA_PERSONAL:
+			break;
+		case VINCULAR_PERSONAL:
+			break;
+		case DESVINCULAR_PERSONAL:
+			break;
+		case CONSULTAR_PERSONAL_POR_ID:
+			break;
+		case CONSULTAR_PERSONAL_EXISTENTE:
+			break;
+		case MODIFICAR_PERSONAL:
 			break;
 		}
 	}
