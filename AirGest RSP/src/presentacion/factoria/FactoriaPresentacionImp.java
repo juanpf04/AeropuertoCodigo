@@ -30,6 +30,18 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaBajaModelo();
 	}
 
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarTodosModelos()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarTodosModelos() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
 	public Observador crearVistaResultadoConsultarTodosModelos() {
 		return new VistaResultadoConsultarTodosModelos();
 	}

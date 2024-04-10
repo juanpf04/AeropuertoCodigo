@@ -1,5 +1,6 @@
 package negocio.factoria;
 
+import negocio.hangar.SAHangar;
 import negocio.modelo.SAModelo;
 import negocio.modelo.SAModeloImp;
 
@@ -14,4 +15,6 @@ public abstract class FactoriaNegocio {
 	}
 
 	public abstract SAModelo crearSAModelo();
+
+	public abstract SAHangar crearSAHangar();
 }

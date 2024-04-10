@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaFalloBajaModelo extends JFrame implements Observador {
-	
+
 	public VistaFalloBajaModelo() {
 		super("Fallo");
 		this.setSize(1000, 750);

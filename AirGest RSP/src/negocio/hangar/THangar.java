@@ -5,90 +5,31 @@ package negocio.hangar;
 
 import org.json.JSONObject;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Usuario
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class THangar {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private int id;
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private String direccion;
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private int stock;
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private float costeDia;
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private int espacioAlmacenaje;
+	private boolean activo;
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public THangar() {
-		// begin-user-code
-		// TODO Auto-generated constructor stub
-		// end-user-code
+		
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param id
-	* @param direccion
-	* @param stock
-	* @param costeDia
-	* @param espacioAlmacenaje
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public THangar(int id, String direccion, int stock, float costeDia, int espacioAlmacenaje) {
-		// begin-user-code
-		// TODO Auto-generated constructor stub
-		// end-user-code
+	public THangar(int id, String direccion, int stock, float costeDia, int espacioAlmacenaje, boolean activo) {
+		this.id = id;
+		this.direccion = direccion;
+		this.stock = stock;
+		this.costeDia = costeDia;
+		this.espacioAlmacenaje = espacioAlmacenaje;
+		this.activo = activo;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public int getId() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		return this.id;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public String getDireccion() {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -210,6 +151,32 @@ public class THangar {
 		// begin-user-code
 		// TODO Auto-generated method stub
 		return null;
+		// end-user-code
+	}
+
+	/** 
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @return
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public boolean getActivo() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return false;
+		// end-user-code
+	}
+
+	/** 
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @param activo
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public void setActivo(boolean activo) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
 		// end-user-code
 	}
 }

@@ -3,6 +3,7 @@ package integracion.factoria;
 import integracion.modelo.DAOModelo;
 import integracion.modeloAerolinea.DAOModeloAerolinea;
 import integracion.avion.DAOAvion;
+import integracion.hangar.DAOHangar;
 import integracion.aerolinea.DAOAerolinea;
 
 public abstract class FactoriaIntegracion {
@@ -22,4 +23,6 @@ public abstract class FactoriaIntegracion {
 	public abstract DAOAerolinea crearDAOAeolinea();
 
 	public abstract DAOModeloAerolinea crearDAOModeloAerolinea();
+
+	public abstract DAOHangar crearDAOHangar();
 }
