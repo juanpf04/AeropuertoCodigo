@@ -15,7 +15,7 @@ public class ControladorImp extends Controlador {
 	/** 
 	* (non-Javadoc)
 	* @see Controlador#accion(Enum evento, Object datos)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public void accion(Enum evento, Object datos) {
 		// begin-user-code

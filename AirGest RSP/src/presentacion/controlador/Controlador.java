@@ -15,7 +15,7 @@ public abstract class Controlador {
 	* <!-- end-UML-doc -->
 	* @param evento
 	* @param datos
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public abstract void accion(Enum evento, Object datos);
 

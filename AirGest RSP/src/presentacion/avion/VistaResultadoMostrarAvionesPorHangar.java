@@ -1,7 +1,7 @@
 /**
  * 
  */
-package presentacion.modelo;
+package presentacion.avion;
 
 import javax.swing.JFrame;
 import presentacion.Observador;
@@ -12,7 +12,7 @@ import presentacion.Observador;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class VistaConsultarTodosModelos extends JFrame implements Observador {
+public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Observador {
 	/** 
 	* (non-Javadoc)
 	* @see Observador#actualizaVista(Object datos)

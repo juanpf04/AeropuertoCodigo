@@ -5,7 +5,7 @@ import negocio.hangar.THangar;
 import java.awt.List;
 
 public class DAOHangarImp implements DAOHangar {
-	
+
 	public THangar leerHangarPorId(int id) {
 		// begin-user-code
 		// TODO Auto-generated method stub

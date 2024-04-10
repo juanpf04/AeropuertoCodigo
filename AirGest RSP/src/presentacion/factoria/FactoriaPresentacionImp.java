@@ -33,7 +33,7 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 	/** 
 	* (non-Javadoc)
 	* @see FactoriaPresentacion#crearVistaConsultarTodosModelos()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public Observador crearVistaConsultarTodosModelos() {
 		// begin-user-code

@@ -2,7 +2,6 @@
 package negocio.avion;
 
 import java.time.LocalDate;
-import org.json.JSONObject;
 
 public class TAvion {
 
@@ -118,26 +117,5 @@ public class TAvion {
 				+ this.fechaFabricacion + "\nNombre: " + this.nombre + "\nMatrícula: " + this.matricula + "\nActivo: "
 				+ this.activo + "\nId Modelo: " + this.idModelo + "\nId Aerolínea: " + this.idAerolinea + "\nIdHangar: "
 				+ this.idHangar;
-	}
-
-	public JSONObject toJSON() {
-		JSONObject jo = new JSONObject();
-
-		JSONObject fecha = new JSONObject();
-		fecha.put("dia", this.fechaFabricacion.getDayOfMonth());
-		fecha.put("mes", this.fechaFabricacion.getMonthValue());
-		fecha.put("anyo", this.fechaFabricacion.getYear());
-
-		jo.put("id", this.id);
-		jo.put("numAsientos", this.numAsientos);
-		jo.put("fechaFabricacion", fecha);
-		jo.put("nombre", this.nombre);
-		jo.put("matricula", this.matricula);
-		jo.put("activo", this.activo);
-		jo.put("idModelo", this.idModelo);
-		jo.put("idAerolinea", this.idAerolinea);
-		jo.put("idHangar", this.idHangar);
-
-		return jo;
 	}
 }

@@ -1,7 +1,7 @@
 package negocio.factoria;
 
-import negocio.hangar.SAHangar;
-import negocio.hangar.SAHangarImp;
+import negocio.avion.SAAvion;
+import negocio.avion.SAAvionImp;
 import negocio.modelo.SAModelo;
 import negocio.modelo.SAModeloImp;
 
@@ -11,8 +11,7 @@ public class FactoriaNegocioImp extends FactoriaNegocio {
 		return new SAModeloImp();
 	}
 
-	@Override
-	public SAHangar crearSAHangar() {
-		return new SAHangarImp();
+	public SAAvion crearSAAvion() {
+		return new SAAvionImp();
 	}
 }

@@ -1,10 +1,7 @@
 /**
  * 
  */
-package presentacion.modelo;
-
-import javax.swing.JFrame;
-import presentacion.Observador;
+package negocio.avion;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -12,16 +9,17 @@ import presentacion.Observador;
  * @author usuario_local
  * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class VistaConsultarTodosModelos extends JFrame implements Observador {
+public class ValidadorAvion {
 	/** 
-	* (non-Javadoc)
-	* @see Observador#actualizaVista(Object datos)
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @return
 	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
-	public void actualizaVista(Object datos) {
+	public static boolean comprobarDatos() {
 		// begin-user-code
 		// TODO Auto-generated method stub
-
+		return false;
 		// end-user-code
 	}
 }

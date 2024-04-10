@@ -6,8 +6,8 @@ package integracion.modeloAerolinea;
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ * @author usuario_local
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public interface DAOModeloAerolinea {
 	/** 
@@ -16,7 +16,7 @@ public interface DAOModeloAerolinea {
 	* @param idModelo
 	* @param idAerolinea
 	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public boolean vincular(int idModelo, int idAerolinea);
 
@@ -26,7 +26,7 @@ public interface DAOModeloAerolinea {
 	* @param idModelo
 	* @param idAerolinea
 	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public boolean desvincular(int idModelo, int idAerolinea);
 
@@ -36,7 +36,7 @@ public interface DAOModeloAerolinea {
 	* @param idModelo
 	* @param idAerolinea
 	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	*/
 	public boolean comprobarVinculacion(int idModelo, int idAerolinea);
 }
