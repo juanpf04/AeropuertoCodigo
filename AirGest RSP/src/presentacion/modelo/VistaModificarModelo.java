@@ -20,7 +20,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarModelo extends JFrame implements Observador {
-	
+
 	public VistaModificarModelo() {
 		super("Modificar Modelo");
 		this.setSize(1000, 750);
@@ -37,7 +37,7 @@ public class VistaModificarModelo extends JFrame implements Observador {
 
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
-		
+
 		JPanel id = new JPanel();
 		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
 		JLabel etiquetaId = new JLabel("id: ");
@@ -75,22 +75,22 @@ public class VistaModificarModelo extends JFrame implements Observador {
 		centro.add(motor);
 
 		Controlador controlador = Controlador.getInstance();
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int idLeido = Integer.parseInt(textoId.getText());
 					String nombreLeido = textoNombre.getText();
 					String motorLeido = textoMotor.getText();
 					TModelo transfer = new TModelo(idLeido, nombreLeido, motorLeido, true);
 					controlador.accion(EventosControlador.MODIFICAR_MODELO, transfer);
-				} catch(NumberFormatException n) {
+				} catch (NumberFormatException n) {
 					controlador.accion(EventosControlador.MODIFICAR_MODELO, new TModelo());
 				}
-				
+
 			}
 
 		});

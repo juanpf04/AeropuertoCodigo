@@ -49,16 +49,16 @@ public class VistaBajaModelo extends JFrame implements Observador {
 		centro.add(id);
 
 		Controlador controlador = Controlador.getInstance();
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int id = Integer.parseInt(textoId.getText());
 					controlador.accion(EventosControlador.BAJA_MODELO, id);
-				} catch(NumberFormatException n) {
+				} catch (NumberFormatException n) {
 					controlador.accion(EventosControlador.BAJA_MODELO, 0);
 				}
 			}
@@ -79,9 +79,8 @@ public class VistaBajaModelo extends JFrame implements Observador {
 				controlador.accion(EventosControlador.VISTA_MODELO, null);
 			}
 		});
-		
-		principal.add(atras);
 
+		principal.add(atras);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

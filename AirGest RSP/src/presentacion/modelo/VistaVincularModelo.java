@@ -50,7 +50,7 @@ public class VistaVincularModelo extends JFrame implements Observador {
 		idModelo.add(etiquetaIdModelo);
 		idModelo.add(textoIdModelo);
 		centro.add(idModelo);
-		
+
 		JPanel idAerolinea = new JPanel();
 		idAerolinea.setLayout(new BoxLayout(idAerolinea, BoxLayout.LINE_AXIS));
 		JLabel etiquetaIdAerolinea = new JLabel("idAerolínea: ");
@@ -64,18 +64,18 @@ public class VistaVincularModelo extends JFrame implements Observador {
 		centro.add(idAerolinea);
 
 		Controlador controlador = Controlador.getInstance();
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int idModeloLeido = Integer.valueOf(textoIdModelo.getText());
 					int idAerolineaLeido = Integer.valueOf(textoIdAerolinea.getText());
 					TModeloAerolinea transfer = new TModeloAerolinea(idModeloLeido, idAerolineaLeido);
 					controlador.accion(EventosControlador.VINCULAR_MODELO, transfer);
-				} catch(NumberFormatException n) {
+				} catch (NumberFormatException n) {
 					controlador.accion(EventosControlador.VINCULAR_MODELO, new TModeloAerolinea());
 				}
 			}

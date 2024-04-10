@@ -63,7 +63,7 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		centro.add(motor);
 
 		Controlador controlador = Controlador.getInstance();
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 

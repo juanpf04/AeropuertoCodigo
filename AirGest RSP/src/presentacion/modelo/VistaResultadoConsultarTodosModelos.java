@@ -30,25 +30,25 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
+
 		List<TModelo> modelos = (List<TModelo>) datos;
-		
-		String s="";
-		for(TModelo mo: modelos)
+
+		String s = "";
+		for (TModelo mo : modelos)
 			s += mo.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 
-//		JLabel imagen = new JLabel();
-//		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
-//		principal.add(imagen, BorderLayout.CENTER);
-//		
+		//		JLabel imagen = new JLabel();
+		//		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
+		//		principal.add(imagen, BorderLayout.CENTER);
+		//		
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);
-		
+
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
@@ -58,7 +58,7 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 				dispose();
 			}
 		});
-		
+
 		principal.add(atras, BorderLayout.SOUTH);
 
 		this.setContentPane(principal);

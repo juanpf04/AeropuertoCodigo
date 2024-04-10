@@ -37,11 +37,11 @@ public class VistaPrincipal extends JFrame implements Observador {
 
 		JPanel botones = new JPanel();
 		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
-		
+
 		Controlador ctrl = Controlador.getInstance();
 
 		//-------------------------------------------
-		
+
 		JButton modelo = new JButton("MODELO");
 		modelo.addActionListener(new ActionListener() {
 			@Override

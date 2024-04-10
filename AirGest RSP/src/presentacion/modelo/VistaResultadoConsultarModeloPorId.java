@@ -24,9 +24,9 @@ public class VistaResultadoConsultarModeloPorId extends JFrame implements Observ
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
-		String modelo =  datos == null ? "" : ((TModelo) datos).toString();
-		
+
+		String modelo = datos == null ? "" : ((TModelo) datos).toString();
+
 		JLabel exito = new JLabel(modelo);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setHorizontalAlignment(SwingConstants.CENTER);

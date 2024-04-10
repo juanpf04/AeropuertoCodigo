@@ -19,11 +19,35 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 		return new DAOAvionImp();
 	}
 
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaIntegracion#crearDAOAerolinea()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public DAOAerolinea crearDAOAerolinea() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
 	public DAOAerolinea crearDAOAeolinea() {
 		return new DAOAerolineaImp();
 	}
 
 	public DAOModeloAerolinea crearDAOModeloAerolinea() {
 		return new DAOModeloAerolineaImp();
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaIntegracion#crearDAOContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public DAOContrato crearDAOContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
 	}
 }

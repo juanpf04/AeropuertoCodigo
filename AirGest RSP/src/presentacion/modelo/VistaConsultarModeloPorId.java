@@ -18,7 +18,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaConsultarModeloPorId extends JFrame implements Observador {
-	
+
 	public VistaConsultarModeloPorId() {
 		super("Consultar modelo por id");
 		this.setSize(1000, 750);
@@ -48,16 +48,16 @@ public class VistaConsultarModeloPorId extends JFrame implements Observador {
 		centro.add(id);
 
 		Controlador controlador = Controlador.getInstance();
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int id = Integer.parseInt(textoId.getText());
 					controlador.accion(EventosControlador.CONSULTAR_MODELO_POR_ID, id);
-				} catch(NumberFormatException n) {
+				} catch (NumberFormatException n) {
 					controlador.accion(EventosControlador.CONSULTAR_MODELO_POR_ID, 0);
 				}
 			}
@@ -77,7 +77,7 @@ public class VistaConsultarModeloPorId extends JFrame implements Observador {
 				controlador.accion(EventosControlador.VISTA_MODELO, null);
 			}
 		});
-		
+
 		principal.add(atras);
 
 		this.setContentPane(principal);

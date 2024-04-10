@@ -14,4 +14,12 @@ public abstract class FactoriaNegocio {
 	}
 
 	public abstract SAModelo crearSAModelo();
+
+	/** 
+	* <!-- begin-UML-doc -->
+	* <!-- end-UML-doc -->
+	* @return
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public abstract SAAerolinea crearSAAerolinea();
 }

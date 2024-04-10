@@ -12,6 +12,18 @@ import presentacion.Observador;
 
 public class ControladorImp extends Controlador {
 
+	/** 
+	* (non-Javadoc)
+	* @see Controlador#accion(Enum evento, Object datos)
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public void accion(Enum evento, Object datos) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+
+		// end-user-code
+	}
+
 	public void accion(EventosControlador evento, Object datos) {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
@@ -20,12 +32,12 @@ public class ControladorImp extends Controlador {
 		boolean exito;
 
 		switch (evento) {
-		
+
 		case VISTA_PRINCIPAL:// VISTA GENERAL
 			vista = fp.CrearVistaPrincipal();
 			vista.actualizaVista(null);
 			break;
-			
+
 		case VISTA_MODELO:// VISTA MODELO
 			vista = fp.crearVistaModelo();
 			vista.actualizaVista(null);
@@ -54,7 +66,7 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaDesvincularModelo();
 			vista.actualizaVista(null);
 			break;
-		
+
 		case ALTA_MODELO:// MODELO
 			sm = fn.crearSAModelo();
 			int id = sm.altaModelo((TModelo) datos);
@@ -130,7 +142,7 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 
 			break;
-			
+
 		case VISTA_AVION:// VISTA AVIÓN
 			break;
 		case VISTA_ALTA_AVION:
@@ -149,7 +161,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MOSTRAR_AVIONES_POR_HANGAR:
 			break;
-			
+
 		case ALTA_AVION:// AVIÓN
 			break;
 		case BAJA_AVION:
@@ -166,7 +178,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case MOSTRAR_AVIONES_POR_HANGAR:
 			break;
-			
+
 		case VISTA_AEROLINEA:// VISTA AEROLÍNEA
 			break;
 		case VISTA_ALTA_AEROLINEA:
@@ -179,7 +191,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MODIFICAR_AEROLINEA:
 			break;
-			
+
 		case ALTA_AEROLINEA:// AEROLÍNEA
 			break;
 		case BAJA_AEROLINEA:
@@ -190,7 +202,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case MODIFICAR_AEROLINEA:
 			break;
-			
+
 		case VISTA_CONTRATO:// VISTA CONTRATO
 			break;
 		case VISTA_ABRIR_CONTRATO:
@@ -213,7 +225,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MOSTRAR_CONTRATOS_POR_AEROLINEA:
 			break;
-			
+
 		case ABRIR_CONTRATO:// CONTRATO
 			break;
 		case CERRAR_CONTRATO:
@@ -234,7 +246,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case MOSTRAR_CONTRATOS_POR_AEROLINEA:
 			break;
-			
+
 		case VISTA_HANGAR:// VISTA HANGAR
 			break;
 		case VISTA_ALTA_HANGAR:
@@ -247,7 +259,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MODIFICAR_HANGAR:
 			break;
-			
+
 		case ALTA_HANGAR:// HANGAR
 			break;
 		case BAJA_HANGAR:
@@ -258,7 +270,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case MODIFICAR_HANGAR:
 			break;
-			
+
 		case VISTA_PERSONAL:// VISTA PERSONAL
 			break;
 		case VISTA_ALTA_PERSONAL:
@@ -275,7 +287,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MODIFICAR_PERSONAL:
 			break;
-			
+
 		case ALTA_PERSONAL:// PERSONAL
 			break;
 		case BAJA_PERSONAL:
