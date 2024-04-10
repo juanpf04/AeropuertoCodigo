@@ -19,23 +19,9 @@ public abstract class FactoriaIntegracion {
 
 	public abstract DAOAvion crearDAOAvion();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract DAOAerolinea crearDAOAerolinea();
-
-	public abstract DAOAerolinea crearDAOAeolinea();
 
 	public abstract DAOModeloAerolinea crearDAOModeloAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract DAOContrato crearDAOContrato();
+	//public abstract DAOContrato crearDAOContrato();
 }

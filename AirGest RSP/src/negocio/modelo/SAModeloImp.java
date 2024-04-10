@@ -87,7 +87,7 @@ public class SAModeloImp implements SAModelo {
 
 		if (ValidadorModeloAerolinea.comprobarDatos(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
-			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
 
 			TModelo mLeido = dm.leerModeloPorId(idModelo);
 			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);
@@ -110,7 +110,7 @@ public class SAModeloImp implements SAModelo {
 
 		if (ValidadorModeloAerolinea.comprobarDatos(idModelo, idAerolinea)) {
 			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
-			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAeolinea();
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
 
 			TModelo mLeido = dm.leerModeloPorId(idModelo);
 			TAerolinea aLeida = da.leerAerolineaPorId(idAerolinea);

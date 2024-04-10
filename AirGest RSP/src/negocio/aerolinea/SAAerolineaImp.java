@@ -1,74 +1,81 @@
-/**
- * 
- */
+
 package negocio.aerolinea;
 
-import java.awt.List;
+import java.util.List;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author sanch
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+import integracion.aerolinea.DAOAerolinea;
+import integracion.avion.DAOAvion;
+import integracion.contrato.DAOContrato;
+import integracion.factoria.FactoriaIntegracion;
+
+
 public class SAAerolineaImp implements SAAerolinea {
-	/** 
-	* (non-Javadoc)
-	* @see SAAerolinea#altaAerolinea(TAerolinea tAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	
 	public int altaAerolinea(TAerolinea tAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		if (ValidadorAerolinea.comprobarAerolinea(tAerolinea)) {
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+			TAerolinea leido = da.leerAerolineaPorNombre(tAerolinea.getNombre());
+
+			if (leido == null)
+				return da.altaAerolinea(tAerolinea);
+			else if (!leido.getActivo()) {
+				tAerolinea.setId(leido.getId());
+				da.modificarAerolinea(tAerolinea);
+				return tAerolinea.getId();
+			}
+		}
+
+		return -1;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAerolinea#bajaAerolinea(int id)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public boolean bajaAerolinea(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAerolinea.comprobarId(id)) {
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+		
+			TAerolinea leido = da.leerAerolineaPorId(id);
+
+			if (leido != null && leido.getActivo()) {
+				DAOAvion dav = FactoriaIntegracion.getInstance().crearDAOAvion();
+				//DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
+
+				/*if (dav.comprobarAvionesActivosPorAerolinea(id).isEmpty() && dc.comprobarContratosActivosPorAerolinea(id).isEmpty) {
+					return da.bajaAerolinea(id);
+				}*/
+			}
+		}
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAerolinea#consultarAerolineaPorId(int id)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public TAerolinea consultarAerolineaPorId(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAerolinea.comprobarId(id)) {
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+
+			return da.leerAerolineaPorId(id);
+		}
+
 		return null;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAerolinea#consultarTodasAerolineas()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List consultarTodasAerolineas() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TAerolinea> consultarTodasAerolineas() {
+		DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+		return da.consultarTodasAerolineas();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAerolinea#modificarAerolinea(TAerolinea tAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public boolean modificarAerolinea(TAerolinea tAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAerolinea.comprobarAerolinea(tAerolinea)) {
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+
+			int id = tAerolinea.getId();
+			String nombre = tAerolinea.getNombre();
+
+			TAerolinea leido = da.leerAerolineaPorId(id);
+
+			if (leido != null) {
+				if (leido.getActivo() && (leido.getNombre().equals(nombre) || da.leerAerolineaPorNombre(nombre) == null)) {
+					return da.modificarAerolinea(tAerolinea);
+				}
+			}
+		}
 		return false;
-		// end-user-code
 	}
 }
