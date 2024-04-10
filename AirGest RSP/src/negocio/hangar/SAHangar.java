@@ -1,6 +1,6 @@
 package negocio.hangar;
 
-import java.awt.List;
+import java.util.List;
 
 public interface SAHangar {
 	
@@ -10,7 +10,7 @@ public interface SAHangar {
 
 	public THangar consultarHangarPorId(int id);
 
-	public List consultarTodosHangares();
+	public List<THangar> consultarTodosHangares();
 
 	public boolean modificarHangar(THangar tHangar);
 }

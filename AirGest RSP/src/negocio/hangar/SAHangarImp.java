@@ -1,7 +1,8 @@
 package negocio.hangar;
 
-import java.awt.List;
+import java.util.List;
 
+import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
 
@@ -25,30 +26,53 @@ public class SAHangarImp implements SAHangar {
 	}
 
 	public boolean bajaHangar(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorHangar.comprobarId(id)) {
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+
+			THangar leido = dh.leerHangarPorId(id);
+
+			if (leido != null && leido.getActivo()) {
+				DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+
+//				if (da.consultarAvionesActivosPorModelo(id).isEmpty()) {
+//					return dh.bajaHangar(id);
+//				}
+			}
+		}
+
 		return false;
-		// end-user-code
 	}
 
 	public THangar consultarHangarPorId(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorHangar.comprobarId(id)) {
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+
+			return dh.leerHangarPorId(id);
+		}
+
 		return null;
-		// end-user-code
 	}
 
-	public List consultarTodosHangares() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<THangar> consultarTodosHangares() {
+		DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+		return dh.consultarTodosHangares();
 	}
 
 	public boolean modificarHangar(THangar tHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorHangar.comprobarId(tHangar.getId()) && ValidadorHangar.comprobarDatos(tHangar)) {
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+
+			int id = tHangar.getId();
+			String direccion = tHangar.getDireccion();
+
+			THangar leido = dh.leerHangarPorId(id);
+
+			if (leido != null) {
+				if (leido.getActivo() && (leido.getDireccion().equals(direccion) || dh.leerHangarPorDireccion(direccion) == null)) {
+					return dh.modificarHangar(tHangar);
+				}
+			}
+		}
 		return false;
-		// end-user-code
 	}
 }
