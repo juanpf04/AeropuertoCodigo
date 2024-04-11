@@ -70,9 +70,16 @@ public class VistaPrincipal extends JFrame implements Observador {
 		botones.add(consultarID);
 
 		//-------------------------------------------
-		JButton consultarTodos = new JButton("HANGAR");
-
-		botones.add(consultarTodos);
+		JButton hangar = new JButton("HANGAR");
+		hangar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_HANGAR, null);
+			}
+		});
+		hangar.setToolTipText("MODULO HANGAR");
+		botones.add(hangar);
 
 		//-------------------------------------------
 		JButton modificar = new JButton("PERSONAL");

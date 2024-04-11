@@ -1,6 +1,19 @@
 package presentacion.factoria;
 
 import presentacion.VistaPrincipal;
+import presentacion.hangar.VistaAltaHangar;
+import presentacion.hangar.VistaBajaHangar;
+import presentacion.hangar.VistaConsultarHangarPorId;
+import presentacion.hangar.VistaExitoAltaHangar;
+import presentacion.hangar.VistaExitoBajaHangar;
+import presentacion.hangar.VistaExitoModificarHangar;
+import presentacion.hangar.VistaFalloAltaHangar;
+import presentacion.hangar.VistaFalloBajaHangar;
+import presentacion.hangar.VistaFalloModificarHangar;
+import presentacion.hangar.VistaHangar;
+import presentacion.hangar.VistaModificarHangar;
+import presentacion.hangar.VistaResultadoConsultarHangarPorId;
+import presentacion.hangar.VistaResultadoConsultarTodosHangares;
 import presentacion.modelo.*;
 import presentacion.Observador;
 
@@ -96,5 +109,57 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador CrearVistaPrincipal() {
 		return new VistaPrincipal();
+	}
+
+	public Observador crearVistaHangar() {
+		return new VistaHangar();
+	}
+
+	public Observador crearVistaAltaHangar() {
+		return new VistaAltaHangar();
+	}
+
+	public Observador crearVistaExitoAltaHangar() {
+		return new VistaExitoAltaHangar();
+	}
+
+	public Observador crearVistaFalloAltaHangar() {
+		return new VistaFalloAltaHangar();
+	}
+
+	public Observador crearVistaBajaHangar() {
+		return new VistaBajaHangar();
+	}
+
+	public Observador crearVistaExitoBajaHangar() {
+		return new VistaExitoBajaHangar();
+	}
+
+	public Observador crearVistaFalloBajaHangar() {
+		return new VistaFalloBajaHangar();
+	}
+
+	public Observador crearVistaConsultarHangarPorId() {
+		return new VistaConsultarHangarPorId();
+	}
+
+	public Observador crearVistaResultadoConsultarHangarPorId() {
+		return new VistaResultadoConsultarHangarPorId();
+	}
+
+	public Observador crearVistaResultadoConsultarTodosHangares() {
+		return new VistaResultadoConsultarTodosHangares();
+	}
+
+	public Observador crearVistaModificarHangar() {
+		return new VistaModificarHangar();
+	}
+
+	public Observador crearVistaExitoModificarHangar() {
+		return new VistaExitoModificarHangar();
+	}
+
+	public Observador crearVistaFalloModificarHangar() {
+		return new VistaFalloModificarHangar();
 	}
 }

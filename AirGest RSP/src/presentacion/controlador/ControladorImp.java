@@ -4,6 +4,8 @@ package presentacion.controlador;
 import java.util.List;
 
 import negocio.factoria.FactoriaNegocio;
+import negocio.hangar.SAHangar;
+import negocio.hangar.THangar;
 import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
@@ -28,6 +30,7 @@ public class ControladorImp extends Controlador {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
+		SAHangar sh;
 		Observador vista = null;
 		boolean exito;
 
@@ -248,8 +251,12 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_HANGAR:// VISTA HANGAR
+			vista = fp.crearVistaHangar();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_HANGAR:
+			vista = fp.crearVistaAltaHangar();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_BAJA_HANGAR:
 			break;
@@ -261,6 +268,16 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case ALTA_HANGAR:// HANGAR
+			sh = fn.crearSAHangar();
+			int idh = sh.altaHangar((THangar) datos);
+
+			if (idh != -1) {
+				vista = fp.crearVistaExitoAltaHangar();
+				vista.actualizaVista(idh);
+			} else {
+				vista = fp.crearVistaFalloAltaHangar();
+				vista.actualizaVista(null);
+			}
 			break;
 		case BAJA_HANGAR:
 			break;
