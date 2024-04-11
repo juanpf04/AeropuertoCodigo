@@ -78,4 +78,14 @@ public class SAAerolineaImp implements SAAerolinea {
 		}
 		return false;
 	}
+	
+	public TAerolinea consultarAerolineaPorNombre(String nombre) {
+		if (ValidadorAerolinea.comprobarNombre(nombre)) {
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+
+			return da.leerAerolineaPorNombre(nombre);
+		}
+
+		return null;
+	}
 }
