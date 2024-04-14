@@ -259,12 +259,20 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		case VISTA_BAJA_HANGAR:
+			vista = fp.crearVistaBajaHangar();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_HANGAR_POR_ID:
+			vista = fp.crearVistaConsultarHangarPorId();
+			vista.actualizaVista(null);
 			break;
-		case VISTA_CONSULTAR_TODOS_HANGARES:
-			break;
+//		case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR TODOS HANGARES
+//			vista = fp.crearVistaResultadoConsultarTodosHangares();
+//			vista.actualizaVista(null);
+//			break;
 		case VISTA_MODIFICAR_HANGAR:
+			vista = fp.crearVistaModificarHangar();
+			vista.actualizaVista(null);
 			break;
 
 		case ALTA_HANGAR:// HANGAR
@@ -280,12 +288,42 @@ public class ControladorImp extends Controlador {
 			}
 			break;
 		case BAJA_HANGAR:
+			sh = fn.crearSAHangar();
+			exito = sh.bajaHangar((int) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoBajaHangar();
+			else
+				vista = fp.crearVistaFalloBajaHangar();
+
+			vista.actualizaVista(null);
+			
 			break;
 		case CONSULTAR_HANGAR_POR_ID:
+			sh = fn.crearSAHangar();
+			THangar hangar = sh.consultarHangarPorId((int) datos);
+			vista = fp.crearVistaResultadoConsultarHangarPorId();
+			vista.actualizaVista(hangar);
+			
 			break;
 		case CONSULTAR_TODOS_HANGARES:
+			sh = fn.crearSAHangar();
+			List<THangar> hangares = sh.consultarTodosHangares();
+			vista = fp.crearVistaResultadoConsultarTodosHangares();
+			vista.actualizaVista(hangares);
+			
 			break;
 		case MODIFICAR_HANGAR:
+			sh = fn.crearSAHangar();
+			exito = sh.modificarHangar((THangar) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoModificarHangar();
+			else
+				vista = fp.crearVistaFalloModificarHangar();
+
+			vista.actualizaVista(null);
+			
 			break;
 
 		case VISTA_PERSONAL:// VISTA PERSONAL

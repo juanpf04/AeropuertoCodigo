@@ -96,7 +96,7 @@ public class VistaAltaHangar extends JFrame implements Observador {
 			public void actionPerformed(ActionEvent e) {
 				String dirLeido = textoDir.getText();
 				int stockLeido = Integer.parseInt(textoStock.getText());
-				double costeLeido = Double.parseDouble(textocosteDia.getText());
+				double costeLeido = Double.parseDouble(textocosteDia.getText());//tiene que ser con ., no con , xq sino da error
 				int espacioLeido = Integer.parseInt(textoespacioAlmacenaje.getText());
 				THangar transfer = new THangar(0, dirLeido, stockLeido, costeLeido, espacioLeido, true);
 				controlador.accion(EventosControlador.ALTA_HANGAR, transfer);
