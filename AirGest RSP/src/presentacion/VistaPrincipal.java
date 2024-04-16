@@ -69,7 +69,8 @@ public class VistaPrincipal extends JFrame implements Observador {
 		aerolinea.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_AEROLINEA, null);
 			}
 		});
 		aerolinea.setToolTipText("MODULO AEROLINEA");

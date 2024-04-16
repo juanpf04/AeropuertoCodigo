@@ -3,6 +3,8 @@ package presentacion.controlador;
 
 import java.util.List;
 
+import negocio.aerolinea.SAAerolinea;
+import negocio.aerolinea.TAerolinea;
 import negocio.factoria.FactoriaNegocio;
 import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
@@ -28,6 +30,7 @@ public class ControladorImp extends Controlador {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
+		SAAerolinea sa;
 		Observador vista = null;
 		boolean exito;
 
@@ -184,8 +187,12 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_AEROLINEA:
+			vista = fp.crearVistaAltaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_BAJA_AEROLINEA:
+			vista = fp.crearVistaBajaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_AEROLINEA_POR_ID:
 			break;
@@ -195,8 +202,27 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case ALTA_AEROLINEA:// AEROLÍNEA
+			sa = fn.crearSAAerolinea();
+			int id_aerolinea = sa.altaAerolinea((TAerolinea) datos);
+
+			if (id_aerolinea != -1) {
+				vista = fp.crearVistaExitoAltaAerolinea();
+				vista.actualizaVista(id_aerolinea);
+			} else {
+				vista = fp.crearVistaFalloAltaAerolinea();
+				vista.actualizaVista(null);
+			}
 			break;
 		case BAJA_AEROLINEA:
+			sa = fn.crearSAAerolinea();
+			exito = sa.bajaAerolinea((int) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoBajaAerolinea();
+			else
+				vista = fp.crearVistaFalloBajaAerolinea();
+
+			vista.actualizaVista(null);
 			break;
 		case CONSULTAR_AEROLINEA_POR_ID:
 			break;

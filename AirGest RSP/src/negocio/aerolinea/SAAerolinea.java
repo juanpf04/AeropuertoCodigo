@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SAAerolinea {
 
-	public int altaAerolinea(TAerolinea tAerolinea);
+	public int altaAerolinea(TAerolinea datos);
 
 	public boolean bajaAerolinea(int id);
 
