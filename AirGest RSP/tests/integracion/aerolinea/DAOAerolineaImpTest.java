@@ -18,7 +18,7 @@ public class DAOAerolineaImpTest {
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
-		TAerolinea aerolinea = new TAerolinea(1, "mariloli", true);
+		TAerolinea aerolinea = new TAerolinea(3, "tres", true);
 
 		File carpeta = new File(Utilidades.ruta("aerolinea"));
 		File[] lista = carpeta.listFiles();
@@ -46,7 +46,7 @@ public class DAOAerolineaImpTest {
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
-		assertEquals("la aerolinea con nombre nombre es el id 1", 1, da.leerAerolineaPorNombre("mariloli").getId());
+		assertEquals("la aerolinea con nombre uno es la id 1", 1, da.leerAerolineaPorNombre("uno").getId());
 	}
 	
 	
@@ -55,7 +55,7 @@ public class DAOAerolineaImpTest {
 		Utilidades.esTest();
 		DAOAerolinea da = new DAOAerolineaImp();
 
-		TAerolinea aerolinea = new TAerolinea(1, "florencia",true);
+		TAerolinea aerolinea = new TAerolinea(1, "unoMODIFICADO",true);
 
 		assertTrue("Ha leido mal el fichero", da.modificarAerolinea(aerolinea));
 	}
@@ -66,7 +66,7 @@ public class DAOAerolineaImpTest {
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
-		assertTrue("No se ha dado de baja", da.bajaAerolinea(1));
+		assertTrue("No se ha dado de baja", da.bajaAerolinea(2));
 	}
 
 	@Test

@@ -40,9 +40,9 @@ public class DAOAerolineaImp implements DAOAerolinea {
 			} catch (FileNotFoundException e) {
 			}
 
-			/*if (data.getString("nombre").equals(nombre)) {
+			if (data.getString("nombre").equals(nombre)) {
 				return new TAerolinea(data.getInt("id"), data.getString("nombre"), data.getBoolean("activo"));
-			}*/
+			}
 
 			i++;
 		}
@@ -61,7 +61,6 @@ public class DAOAerolineaImp implements DAOAerolinea {
 			FileWriter archivo = new FileWriter(Utilidades.ruta("aerolinea") + String.format("%05d", id) + ".json");
 
 			archivo.write(this.toJSON(tAerolinea).toString());
-			System.out.println("Creadisimo");
 			archivo.close();
 
 			return id;
@@ -125,7 +124,6 @@ public class DAOAerolineaImp implements DAOAerolinea {
 		jo.put("id", taerolinea.getId());
 		jo.put("nombre", taerolinea.getNombre());
 		jo.put("activo", taerolinea.getActivo());
-		System.out.println("Increible");
 
 		return jo;
 	}
