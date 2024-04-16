@@ -88,7 +88,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		consultarTodas.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ctrl.accion(EventosControlador.VISTA_CONSULTAR_TODOS_AEROLINEAS, null);
+				ctrl.accion(EventosControlador.CONSULTAR_TODOS_AEROLINEAS, null);
 			}
 		});
 

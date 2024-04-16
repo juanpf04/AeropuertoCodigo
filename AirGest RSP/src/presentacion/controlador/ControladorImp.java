@@ -195,12 +195,17 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_AEROLINEA_POR_ID:
+			vista = fp.crearVistaConsultarAerolineaPorId();
+			vista.actualizaVista(null);
 			break;
-		case VISTA_CONSULTAR_TODOS_AEROLINEAS:
-			break;
+		/*case VISTA_CONSULTAR_TODOS_AEROLINEAS:
+			vista = fp.crearVistaConsultarTodasAerolineas();
+			vista.actualizaVista(null);
+			break;*/
 		case VISTA_MODIFICAR_AEROLINEA:
+			vista = fp.crearVistaModificarAerolinea();
+			vista.actualizaVista(null);
 			break;
-
 		case ALTA_AEROLINEA:// AEROLÍNEA
 			sa = fn.crearSAAerolinea();
 			int id_aerolinea = sa.altaAerolinea((TAerolinea) datos);
@@ -225,12 +230,29 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		case CONSULTAR_AEROLINEA_POR_ID:
+			sa = fn.crearSAAerolinea();
+			TAerolinea aerolinea = sa.consultarAerolineaPorId((int) datos);
+			vista = fp.crearVistaResultadoConsultarAerolineaPorId();
+			vista.actualizaVista(aerolinea);
 			break;
 		case CONSULTAR_TODOS_AEROLINEAS:
+			sa = fn.crearSAAerolinea();
+			List<TAerolinea> aerolineas = sa.consultarTodasAerolineas();
+			vista = fp.crearVistaResultadoConsultarTodasAerolineas();
+			vista.actualizaVista(aerolineas);
 			break;
 		case MODIFICAR_AEROLINEA:
-			break;
+			sa = fn.crearSAAerolinea();
+			exito = sa.modificarAerolinea((TAerolinea) datos);
 
+			if (exito)
+				vista = fp.crearVistaExitoModificarAerolinea();
+			else
+				vista = fp.crearVistaFalloModificarAerolinea();
+
+			vista.actualizaVista(null);
+
+			break;
 		case VISTA_CONTRATO:// VISTA CONTRATO
 			break;
 		case VISTA_ABRIR_CONTRATO:

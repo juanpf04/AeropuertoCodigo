@@ -3,25 +3,43 @@
  */
 package presentacion.aerolinea;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author sanch
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
-public class VistaResultadoConsultarAerolineaPorId extends JFrame implements Observador {
-	/** 
-	* (non-Javadoc)
-	* @see Observador#actualizaVista(Object datos)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void actualizaVista(Object datos) {
-		// begin-user-code
-		// TODO Auto-generated method stub
 
-		// end-user-code
+public class VistaResultadoConsultarAerolineaPorId extends JFrame implements Observador {
+	
+	public VistaResultadoConsultarAerolineaPorId() {
+		super("Resultado");
+		this.setSize(1000, 750);
+	}
+
+	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		JPanel principal = new JPanel();
+		principal.setLayout(new BorderLayout());
+
+		String aerolinea = datos == null ? "" : ((TAerolinea) datos).toString();
+
+		JLabel exito = new JLabel(aerolinea);
+		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
+		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		principal.add(exito, BorderLayout.PAGE_START);
+
+		this.setContentPane(principal);
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocation(200, 200);
+		this.pack();
+
 	}
 }

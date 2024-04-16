@@ -143,7 +143,7 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaBajaAerolinea();
 	}
 	
-	public Observador crearVistaConsutarAerolineaPorId(){
+	public Observador crearVistaConsultarAerolineaPorId(){
 		return new VistaConsultarAerolineaPorId();
 	}
 	

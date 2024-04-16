@@ -64,9 +64,9 @@ public void actualizaVista(Object datos) {
 				public void actionPerformed(ActionEvent e) {
 					try {
 						int id = Integer.parseInt(textoId.getText());
-						controlador.accion(EventosControlador.BAJA_MODELO, id);
+						controlador.accion(EventosControlador.BAJA_AEROLINEA, id);
 					} catch (NumberFormatException n) {
-						controlador.accion(EventosControlador.BAJA_MODELO, 0);
+						controlador.accion(EventosControlador.BAJA_AEROLINEA, 0);
 					}
 				}
 
@@ -83,7 +83,7 @@ public void actualizaVista(Object datos) {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
-					controlador.accion(EventosControlador.VISTA_MODELO, null);
+					controlador.accion(EventosControlador.VISTA_AEROLINEA, null);
 				}
 			});
 

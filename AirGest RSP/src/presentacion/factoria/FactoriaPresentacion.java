@@ -83,7 +83,7 @@ public abstract class FactoriaPresentacion {
 	
 	public abstract Observador crearVistaBajaAerolinea();
 	
-	public abstract Observador crearVistaConsutarAerolineaPorId();
+	public abstract Observador crearVistaConsultarAerolineaPorId();
 	
 	public abstract Observador crearVistaModificarAerolinea();
 	
