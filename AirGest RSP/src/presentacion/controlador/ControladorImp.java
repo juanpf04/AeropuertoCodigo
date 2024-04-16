@@ -180,6 +180,8 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_AEROLINEA:// VISTA AEROLÍNEA
+			vista = fp.crearVistaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_AEROLINEA:
 			break;

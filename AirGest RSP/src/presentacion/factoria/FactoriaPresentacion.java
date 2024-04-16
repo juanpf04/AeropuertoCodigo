@@ -60,67 +60,32 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador CrearVistaPrincipal();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	
 	public abstract Observador crearVistaFalloAltaAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaExitoAltaAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaFalloBajaAerolinea();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	
 	public abstract Observador crearVistaExitoBajaAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaResultadoConsultarAerolineaPorId();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaResultadoConsultarTodasAerolineas();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaFalloModificarAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaExitoModificarAerolinea();
+	
+	public abstract Observador crearVistaAerolinea();
+	
+	public abstract Observador crearVistaAltaAerolinea();
+	
+	public abstract Observador crearVistaBajaAerolinea();
+	
+	public abstract Observador crearVistaConsutarAerolineaPorId();
+	
+	public abstract Observador crearVistaModificarAerolinea();
+	
+	public abstract Observador crearVistaConsultarTodasAerolineas();
 }

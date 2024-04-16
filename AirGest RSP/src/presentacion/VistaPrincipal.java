@@ -65,9 +65,15 @@ public class VistaPrincipal extends JFrame implements Observador {
 		botones.add(avion);
 
 		//-------------------------------------------
-		JButton consultarID = new JButton("AEROLINEA");
+		JButton aerolinea = new JButton("AEROLINEA");
+		aerolinea.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 
-		botones.add(consultarID);
+			}
+		});
+		aerolinea.setToolTipText("MODULO AEROLINEA");
+		botones.add(aerolinea);
 
 		//-------------------------------------------
 		JButton consultarTodos = new JButton("HANGAR");

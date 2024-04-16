@@ -88,24 +88,44 @@ public class VistaAerolinea extends JFrame implements Observador {
 		consultarTodas.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ctrl.accion(EventosControlador.CONSULTAR_TODAS_AEROLINEAS, null);
+				ctrl.accion(EventosControlador.VISTA_CONSULTAR_TODOS_AEROLINEAS, null);
 			}
 		});
 
 		botones.add(consultarTodas);
 
 		//-------------------------------------------
-		JButton modificar = new JButton("MODIFICAR MODELO");
+		JButton modificar = new JButton("MODIFICAR AEROLINEA");
 
 		modificar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ctrl.accion(EventosControlador.VISTA_MODIFICAR_MODELO, null);
+				ctrl.accion(EventosControlador.VISTA_MODIFICAR_AEROLINEA, null);
 			}
 		});
 
 		botones.add(modificar);
 
+		principal.add(botones, BorderLayout.CENTER);
+		
+		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		atras.setToolTipText("Esto vuelve a la ventana anterior");
+		atras.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ctrl.accion(EventosControlador.VISTA_PRINCIPAL, null);
+			}
+
+		});
+		principal.add(atras, BorderLayout.PAGE_END);
+
+		this.setContentPane(principal);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocation(200, 200);
+		this.pack();
 	}
 }
