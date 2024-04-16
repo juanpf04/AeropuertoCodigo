@@ -3,11 +3,35 @@ package negocio.avion;
 import java.time.LocalDate;
 
 public class TAPrivado extends TAvion {
-	public TAPrivado(int int1, int int2, LocalDate fecha, String string, String string2, boolean boolean1, int int3,
-			int int4, int int5, String string3, int int6) {
-		// TODO Auto-generated constructor stub
-	}
+
 	private String nombre_duenyo;
-	private int IdCarnet;
-	
+	private int idCarnet;
+
+	public TAPrivado(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
+			boolean activo, int idAerolinea, int idModelo, int idHangar, String nombre_duenyo, int idCarnet) {
+		super(id, numAsientos, fechaFabricacion, nombre, matricula, activo, idAerolinea, idModelo, idHangar);
+		this.nombre_duenyo = nombre_duenyo;
+		this.idCarnet = idCarnet;
+	}
+
+	public int getIdCarnet() {
+		return this.idCarnet;
+	}
+
+	public String getNombreDuenyo() {
+		return this.nombre_duenyo;
+	}
+
+	public void setId(int idCarnet) {
+		this.idCarnet = idCarnet;
+	}
+
+	public void setNombreDuenyo(String nombre_duenyo) {
+		this.nombre_duenyo = nombre_duenyo;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nNombre dueño: " + this.getNombreDuenyo() + "\nId carnet: " + this.getIdCarnet();
+	}
 }

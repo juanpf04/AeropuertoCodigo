@@ -58,7 +58,8 @@ public class VistaPrincipal extends JFrame implements Observador {
 		avion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_MODELO, null);
 			}
 		});
 		avion.setToolTipText("MODULO AVION");

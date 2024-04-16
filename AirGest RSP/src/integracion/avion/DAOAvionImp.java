@@ -16,7 +16,6 @@ import integracion.Utilidades;
 import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
-import negocio.modelo.TModelo;
 
 public class DAOAvionImp implements DAOAvion {
 
@@ -38,7 +37,33 @@ public class DAOAvionImp implements DAOAvion {
 		jo.put("idAerolinea", tAvion.getIdAerolinea());
 		jo.put("idHangar", tAvion.getIdHangar());
 
+		if (tAvion.getClass() == TAComercial.class)
+			jo.put("trabajadores", ((TAComercial) tAvion).getTrabajadores());
+		else {
+			jo.put("idCarnet", ((TAPrivado) tAvion).getIdCarnet());
+			jo.put("dueño", ((TAPrivado) tAvion).getNombreDuenyo());
+		}
+
 		return jo;
+	}
+
+	private TAvion read(JSONObject data) {
+		TAvion avion;
+
+		JSONObject jo = data.getJSONObject("fechaFabricacion");
+
+		LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
+
+		if (data.has("dueño"))
+			avion = new TAPrivado(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
+					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),
+					data.getInt("idModelo"), data.getInt("idHangar"), data.getString("dueño"), data.getInt("carnet"));
+		else
+			avion = new TAComercial(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
+					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),
+					data.getInt("idModelo"), data.getInt("idHangar"), data.getInt("trabajadores"));
+
+		return avion;
 	}
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
@@ -50,18 +75,10 @@ public class DAOAvionImp implements DAOAvion {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo) {
+				if (data.getInt("idModelo") == idModelo)
+					aviones.add(this.read(data));
 
-					JSONObject jo = data.getJSONObject("fechaFabricacion");
-
-					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
-							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
-				}
 			} catch (FileNotFoundException e) {
-
 			}
 		}
 
@@ -77,18 +94,10 @@ public class DAOAvionImp implements DAOAvion {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")) {
+				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo"))
+					aviones.add(this.read(data));
 
-					JSONObject jo = data.getJSONObject("fechaFabricacion");
-
-					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
-							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
-				}
 			} catch (FileNotFoundException e) {
-
 			}
 		}
 
@@ -107,14 +116,14 @@ public class DAOAvionImp implements DAOAvion {
 
 			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
 
-			archivo.write(toJSON(tAvion).toString());
+			archivo.write(this.toJSON(tAvion).toString());
 			archivo.close();
 
 			return id;
 
 		} catch (IOException e) {
+			return -1;
 		}
-		return -1;
 	}
 
 	@Override
@@ -141,21 +150,7 @@ public class DAOAvionImp implements DAOAvion {
 		try {
 			JSONObject data = new JSONObject(
 					new JSONTokener(new FileReader(Utilidades.ruta("avion") + String.format("%05d", id) + ".json")));
-
-			TAvion avion;
-			
-			JSONObject jo = data.getJSONObject("fechaFabricacion");
-
-			LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-			
-			if (data.has("dueño")) 
-				avion = new TAPrivado(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-						data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar"), data.getString("dueño"), data.getInt("carnet"));
-			else
-				avion = new TAComercial(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-						data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar"), data.getInt("trabajadores"));
-
-			return avion;
+			return this.read(data);
 		} catch (FileNotFoundException e) {
 			return null;
 		}
@@ -163,29 +158,115 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarTodosAviones() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+
+				aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
 	}
 
 	@Override
 	public boolean modificarAvion(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
+		try {
+			FileWriter archivo = new FileWriter(
+					Utilidades.ruta("avion") + String.format("%05d", tAvion.getId()) + ".json");
+			archivo.write(this.toJSON(tAvion).toString());
+			archivo.close();
+
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
 	}
 
 	@Override
 	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea) {
-		// TODO Auto-generated method stub
-		return null;
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idAerolinea") == idAerolinea)
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public List<TAvion> consultarAvionesActivosPorAerolinea(int idAerolinea) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idAerolinea") == idAerolinea && data.getBoolean("activo"))
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
 	}
 
 	@Override
 	public List<TAvion> consultarAvionesPorHangar(int idHangar) {
-		// TODO Auto-generated method stub
-		return null;
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idHangar") == idHangar)
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public List<TAvion> consultarAvionesActivosPorHangar(int idHangar) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idHangar") == idHangar && data.getBoolean("activo"))
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
 	}
 }

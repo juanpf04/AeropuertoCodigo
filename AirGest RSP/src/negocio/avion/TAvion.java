@@ -24,7 +24,6 @@ public class TAvion {
 	private int idHangar;
 
 	public TAvion() {
-
 	}
 
 	public TAvion(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula, boolean activo,

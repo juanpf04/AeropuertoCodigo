@@ -23,4 +23,8 @@ public interface DAOAvion {
 	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea);
 
 	public List<TAvion> consultarAvionesPorHangar(int idHangar);
+
+	public List<TAvion> consultarAvionesActivosPorAerolinea(int idAerolinea);
+
+	public List<TAvion> consultarAvionesActivosPorHangar(int idHangar);
 }
