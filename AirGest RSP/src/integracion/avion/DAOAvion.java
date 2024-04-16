@@ -16,6 +16,8 @@ public interface DAOAvion {
 
 	public TAvion consultarAvionPorId(int idAvion);
 
+	public TAvion consultarAvionPorNombre(String nombre);
+
 	public List<TAvion> consultarTodosAviones();
 
 	public boolean modificarAvion(TAvion tAvion);

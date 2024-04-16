@@ -269,4 +269,27 @@ public class DAOAvionImp implements DAOAvion {
 
 		return aviones;
 	}
+
+	@Override
+	public TAvion consultarAvionPorNombre(String nombre) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		int i = 0;
+		while (i < lista.length) {
+			JSONObject data = new JSONObject();
+			try {
+				data = new JSONObject(new JSONTokener(new FileReader(lista[i])));
+			} catch (FileNotFoundException e) {
+			}
+
+			if (data.getString("nombre").equals(nombre)) {
+				return this.read(data);
+			}
+
+			i++;
+		}
+
+		return null;
+	}
 }
