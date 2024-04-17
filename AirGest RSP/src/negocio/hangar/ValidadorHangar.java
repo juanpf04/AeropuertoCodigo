@@ -16,10 +16,7 @@ public class ValidadorHangar {
 	}
 
 	public static boolean comprobarDireccion(String direccion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return true;
-		// end-user-code
+		return direccion.matches("[a-zA-Z0-9 ]+");
 	}
 
 	public static boolean comprobarStock(int stock) {

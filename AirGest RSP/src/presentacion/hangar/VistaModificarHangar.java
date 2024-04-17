@@ -115,7 +115,7 @@ public class VistaModificarHangar extends JFrame implements Observador {
 					THangar transfer = new THangar(idLeido, dirLeido, stockLeido, costeLeido, espacioLeido, true);
 					controlador.accion(EventosControlador.MODIFICAR_HANGAR, transfer);
 				} catch (NumberFormatException n) {
-					controlador.accion(EventosControlador.MODIFICAR_HANGAR, new TModelo());
+					controlador.accion(EventosControlador.MODIFICAR_HANGAR, new THangar());
 				}
 
 			}

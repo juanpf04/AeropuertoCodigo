@@ -32,19 +32,7 @@ private boolean noImporta = true;
 	@Test
 	public void comprobar_direccion_test() {
 		Utilidades.esTest();
-//todavia nada...
-//		assertTrue("boeing-747 deberia ser un nombre valido", ValidadorHangar.comprobarNombre("boeing-747"));
-//		assertFalse("mal1", ValidadorHangar.comprobarNombre("boeing7-747"));
-//		assertFalse("mal2", ValidadorHangar.comprobarNombre("boeing7-747"));
-//		assertFalse("mal3", ValidadorHangar.comprobarNombre("boeing7-747"));
-//		assertFalse("mal4", ValidadorHangar.comprobarNombre("boeing-747h"));
-//		assertFalse("mal5", ValidadorHangar.comprobarNombre("boeing747"));
-//		assertFalse("mal6", ValidadorHangar.comprobarNombre("boeing"));
-//		assertFalse("mal7", ValidadorHangar.comprobarNombre("747"));
-//		assertFalse("mal8", ValidadorHangar.comprobarNombre("boeing_747"));
-//		assertFalse("mal9", ValidadorHangar.comprobarNombre("&boeing-747"));
-//		assertFalse("mal0", ValidadorHangar.comprobarNombre("boeing-"));
-//		assertFalse("mal11", ValidadorHangar.comprobarNombre("-747"));
+		assertTrue("el nombre debería ser valido", ValidadorHangar.comprobarDireccion("Hola 123"));
 		
 	}
 	
