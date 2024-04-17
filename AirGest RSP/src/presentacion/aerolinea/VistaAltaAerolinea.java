@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
@@ -23,17 +21,8 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author sanch
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
 public class VistaAltaAerolinea extends JFrame implements Observador {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {

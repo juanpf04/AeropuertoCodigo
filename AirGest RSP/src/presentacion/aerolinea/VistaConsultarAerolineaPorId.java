@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package presentacion.aerolinea;
 
 import java.awt.Dimension;

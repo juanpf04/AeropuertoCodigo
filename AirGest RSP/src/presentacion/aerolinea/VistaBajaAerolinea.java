@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package presentacion.aerolinea;
 
 import java.awt.Dimension;
@@ -20,18 +18,9 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author sanch
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+
 public class VistaBajaAerolinea extends JFrame implements Observador {
-	/** 
-	* (non-Javadoc)
-	* @see Observador#actualizaVista(Object datos)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
 public void actualizaVista(Object datos) {
 			this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 			JPanel principal = new JPanel();
@@ -93,6 +82,6 @@ public void actualizaVista(Object datos) {
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.setVisible(true);
 			this.setLocation(200, 200);
-			this.pack();
+			this.pack();//fdsf
 		}
 	}
