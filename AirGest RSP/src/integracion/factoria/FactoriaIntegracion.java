@@ -20,9 +20,10 @@ public abstract class FactoriaIntegracion {
 
 	public abstract DAOAvion crearDAOAvion();
 
-	public abstract DAOAerolinea crearDAOAeolinea();
+	public abstract DAOAerolinea crearDAOAerolinea();
 
 	public abstract DAOModeloAerolinea crearDAOModeloAerolinea();
-
+	
 	public abstract DAOHangar crearDAOHangar();
+	//public abstract DAOContrato crearDAOContrato();
 }

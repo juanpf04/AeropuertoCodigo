@@ -1,8 +1,8 @@
 package negocio.factoria;
 
 import negocio.hangar.SAHangar;
+import negocio.aerolinea.SAAerolinea;
 import negocio.modelo.SAModelo;
-import negocio.modelo.SAModeloImp;
 
 public abstract class FactoriaNegocio {
 
@@ -17,4 +17,6 @@ public abstract class FactoriaNegocio {
 	public abstract SAModelo crearSAModelo();
 
 	public abstract SAHangar crearSAHangar();
+	
+	public abstract SAAerolinea crearSAAerolinea();
 }

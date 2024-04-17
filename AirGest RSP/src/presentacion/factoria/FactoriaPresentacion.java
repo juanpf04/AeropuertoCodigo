@@ -1,3 +1,4 @@
+
 package presentacion.factoria;
 
 import presentacion.Observador;
@@ -24,12 +25,6 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador crearVistaBajaModelo();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaConsultarTodosModelos();
 
 	public abstract Observador crearVistaResultadoConsultarTodosModelos();
@@ -60,6 +55,35 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador CrearVistaPrincipal();
 
+	
+	public abstract Observador crearVistaFalloAltaAerolinea();
+
+	public abstract Observador crearVistaExitoAltaAerolinea();
+
+	public abstract Observador crearVistaFalloBajaAerolinea();
+	
+	public abstract Observador crearVistaExitoBajaAerolinea();
+
+	public abstract Observador crearVistaResultadoConsultarAerolineaPorId();
+
+	public abstract Observador crearVistaResultadoConsultarTodasAerolineas();
+
+	public abstract Observador crearVistaFalloModificarAerolinea();
+
+	public abstract Observador crearVistaExitoModificarAerolinea();
+	
+	public abstract Observador crearVistaAerolinea();
+	
+	public abstract Observador crearVistaAltaAerolinea();
+	
+	public abstract Observador crearVistaBajaAerolinea();
+	
+	public abstract Observador crearVistaConsultarAerolineaPorId();
+	
+	public abstract Observador crearVistaModificarAerolinea();
+	
+	public abstract Observador crearVistaConsultarTodasAerolineas();
+	
 	public abstract Observador crearVistaHangar();//poner esto abstract en diagrama
 
 	public abstract Observador crearVistaAltaHangar();

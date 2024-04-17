@@ -6,6 +6,7 @@ import integracion.avion.DAOAvion;
 import integracion.avion.DAOAvionImp;
 import integracion.hangar.DAOHangar;
 import integracion.hangar.DAOHangarImp;
+import integracion.contrato.DAOContrato;
 import integracion.modelo.DAOModelo;
 import integracion.modelo.DAOModeloImp;
 import integracion.modeloAerolinea.DAOModeloAerolinea;
@@ -21,7 +22,7 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 		return new DAOAvionImp();
 	}
 
-	public DAOAerolinea crearDAOAeolinea() {
+	public DAOAerolinea crearDAOAerolinea() {
 		return new DAOAerolineaImp();
 	}
 
@@ -32,5 +33,11 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 	@Override
 	public DAOHangar crearDAOHangar() {
 		return new DAOHangarImp();
+}
+	public DAOContrato crearDAOContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
 	}
 }

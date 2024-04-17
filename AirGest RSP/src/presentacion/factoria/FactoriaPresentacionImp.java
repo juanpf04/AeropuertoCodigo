@@ -1,6 +1,21 @@
+
 package presentacion.factoria;
 
 import presentacion.VistaPrincipal;
+import presentacion.aerolinea.VistaAerolinea;
+import presentacion.aerolinea.VistaAltaAerolinea;
+import presentacion.aerolinea.VistaBajaAerolinea;
+import presentacion.aerolinea.VistaConsultarAerolineaPorId;
+import presentacion.aerolinea.VistaConsultarTodasAerolineas;
+import presentacion.aerolinea.VistaExitoAltaAerolinea;
+import presentacion.aerolinea.VistaExitoBajaAerolinea;
+import presentacion.aerolinea.VistaExitoModificarAerolinea;
+import presentacion.aerolinea.VistaFalloAltaAerolinea;
+import presentacion.aerolinea.VistaFalloBajaAerolinea;
+import presentacion.aerolinea.VistaFalloModificarAerolinea;
+import presentacion.aerolinea.VistaModificarAerolinea;
+import presentacion.aerolinea.VistaResultadoConsultarAerolineaPorId;
+import presentacion.aerolinea.VistaResultadoConsultarTodasAerolineas;
 import presentacion.hangar.VistaAltaHangar;
 import presentacion.hangar.VistaBajaHangar;
 import presentacion.hangar.VistaConsultarHangarPorId;
@@ -41,18 +56,6 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador crearVistaBajaModelo() {
 		return new VistaBajaModelo();
-	}
-
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaConsultarTodosModelos()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public Observador crearVistaConsultarTodosModelos() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
 	}
 
 	public Observador crearVistaResultadoConsultarTodosModelos() {
@@ -161,5 +164,67 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador crearVistaFalloModificarHangar() {
 		return new VistaFalloModificarHangar();
+	}
+	
+	public Observador crearVistaFalloAltaAerolinea() {
+		return new VistaFalloAltaAerolinea();
+	}
+
+	public Observador crearVistaExitoAltaAerolinea() {
+		return new VistaExitoAltaAerolinea();
+	}
+
+	public Observador crearVistaFalloBajaAerolinea() {
+		return new VistaFalloBajaAerolinea();
+	}
+
+	public Observador crearVistaExitoBajaAerolinea() {
+		return new VistaExitoBajaAerolinea();
+	}
+
+	public Observador crearVistaResultadoConsultarAerolineaPorId() {
+		return new VistaResultadoConsultarAerolineaPorId();
+	}
+
+	public Observador crearVistaResultadoConsultarTodasAerolineas() {
+		return new VistaResultadoConsultarTodasAerolineas();
+	}
+
+	public Observador crearVistaFalloModificarAerolinea() {
+		return new VistaFalloModificarAerolinea();
+	}
+
+	public Observador crearVistaExitoModificarAerolinea() {
+		return new VistaExitoModificarAerolinea();
+	}
+	
+	public Observador crearVistaAerolinea() {
+		return new VistaAerolinea();
+	}
+	
+	public Observador crearVistaAltaAerolinea(){
+		return new VistaAltaAerolinea();
+	}
+	
+	public Observador crearVistaBajaAerolinea(){
+		return new VistaBajaAerolinea();
+	}
+	
+	public Observador crearVistaConsultarAerolineaPorId(){
+		return new VistaConsultarAerolineaPorId();
+	}
+	
+	public Observador crearVistaModificarAerolinea(){
+		return new VistaModificarAerolinea();
+	}
+	
+	public Observador crearVistaConsultarTodasAerolineas(){
+		return new VistaConsultarTodasAerolineas();
+	}
+
+	@Override
+	public Observador crearVistaConsultarTodosModelos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

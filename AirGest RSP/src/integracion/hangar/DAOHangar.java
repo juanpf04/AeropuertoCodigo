@@ -4,7 +4,6 @@ package integracion.hangar;
 import negocio.hangar.THangar;
 import java.util.List;
 
-
 public interface DAOHangar {
 
 	public THangar leerHangarPorId(int id);

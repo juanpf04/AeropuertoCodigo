@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package negocio.hangar;
 
 import org.json.JSONObject;

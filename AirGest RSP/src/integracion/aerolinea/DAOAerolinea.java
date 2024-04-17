@@ -1,23 +1,19 @@
-/**
- * 
- */
 package integracion.aerolinea;
 
 import negocio.aerolinea.TAerolinea;
+import java.util.List;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public interface DAOAerolinea {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param idAerolinea
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	
 	public TAerolinea leerAerolineaPorId(int idAerolinea);
+
+	public TAerolinea leerAerolineaPorNombre(String nombre);
+
+	public int altaAerolinea(TAerolinea tAerolinea);
+
+	public boolean modificarAerolinea(TAerolinea tAerolinea);
+
+	public boolean bajaAerolinea(int id);
+
+	public List<TAerolinea> consultarTodasAerolineas();
 }

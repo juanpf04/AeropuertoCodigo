@@ -3,6 +3,8 @@ package presentacion.controlador;
 
 import java.util.List;
 
+import negocio.aerolinea.SAAerolinea;
+import negocio.aerolinea.TAerolinea;
 import negocio.factoria.FactoriaNegocio;
 import negocio.hangar.SAHangar;
 import negocio.hangar.THangar;
@@ -31,6 +33,7 @@ public class ControladorImp extends Controlador {
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
 		SAModelo sm;
 		SAHangar sh;
+		SAAerolinea sa;
 		Observador vista = null;
 		boolean exito;
 
@@ -183,27 +186,76 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_AEROLINEA:// VISTA AEROLÍNEA
+			vista = fp.crearVistaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_AEROLINEA:
+			vista = fp.crearVistaAltaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_BAJA_AEROLINEA:
+			vista = fp.crearVistaBajaAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_AEROLINEA_POR_ID:
+			vista = fp.crearVistaConsultarAerolineaPorId();
+			vista.actualizaVista(null);
 			break;
-		case VISTA_CONSULTAR_TODOS_AEROLINEAS:
-			break;
+		/*case VISTA_CONSULTAR_TODOS_AEROLINEAS:
+			vista = fp.crearVistaConsultarTodasAerolineas();
+			vista.actualizaVista(null);
+			break;*/
 		case VISTA_MODIFICAR_AEROLINEA:
+			vista = fp.crearVistaModificarAerolinea();
+			vista.actualizaVista(null);
 			break;
 
 		case ALTA_AEROLINEA:// AEROLÍNEA
+			sa = fn.crearSAAerolinea();
+			int id_aerolinea = sa.altaAerolinea((TAerolinea) datos);
+
+			if (id_aerolinea != -1) {
+				vista = fp.crearVistaExitoAltaAerolinea();
+				vista.actualizaVista(id_aerolinea);
+			} else {
+				vista = fp.crearVistaFalloAltaAerolinea();
+				vista.actualizaVista(null);
+			}
 			break;
 		case BAJA_AEROLINEA:
+			sa = fn.crearSAAerolinea();
+			exito = sa.bajaAerolinea((int) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoBajaAerolinea();
+			else
+				vista = fp.crearVistaFalloBajaAerolinea();
+
+			vista.actualizaVista(null);
 			break;
 		case CONSULTAR_AEROLINEA_POR_ID:
+			sa = fn.crearSAAerolinea();
+			TAerolinea aerolinea = sa.consultarAerolineaPorId((int) datos);
+			vista = fp.crearVistaResultadoConsultarAerolineaPorId();
+			vista.actualizaVista(aerolinea);
 			break;
 		case CONSULTAR_TODOS_AEROLINEAS:
+			sa = fn.crearSAAerolinea();
+			List<TAerolinea> aerolineas = sa.consultarTodasAerolineas();
+			vista = fp.crearVistaResultadoConsultarTodasAerolineas();
+			vista.actualizaVista(aerolineas);
 			break;
 		case MODIFICAR_AEROLINEA:
+			sa = fn.crearSAAerolinea();
+			exito = sa.modificarAerolinea((TAerolinea) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoModificarAerolinea();
+			else
+				vista = fp.crearVistaFalloModificarAerolinea();
+
+			vista.actualizaVista(null);
+
 			break;
 
 		case VISTA_CONTRATO:// VISTA CONTRATO
