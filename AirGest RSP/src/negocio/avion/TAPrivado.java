@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class TAPrivado extends TAvion {
 
-	private String nombre_duenyo;
+	private String nombreDuenyo;
 	private int idCarnet;
 
 	public TAPrivado(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
 			boolean activo, int idAerolinea, int idModelo, int idHangar, String nombre_duenyo, int idCarnet) {
 		super(id, numAsientos, fechaFabricacion, nombre, matricula, activo, idAerolinea, idModelo, idHangar);
-		this.nombre_duenyo = nombre_duenyo;
+		this.nombreDuenyo = nombre_duenyo;
 		this.idCarnet = idCarnet;
 	}
 
@@ -19,15 +19,15 @@ public class TAPrivado extends TAvion {
 	}
 
 	public String getNombreDuenyo() {
-		return this.nombre_duenyo;
+		return this.nombreDuenyo;
 	}
 
-	public void setId(int idCarnet) {
+	public void setIdCarnet(int idCarnet) {
 		this.idCarnet = idCarnet;
 	}
 
 	public void setNombreDuenyo(String nombre_duenyo) {
-		this.nombre_duenyo = nombre_duenyo;
+		this.nombreDuenyo = nombre_duenyo;
 	}
 
 	@Override

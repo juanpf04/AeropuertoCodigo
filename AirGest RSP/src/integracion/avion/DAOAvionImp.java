@@ -19,7 +19,7 @@ import negocio.avion.TAvion;
 
 public class DAOAvionImp implements DAOAvion {
 
-	private JSONObject toJSON(TAvion tAvion) {
+	private JSONObject write(TAvion tAvion) {
 		JSONObject jo = new JSONObject();
 
 		JSONObject fecha = new JSONObject();
@@ -64,6 +64,18 @@ public class DAOAvionImp implements DAOAvion {
 					data.getInt("idModelo"), data.getInt("idHangar"), data.getInt("trabajadores"));
 
 		return avion;
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see DAOAvion#mostrarAvionesPorModelo(int idModelo)
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public List mostrarAvionesPorModelo(int idModelo) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
 	}
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
@@ -116,7 +128,7 @@ public class DAOAvionImp implements DAOAvion {
 
 			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
 
-			archivo.write(this.toJSON(tAvion).toString());
+			archivo.write(this.write(tAvion).toString());
 			archivo.close();
 
 			return id;
@@ -181,13 +193,37 @@ public class DAOAvionImp implements DAOAvion {
 		try {
 			FileWriter archivo = new FileWriter(
 					Utilidades.ruta("avion") + String.format("%05d", tAvion.getId()) + ".json");
-			archivo.write(this.toJSON(tAvion).toString());
+			archivo.write(this.write(tAvion).toString());
 			archivo.close();
 
 			return true;
 		} catch (IOException e) {
 			return false;
 		}
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see DAOAvion#mostrarAvionesPorAerolinea(int idAerolinea)
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public List mostrarAvionesPorAerolinea(int idAerolinea) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see DAOAvion#mostrarAvionesPorHangar(int idHangar)
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public List mostrarAvionesPorHangar(int idHangar) {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
 	}
 
 	@Override
