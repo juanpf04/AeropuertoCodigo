@@ -61,7 +61,7 @@ public class VistaAltaHangar extends JFrame implements Observador {
 		stock.add(etiquetaStock);
 		stock.add(textoStock);
 		centro.add(stock);
-		
+
 		JPanel costeDia = new JPanel();
 		costeDia.setLayout(new BoxLayout(costeDia, BoxLayout.X_AXIS));
 		JLabel etiquetacosteDia = new JLabel("costeDia:    ");
@@ -73,7 +73,7 @@ public class VistaAltaHangar extends JFrame implements Observador {
 		costeDia.add(etiquetacosteDia);
 		costeDia.add(textocosteDia);
 		centro.add(costeDia);
-		
+
 		JPanel espacioAlmacenaje = new JPanel();
 		espacioAlmacenaje.setLayout(new BoxLayout(espacioAlmacenaje, BoxLayout.X_AXIS));
 		JLabel etiquetaespacioAlmacenaje = new JLabel("espacioAlmacenaje:    ");
@@ -85,7 +85,6 @@ public class VistaAltaHangar extends JFrame implements Observador {
 		espacioAlmacenaje.add(etiquetaespacioAlmacenaje);
 		espacioAlmacenaje.add(textoespacioAlmacenaje);
 		centro.add(espacioAlmacenaje);
-		
 
 		Controlador controlador = Controlador.getInstance();
 
@@ -94,14 +93,14 @@ public class VistaAltaHangar extends JFrame implements Observador {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					String dirLeido = textoDir.getText();
 					int stockLeido = Integer.parseInt(textoStock.getText());
 					double costeLeido = Double.parseDouble(textocosteDia.getText());//tiene que ser con ., no con , xq sino da error
 					int espacioLeido = Integer.parseInt(textoespacioAlmacenaje.getText());
 					THangar transfer = new THangar(0, dirLeido, stockLeido, costeLeido, espacioLeido, true);
 					controlador.accion(EventosControlador.ALTA_HANGAR, transfer);
-				} catch (NumberFormatException n){
+				} catch (NumberFormatException n) {
 					THangar hangar = new THangar(0, "", 0, 0, 0, false);
 					controlador.accion(EventosControlador.ALTA_HANGAR, hangar);
 				}

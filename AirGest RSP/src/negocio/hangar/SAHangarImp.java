@@ -7,7 +7,7 @@ import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
 
 public class SAHangarImp implements SAHangar {
-	
+
 	public int altaHangar(THangar tHangar) {
 		if (ValidadorHangar.comprobarDatos(tHangar)) {
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
@@ -34,9 +34,9 @@ public class SAHangarImp implements SAHangar {
 			if (leido != null && leido.getActivo()) {
 				DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 
-//				if (da.consultarAvionesActivosPorModelo(id).isEmpty()) {
-//					return dh.bajaHangar(id);
-//				}
+				//				if (da.consultarAvionesActivosPorModelo(id).isEmpty()) {
+				//					return dh.bajaHangar(id);
+				//				}
 			}
 		}
 
@@ -68,7 +68,8 @@ public class SAHangarImp implements SAHangar {
 			THangar leido = dh.leerHangarPorId(id);
 
 			if (leido != null) {
-				if (leido.getActivo() && (leido.getDireccion().equals(direccion) || dh.leerHangarPorDireccion(direccion) == null)) {
+				if (leido.getActivo()
+						&& (leido.getDireccion().equals(direccion) || dh.leerHangarPorDireccion(direccion) == null)) {
 					return dh.modificarHangar(tHangar);
 				}
 			}

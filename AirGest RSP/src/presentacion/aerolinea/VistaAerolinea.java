@@ -19,22 +19,21 @@ import presentacion.controlador.EventosControlador;
 import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 
-
 public class VistaAerolinea extends JFrame implements Observador {
 
 	public VistaAerolinea() {
 		super("AEROLINEA");
 		this.setSize(1000, 750);
 	}
-	
+
 	@Override
 	public void actualizaVista(Object datos) {
-		
+
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel modulo = new JLabel("AEROLINEA"); 
+		JLabel modulo = new JLabel("AEROLINEA");
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		modulo.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(modulo, BorderLayout.PAGE_START);
@@ -44,7 +43,6 @@ public class VistaAerolinea extends JFrame implements Observador {
 
 		Controlador ctrl = Controlador.getInstance();
 
-		
 		JButton alta = new JButton("ALTA DE AEROLINEA");
 		alta.addActionListener(new ActionListener() {
 			@Override
@@ -106,7 +104,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		botones.add(modificar);
 
 		principal.add(botones, BorderLayout.CENTER);
-		
+
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {

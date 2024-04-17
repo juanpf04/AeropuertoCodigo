@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaExitoModificarAerolinea extends JFrame implements Observador {
-	
+
 	public VistaExitoModificarAerolinea() {
 		super("Exito");
 		this.setSize(1000, 750);

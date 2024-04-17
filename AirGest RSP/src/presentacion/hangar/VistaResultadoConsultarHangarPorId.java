@@ -13,7 +13,7 @@ import negocio.hangar.THangar;
 import presentacion.Observador;
 
 public class VistaResultadoConsultarHangarPorId extends JFrame implements Observador {
-	
+
 	public VistaResultadoConsultarHangarPorId() {
 		super("Resultado");
 		this.setSize(1000, 750);

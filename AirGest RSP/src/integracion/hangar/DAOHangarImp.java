@@ -17,13 +17,13 @@ import org.json.JSONTokener;
 import integracion.Utilidades;
 
 public class DAOHangarImp implements DAOHangar {
-	
+
 	public THangar leerHangarPorId(int id) {
 		try {
 			JSONObject data = new JSONObject(
 					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
-			return new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"), data.getFloat("costeDia"), 
-					data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
+			return new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
+					data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
 		} catch (FileNotFoundException e) {
 			return null;
 		}
@@ -33,15 +33,15 @@ public class DAOHangarImp implements DAOHangar {
 		try {
 			JSONObject data = new JSONObject(
 					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
-			THangar tHangar = new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"), data.getFloat("costeDia"), 
-					data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
+			THangar tHangar = new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
+					data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
 			tHangar.setStock(tHangar.getStock() + stock);
-			
+
 			FileWriter archivo = new FileWriter(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json");
 
 			archivo.write(toJSON(tHangar).toString());
 			archivo.close();
-			
+
 			return true;
 		} catch (IOException e) {
 			return false;
@@ -96,8 +96,8 @@ public class DAOHangarImp implements DAOHangar {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				hangares.add(new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"), data.getFloat("costeDia"), 
-						data.getInt("espacioAlmacenaje"), data.getBoolean("activo")));
+				hangares.add(new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
+						data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo")));
 			} catch (FileNotFoundException e) {
 			}
 		}
@@ -131,8 +131,8 @@ public class DAOHangarImp implements DAOHangar {
 			}
 
 			if (data.getString("direccion").equals(direccion)) {
-				return new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"), data.getFloat("costeDia"), 
-						data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
+				return new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
+						data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
 			}
 
 			i++;
@@ -140,8 +140,8 @@ public class DAOHangarImp implements DAOHangar {
 
 		return null;
 	}
-	
-	private JSONObject toJSON(THangar hangar){
+
+	private JSONObject toJSON(THangar hangar) {
 		JSONObject jo = new JSONObject();
 
 		jo.put("id", hangar.getId());

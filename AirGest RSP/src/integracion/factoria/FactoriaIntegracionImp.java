@@ -11,6 +11,7 @@ import integracion.modelo.DAOModelo;
 import integracion.modelo.DAOModeloImp;
 import integracion.modeloAerolinea.DAOModeloAerolinea;
 import integracion.modeloAerolinea.DAOModeloAerolineaImp;
+import integracion.personal.DAOPersonal;
 
 public class FactoriaIntegracionImp extends FactoriaIntegracion {
 
@@ -33,8 +34,21 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 	@Override
 	public DAOHangar crearDAOHangar() {
 		return new DAOHangarImp();
-}
+	}
+
 	public DAOContrato crearDAOContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaIntegracion#crearDAOPersonal()
+	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public DAOPersonal crearDAOPersonal() {
 		// begin-user-code
 		// TODO Auto-generated method stub
 		return null;

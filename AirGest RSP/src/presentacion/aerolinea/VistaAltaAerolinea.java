@@ -22,7 +22,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAltaAerolinea extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
@@ -48,7 +48,6 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		nombre.add(etiquetaNombre);
 		nombre.add(textoNombre);
 		centro.add(nombre);
-
 
 		Controlador controlador = Controlador.getInstance();
 
@@ -87,4 +86,4 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 	}
-	}
+}

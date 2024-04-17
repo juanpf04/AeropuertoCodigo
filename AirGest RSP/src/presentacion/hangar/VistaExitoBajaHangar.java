@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaExitoBajaHangar extends JFrame implements Observador {
-	
+
 	public VistaExitoBajaHangar() {
 		super("Exito");
 		this.setSize(1000, 750);

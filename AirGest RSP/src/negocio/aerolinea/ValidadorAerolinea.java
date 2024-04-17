@@ -1,9 +1,8 @@
 
 package negocio.aerolinea;
 
-
 public class ValidadorAerolinea {
-	
+
 	public static boolean comprobarAerolinea(TAerolinea tAerolinea) {
 		return comprobarNombre(tAerolinea.getNombre());
 	}

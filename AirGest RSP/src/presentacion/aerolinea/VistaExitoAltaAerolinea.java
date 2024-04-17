@@ -13,9 +13,8 @@ import javax.swing.SwingConstants;
 
 import presentacion.Observador;
 
-
 public class VistaExitoAltaAerolinea extends JFrame implements Observador {
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();

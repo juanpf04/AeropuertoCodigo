@@ -4,7 +4,7 @@ import negocio.aerolinea.TAerolinea;
 import java.util.List;
 
 public interface DAOAerolinea {
-	
+
 	public TAerolinea leerAerolineaPorId(int idAerolinea);
 
 	public TAerolinea leerAerolineaPorNombre(String nombre);

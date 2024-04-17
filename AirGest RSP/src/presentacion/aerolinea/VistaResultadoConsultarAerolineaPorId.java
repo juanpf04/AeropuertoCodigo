@@ -13,9 +13,8 @@ import javax.swing.SwingConstants;
 import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
 
-
 public class VistaResultadoConsultarAerolineaPorId extends JFrame implements Observador {
-	
+
 	public VistaResultadoConsultarAerolineaPorId() {
 		super("Resultado");
 		this.setSize(1000, 750);

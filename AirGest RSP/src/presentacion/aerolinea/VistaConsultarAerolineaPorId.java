@@ -18,14 +18,13 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-
 public class VistaConsultarAerolineaPorId extends JFrame implements Observador {
-	
+
 	public VistaConsultarAerolineaPorId() {
 		super("Consultar aerolinea por id");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
