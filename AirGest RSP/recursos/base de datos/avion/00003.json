@@ -1,0 +1,16 @@
+{
+	"trabajadores": 4,
+	"fechaFabricacion": {
+		"mes": 6,
+		"dia": 22,
+		"anyo": 2000
+	},
+	"matricula": "dfggdfg",
+	"idAerolinea": 4,
+	"id": 3,
+	"idModelo": 4,
+	"nombre": "fdggfd",
+	"numAsientos": 4,
+	"activo": true,
+	"idHangar": 4
+}
