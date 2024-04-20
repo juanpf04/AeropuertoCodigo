@@ -34,7 +34,7 @@ public class ControladorImp extends Controlador {
 		switch (evento) {
 
 		case VISTA_PRINCIPAL:// VISTA GENERAL
-			vista = fp.CrearVistaPrincipal();
+			vista = fp.crearVistaPrincipal();
 			vista.actualizaVista(null);
 			break;
 

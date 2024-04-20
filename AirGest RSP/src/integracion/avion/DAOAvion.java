@@ -6,14 +6,7 @@ import negocio.avion.TAvion;
 
 public interface DAOAvion {
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param idModelo
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorModelo(int idModelo);
+	public List<TAvion> mostrarAvionesPorModelo(int idModelo);
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo);
 
@@ -31,23 +24,9 @@ public interface DAOAvion {
 
 	public boolean modificarAvion(TAvion tAvion);
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param idAerolinea
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorAerolinea(int idAerolinea);
+	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea);
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param idHangar
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorHangar(int idHangar);
+	public List<TAvion> mostrarAvionesPorHangar(int idHangar);
 
 	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea);
 

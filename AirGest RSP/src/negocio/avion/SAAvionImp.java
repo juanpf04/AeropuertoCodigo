@@ -14,13 +14,14 @@ public class SAAvionImp implements SAAvion {
 		if (ValidadorAvion.comprobarDatos(tAvion)) {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 			TAvion leido = da.consultarAvionPorNombre(tAvion.getNombre());
-			
+
 			if (leido == null) {
-				//CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE METES SI QUIERES HACER ++ O --
+				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
+				// METES SI QUIERES HACER ++ O --
 				return da.altaAvion(tAvion);
-			}
-			else if (!leido.getActivo()) { 
-				//CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE METES SI QUIERES HACER ++ O --
+			} else if (!leido.getActivo()) {
+				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
+				// METES SI QUIERES HACER ++ O --
 				tAvion.setId(leido.getId());
 				da.modificarAvion(tAvion);
 				return tAvion.getId();
@@ -37,7 +38,8 @@ public class SAAvionImp implements SAAvion {
 			TAvion leido = da.consultarAvionPorId(idAvion);
 
 			if (leido != null && leido.getActivo()) {
-				//CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE METES SI QUIERES HACER ++ O --
+				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
+				// METES SI QUIERES HACER ++ O --
 				return da.bajaAvion(idAvion);
 			}
 		}
@@ -60,18 +62,18 @@ public class SAAvionImp implements SAAvion {
 		return da.consultarTodosAviones();
 	}
 
-	public boolean modificarAvion(TAvion tAvion) {//TODO HACER
-		if (ValidadorModelo.comprobarId(tModelo.getId()) && ValidadorModelo.comprobarDatos(tModelo)) {
-			DAOModelo dm = FactoriaIntegracion.getInstance().crearDAOModelo();
+	public boolean modificarAvion(TAvion tAvion) {// TODO HACER
+		if (ValidadorAvion.comprobarId(tAvion.getId()) && ValidadorAvion.comprobarDatos(tAvion)) {
+			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+			int id = tAvion.getId();
+			String nombre = tAvion.getNombre();
 
-			int id = tModelo.getId();
-			String nombre = tModelo.getNombre();
-
-			TModelo leido = dm.leerModeloPorId(id);
+			TAvion leido = da.consultarAvionPorId(id);
 
 			if (leido != null) {
-				if (leido.getActivo() && (leido.getNombre().equals(nombre) || dm.leerModeloPorNombre(nombre) == null)) {
-					return dm.modificarModelo(tModelo);
+				if (leido.getActivo()
+						&& (leido.getNombre().equals(nombre) || da.consultarAvionPorNombre(nombre) == null)) {
+					return da.modificarAvion(tAvion);
 				}
 			}
 		}
@@ -79,23 +81,17 @@ public class SAAvionImp implements SAAvion {
 	}
 
 	public List<TAvion> mostrarAvionesPorModelo(int idModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarAvionesActivosPorModelo(idModelo);
 	}
 
 	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarAvionesActivosPorAerolinea(idAerolinea);
 	}
 
 	public List<TAvion> mostrarAvionesPorHangar(int idHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.mostrarAvionesPorHangar(idHangar);
 	}
 }
