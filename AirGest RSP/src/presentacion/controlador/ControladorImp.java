@@ -149,11 +149,12 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_AVION:// VISTA AVIÓN
-
+			vista = fp.crearVistaAvion();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_AVION:
 			vista = fp.crearVistaAltaAvion();
-			vista.actualizaVista(null);
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_BAJA_AVION:
 			vista = fp.crearVistaBajaAvion();
