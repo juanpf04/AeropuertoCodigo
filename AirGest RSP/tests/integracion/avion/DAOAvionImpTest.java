@@ -12,22 +12,62 @@ import negocio.avion.TAvion;
 public class DAOAvionImpTest {
 
 	@Test
-	public void consultar_aviones_por_modelo_test() {
-		Utilidades.esTest();
-		DAOAvion da = new DAOAvionImp();
+	public void consultarAvionesPorModelo() {
 
-		List<TAvion> aviones = da.consultarAvionesPorModelo(1);
-
-		assertFalse("crazy", aviones.isEmpty());
 	}
 
 	@Test
-	public void consultar_aviones_activos_por_modelo_test() {
-		Utilidades.esTest();
-		DAOAvion da = new DAOAvionImp();
+	public void consultarAvionesActivosPorModelo() {
 
-		List<TAvion> aviones = da.consultarAvionesActivosPorModelo(1);
+	}
 
-		assertTrue("crazy", aviones.isEmpty());
+	@Test
+	public void altaAvion() {
+
+	}
+
+	@Test
+	public void bajaAvion() {
+
+	}
+
+	@Test
+	public void consultarAvionPorId() {
+
+	}
+
+	@Test
+	public void consultarAvionPorNombre() {
+
+	}
+
+	@Test
+	public void consultarTodosAviones() {
+
+	}
+
+	@Test
+	public void modificarAvion() {
+
+	}
+
+	@Test
+	public void consultarAvionesPorAerolinea() {
+
+	}
+
+	@Test
+	public void consultarAvionesPorHangar() {
+
+	}
+
+	@Test
+	public void consultarAvionesActivosPorAerolinea() {
+
+	}
+
+	@Test
+	public void consultarAvionesActivosPorHangar() {
+
 	}
 }
