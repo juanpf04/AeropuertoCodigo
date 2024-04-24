@@ -1,6 +1,6 @@
 {
 	"id": 1,
-	"numAsientos": 45,
+	"asientos": 45,
 	"fechaFabricacion": {
 		"dia": 12,
 		"mes": 04,

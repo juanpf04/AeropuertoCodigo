@@ -28,7 +28,7 @@ public class DAOAvionImp implements DAOAvion {
 		fecha.put("anyo", tAvion.getFechaFabricacion().getYear());
 
 		jo.put("id", tAvion.getId());
-		jo.put("numAsientos", tAvion.getNumAsientos());
+		jo.put("asientos", tAvion.getNumAsientos());
 		jo.put("fechaFabricacion", fecha);
 		jo.put("nombre", tAvion.getNombre());
 		jo.put("matricula", tAvion.getMatricula());
@@ -37,7 +37,7 @@ public class DAOAvionImp implements DAOAvion {
 		jo.put("idAerolinea", tAvion.getIdAerolinea());
 		jo.put("idHangar", tAvion.getIdHangar());
 
-		if (tAvion.getClass() == TAComercial.class)
+		if (tAvion instanceof TAComercial)
 			jo.put("trabajadores", ((TAComercial) tAvion).getTrabajadores());
 		else {
 			jo.put("idCarnet", ((TAPrivado) tAvion).getIdCarnet());
@@ -57,7 +57,7 @@ public class DAOAvionImp implements DAOAvion {
 		if (data.has("dueño"))
 			avion = new TAPrivado(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
 					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),
-					data.getInt("idModelo"), data.getInt("idHangar"), data.getString("dueño"), data.getInt("carnet"));
+					data.getInt("idModelo"), data.getInt("idHangar"), data.getString("dueño"), data.getInt("idCarnet"));
 		else
 			avion = new TAComercial(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
 					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),

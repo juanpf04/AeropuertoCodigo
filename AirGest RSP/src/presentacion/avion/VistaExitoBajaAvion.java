@@ -1,27 +1,43 @@
-/**
- * 
- */
+
 package presentacion.avion;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
 import presentacion.Observador;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author usuario_local
- * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class VistaExitoBajaAvion extends JFrame implements Observador {
-	/** 
-	* (non-Javadoc)
-	* @see Observador#actualizaVista(Object datos)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void actualizaVista(Object datos) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	
+	public VistaExitoBajaAvion() {
+		super("Exito");
+		this.setSize(1000, 750);
+	}
 
-		// end-user-code
+	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		JPanel principal = new JPanel();
+		principal.setLayout(new BorderLayout());
+
+		JLabel exito = new JLabel("Baja de Avion exitosa!");
+		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
+		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		principal.add(exito, BorderLayout.PAGE_START);
+
+		JLabel imagen = new JLabel();
+		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
+		principal.add(imagen, BorderLayout.CENTER);
+
+		this.setContentPane(principal);
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocation(200, 200);
+		this.pack();
 	}
 }
