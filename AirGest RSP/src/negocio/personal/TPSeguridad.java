@@ -1,7 +1,7 @@
 package negocio.personal;
 
 public class TPSeguridad extends TPersonal {
-	
+
 	private int numPlaca;
 
 	public int getNumPlaca() {
@@ -14,7 +14,7 @@ public class TPSeguridad extends TPersonal {
 
 	public TPSeguridad(int id, int idEmpleado, String areaAsignada, boolean activo, int numPlaca) {
 		super(id, activo, idEmpleado, areaAsignada);
-		
+
 		this.numPlaca = numPlaca;
 	}
 }

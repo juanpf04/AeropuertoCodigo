@@ -14,7 +14,7 @@ public class TPLimpieza extends TPersonal {
 
 	public TPLimpieza(int id, int idEmpleado, String areaAsignada, boolean activo, String rol) {
 		super(id, activo, idEmpleado, areaAsignada);
-		
+
 		this.rol = rol;
 	}
 }

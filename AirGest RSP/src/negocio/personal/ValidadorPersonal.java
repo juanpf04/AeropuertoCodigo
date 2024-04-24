@@ -1,7 +1,7 @@
 package negocio.personal;
 
 public class ValidadorPersonal {
-	
+
 	public static boolean comprobarDatos(TPersonal tPersonal) {
 		return true;
 	}
