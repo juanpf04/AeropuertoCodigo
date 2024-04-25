@@ -69,10 +69,11 @@ public class SAAvionImp implements SAAvion {
 			String nombre = tAvion.getNombre();
 
 			TAvion leido = da.consultarAvionPorId(id);
-
+			
 			if (leido != null) {
 				if (leido.getActivo()
 						&& (leido.getNombre().equals(nombre) || da.consultarAvionPorNombre(nombre) == null)) {
+					tAvion.setFechaFabricacion(leido.getFechaFabricacion());
 					return da.modificarAvion(tAvion);
 				}
 			}

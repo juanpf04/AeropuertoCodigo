@@ -49,9 +49,9 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
 
 			// -------------------------------------------
-			JButton vincular = new JButton("AVION COMERCIAL");
+			JButton comercial = new JButton("AVION COMERCIAL");
 
-			vincular.addActionListener(new ActionListener() {
+			comercial.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
@@ -59,12 +59,12 @@ public class VistaAltaAvion extends JFrame implements Observador {
 				}
 			});
 
-			botones.add(vincular);
+			botones.add(comercial);
 
 			// -------------------------------------------
-			JButton desvincular = new JButton("AVION PRIVADO");
+			JButton privado = new JButton("AVION PRIVADO");
 
-			desvincular.addActionListener(new ActionListener() {
+			privado.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
@@ -72,7 +72,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 				}
 			});
 
-			botones.add(desvincular);
+			botones.add(privado);
 
 			principal.add(botones, BorderLayout.CENTER);
 
