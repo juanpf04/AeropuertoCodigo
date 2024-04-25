@@ -14,6 +14,7 @@ import org.json.JSONTokener;
 
 import integracion.Utilidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DAOPersonalImp implements DAOPersonal {
@@ -66,6 +67,7 @@ public class DAOPersonalImp implements DAOPersonal {
 		return exito;
 	}
 
+	@Override
 	public int AltaPersonal(TPersonal tPersonal) {
 		File carpeta = new File(Utilidades.ruta("personal"));
 		File[] lista = carpeta.listFiles();
@@ -80,28 +82,35 @@ public class DAOPersonalImp implements DAOPersonal {
 		return id;
 	}
 
+	@Override
 	public boolean BajaPersonal(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
+		TPersonal transfer = this.leerFichero(new File(Utilidades.ruta("personal") + String.format("%05d", id) + ".json"));
+		
+		transfer.setActivo(false);
+		
+		return this.escribirFichero(transfer);
 	}
 
+	@Override
 	public boolean ModificarPersonal(TPersonal tPersonal) {
 		return escribirFichero(tPersonal);
 	}
 
+	@Override
 	public TPersonal ConsultarPersonalPorId(int id) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return this.leerFichero(new File(Utilidades.ruta("personal") + String.format("%05d", id) + ".json"));
 	}
 
+	@Override
 	public List<TPersonal> ConsultarPersonalExistente() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		List<TPersonal> personal = new ArrayList<>();
+		
+		File carpeta = new File(Utilidades.ruta("personal"));
+		File[] lista = carpeta.listFiles();
+		
+		for(File f: lista)
+			personal.add(this.leerFichero(f));
+		
+		return personal;
 	}
 }

@@ -1,35 +1,21 @@
-/**
- * 
- */
 package negocio.personal;
 
 import negocio.personalHangar.TPersonalHangar;
 import java.util.List;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author usuario_local
- * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class SAPersonalImp implements SAPersonal {
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#altaPersonal(TPersonal tPersonal)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
+	@Override
 	public int altaPersonal(TPersonal tPersonal) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		if(ValidadorPersonal.comprobarDatos(tPersonal)){
+			
+			
+		}
+		
+		return -1;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#bajaPersonal(int id)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public boolean bajaPersonal(int id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -37,23 +23,15 @@ public class SAPersonalImp implements SAPersonal {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#vincularPersonal()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean vincularPersonal() {
+	@Override
+	public boolean vincularPersonal(TPersonalHangar tPersonalHangar) {
 		// begin-user-code
 		// TODO Auto-generated method stub
 		return false;
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#desvincularPersonal(TPersonalHangar tPersonalHangar)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public boolean desvincularPersonal(TPersonalHangar tPersonalHangar) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -61,11 +39,7 @@ public class SAPersonalImp implements SAPersonal {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#modificarPersonal(TPersonal tPersonal)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public boolean modificarPersonal(TPersonal tPersonal) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -73,11 +47,7 @@ public class SAPersonalImp implements SAPersonal {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#consultarPersonalPorId(int id)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public TPersonal consultarPersonalPorId(int id) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -85,12 +55,8 @@ public class SAPersonalImp implements SAPersonal {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAPersonal#consultarPersonalExistente()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List consultarPersonalExistente() {
+	@Override
+	public List<TPersonal> consultarPersonalExistente() {
 		// begin-user-code
 		// TODO Auto-generated method stub
 		return null;

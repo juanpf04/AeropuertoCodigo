@@ -1,48 +1,45 @@
-/**
- * 
- */
 package integracion.personalHangar;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author usuario_local
- * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import integracion.Utilidades;
+
 public class DAOPersonalHangarImp implements DAOPersonalHangar {
-	/** 
-	* (non-Javadoc)
-	* @see DAOPersonalHangar#Vincular(int idPersonal, int idHangar)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean Vincular(int idPersonal, int idHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+
+	@Override
+	public boolean vincular(int idPersonal, int idHangar) {
+		try {
+			FileWriter archivo = new FileWriter(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal)
+					+ "_" + String.format("%05d", idHangar) + ".json");
+			archivo.write("{\"idPersonal\":" + idPersonal + ", \"idHangar:\"" + idHangar + "}");
+			archivo.close();
+			return true;
+		} catch (IOException e) {
+
+		}
+
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOPersonalHangar#Desvincular()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean Desvincular() {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	@Override
+	public boolean desvincular(int idPersonal, int idHangar) {
+		File f = new File(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
+				+ String.format("%05d", idHangar) + ".json");
+
+		if (f.exists()) {
+			return f.delete();
+		}
+
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOPersonalHangar#ComprobarVinculacion()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean ComprobarVinculacion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
+	@Override
+	public boolean comprobarVinculacion(int idPersonal, int idHangar) {
+		File f = new File(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
+				+ String.format("%05d", idHangar) + ".json");
+
+		return f.exists();
 	}
 }
