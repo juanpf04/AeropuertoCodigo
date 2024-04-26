@@ -11,5 +11,6 @@
 	"activo": true,
 	"idModelo": 1,
 	"idAerolinea": 1,
-	"idHangar": 1
+	"idHangar": 1,
+	"trabajadores": 7
 }

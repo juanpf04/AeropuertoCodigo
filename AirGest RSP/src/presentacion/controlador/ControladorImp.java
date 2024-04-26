@@ -168,7 +168,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case VISTA_MODIFICAR_AVION:
 			vista = fp.crearVistaModficarAvion();
-			vista.actualizaVista(null);
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_MOSTRAR_AVIONES_POR_MODELO:
 			vista = fp.crearVistaMostrarAvionesPorModelo();
@@ -234,12 +234,12 @@ public class ControladorImp extends Controlador {
 		case MOSTRAR_AVIONES_POR_AEROLINEA:
 			sav = fn.crearSAAvion();
 			vista = fp.crearVistaResultadoMostrarAvionesPorModelo();
-			vista.actualizaVista(sav.mostrarAvionesPorModelo((int) datos));
+			vista.actualizaVista(sav.mostrarAvionesPorAerolinea((int) datos));
 			break;
 		case MOSTRAR_AVIONES_POR_HANGAR:
 			sav = fn.crearSAAvion();
 			vista = fp.crearVistaResultadoMostrarAvionesPorModelo();
-			vista.actualizaVista(sav.mostrarAvionesPorModelo((int) datos));
+			vista.actualizaVista(sav.mostrarAvionesPorHangar((int) datos));
 			break;
 
 		case VISTA_AEROLINEA:// VISTA AEROLÍNEA
