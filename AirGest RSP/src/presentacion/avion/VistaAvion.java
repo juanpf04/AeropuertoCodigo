@@ -114,7 +114,7 @@ public class VistaAvion extends JFrame implements Observador {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ctrl.accion(EventosControlador.MOSTRAR_AVIONES_POR_MODELO, null);
+				ctrl.accion(EventosControlador.VISTA_MOSTRAR_AVIONES_POR_MODELO, null);
 			}
 		});
 
@@ -127,7 +127,7 @@ public class VistaAvion extends JFrame implements Observador {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ctrl.accion(EventosControlador.MOSTRAR_AVIONES_POR_HANGAR, null);
+				ctrl.accion(EventosControlador.VISTA_MOSTRAR_AVIONES_POR_HANGAR, null);
 			}
 		});
 
@@ -140,7 +140,7 @@ public class VistaAvion extends JFrame implements Observador {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				ctrl.accion(EventosControlador.MOSTRAR_AVIONES_POR_AEROLINEA, null);
+				ctrl.accion(EventosControlador.VISTA_MOSTRAR_AVIONES_POR_AEROLINEA, null);
 			}
 		});
 
