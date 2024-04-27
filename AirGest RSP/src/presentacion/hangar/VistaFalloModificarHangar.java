@@ -12,9 +12,8 @@ import javax.swing.SwingConstants;
 
 import presentacion.Observador;
 
-
 public class VistaFalloModificarHangar extends JFrame implements Observador {
-	
+
 	public VistaFalloModificarHangar() {
 		super("Fallo");
 		this.setSize(1000, 750);

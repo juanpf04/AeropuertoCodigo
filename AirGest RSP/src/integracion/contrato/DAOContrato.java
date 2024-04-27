@@ -1,19 +1,20 @@
-/**
- * 
- */
+
 package integracion.contrato;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author sanch
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+import negocio.contrato.TContrato;
+import java.util.List;
+
 public interface DAOContrato {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void comprobarContratosActivosPorAerolinea();
+	
+	public List<TContrato> comprobarContratosActivosPorAerolinea(int id_aerolinea);
+
+	public int altaContrato(TContrato tContrato);
+
+	public TContrato leerContratoPorId(int id);
+
+	public List<TContrato> leerTodosContratos();
+
+	public List<TContrato> leerContratosPorAerolinea(int id_aerolinea);
+
+	public boolean modificarContrato(TContrato tContrato);
 }

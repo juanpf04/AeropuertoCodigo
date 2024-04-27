@@ -110,6 +110,18 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaModelo();
 	}
 
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaPrincipal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaPrincipal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
 	public Observador CrearVistaPrincipal() {
 		return new VistaPrincipal();
 	}
@@ -165,7 +177,235 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 	public Observador crearVistaFalloModificarHangar() {
 		return new VistaFalloModificarHangar();
 	}
-	
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaAltaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaAltaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaBajaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaBajaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarAvionPorId()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarAvionPorId() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoAltaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoAltaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoBajaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoBajaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoModificarAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoModificarAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloAltaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloAltaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloBajaAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloBajaAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloModificarAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloModificarAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaModficarAvion()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaModficarAvion() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorAerolinea()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaMostrarAvionesPorAerolinea() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorHangar()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaMostrarAvionesPorHangar() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorModelo()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaMostrarAvionesPorModelo() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarAvionPorId()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarAvionPorId() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarTodosAviones()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarTodosAviones() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorAerolinea()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoMostrarAvionesPorAerolinea() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorHangar()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoMostrarAvionesPorHangar() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorModelo()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoMostrarAvionesPorModelo() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
 	public Observador crearVistaFalloAltaAerolinea() {
 		return new VistaFalloAltaAerolinea();
 	}
@@ -197,28 +437,484 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 	public Observador crearVistaExitoModificarAerolinea() {
 		return new VistaExitoModificarAerolinea();
 	}
-	
+
 	public Observador crearVistaAerolinea() {
 		return new VistaAerolinea();
 	}
-	
-	public Observador crearVistaAltaAerolinea(){
+
+	public Observador crearVistaAltaAerolinea() {
 		return new VistaAltaAerolinea();
 	}
-	
-	public Observador crearVistaBajaAerolinea(){
+
+	public Observador crearVistaBajaAerolinea() {
 		return new VistaBajaAerolinea();
 	}
-	
-	public Observador crearVistaConsultarAerolineaPorId(){
+
+	public Observador crearVistaConsultarAerolineaPorId() {
 		return new VistaConsultarAerolineaPorId();
 	}
-	
-	public Observador crearVistaModificarAerolinea(){
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaAltaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaAltaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaBajaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaBajaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaModificarPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaModificarPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaVincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaVincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaDesvincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaDesvincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarPersonalPorId()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarPersonalPorId() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarPersonalExistente()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarPersonalExistente() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoAltaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoAltaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloAltaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloAltaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoBajaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoBajaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloBajaPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloBajaPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoModificarPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoModificarPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloModificarPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloModificarPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoVincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoVincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloVincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloVincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoDesvincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoDesvincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloDesvincularPersonal()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloDesvincularPersonal() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarPersonalPorId()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarPersonalPorId() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarPersonalExistente()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarPersonalExistente() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaAbrirContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaAbrirContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaAñadirHangar()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaAñadirHangar() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaCarrito()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaCarrito() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarContratoPorId()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarContratoPorId() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarContratoPorAerolinea()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarContratoPorAerolinea() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaConsultarTodosContratos()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaConsultarTodosContratos() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaEliminarHangar()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaEliminarHangar() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoCerrarContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoCerrarContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoModificarContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoModificarContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaExitoModificarLineaContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaExitoModificarLineaContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloCerrarContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloCerrarContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloModificarContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloModificarContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaFalloModificarLineaContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaFalloModificarLineaContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaModificarContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaModificarContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaModificarLineaContrato()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaModificarLineaContrato() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarContratosPorAerolinea()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarContratosPorAerolinea() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	/** 
+	* (non-Javadoc)
+	* @see FactoriaPresentacion#crearVistaResultadoConsultarTodosContratos()
+	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	*/
+	public Observador crearVistaResultadoConsultarTodosContratos() {
+		// begin-user-code
+		// TODO Auto-generated method stub
+		return null;
+		// end-user-code
+	}
+
+	public Observador crearVistaModificarAerolinea() {
 		return new VistaModificarAerolinea();
 	}
-	
-	public Observador crearVistaConsultarTodasAerolineas(){
+
+	public Observador crearVistaConsultarTodasAerolineas() {
 		return new VistaConsultarTodasAerolineas();
 	}
 

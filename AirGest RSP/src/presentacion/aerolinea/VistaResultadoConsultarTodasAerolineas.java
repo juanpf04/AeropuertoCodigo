@@ -17,9 +17,8 @@ import javax.swing.JTextArea;
 import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
 
-
 public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Observador {
-	
+
 	public VistaResultadoConsultarTodasAerolineas() {
 		super("Resultado");
 		this.setSize(1000, 750);
@@ -44,7 +43,7 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); 
+		JButton atras = new JButton("ATRAS");
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

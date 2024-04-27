@@ -18,70 +18,69 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-
 public class VistaBajaAerolinea extends JFrame implements Observador {
 
-public void actualizaVista(Object datos) {
-			this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
-			JPanel principal = new JPanel();
-			principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
+	public void actualizaVista(Object datos) {
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		JPanel principal = new JPanel();
+		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-			JLabel funcion = new JLabel("Baja Aerolinea");
-			funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
+		JLabel funcion = new JLabel("Baja Aerolinea");
+		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
 
-			JPanel centro = new JPanel();
-			centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
+		JPanel centro = new JPanel();
+		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
 
-			JPanel id = new JPanel();
-			id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
-			JLabel etiquetaId = new JLabel("id: ");
-			etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-			JTextField textoId = new JTextField();
-			textoId.setMaximumSize(new Dimension(200, 30));
-			textoId.setMinimumSize(new Dimension(200, 30));
-			textoId.setPreferredSize(new Dimension(200, 30));
-			id.add(etiquetaId);
-			id.add(textoId);
-			centro.add(id);
+		JPanel id = new JPanel();
+		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
+		JLabel etiquetaId = new JLabel("id: ");
+		etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		JTextField textoId = new JTextField();
+		textoId.setMaximumSize(new Dimension(200, 30));
+		textoId.setMinimumSize(new Dimension(200, 30));
+		textoId.setPreferredSize(new Dimension(200, 30));
+		id.add(etiquetaId);
+		id.add(textoId);
+		centro.add(id);
 
-			Controlador controlador = Controlador.getInstance();
+		Controlador controlador = Controlador.getInstance();
 
-			JButton aceptar = new JButton("ACEPTAR");
-			aceptar.addActionListener(new ActionListener() {
+		JButton aceptar = new JButton("ACEPTAR");
+		aceptar.addActionListener(new ActionListener() {
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					try {
-						int id = Integer.parseInt(textoId.getText());
-						controlador.accion(EventosControlador.BAJA_AEROLINEA, id);
-					} catch (NumberFormatException n) {
-						controlador.accion(EventosControlador.BAJA_AEROLINEA, 0);
-					}
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					int id = Integer.parseInt(textoId.getText());
+					controlador.accion(EventosControlador.BAJA_AEROLINEA, id);
+				} catch (NumberFormatException n) {
+					controlador.accion(EventosControlador.BAJA_AEROLINEA, 0);
 				}
+			}
 
-			});
+		});
 
-			centro.add(aceptar);
-			principal.add(funcion);
-			principal.add(centro);
+		centro.add(aceptar);
+		principal.add(funcion);
+		principal.add(centro);
 
-			JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
-			atras.setToolTipText("Esto vuelve a la ventana anterior");
-			atras.addActionListener(new ActionListener() {
+		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		atras.setToolTipText("Esto vuelve a la ventana anterior");
+		atras.addActionListener(new ActionListener() {
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					dispose();
-					controlador.accion(EventosControlador.VISTA_AEROLINEA, null);
-				}
-			});
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				controlador.accion(EventosControlador.VISTA_AEROLINEA, null);
+			}
+		});
 
-			principal.add(atras);
+		principal.add(atras);
 
-			this.setContentPane(principal);
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setVisible(true);
-			this.setLocation(200, 200);
-			this.pack();//fdsf
-		}
+		this.setContentPane(principal);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setLocation(200, 200);
+		this.pack();//fdsf
 	}
+}

@@ -318,10 +318,10 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaConsultarHangarPorId();
 			vista.actualizaVista(null);
 			break;
-//		case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR TODOS HANGARES
-//			vista = fp.crearVistaResultadoConsultarTodosHangares();
-//			vista.actualizaVista(null);
-//			break;
+		//		case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR TODOS HANGARES
+		//			vista = fp.crearVistaResultadoConsultarTodosHangares();
+		//			vista.actualizaVista(null);
+		//			break;
 		case VISTA_MODIFICAR_HANGAR:
 			vista = fp.crearVistaModificarHangar();
 			vista.actualizaVista(null);
@@ -349,21 +349,21 @@ public class ControladorImp extends Controlador {
 				vista = fp.crearVistaFalloBajaHangar();
 
 			vista.actualizaVista(null);
-			
+
 			break;
 		case CONSULTAR_HANGAR_POR_ID:
 			sh = fn.crearSAHangar();
 			THangar hangar = sh.consultarHangarPorId((int) datos);
 			vista = fp.crearVistaResultadoConsultarHangarPorId();
 			vista.actualizaVista(hangar);
-			
+
 			break;
 		case CONSULTAR_TODOS_HANGARES:
 			sh = fn.crearSAHangar();
 			List<THangar> hangares = sh.consultarTodosHangares();
 			vista = fp.crearVistaResultadoConsultarTodosHangares();
 			vista.actualizaVista(hangares);
-			
+
 			break;
 		case MODIFICAR_HANGAR:
 			sh = fn.crearSAHangar();
@@ -375,7 +375,7 @@ public class ControladorImp extends Controlador {
 				vista = fp.crearVistaFalloModificarHangar();
 
 			vista.actualizaVista(null);
-			
+
 			break;
 
 		case VISTA_PERSONAL:// VISTA PERSONAL

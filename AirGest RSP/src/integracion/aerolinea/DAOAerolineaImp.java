@@ -27,7 +27,6 @@ public class DAOAerolineaImp implements DAOAerolinea {
 		}
 	}
 
-	
 	public TAerolinea leerAerolineaPorNombre(String nombre) {
 		File carpeta = new File(Utilidades.ruta("aerolinea"));
 		File[] lista = carpeta.listFiles();
@@ -85,8 +84,8 @@ public class DAOAerolineaImp implements DAOAerolinea {
 
 	public boolean bajaAerolinea(int id) {
 		try {
-			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("aerolinea") + String.format("%05d", id) + ".json")));
+			JSONObject data = new JSONObject(new JSONTokener(
+					new FileReader(Utilidades.ruta("aerolinea") + String.format("%05d", id) + ".json")));
 
 			data.put("activo", false);
 
@@ -117,8 +116,8 @@ public class DAOAerolineaImp implements DAOAerolinea {
 
 		return aerolineas;
 	}
-	
-	private JSONObject toJSON(TAerolinea taerolinea){
+
+	private JSONObject toJSON(TAerolinea taerolinea) {
 		JSONObject jo = new JSONObject();
 
 		jo.put("id", taerolinea.getId());

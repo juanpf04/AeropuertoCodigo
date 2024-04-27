@@ -3,7 +3,7 @@ package negocio.hangar;
 import java.util.List;
 
 public interface SAHangar {
-	
+
 	public int altaHangar(THangar tHangar);
 
 	public boolean bajaHangar(int id);

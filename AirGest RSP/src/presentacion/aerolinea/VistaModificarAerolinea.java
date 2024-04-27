@@ -20,9 +20,8 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-
 public class VistaModificarAerolinea extends JFrame implements Observador {
-	
+
 	public VistaModificarAerolinea() {
 		super("Modificar Aerolinea");
 		this.setSize(1000, 750);
@@ -63,7 +62,6 @@ public class VistaModificarAerolinea extends JFrame implements Observador {
 		nombre.add(etiquetaNombre);
 		nombre.add(textoNombre);
 		centro.add(nombre);
-
 
 		Controlador controlador = Controlador.getInstance();
 

@@ -4,7 +4,6 @@ package presentacion.aerolinea;
 import javax.swing.JFrame;
 import presentacion.Observador;
 
-
 public class VistaConsultarTodasAerolineas extends JFrame implements Observador {
 	/** 
 	* (non-Javadoc)

@@ -21,7 +21,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarHangar extends JFrame implements Observador {
-	
+
 	public VistaModificarHangar() {
 		super("Modificar Hangar");
 		this.setSize(1000, 750);
@@ -74,7 +74,7 @@ public class VistaModificarHangar extends JFrame implements Observador {
 		stock.add(etiquetaStock);
 		stock.add(textoStock);
 		centro.add(stock);
-		
+
 		JPanel costeDia = new JPanel();
 		costeDia.setLayout(new BoxLayout(costeDia, BoxLayout.X_AXIS));
 		JLabel etiquetacosteDia = new JLabel("costeDia:    ");
@@ -86,7 +86,7 @@ public class VistaModificarHangar extends JFrame implements Observador {
 		costeDia.add(etiquetacosteDia);
 		costeDia.add(textocosteDia);
 		centro.add(costeDia);
-		
+
 		JPanel espacioAlmacenaje = new JPanel();
 		espacioAlmacenaje.setLayout(new BoxLayout(espacioAlmacenaje, BoxLayout.X_AXIS));
 		JLabel etiquetaespacioAlmacenaje = new JLabel("espacioAlmacenaje:    ");

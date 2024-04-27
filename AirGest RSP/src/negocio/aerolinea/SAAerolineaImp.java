@@ -8,9 +8,8 @@ import integracion.avion.DAOAvion;
 import integracion.contrato.DAOContrato;
 import integracion.factoria.FactoriaIntegracion;
 
-
 public class SAAerolineaImp implements SAAerolinea {
-	
+
 	public int altaAerolinea(TAerolinea tAerolinea) {
 		if (ValidadorAerolinea.comprobarAerolinea(tAerolinea)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
@@ -31,7 +30,7 @@ public class SAAerolineaImp implements SAAerolinea {
 	public boolean bajaAerolinea(int id) {
 		if (ValidadorAerolinea.comprobarId(id)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
-		
+
 			TAerolinea leido = da.leerAerolineaPorId(id);
 
 			if (leido != null && leido.getActivo()) {
@@ -71,14 +70,15 @@ public class SAAerolineaImp implements SAAerolinea {
 			TAerolinea leido = da.leerAerolineaPorId(id);
 
 			if (leido != null) {
-				if (leido.getActivo() && (leido.getNombre().equals(nombre) || da.leerAerolineaPorNombre(nombre) == null)) {
+				if (leido.getActivo()
+						&& (leido.getNombre().equals(nombre) || da.leerAerolineaPorNombre(nombre) == null)) {
 					return da.modificarAerolinea(tAerolinea);
 				}
 			}
 		}
 		return false;
 	}
-	
+
 	public TAerolinea consultarAerolineaPorNombre(String nombre) {
 		if (ValidadorAerolinea.comprobarNombre(nombre)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
