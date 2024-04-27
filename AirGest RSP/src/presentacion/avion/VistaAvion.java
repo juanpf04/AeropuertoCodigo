@@ -80,7 +80,7 @@ public class VistaAvion extends JFrame implements Observador {
 		botones.add(consultarID);
 
 		// -------------------------------------------
-		JButton consultarTodos = new JButton("CONSULTAR TODOS LOS AVION");
+		JButton consultarTodos = new JButton("CONSULTAR TODOS LOS AVIONES");
 
 		consultarTodos.addActionListener(new ActionListener() {
 			@Override

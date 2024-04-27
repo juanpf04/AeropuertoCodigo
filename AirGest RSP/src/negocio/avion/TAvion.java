@@ -112,7 +112,7 @@ public class TAvion {
 	}
 
 	public String toString() {
-		return "Id: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: "
+		return "\nId: " + this.id + "\nNúmero asientos: " + this.numAsientos + "\nFecha fabricación: "
 				+ this.fechaFabricacion + "\nNombre: " + this.nombre + "\nMatrícula: " + this.matricula + "\nActivo: "
 				+ this.activo + "\nId Modelo: " + this.idModelo + "\nId Aerolínea: " + this.idAerolinea + "\nIdHangar: "
 				+ this.idHangar;
