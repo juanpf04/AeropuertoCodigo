@@ -34,16 +34,12 @@ public class VistaResultadoMostrarAvionesPorAerolinea extends JFrame implements 
 
 		String s = "";
 		for (TAvion a : aviones)
-			s += a.toString() + " " + "\n";
+			s += a.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 
-		//		JLabel imagen = new JLabel();
-		//		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
-		//		principal.add(imagen, BorderLayout.CENTER);
-		//		
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);

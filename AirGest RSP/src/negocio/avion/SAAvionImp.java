@@ -83,16 +83,16 @@ public class SAAvionImp implements SAAvion {
 
 	public List<TAvion> mostrarAvionesPorModelo(int idModelo) {
 		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
-		return da.consultarAvionesActivosPorModelo(idModelo);
+		return da.consultarAvionesPorModelo(idModelo);
 	}
 
 	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea) {
 		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
-		return da.consultarAvionesActivosPorAerolinea(idAerolinea);
+		return da.consultarAvionesPorAerolinea(idAerolinea);
 	}
 
 	public List<TAvion> mostrarAvionesPorHangar(int idHangar) {
 		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
-		return da.mostrarAvionesPorHangar(idHangar);
+		return da.consultarAvionesPorHangar(idHangar);
 	}
 }

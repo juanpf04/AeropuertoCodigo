@@ -192,7 +192,7 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloAltaAvion();
 
-			vista.actualizaVista(null);
+			vista.actualizaVista(id);
 			break;
 		case BAJA_AVION:
 			sav = fn.crearSAAvion();
@@ -212,7 +212,7 @@ public class ControladorImp extends Controlador {
 			break;
 		case CONSULTAR_TODOS_AVIONES:
 			sav = fn.crearSAAvion();
-			vista = fp.crearVistaResultadoConsultarTodosModelos();
+			vista = fp.crearVistaResultadoConsultarTodosAviones();
 			vista.actualizaVista(sav.consultarTodosAviones());
 			break;
 		case MODIFICAR_AVION:
@@ -233,12 +233,12 @@ public class ControladorImp extends Controlador {
 			break;
 		case MOSTRAR_AVIONES_POR_AEROLINEA:
 			sav = fn.crearSAAvion();
-			vista = fp.crearVistaResultadoMostrarAvionesPorModelo();
+			vista = fp.crearVistaResultadoMostrarAvionesPorAerolinea();
 			vista.actualizaVista(sav.mostrarAvionesPorAerolinea((int) datos));
 			break;
 		case MOSTRAR_AVIONES_POR_HANGAR:
 			sav = fn.crearSAAvion();
-			vista = fp.crearVistaResultadoMostrarAvionesPorModelo();
+			vista = fp.crearVistaResultadoMostrarAvionesPorHangar();
 			vista.actualizaVista(sav.mostrarAvionesPorHangar((int) datos));
 			break;
 
