@@ -86,6 +86,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 			privado.setAlignmentX(CENTER_ALIGNMENT);
 			botones.add(privado);
+			botones.add(panelBotones);
 
 			principal.add(botones, BorderLayout.SOUTH);
 
@@ -97,7 +98,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			JPanel panelTexto = new JPanel();
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
 			
-			JLabel etiquetaNombre = new JLabel("nombre: ");
+			JLabel etiquetaNombre = new JLabel("Nombre: ");
 			etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoNombre = new JTextField();
 			textoNombre.setMaximumSize(new Dimension(200, 30));
@@ -108,7 +109,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			centro.add(panelEtiquetas);
 			centro.add(panelTexto);
 
-			JLabel etiquetaMatricula = new JLabel("matricula:    ");
+			JLabel etiquetaMatricula = new JLabel("Matricula:    ");
 			etiquetaMatricula.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoMatricula = new JTextField();
 			textoMatricula.setMaximumSize(new Dimension(200, 30));
@@ -125,12 +126,15 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());//pasarlo a Date para el spinner
 			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate, java.util.Calendar.DAY_OF_MONTH);
 			JSpinner spinner = new JSpinner(model);
+			spinner.setMaximumSize(new Dimension(200, 30));
+			spinner.setMinimumSize(new Dimension(200, 30));
+			spinner.setPreferredSize(new Dimension(200, 30));
 		    JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");//formato de la fecha
 		    spinner.setEditor(editor);
 		    panelEtiquetas.add(etiquetaFecha);
 			panelTexto.add(spinner);
 
-			JLabel etiquetaAsientos = new JLabel("número de asientos:    ");
+			JLabel etiquetaAsientos = new JLabel("Número de asientos:    ");
 			etiquetaAsientos.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoAsientos = new JTextField();
 			textoAsientos.setMaximumSize(new Dimension(200, 30));
@@ -139,7 +143,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			panelEtiquetas.add(etiquetaAsientos);
 			panelTexto.add(textoAsientos);
 			
-			JLabel etiquetaAerolinea = new JLabel("id aerolínea:    ");
+			JLabel etiquetaAerolinea = new JLabel("Id aerolínea:    ");
 			etiquetaAerolinea.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoAerolinea = new JTextField();
 			textoAerolinea.setMaximumSize(new Dimension(200, 30));
@@ -149,7 +153,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			panelTexto.add(textoAerolinea);
 			
 			
-			JLabel etiquetaModelo = new JLabel("id modelo:    ");
+			JLabel etiquetaModelo = new JLabel("Id modelo:    ");
 			etiquetaModelo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textomodelo = new JTextField();
 			textomodelo.setMaximumSize(new Dimension(200, 30));
@@ -159,7 +163,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			panelTexto.add(textomodelo);
 			
 			
-			JLabel etiquetaHangar = new JLabel("id hangar:    ");
+			JLabel etiquetaHangar = new JLabel("Id hangar:    ");
 			etiquetaHangar.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoHangar = new JTextField();
 			textoHangar.setMaximumSize(new Dimension(200, 30));
@@ -169,7 +173,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			panelTexto.add(textoHangar);
 			
 			
-			JLabel etiquetaTrabajadores = new JLabel("número de trabajadores:    ");
+			JLabel etiquetaTrabajadores = new JLabel("Número de trabajadores:    ");
 			etiquetaTrabajadores.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoTrabajadores = new JTextField();
 			textoTrabajadores.setMaximumSize(new Dimension(200, 30));
@@ -177,7 +181,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoTrabajadores.setPreferredSize(new Dimension(200, 30));
 
 		
-			JLabel etiquetaDuenyo = new JLabel("dueño:    ");
+			JLabel etiquetaDuenyo = new JLabel("Dueño:    ");
 			etiquetaDuenyo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoDuenyo = new JTextField();
 			textoDuenyo.setMaximumSize(new Dimension(200, 30));
@@ -185,7 +189,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoDuenyo.setPreferredSize(new Dimension(200, 30));
 
 			
-			JLabel etiquetaCarnet = new JLabel("id carnet:    ");
+			JLabel etiquetaCarnet = new JLabel("Id carnet:    ");
 			etiquetaCarnet.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoCarnet = new JTextField();
 			textoCarnet.setMaximumSize(new Dimension(200, 30));
