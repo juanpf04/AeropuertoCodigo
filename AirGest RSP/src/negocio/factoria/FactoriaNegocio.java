@@ -20,21 +20,9 @@ public abstract class FactoriaNegocio {
 
 	public abstract SAHangar crearSAHangar();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract SAAvion crearSAAvion();
 
 	public abstract SAAerolinea crearSAAerolinea();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract SAPersonal crearSAPersonal();
 }

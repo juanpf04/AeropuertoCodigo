@@ -12,6 +12,8 @@ import integracion.modelo.DAOModeloImp;
 import integracion.modeloAerolinea.DAOModeloAerolinea;
 import integracion.modeloAerolinea.DAOModeloAerolineaImp;
 import integracion.personal.DAOPersonal;
+import integracion.personalHangar.DAOPersonalHangar;
+import integracion.personalHangar.DAOPersonalHangarImp;
 
 public class FactoriaIntegracionImp extends FactoriaIntegracion {
 
@@ -29,6 +31,10 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 
 	public DAOModeloAerolinea crearDAOModeloAerolinea() {
 		return new DAOModeloAerolineaImp();
+	}
+	
+	public DAOPersonalHangar crearDAOPersonalHangar() {
+		return new DAOPersonalHangarImp();
 	}
 
 	@Override

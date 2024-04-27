@@ -5,9 +5,11 @@ import negocio.hangar.SAHangarImp;
 import negocio.aerolinea.SAAerolinea;
 import negocio.aerolinea.SAAerolineaImp;
 import negocio.avion.SAAvion;
+import negocio.avion.SAAvionImp;
 import negocio.modelo.SAModelo;
 import negocio.modelo.SAModeloImp;
 import negocio.personal.SAPersonal;
+import negocio.personal.SAPersonalImp;
 
 public class FactoriaNegocioImp extends FactoriaNegocio {
 
@@ -15,16 +17,8 @@ public class FactoriaNegocioImp extends FactoriaNegocio {
 		return new SAModeloImp();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaNegocio#crearSAAvion()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public SAAvion crearSAAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new SAAvionImp();
 	}
 
 	@Override
@@ -36,15 +30,7 @@ public class FactoriaNegocioImp extends FactoriaNegocio {
 		return new SAAerolineaImp();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaNegocio#crearSAPersonal()
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public SAPersonal crearSAPersonal() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new SAPersonalImp();
 	}
 }

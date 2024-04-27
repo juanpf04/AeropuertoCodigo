@@ -71,7 +71,6 @@ public class DAOPersonalImp implements DAOPersonal {
 	public int AltaPersonal(TPersonal tPersonal) {
 		File carpeta = new File(Utilidades.ruta("personal"));
 		File[] lista = carpeta.listFiles();
-
 		int id = lista.length + 1;
 
 		tPersonal.setId(id);
@@ -99,6 +98,23 @@ public class DAOPersonalImp implements DAOPersonal {
 	@Override
 	public TPersonal ConsultarPersonalPorId(int id) {
 		return this.leerFichero(new File(Utilidades.ruta("personal") + String.format("%05d", id) + ".json"));
+	}
+	
+	@Override
+	public TPersonal ConsultarPersonalPorIdEmpleado(int idEmpleado) {
+		File carpeta = new File(Utilidades.ruta("personal"));
+		File[] lista = carpeta.listFiles();
+		
+		int i = 0;
+		TPersonal transfer = null;
+		while(i<lista.length && transfer == null) {
+			transfer = leerFichero(lista[i]);
+			if(transfer.getIdEmpleado() != idEmpleado)
+				transfer = null;
+			i++;
+		}
+		
+		return transfer;
 	}
 
 	@Override

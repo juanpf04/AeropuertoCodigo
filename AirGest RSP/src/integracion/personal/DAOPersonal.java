@@ -12,6 +12,8 @@ public interface DAOPersonal {
 	public boolean ModificarPersonal(TPersonal tPersonal);
 
 	public TPersonal ConsultarPersonalPorId(int id);
+	
+	public TPersonal ConsultarPersonalPorIdEmpleado(int  idEmpleado);
 
 	public List<TPersonal> ConsultarPersonalExistente();
 }
