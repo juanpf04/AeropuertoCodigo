@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import javax.swing.BoxLayout;
@@ -122,7 +123,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			etiquetaFecha.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			LocalDate currentDate = LocalDate.now();
 			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());//pasarlo a Date para el spinner
-			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, null, java.util.Calendar.DAY_OF_MONTH);
+			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate, java.util.Calendar.DAY_OF_MONTH);
 			JSpinner spinner = new JSpinner(model);
 		    JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");//formato de la fecha
 		    spinner.setEditor(editor);
@@ -214,16 +215,19 @@ public class VistaAltaAvion extends JFrame implements Observador {
 						int idAerolinea = Integer.valueOf(textoAerolinea.getText());
 						int idHangar = Integer.valueOf(textoHangar.getText());
 						int idModelo = Integer.valueOf(textomodelo.getText());
+						Date seleccion = (Date) spinner.getValue();
+						ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());//para transformar date a localDate
+						LocalDate fecha = zonedDateTime.toLocalDate();
 						
 						TAvion transfer;
 						if (datos == "COMERCIAL") {
 							int trabajadores = Integer.valueOf(textoTrabajadores.getText());
-							transfer = new TAComercial(0, numAsientos, LocalDate.of(2000, 6, 22), nombre, matricula, true,
+							transfer = new TAComercial(0, numAsientos, fecha, nombre, matricula, true,
 									idAerolinea, idModelo, idHangar, trabajadores);
 						} else {
 							String nombre_duenyo = textoDuenyo.getText();
 							int idCarnet = Integer.valueOf(textoCarnet.getText());
-							transfer = new TAPrivado(0, numAsientos, LocalDate.of(2000, 6, 22), nombre, matricula, true,
+							transfer = new TAPrivado(0, numAsientos, fecha, nombre, matricula, true,
 									idAerolinea, idModelo, idHangar, nombre_duenyo, idCarnet);
 						}
 						ctrl.accion(EventosControlador.ALTA_AVION, transfer);

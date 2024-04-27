@@ -192,7 +192,7 @@ public class ControladorImp extends Controlador {
 			else
 				vista = fp.crearVistaFalloAltaAvion();
 
-			vista.actualizaVista(null);
+			vista.actualizaVista(id);
 			break;
 		case BAJA_AVION:
 			sav = fn.crearSAAvion();
