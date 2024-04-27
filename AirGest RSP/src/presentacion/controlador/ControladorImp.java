@@ -11,16 +11,21 @@ import negocio.hangar.THangar;
 import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
+import negocio.personal.SAPersonal;
+import negocio.personal.TPersonal;
+import negocio.personalHangar.TPersonalHangar;
 import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 
 public class ControladorImp extends Controlador {
 
-	/** 
-	* (non-Javadoc)
-	* @see Controlador#accion(Enum evento, Object datos)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see Controlador#accion(Enum evento, Object datos)
+	 * @generated "UML to Java
+	 *            (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
 	public void accion(Enum evento, Object datos) {
 		// begin-user-code
 		// TODO Auto-generated method stub
@@ -34,6 +39,7 @@ public class ControladorImp extends Controlador {
 		SAModelo sm;
 		SAHangar sh;
 		SAAerolinea sa;
+		SAPersonal sp;
 		Observador vista = null;
 		boolean exito;
 
@@ -201,10 +207,11 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaConsultarAerolineaPorId();
 			vista.actualizaVista(null);
 			break;
-		/*case VISTA_CONSULTAR_TODOS_AEROLINEAS:
-			vista = fp.crearVistaConsultarTodasAerolineas();
-			vista.actualizaVista(null);
-			break;*/
+		/*
+		 * case VISTA_CONSULTAR_TODOS_AEROLINEAS: vista =
+		 * fp.crearVistaConsultarTodasAerolineas(); vista.actualizaVista(null);
+		 * break;
+		 */
 		case VISTA_MODIFICAR_AEROLINEA:
 			vista = fp.crearVistaModificarAerolinea();
 			vista.actualizaVista(null);
@@ -318,10 +325,11 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaConsultarHangarPorId();
 			vista.actualizaVista(null);
 			break;
-		//		case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR TODOS HANGARES
-		//			vista = fp.crearVistaResultadoConsultarTodosHangares();
-		//			vista.actualizaVista(null);
-		//			break;
+		// case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR
+		// TODOS HANGARES
+		// vista = fp.crearVistaResultadoConsultarTodosHangares();
+		// vista.actualizaVista(null);
+		// break;
 		case VISTA_MODIFICAR_HANGAR:
 			vista = fp.crearVistaModificarHangar();
 			vista.actualizaVista(null);
@@ -379,36 +387,110 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_PERSONAL:// VISTA PERSONAL
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_PERSONAL:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_BAJA_PERSONAL:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_VINCULAR_PERSONAL:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_DESVINCULAR_PERSONAL:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_PERSONAL_POR_ID:
-			break;
-		case VISTA_CONSULTAR_PERSONAL_EXISTENTE:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_MODIFICAR_PERSONAL:
+			vista = fp.crearVistaPersonal();
+			vista.actualizaVista(datos);
 			break;
 
 		case ALTA_PERSONAL:// PERSONAL
+			sp = fn.crearSAPersonal();
+			id = sp.altaPersonal((TPersonal) datos);
+
+			if (id != -1) {
+				vista = fp.crearVistaExitoAltaPersonal();
+				vista.actualizaVista(id);
+			} else {
+				vista = fp.crearVistaFalloAltaPersonal();
+				vista.actualizaVista(null);
+			}
+
 			break;
 		case BAJA_PERSONAL:
-			break;
-		case VINCULAR_PERSONAL:
-			break;
-		case DESVINCULAR_PERSONAL:
+			sp = fn.crearSAPersonal();
+			exito = sp.bajaPersonal((int) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoBajaPersonal();
+			else
+				vista = fp.crearVistaFalloBajaPersonal();
+
+			vista.actualizaVista(null);
+
 			break;
 		case CONSULTAR_PERSONAL_POR_ID:
+			sp = fn.crearSAPersonal();
+			TPersonal personal = sp.consultarPersonalPorId((int) datos);
+			vista = fp.crearVistaResultadoConsultarPersonalPorId();
+			vista.actualizaVista(personal);
+
 			break;
 		case CONSULTAR_PERSONAL_EXISTENTE:
+			sp = fn.crearSAPersonal();
+			List<TPersonal> personalList = sp.consultarPersonalExistente();
+			vista = fp.crearVistaResultadoConsultarPersonalExistente();
+			vista.actualizaVista(personalList);
+
 			break;
 		case MODIFICAR_PERSONAL:
+			sp = fn.crearSAPersonal();
+			exito = sp.modificarPersonal((TPersonal) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoModificarPersonal();
+			else
+				vista = fp.crearVistaFalloModificarPersonal();
+
+			vista.actualizaVista(null);
+
 			break;
+		case VINCULAR_PERSONAL:
+			sp = fn.crearSAPersonal();
+			exito = sp.vincularPersonal((TPersonalHangar) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoVincularPersonal();
+			else
+				vista = fp.crearVistaFalloVincularPersonal();
+
+			vista.actualizaVista(null);
+
+			break;
+		case DESVINCULAR_PERSONAL:
+			sp = fn.crearSAPersonal();
+			exito = sp.desvincularPersonal((TPersonalHangar) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoDesvincularPersonal();
+			else
+				vista = fp.crearVistaFalloDesvincularPersonal();
+
+			vista.actualizaVista(null);
+
+			break;
+
 		}
 	}
 }
