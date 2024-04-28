@@ -18,7 +18,7 @@ public class DAOContratoImpTest {
 
 		DAOContrato dc = new DAOContratoImp();
 
-		TContrato contrato = new TContrato(0, 1, 234.4, true);
+		TContrato contrato = new TContrato(0, 1, 234.4);
 
 		File carpeta = new File(Utilidades.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
@@ -60,23 +60,12 @@ public class DAOContratoImpTest {
 		assertEquals("tiene que haber 2 contratos con aerolinea 1", 2, contratos.size());
 	}
 	
-	@Test 
-	public void consultar_contratos_activos_por_aerolinea_test(){
-		Utilidades.esTest();
-
-		DAOContrato dc = new DAOContratoImp();
-		
-		List<TContrato> contratos = dc.comprobarContratosActivosPorAerolinea(1);
-		
-		assertEquals("tiene que haber 1 contrato activo con aerolinea 1", 1, contratos.size());
-	}
-	
 	@Test
 	public void modificar_contrato_test() {
 		Utilidades.esTest();
 		DAOContrato dc = new DAOContratoImp();
 
-		TContrato contrato = new TContrato(1, 2, 100, true);
+		TContrato contrato = new TContrato(1, 2, 100);
 
 		assertTrue("Ha leido mal el fichero", dc.modificarContrato(contrato));
 	}

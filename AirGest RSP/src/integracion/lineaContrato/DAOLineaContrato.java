@@ -8,9 +8,7 @@ public interface DAOLineaContrato {
 	
 	public boolean altaLineaContrato(TLineaContrato tLineaContrato);
 
-	public boolean bajaLineaContrato(int id_contrato, int id_hangar);
-
-	public boolean modificarLineaContrato(int tLineaContrato);
+	public boolean modificarLineaContrato(TLineaContrato tLineaContrato);
 
 	public List<TLineaContrato> leerLineasPorContrato(int id_contrato);
 

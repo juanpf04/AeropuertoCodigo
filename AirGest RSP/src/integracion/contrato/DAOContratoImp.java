@@ -16,32 +16,6 @@ import org.json.JSONTokener;
 import integracion.Utilidades;
 
 public class DAOContratoImp implements DAOContrato {
-	
-	public List<TContrato> comprobarContratosActivosPorAerolinea(int id_aerolinea) {
-		
-		File carpeta = new File(Utilidades.ruta("contrato"));
-		File[] lista = carpeta.listFiles();
-		
-		List<TContrato> contratos = new ArrayList<>();
-
-		int i = 0;
-		while (i < lista.length) {
-			JSONObject data = new JSONObject();
-			try {
-				data = new JSONObject(new JSONTokener(new FileReader(lista[i])));
-			} catch (FileNotFoundException e) {
-			}
-
-			if (data.getInt("id_aerolinea") == id_aerolinea && data.getBoolean("activo")) {
-				contratos.add(new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"),
-						data.getBoolean("activo")));
-			}
-
-			i++;
-		}
-
-		return contratos;
-	}
 
 	public int altaContrato(TContrato tContrato) {
 		File carpeta = new File(Utilidades.ruta("contrato"));
@@ -68,8 +42,7 @@ public class DAOContratoImp implements DAOContrato {
 		try {
 			JSONObject data = new JSONObject(
 					new JSONTokener(new FileReader(Utilidades.ruta("contrato") + String.format("%05d", id) + ".json")));
-			return new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"),
-					data.getBoolean("activo"));
+			return new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"));
 		} catch (FileNotFoundException e) {
 			return null;
 		}
@@ -84,8 +57,7 @@ public class DAOContratoImp implements DAOContrato {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				contratos.add(new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"),
-						data.getBoolean("activo")));
+				contratos.add(new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio")));
 			} catch (FileNotFoundException e) {
 			}
 		}
@@ -108,8 +80,7 @@ public class DAOContratoImp implements DAOContrato {
 			}
 
 			if (data.getInt("id_aerolinea") == id_aerolinea) {
-				contratos.add(new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"),
-						data.getBoolean("activo")));
+				contratos.add(new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio")));
 			}
 
 			i++;
@@ -137,7 +108,6 @@ public class DAOContratoImp implements DAOContrato {
 		jo.put("id", tContrato.getId());
 		jo.put("id_aerolinea", tContrato.getIdAerolinea());
 		jo.put("precio", tContrato.getPrecio());
-		jo.put("activo", tContrato.getActivo());
 
 		return jo;
 	}

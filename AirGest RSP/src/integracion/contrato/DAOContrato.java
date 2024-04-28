@@ -5,8 +5,6 @@ import negocio.contrato.TContrato;
 import java.util.List;
 
 public interface DAOContrato {
-	
-	public List<TContrato> comprobarContratosActivosPorAerolinea(int id_aerolinea);
 
 	public int altaContrato(TContrato tContrato);
 

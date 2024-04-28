@@ -14,21 +14,17 @@ public class TLineaContrato {
 	private LocalDate fecha_fin;
 	
 	private double precio;
-	
-	private boolean activo;
 
 	public TLineaContrato() {
 		
 	}
 
-	public TLineaContrato(int id_contrato, int id_hangar, LocalDate fecha_ini, LocalDate fecha_fin, double precio,
-			boolean activo) {
+	public TLineaContrato(int id_contrato, int id_hangar, LocalDate fecha_ini, LocalDate fecha_fin, double precio) {
 		this.id_contrato = id_contrato;
 		this.id_hangar = id_hangar;
 		this.fecha_ini = fecha_ini;
 		this.fecha_fin = fecha_fin;
 		this.precio = precio;
-		this.activo = activo;
 	}
 
 	public int getIdContrato() {
@@ -51,10 +47,6 @@ public class TLineaContrato {
 		return this.precio;
 	}
 
-	public boolean getActivo() {
-		return this.activo;
-	}
-
 	public void setIdContrato(int id_contrato) {
 		this.id_contrato = id_contrato;
 	}
@@ -74,8 +66,8 @@ public class TLineaContrato {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
+	
+	public String toString(){
+		return "id_contrato: " + this.id_contrato + "\nid_hangar: " + this.id_hangar + "\nfecha_ini: " + this.fecha_ini + "\nfecha_fin: " + this.fecha_fin + "\nprecio: " + this.precio;
 	}
 }

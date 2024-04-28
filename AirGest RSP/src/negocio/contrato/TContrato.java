@@ -8,18 +8,15 @@ public class TContrato {
 	private int id_aerolinea;
 	
 	private double precio;
-	
-	private boolean activo;
 
 	public TContrato() {
 
 	}
 
-	public TContrato(int id, int id_aerolinea, double precio, boolean activo) {
+	public TContrato(int id, int id_aerolinea, double precio) {
 		this.id = id;
 		this.id_aerolinea = id_aerolinea;
 		this.precio = precio;
-		this.activo = activo;
 	}
 
 	public int getId() {
@@ -34,10 +31,6 @@ public class TContrato {
 		return this.precio;
 	}
 
-	public boolean getActivo() {
-		return this.activo;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -49,8 +42,8 @@ public class TContrato {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
+	
+	public String toString() {
+		return "id: " + this.id + "\nid_aerolinea: " + this.id_aerolinea + "\nprecio: " + this.precio;
+	} 
 }
