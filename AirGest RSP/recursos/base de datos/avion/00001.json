@@ -1,16 +1,1 @@
-{
-	"id": 1,
-	"asientos": 45,
-	"fechaFabricacion": {
-		"dia": 12,
-		"mes": 04,
-		"anyo": 2010
-	},
-	"nombre": "keehdg",
-	"matricula": "12345G",
-	"activo": true,
-	"idModelo": 1,
-	"idAerolinea": 1,
-	"idHangar": 1,
-	"trabajadores": 7
-}
+{"trabajadores":7,"fechaFabricacion":{"mes":"04","dia":12,"anyo":2010},"asientos":45,"matricula":"12345G","idAerolinea":1,"id":1,"idModelo":1,"nombre":"keehdg","activo":false,"idHangar":1}

@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import negocio.avion.TAvion;
@@ -29,9 +30,9 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 
 		String avion = datos == null ? "" : ((TAvion) datos).toString();
 
-		JLabel exito = new JLabel(avion);
+		JTextArea exito = new JTextArea(avion);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

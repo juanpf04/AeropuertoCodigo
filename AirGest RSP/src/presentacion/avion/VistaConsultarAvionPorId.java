@@ -1,6 +1,7 @@
 
 package presentacion.avion;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -28,10 +29,13 @@ public class VistaConsultarAvionPorId extends JFrame implements Observador {
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
-		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
-
+		principal.setLayout(new BorderLayout());
+		
+		JPanel panelFuncion = new JPanel();
 		JLabel funcion = new JLabel("Consultar avion por id");
 		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
+		panelFuncion.add(funcion);
+		panelFuncion.setAlignmentX(CENTER_ALIGNMENT);
 
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
@@ -49,8 +53,12 @@ public class VistaConsultarAvionPorId extends JFrame implements Observador {
 		centro.add(id);
 
 		Controlador controlador = Controlador.getInstance();
+		
+		JPanel panelBotones = new JPanel();
+		panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.PAGE_AXIS));
 
 		JButton aceptar = new JButton("ACEPTAR");
+		aceptar.setAlignmentX(CENTER_ALIGNMENT);
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
@@ -64,9 +72,9 @@ public class VistaConsultarAvionPorId extends JFrame implements Observador {
 			}
 		});
 
-		centro.add(aceptar);
-		principal.add(funcion);
-		principal.add(centro);
+		panelBotones.add(aceptar);
+		principal.add(panelFuncion, BorderLayout.NORTH);
+		principal.add(centro, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
@@ -78,9 +86,11 @@ public class VistaConsultarAvionPorId extends JFrame implements Observador {
 				controlador.accion(EventosControlador.VISTA_AVION, null);
 			}
 		});
-
-		principal.add(atras);
-
+		
+		atras.setAlignmentX(CENTER_ALIGNMENT);
+		panelBotones.add(atras);
+		principal.add(panelBotones, BorderLayout.SOUTH);
+		
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

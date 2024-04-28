@@ -42,18 +42,38 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-
+		
+		JPanel panelFuncion = new JPanel();
 		JLabel funcion = new JLabel("Alta Avion");
 		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
-		funcion.setAlignmentX(CENTER_ALIGNMENT);
-		principal.add(funcion, BorderLayout.NORTH);
+		panelFuncion.add(funcion);
+		panelFuncion.setAlignmentX(CENTER_ALIGNMENT);
+		principal.add(panelFuncion, BorderLayout.NORTH);
 
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.LINE_AXIS));
+		centro.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(centro, BorderLayout.CENTER);
 		
 		JPanel panelBotones = new JPanel();
 		principal.add(panelBotones, BorderLayout.SOUTH);
+		panelBotones.setAlignmentX(CENTER_ALIGNMENT);
+
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana principal
+		atras.setToolTipText("Esto vuelve a la ventana anterior");
+		atras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				if (datos == null)
+					ctrl.accion(EventosControlador.VISTA_AVION, null);
+				else
+					ctrl.accion(EventosControlador.VISTA_ALTA_AVION, null);
+			}
+			
+		});
+		panelBotones.add(atras);
 
 		if (datos == null) {
 			JPanel botones = new JPanel();
@@ -85,6 +105,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			});
 
 			privado.setAlignmentX(CENTER_ALIGNMENT);
+			botones.setAlignmentX(CENTER_ALIGNMENT);
 			botones.add(privado);
 			botones.add(panelBotones);
 
@@ -94,9 +115,11 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		} else { // TODO
 			JPanel panelEtiquetas = new JPanel();
 			panelEtiquetas.setLayout(new BoxLayout(panelEtiquetas, BoxLayout.PAGE_AXIS));
+			panelEtiquetas.setAlignmentX(CENTER_ALIGNMENT);
 			
 			JPanel panelTexto = new JPanel();
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
+			panelTexto.setAlignmentX(CENTER_ALIGNMENT);
 			
 			JLabel etiquetaNombre = new JLabel("Nombre: ");
 			etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
@@ -242,27 +265,11 @@ public class VistaAltaAvion extends JFrame implements Observador {
 				}
 
 			});
-
+			
 			panelBotones.add(aceptar);
 			
 		}
 
-		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
-												// principal
-		atras.setToolTipText("Esto vuelve a la ventana anterior");
-		atras.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				if (datos == null)
-					ctrl.accion(EventosControlador.VISTA_AVION, null);
-				else
-					ctrl.accion(EventosControlador.VISTA_ALTA_AVION, null);
-			}
-
-		});
-		panelBotones.add(atras);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
