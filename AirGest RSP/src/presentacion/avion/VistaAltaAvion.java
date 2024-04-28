@@ -237,7 +237,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 						ctrl.accion(EventosControlador.ALTA_AVION, transfer);
 					}catch(Exception ex)
 					{
-						
+						ctrl.accion(EventosControlador.ALTA_AVION, null);
 					}
 				}
 
