@@ -101,8 +101,6 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador crearVistaConsultarPersonalPorId();
 
-	public abstract Observador crearVistaConsultarPersonalExistente();
-
 	public abstract Observador crearVistaExitoAltaPersonal();
 
 	public abstract Observador crearVistaFalloAltaPersonal();

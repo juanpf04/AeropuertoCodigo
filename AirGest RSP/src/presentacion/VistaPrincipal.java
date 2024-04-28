@@ -13,12 +13,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaPrincipal extends JFrame implements Observador {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VistaPrincipal() {
 		super("AirGest RSP");
 		this.setSize(8000, 2000); //hace que la ventana no salga tan chiquitita
@@ -89,9 +94,16 @@ public class VistaPrincipal extends JFrame implements Observador {
 		botones.add(hangar);
 
 		//-------------------------------------------
-		JButton modificar = new JButton("PERSONAL");
-
-		botones.add(modificar);
+		JButton personal = new JButton("PERSONAL");
+		personal.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_PERSONAL, null);
+			}
+		});
+		personal.setToolTipText("MODULO PERSONAL");
+		botones.add(personal);
 
 		//-------------------------------------------
 		JButton vincular = new JButton("CONTRATO");

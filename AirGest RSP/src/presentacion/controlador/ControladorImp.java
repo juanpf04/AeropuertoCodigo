@@ -391,27 +391,27 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_PERSONAL:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaAltaPersonal();
 			vista.actualizaVista(datos);
 			break;
 		case VISTA_BAJA_PERSONAL:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaBajaPersonal();
 			vista.actualizaVista(null);
 			break;
 		case VISTA_VINCULAR_PERSONAL:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaVincularPersonal();
 			vista.actualizaVista(null);
 			break;
 		case VISTA_DESVINCULAR_PERSONAL:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaDesvincularPersonal();
 			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_PERSONAL_POR_ID:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaConsultarPersonalPorId();
 			vista.actualizaVista(null);
 			break;
 		case VISTA_MODIFICAR_PERSONAL:
-			vista = fp.crearVistaPersonal();
+			vista = fp.crearVistaModificarPersonal();
 			vista.actualizaVista(datos);
 			break;
 

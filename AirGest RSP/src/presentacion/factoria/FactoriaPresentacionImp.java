@@ -450,10 +450,6 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaConsultarPersonalPorId();
 	}
 
-	public Observador crearVistaConsultarPersonalExistente() {
-		return new VistaConsultarPersonalExistente();
-	}
-
 	public Observador crearVistaExitoAltaPersonal() {
 		return new VistaExitoAltaPersonal();
 	}

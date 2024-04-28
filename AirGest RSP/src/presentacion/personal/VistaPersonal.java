@@ -26,7 +26,7 @@ public class VistaPersonal extends JFrame implements Observador {
 
 	public VistaPersonal() {
 		super("PERSONAL");
-		this.setSize(1000, 750); //hace que la ventana no salga tan chiquitita
+		this.setSize(1000, 750); // hace que la ventana no salga tan chiquitita
 	}
 
 	@Override
@@ -35,7 +35,9 @@ public class VistaPersonal extends JFrame implements Observador {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel modulo = new JLabel("PERSONAL"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
+		JLabel modulo = new JLabel("PERSONAL"); // titulo de la ventana en la
+												// que estamos, apareceran las
+												// funciones de modelo
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		modulo.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(modulo, BorderLayout.PAGE_START);
@@ -56,7 +58,7 @@ public class VistaPersonal extends JFrame implements Observador {
 		alta.setToolTipText("Aqui das de alta un personal maquina");
 		botones.add(alta);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton baja = new JButton("BAJA DE PERSONAL");
 		baja.addActionListener(new ActionListener() {
 			@Override
@@ -68,7 +70,7 @@ public class VistaPersonal extends JFrame implements Observador {
 		baja.setToolTipText("Aqui das de baja un personal maquina");
 		botones.add(baja);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarID = new JButton("CONSULTAR PERSONAL POR ID");
 
 		consultarID.addActionListener(new ActionListener() {
@@ -80,7 +82,7 @@ public class VistaPersonal extends JFrame implements Observador {
 		});
 		botones.add(consultarID);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarTodos = new JButton("CONSULTAR PERSONAL EXISTENTE");
 
 		consultarTodos.addActionListener(new ActionListener() {
@@ -92,7 +94,7 @@ public class VistaPersonal extends JFrame implements Observador {
 
 		botones.add(consultarTodos);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton modificar = new JButton("MODIFICAR PERSONAL");
 
 		modificar.addActionListener(new ActionListener() {
@@ -105,7 +107,7 @@ public class VistaPersonal extends JFrame implements Observador {
 
 		botones.add(modificar);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton vincular = new JButton("VINCULAR PERSONAL");
 
 		vincular.addActionListener(new ActionListener() {
@@ -118,7 +120,7 @@ public class VistaPersonal extends JFrame implements Observador {
 
 		botones.add(vincular);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton desvincular = new JButton("DESVINCULAR PERSONAL");
 
 		desvincular.addActionListener(new ActionListener() {
@@ -133,9 +135,10 @@ public class VistaPersonal extends JFrame implements Observador {
 
 		principal.add(botones, BorderLayout.CENTER);
 
-		//-----------------------------------------------------
+		// -----------------------------------------------------
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
