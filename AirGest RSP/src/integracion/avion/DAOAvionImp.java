@@ -66,17 +66,6 @@ public class DAOAvionImp implements DAOAvion {
 		return avion;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#mostrarAvionesPorModelo(int idModelo)
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorModelo(int idModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
-	}
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
 		File carpeta = new File(Utilidades.ruta("avion"));
@@ -305,15 +294,4 @@ public class DAOAvionImp implements DAOAvion {
 		return null;
 	}
 
-	@Override
-	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<TAvion> mostrarAvionesPorHangar(int idHangar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

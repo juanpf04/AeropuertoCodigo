@@ -6,8 +6,6 @@ import negocio.avion.TAvion;
 
 public interface DAOAvion {
 
-	public List<TAvion> mostrarAvionesPorModelo(int idModelo);
-
 	public List<TAvion> consultarAvionesPorModelo(int idModelo);
 
 	public List<TAvion> consultarAvionesActivosPorModelo(int idModelo);
@@ -23,10 +21,6 @@ public interface DAOAvion {
 	public List<TAvion> consultarTodosAviones();
 
 	public boolean modificarAvion(TAvion tAvion);
-
-	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea);
-
-	public List<TAvion> mostrarAvionesPorHangar(int idHangar);
 
 	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea);
 

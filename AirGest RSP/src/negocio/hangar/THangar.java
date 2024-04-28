@@ -53,16 +53,11 @@ public class THangar {
 		// end-user-code
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
 	public int getStock() {
 		// begin-user-code
 		// TODO Auto-generated method stub
-		return 0;
+		return 10;
 		// end-user-code
 	}
 
