@@ -84,7 +84,8 @@ public class DAOPersonalImp implements DAOPersonal {
 	@Override
 	public boolean BajaPersonal(int id) {
 		TPersonal transfer = this.leerFichero(new File(Utilidades.ruta("personal") + String.format("%05d", id) + ".json"));
-		
+		if(transfer == null)
+			return false;
 		transfer.setActivo(false);
 		
 		return this.escribirFichero(transfer);
