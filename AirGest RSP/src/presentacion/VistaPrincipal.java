@@ -94,9 +94,17 @@ public class VistaPrincipal extends JFrame implements Observador {
 		botones.add(modificar);
 
 		//-------------------------------------------
-		JButton vincular = new JButton("CONTRATO");
-
-		botones.add(vincular);
+		JButton contrato = new JButton("CONTRATO");
+		contrato.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_CONTRATO, null);
+			}
+		});
+		botones.setToolTipText("MODULO CONTRATO");
+		botones.add(contrato);
 
 		principal.add(botones, BorderLayout.CENTER);
 

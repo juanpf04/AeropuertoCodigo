@@ -20,12 +20,16 @@ public class TCarrito {
 
 	public TCarrito(int id_aerolinea) {
 		this.id_aerolinea = id_aerolinea;
-		this.tContrato = new TContrato();
+		this.tContrato = new TContrato(id_aerolinea);
 		this.tLineaContrato = new HashSet<>();
 	}
 
 	public int getIdAerolinea() {
 		return this.id_aerolinea;
+	}
+	
+	public Set<TLineaContrato> getLineasContrato(){
+		return this.tLineaContrato;
 	}
 
 	public void setIdAerolinea(int idAerolinea) {

@@ -1,10 +1,11 @@
 
 package negocio.contrato;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.time.LocalDate;
 
 import integracion.aerolinea.DAOAerolinea;
 import integracion.contrato.DAOContrato;
@@ -12,6 +13,7 @@ import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
 import integracion.lineaContrato.DAOLineaContrato;
 import negocio.aerolinea.TAerolinea;
+import negocio.aerolinea.ValidadorAerolinea;
 import negocio.hangar.THangar;
 import negocio.lineaContrato.TLineaContrato;
 
@@ -22,10 +24,69 @@ public class SAContratoImp implements SAContrato {
 	}
 
 	public int cerrarContrato(TCarrito tCarrito) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+		TAerolinea aerolinea = da.leerAerolineaPorId(tCarrito.getIdAerolinea());
+		
+		if (aerolinea != null && aerolinea.getActivo()){
+			for (TLineaContrato linea : tCarrito.getLineasContrato()){
+				for (TLineaContrato l : tCarrito.getLineasContrato()){
+					if (l != linea && l.getIdHangar() == linea.getIdHangar()){
+						return -1;
+					}
+				}
+			}
+			
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+			//Bucle para comprobar que los hangares existan y que la fecha de inicio sea anterior a la de fin
+			for (TLineaContrato linea : tCarrito.getLineasContrato()){
+				THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
+				if (hangar == null || !hangar.getActivo() || linea.getFechaIni().isAfter(linea.getFechaFin())){
+					return -1;
+				}
+			}
+			
+			DAOLineaContrato dl = FactoriaIntegracion.getInstance().crearDAOLineaContrato();
+			//Bucle para comprobar disponibilidad
+			for (TLineaContrato linea : tCarrito.getLineasContrato()){
+				List<TLineaContrato> lineasPorHangar = dl.leerLineasPorHangar(linea.getIdHangar());
+				
+				for (TLineaContrato l : lineasPorHangar) {
+					if (isBetween(linea.getFechaIni(), l.getFechaIni(), l.getFechaFin()) || isBetween(linea.getFechaFin(), l.getFechaIni(), l.getFechaFin()) || 
+							isBetween(l.getFechaIni(), linea.getFechaIni(), linea.getFechaFin()) || isBetween(l.getFechaFin(), linea.getFechaIni(), linea.getFechaFin())){
+						return -1;
+					}
+				}
+			}
+			
+			double precioContrato = 0;
+			
+			for (TLineaContrato linea : tCarrito.getLineasContrato()){
+				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+				THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
+				precioContrato += diasDiferencia * hangar.getCosteDia();
+			}
+			
+			DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
+			TContrato contrato = tCarrito.getContrato();
+			contrato.setPrecio(precioContrato);
+			int id = dc.altaContrato(contrato);
+			
+			for (TLineaContrato linea : tCarrito.getLineasContrato()){
+				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+				THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
+				linea.setPrecio(diasDiferencia * hangar.getCosteDia());
+				linea.setIdContrato(id);
+				dl.altaLineaContrato(linea);
+			}
+			
+			return id;
+		}
+		
+		return -1;
+	}
+	
+	private boolean isBetween(LocalDate fecha, LocalDate inicio, LocalDate fin){
+		return (fecha.isAfter(inicio) && fecha.isBefore(fin)) || (fecha.isEqual(inicio) || fecha.isEqual(fin));
 	}
 
 	public TInfoContrato consultarContratoPorId(int id) {
@@ -83,14 +144,61 @@ public class SAContratoImp implements SAContrato {
 	}
 
 	public boolean modificarLineaContrato(TLineaContrato linea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorLineaContrato.comprobarDatos(linea)){
+			DAOLineaContrato dl = FactoriaIntegracion.getInstance().crearDAOLineaContrato();
+			
+			if (dl.leerLineaContrato(linea.getIdContrato(), linea.getIdHangar())){
+				
+				if (!linea.getFechaIni().isAfter(linea.getFechaFin())){
+					List<TLineaContrato> lineasPorHangar = dl.leerLineasPorHangar(linea.getIdHangar());
+					
+					for (TLineaContrato l : lineasPorHangar) {
+						if (isBetween(linea.getFechaIni(), l.getFechaIni(), l.getFechaFin()) || isBetween(linea.getFechaFin(), l.getFechaIni(), l.getFechaFin()) || 
+								isBetween(l.getFechaIni(), linea.getFechaIni(), linea.getFechaFin()) || isBetween(l.getFechaFin(), linea.getFechaIni(), linea.getFechaFin())){
+							return false;
+						}
+					}
+					
+					DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+					THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
+					
+					if (hangar != null && hangar.getActivo()){
+						long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+						linea.setPrecio(diasDiferencia * hangar.getCosteDia());
+						dl.modificarLineaContrato(linea);
+						
+						List<TLineaContrato> lineas = dl.leerLineasPorContrato(linea.getIdContrato());
+						
+						double precioContrato = 0;
+						
+						for (TLineaContrato l : lineas){
+							precioContrato += l.getPrecio();
+						}
+						
+						DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
+						TContrato contrato = dc.leerContratoPorId(linea.getIdContrato());
+						contrato.setPrecio(precioContrato);
+						return dc.modificarContrato(contrato);
+					}
+				}			
+			}
+		}
 		return false;
-		// end-user-code
 	}
 
 	public List<TContrato> consultarContratosPorAerolinea(int id_aerolinea) {
-		DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
-		return dc.leerContratosPorAerolinea(id_aerolinea);
+		List<TContrato> contratos = new ArrayList<>();
+		if (ValidadorAerolinea.comprobarId(id_aerolinea)){
+			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
+			
+			TAerolinea aerolinea = da.leerAerolineaPorId(id_aerolinea);
+			
+			if (aerolinea != null) {
+				DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
+				contratos = dc.leerContratosPorAerolinea(id_aerolinea);
+			}
+		}
+		
+		return contratos;
 	}
 }

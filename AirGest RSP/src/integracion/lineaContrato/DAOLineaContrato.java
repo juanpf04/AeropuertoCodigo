@@ -13,4 +13,6 @@ public interface DAOLineaContrato {
 	public List<TLineaContrato> leerLineasPorContrato(int id_contrato);
 
 	public List<TLineaContrato> leerLineasPorHangar(int id_hangar);
+	
+	public boolean leerLineaContrato(int id_contrato, int id_hangar);
 }

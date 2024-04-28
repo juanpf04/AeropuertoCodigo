@@ -2,6 +2,7 @@ package integracion.lineaContrato;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -59,5 +60,18 @@ public class DAOLineaContratoImpTest {
 		List<TLineaContrato> lineas = dc.leerLineasPorHangar(2);
 		
 		assertEquals("tiene que haber 2 linea con hangar 2", 2, lineas.size());
+	}
+	
+	@Test
+	public void leer_linea_contrato_test(){
+		Utilidades.esTest();
+
+		DAOLineaContrato dc = new DAOLineaContratoImp();
+		
+		//Prueba exitosa
+		assertTrue("Existe la linea", dc.leerLineaContrato(1, 1));
+		
+		//Preuba fallida
+		assertFalse("No existe la linea", dc.leerLineaContrato(9, 1));
 	}
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import negocio.aerolinea.SAAerolinea;
 import negocio.aerolinea.TAerolinea;
+import negocio.contrato.SAContrato;
+import negocio.contrato.TCarrito;
 import negocio.factoria.FactoriaNegocio;
 import negocio.hangar.SAHangar;
 import negocio.hangar.THangar;
@@ -34,6 +36,7 @@ public class ControladorImp extends Controlador {
 		SAModelo sm;
 		SAHangar sh;
 		SAAerolinea sa;
+		SAContrato sc;
 		Observador vista = null;
 		boolean exito;
 
@@ -259,14 +262,20 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_CONTRATO:// VISTA CONTRATO
+			vista = fp.crearVistaContrato();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ABRIR_CONTRATO:
+			vista = fp.crearVistaAbrirContrato();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CERRAR_CONTRATO:
 			break;
 		case VISTA_BAJA_CONTRATO:
 			break;
 		case VISTA_ANYADIR_HANGAR_AL_CONTRATO:
+			vista = fp.crearVistaAñadirHangar();
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_ELIMINAR_HANGAR_DEL_CONTRATO:
 			break;
@@ -282,6 +291,10 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case ABRIR_CONTRATO:// CONTRATO
+			sc = fn.crearSAContrato();
+			TCarrito carrito = sc.abrirContrato((int) datos);
+			vista = fp.crearVistaCarrito();
+			vista.actualizaVista(carrito);
 			break;
 		case CERRAR_CONTRATO:
 			break;

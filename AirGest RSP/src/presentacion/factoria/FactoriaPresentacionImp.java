@@ -16,6 +16,24 @@ import presentacion.aerolinea.VistaFalloModificarAerolinea;
 import presentacion.aerolinea.VistaModificarAerolinea;
 import presentacion.aerolinea.VistaResultadoConsultarAerolineaPorId;
 import presentacion.aerolinea.VistaResultadoConsultarTodasAerolineas;
+import presentacion.contrato.VistaAbrirContrato;
+import presentacion.contrato.VistaAñadirHangar;
+import presentacion.contrato.VistaCarrito;
+import presentacion.contrato.VistaConsultarContratoPorId;
+import presentacion.contrato.VistaConsultarContratosPorAerolinea;
+import presentacion.contrato.VistaConsultarTodosContratos;
+import presentacion.contrato.VistaContrato;
+import presentacion.contrato.VistaEliminarHangar;
+import presentacion.contrato.VistaExitoCerrarContrato;
+import presentacion.contrato.VistaExitoModificarContrato;
+import presentacion.contrato.VistaExitoModificarLineaContrato;
+import presentacion.contrato.VistaFalloCerrarContrato;
+import presentacion.contrato.VistaFalloModificarContrato;
+import presentacion.contrato.VistaFalloModificarLineaContrato;
+import presentacion.contrato.VistaModificarContrato;
+import presentacion.contrato.VistaModificarLineaContrato;
+import presentacion.contrato.VistaResultadoConsultarTodosContratos;
+import presentacion.contrato.VistaResultadorConsultarContratosPorAerolinea;
 import presentacion.hangar.VistaAltaHangar;
 import presentacion.hangar.VistaBajaHangar;
 import presentacion.hangar.VistaConsultarHangarPorId;
@@ -694,220 +712,77 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	
 	public Observador crearVistaContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaAbrirContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaAbrirContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaAbrirContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaAñadirHangar()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaAñadirHangar() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaAñadirHangar();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaCarrito()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaCarrito() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaCarrito();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaConsultarContratoPorId()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaConsultarContratoPorId() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaConsultarContratoPorId();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaConsultarContratoPorAerolinea()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaConsultarContratoPorAerolinea() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaConsultarContratosPorAerolinea();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaConsultarTodosContratos()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaConsultarTodosContratos() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaConsultarTodosContratos();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaEliminarHangar()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaEliminarHangar() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaEliminarHangar();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoCerrarContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoCerrarContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoCerrarContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoModificarContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoModificarContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoModificarContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoModificarLineaContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoModificarLineaContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoModificarLineaContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloCerrarContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloCerrarContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloCerrarContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloModificarContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloModificarContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloModificarContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloModificarLineaContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloModificarLineaContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloModificarLineaContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaModificarContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaModificarContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaModificarContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaModificarLineaContrato()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaModificarLineaContrato() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaModificarLineaContrato();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoConsultarContratosPorAerolinea()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoConsultarContratosPorAerolinea() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadorConsultarContratosPorAerolinea();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoConsultarTodosContratos()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoConsultarTodosContratos() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoConsultarTodosContratos();
 	}
 
 	public Observador crearVistaModificarAerolinea() {

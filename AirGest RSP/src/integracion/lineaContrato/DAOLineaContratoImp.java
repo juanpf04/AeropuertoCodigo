@@ -111,6 +111,14 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 		return lineas;
 	}
 	
+	@Override
+	public boolean leerLineaContrato(int id_contrato, int id_hangar) {
+		File f = new File(Utilidades.ruta("lineaContrato") + String.format("%05d", id_contrato) + "_"
+				+ String.format("%05d", id_hangar) + ".json");
+
+		return f.exists();
+	}
+	
 	private JSONObject toJSON(TLineaContrato linea){
 		JSONObject jo = new JSONObject();
 		
@@ -135,4 +143,5 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 		return jo;
 		
 	}
+
 }

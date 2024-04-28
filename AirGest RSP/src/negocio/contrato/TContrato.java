@@ -18,6 +18,10 @@ public class TContrato {
 		this.id_aerolinea = id_aerolinea;
 		this.precio = precio;
 	}
+	
+	public TContrato(int id_aerolinea){
+		this.id_aerolinea = id_aerolinea;
+	}
 
 	public int getId() {
 		return this.id;
