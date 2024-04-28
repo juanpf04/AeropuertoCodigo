@@ -21,7 +21,7 @@ public class DAOLineaContratoImpTest {
 		LocalDate fecha_ini = LocalDate.of(2024, 4, 12);
 		LocalDate fecha_fin = LocalDate.of(2024, 4, 23);
 		
-		TLineaContrato linea = new TLineaContrato(3, 2, fecha_ini, fecha_fin, 223.5);
+		TLineaContrato linea = new TLineaContrato(1, 4, fecha_ini, fecha_fin, 223.5);
 
 		assertTrue("No se ha creado", dc.altaLineaContrato(linea));
 	}

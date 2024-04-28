@@ -1,8 +1,9 @@
 
 package negocio.contrato;
 
-import java.awt.List;
-import java.time.LocalDate;
+import java.util.List;
+
+import negocio.lineaContrato.TLineaContrato;
 
 public interface SAContrato {
 	
@@ -10,13 +11,13 @@ public interface SAContrato {
 
 	public int cerrarContrato(TCarrito tCarrito);
 
-	public TContrato consultarContratoPorId(int id);
+	public TInfoContrato consultarContratoPorId(int id);
 
-	public List consultarTodosContratos();
+	public List<TContrato> consultarTodosContratos();
 
-	public boolean modificarContrato(int id_contrato);
+	public boolean modificarContrato(TContrato tContrato);
 
-	public boolean modificarLineaContrato(int id_contrato, int id_hangar, LocalDate fecha_ini, LocalDate fecha_fin);
+	public boolean modificarLineaContrato(TLineaContrato linea);
 
-	public List consultarContratosPorAerolinea(int id_aerolinea);
+	public List<TContrato> consultarContratosPorAerolinea(int id_aerolinea);
 }
