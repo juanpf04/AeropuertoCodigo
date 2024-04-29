@@ -24,12 +24,13 @@ import javax.swing.SpinnerDateModel;
 import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarAvion extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaModificarAvion() {
 		super("Modificar Avion");

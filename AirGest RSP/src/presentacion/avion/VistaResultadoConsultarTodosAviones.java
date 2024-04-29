@@ -19,6 +19,8 @@ import presentacion.Observador;
 
 public class VistaResultadoConsultarTodosAviones extends JFrame implements Observador {
 	
+	private static final long serialVersionUID = 1L;
+
 	public VistaResultadoConsultarTodosAviones() {
 		super("Resultado");
 		this.setSize(1000, 750);
@@ -40,10 +42,6 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 
-		//		JLabel imagen = new JLabel();
-		//		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
-		//		principal.add(imagen, BorderLayout.CENTER);
-		//		
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);

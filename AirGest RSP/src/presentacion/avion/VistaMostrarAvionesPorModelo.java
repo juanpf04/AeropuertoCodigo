@@ -20,7 +20,9 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaMostrarAvionesPorModelo extends JFrame implements Observador {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaMostrarAvionesPorModelo() {
 		super("Consultar aviones por modelo");
 		this.setSize(1000, 750);

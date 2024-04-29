@@ -19,7 +19,9 @@ import presentacion.Observador;
 
 
 public class VistaResultadoMostrarAvionesPorAerolinea extends JFrame implements Observador {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaResultadoMostrarAvionesPorAerolinea() {
 		super("Resultado");
 		this.setSize(1000, 750);

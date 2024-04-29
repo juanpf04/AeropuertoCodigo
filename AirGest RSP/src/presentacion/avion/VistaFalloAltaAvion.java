@@ -15,7 +15,9 @@ import presentacion.Observador;
 
 
 public class VistaFalloAltaAvion extends JFrame implements Observador {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaFalloAltaAvion() {
 		super("Fallo");
 		this.setSize(1000, 750);

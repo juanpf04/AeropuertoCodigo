@@ -19,7 +19,9 @@ import presentacion.Observador;
 
 
 public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Observador {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaResultadoMostrarAvionesPorHangar() {
 		super("Resultado");
 		this.setSize(1000, 750);

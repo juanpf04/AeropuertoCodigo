@@ -14,7 +14,9 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaExitoModificarAvion extends JFrame implements Observador {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaExitoModificarAvion() {
 		super("Exito");
 		this.setSize(1000, 750);

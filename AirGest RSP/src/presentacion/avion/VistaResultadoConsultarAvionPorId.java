@@ -6,17 +6,16 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
 
 import negocio.avion.TAvion;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 
 
 public class VistaResultadoConsultarAvionPorId extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaResultadoConsultarAvionPorId() {
 		super("Resultado");
