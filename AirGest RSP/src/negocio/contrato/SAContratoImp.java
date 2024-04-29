@@ -153,9 +153,11 @@ public class SAContratoImp implements SAContrato {
 					List<TLineaContrato> lineasPorHangar = dl.leerLineasPorHangar(linea.getIdHangar());
 					
 					for (TLineaContrato l : lineasPorHangar) {
-						if (isBetween(linea.getFechaIni(), l.getFechaIni(), l.getFechaFin()) || isBetween(linea.getFechaFin(), l.getFechaIni(), l.getFechaFin()) || 
-								isBetween(l.getFechaIni(), linea.getFechaIni(), linea.getFechaFin()) || isBetween(l.getFechaFin(), linea.getFechaIni(), linea.getFechaFin())){
-							return false;
+						if (l.getIdHangar() != linea.getIdHangar() || l.getIdContrato() != linea.getIdContrato()){
+							if (isBetween(linea.getFechaIni(), l.getFechaIni(), l.getFechaFin()) || isBetween(linea.getFechaFin(), l.getFechaIni(), l.getFechaFin()) || 
+									isBetween(l.getFechaIni(), linea.getFechaIni(), linea.getFechaFin()) || isBetween(l.getFechaFin(), linea.getFechaIni(), linea.getFechaFin())){
+								return false;
+							}
 						}
 					}
 					

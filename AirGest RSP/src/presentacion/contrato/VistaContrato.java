@@ -86,7 +86,7 @@ public class VistaContrato extends JFrame implements Observador{
 		botones.add(modificarContrato);
 
 		//-------------------------------------------
-		JButton modificarLinea = new JButton("MODIFICAR MODELO");
+		JButton modificarLinea = new JButton("MODIFICAR LINEA CONTRATO");
 
 		modificarLinea.addActionListener(new ActionListener() {
 			@Override

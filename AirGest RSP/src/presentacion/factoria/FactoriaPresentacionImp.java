@@ -32,6 +32,7 @@ import presentacion.contrato.VistaFalloModificarContrato;
 import presentacion.contrato.VistaFalloModificarLineaContrato;
 import presentacion.contrato.VistaModificarContrato;
 import presentacion.contrato.VistaModificarLineaContrato;
+import presentacion.contrato.VistaResultadoConsultarContratoPorId;
 import presentacion.contrato.VistaResultadoConsultarTodosContratos;
 import presentacion.contrato.VistaResultadorConsultarContratosPorAerolinea;
 import presentacion.hangar.VistaAltaHangar;
@@ -795,7 +796,11 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	@Override
 	public Observador crearVistaConsultarTodosModelos() {
-		// TODO Auto-generated method stub
-		return null;
+		return new VistaConsultarTodosContratos();
+	}
+	
+	@Override
+	public Observador crearVistaResultadoConsultarContratoPorid(){
+		return new VistaResultadoConsultarContratoPorId();
 	}
 }

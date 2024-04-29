@@ -13,10 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import negocio.contrato.TCarrito;
+import negocio.lineaContrato.TLineaContrato;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
@@ -78,6 +81,25 @@ public class VistaCarrito extends JFrame implements Observador {
 		botones.add(cerrar);
 
 		principal.add(botones, BorderLayout.CENTER);
+		
+		//-----------------------------------------------------
+		
+		String s = "";
+		for(TLineaContrato l : carrito.getLineasContrato()){
+			s += "id_hangar: " + l.getIdHangar() + " fecha_ini: " + l.getFechaIni() + " fecha_fin: " + l.getFechaFin() + "\n";
+		}
+		
+		JTextArea exito = new JTextArea(s);
+		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setLineWrap(true); // Habilita el ajuste automático de línea
+		exito.setWrapStyleWord(true); // Ajusta el texto en palabras completas
+		exito.setEditable(false); // Hace que el JTextArea sea de solo lectura
+
+		JScrollPane scroll = new JScrollPane(exito);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño del JScrollPane
+		principal.add(scroll, BorderLayout.CENTER);
+		
 
 		//-----------------------------------------------------
 

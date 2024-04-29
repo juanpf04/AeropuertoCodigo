@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
+import presentacion.controlador.Controlador;
+import presentacion.controlador.EventosControlador;
 
 public class VistaFalloAltaModelo extends JFrame implements Observador {
 

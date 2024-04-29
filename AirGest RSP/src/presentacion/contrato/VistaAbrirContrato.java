@@ -55,11 +55,11 @@ public class VistaAbrirContrato extends JFrame implements Observador {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					dispose();
 					int id = Integer.parseInt(textoId.getText());
 					controlador.accion(EventosControlador.ABRIR_CONTRATO, id);
+					dispose();
 				} catch (NumberFormatException n) {
-					controlador.accion(EventosControlador.ABRIR_CONTRATO, 0);
+					
 				}
 			}
 

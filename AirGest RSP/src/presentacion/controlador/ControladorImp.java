@@ -7,9 +7,12 @@ import negocio.aerolinea.SAAerolinea;
 import negocio.aerolinea.TAerolinea;
 import negocio.contrato.SAContrato;
 import negocio.contrato.TCarrito;
+import negocio.contrato.TContrato;
+import negocio.contrato.TInfoContrato;
 import negocio.factoria.FactoriaNegocio;
 import negocio.hangar.SAHangar;
 import negocio.hangar.THangar;
+import negocio.lineaContrato.TLineaContrato;
 import negocio.modelo.SAModelo;
 import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
@@ -38,6 +41,7 @@ public class ControladorImp extends Controlador {
 		SAAerolinea sa;
 		SAContrato sc;
 		Observador vista = null;
+		TCarrito carrito;
 		boolean exito;
 
 		switch (evento) {
@@ -269,50 +273,90 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaAbrirContrato();
 			vista.actualizaVista(null);
 			break;
-		case VISTA_CERRAR_CONTRATO:
-			break;
-		case VISTA_BAJA_CONTRATO:
-			break;
 		case VISTA_ANYADIR_HANGAR_AL_CONTRATO:
 			vista = fp.crearVistaAñadirHangar();
 			vista.actualizaVista(datos);
 			break;
 		case VISTA_ELIMINAR_HANGAR_DEL_CONTRATO:
+			vista = fp.crearVistaEliminarHangar();
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_CONSULTAR_CONTRATO_POR_ID:
+			vista = fp.crearVistaConsultarContratoPorId();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_TODOS_CONTRATOS:
 			break;
 		case VISTA_MODIFICAR_CONTRATO:
+			vista = fp.crearVistaModificarContrato();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_MODIFICAR_LINEA_CONTRATO:
+			vista = fp.crearVistaModificarLineaContrato();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_MOSTRAR_CONTRATOS_POR_AEROLINEA:
+			vista = fp.crearVistaConsultarContratoPorAerolinea();
+			vista.actualizaVista(null);
+			break;
+		case VISTA_CARRITO:
+			vista = fp.crearVistaCarrito();
+			vista.actualizaVista(datos);
 			break;
 
 		case ABRIR_CONTRATO:// CONTRATO
 			sc = fn.crearSAContrato();
-			TCarrito carrito = sc.abrirContrato((int) datos);
+			carrito = sc.abrirContrato((int) datos);
 			vista = fp.crearVistaCarrito();
 			vista.actualizaVista(carrito);
 			break;
 		case CERRAR_CONTRATO:
-			break;
-		case BAJA_CONTRATO:
-			break;
-		case ANYADIR_HANGAR_AL_CONTRATO:
-			break;
-		case ELIMINAR_HANGAR_DEL_CONTRATO:
+			sc = fn.crearSAContrato();
+			carrito = (TCarrito) datos;
+			id = sc.cerrarContrato(carrito);
+			if (id != -1){
+				vista = fp.crearVistaExitoCerrarContrato();
+				vista.actualizaVista(id);
+			} else{
+				vista = fp.crearVistaFalloCerrarContrato();
+				vista.actualizaVista(null);
+			}
 			break;
 		case CONSULTAR_CONTRATO_POR_ID:
+			sc = fn.crearSAContrato();
+			TInfoContrato contrato = sc.consultarContratoPorId((int) datos);
+			vista = fp.crearVistaResultadoConsultarContratoPorid();
+			vista.actualizaVista(contrato);
 			break;
 		case CONSULTAR_TODOS_CONTRATOS:
+			sc = fn.crearSAContrato();
+			List<TContrato> contratos = sc.consultarTodosContratos();
+			vista = fp.crearVistaResultadoConsultarTodosContratos();
+			vista.actualizaVista(contratos);
 			break;
 		case MODIFICAR_CONTRATO:
+			sc = fn.crearSAContrato();
+			if (sc.modificarContrato((TContrato)datos)){
+				vista = fp.crearVistaExitoModificarContrato();
+			} else{
+				vista = fp.crearVistaFalloModificarContrato();
+			}
+			vista.actualizaVista(null);
 			break;
 		case MODIFICAR_LINEA_CONTRATO:
+			sc = fn.crearSAContrato();
+			if (sc.modificarLineaContrato((TLineaContrato) datos)){
+				vista = fp.crearVistaExitoModificarLineaContrato();
+			} else{
+				vista = fp.crearVistaFalloModificarLineaContrato();
+			}
+			vista.actualizaVista(null);
 			break;
 		case MOSTRAR_CONTRATOS_POR_AEROLINEA:
+			sc = fn.crearSAContrato();
+			List<TContrato> cs = sc.consultarContratosPorAerolinea((int)datos);
+			vista = fp.crearVistaResultadoConsultarContratosPorAerolinea();
+			vista.actualizaVista(cs);
 			break;
 
 		case VISTA_HANGAR:// VISTA HANGAR
