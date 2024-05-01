@@ -56,12 +56,12 @@ public class DAOAvionImpTest {
 	}
 
 	@Test
-	public void consultarAvionPorMatricula_test() {
+	public void consultarAvionesPorMatricula_test() {
 		Utilidades.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
-		assertEquals("el avion con matricula EC-12C tiene id 1", 1, da.consultarAvionPorMatricula("EC-12C").getId());
+		assertEquals("el avion con matricula EC-12C tiene id 1", 1, da.consultarAvionesPorMatricula("EC-12C").getId());
 	}
 
 	@Test

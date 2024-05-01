@@ -8,13 +8,7 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import integracion.Utilidades;
-import integracion.aerolinea.DAOAerolinea;
-import integracion.factoria.FactoriaIntegracion;
-import integracion.hangar.DAOHangar;
-import integracion.modelo.DAOModelo;
-import negocio.aerolinea.TAerolinea;
-import negocio.hangar.THangar;
-import negocio.modelo.TModelo;
+
 
 public class ValidadorAvionTest {
 

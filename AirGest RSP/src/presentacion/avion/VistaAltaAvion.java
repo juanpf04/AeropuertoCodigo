@@ -113,7 +113,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			principal.add(botones, BorderLayout.SOUTH);
 
 			// -----------------------------------------------------
-		} else { // TODO
+		} else { // 
 			JPanel panelEtiquetas = new JPanel();
 			panelEtiquetas.setLayout(new BoxLayout(panelEtiquetas, BoxLayout.PAGE_AXIS));
 			panelEtiquetas.setAlignmentX(CENTER_ALIGNMENT);

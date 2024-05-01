@@ -34,7 +34,7 @@ public class VistaAvion extends JFrame implements Observador {
 
 		JLabel modulo = new JLabel("AVION"); // titulo de la ventana en la que
 												// estamos, apareceran las
-												// funciones de modelo
+												// funciones de avion
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		modulo.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(modulo, BorderLayout.PAGE_START);
