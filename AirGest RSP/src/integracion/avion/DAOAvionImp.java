@@ -281,7 +281,7 @@ public class DAOAvionImp implements DAOAvion {
 	}
 
 	@Override
-	public TAvion consultarAvionPorNombre(String nombre) {
+	public TAvion consultarAvionPorMatricula(String matricula) {
 		File carpeta = new File(Utilidades.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
@@ -293,7 +293,7 @@ public class DAOAvionImp implements DAOAvion {
 			} catch (FileNotFoundException e) {
 			}
 
-			if (data.getString("nombre").equals(nombre)) {
+			if (data.getString("matricula").equals(matricula)) {
 				return this.read(data);
 			}
 
