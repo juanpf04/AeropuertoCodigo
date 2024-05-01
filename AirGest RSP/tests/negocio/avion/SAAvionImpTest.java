@@ -122,7 +122,7 @@ public class SAAvionImpTest {
 
 	@Test
 	public void consultar_avion_por_id_test() {
-
+		
 	}
 
 	@Test
@@ -142,6 +142,6 @@ public class SAAvionImpTest {
 
 	@Test
 	public void mostrar_aviones_por_hangar_test() {
-
+		
 	}
 }
