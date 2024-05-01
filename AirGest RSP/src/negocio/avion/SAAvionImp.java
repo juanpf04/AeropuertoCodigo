@@ -14,18 +14,15 @@ public class SAAvionImp implements SAAvion {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 			TAvion leido = da.consultarAvionPorMatricula(tAvion.getMatricula());
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
-			int idHangarNuevo = tAvion.getIdHangar();
-			//int nuevo_stock = dh.leerHangarPorId(idHangarNuevo).getStock() - 1;
+			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
 			
-			if (leido == null /*&& nuevo_stock >= 0*/) {
-				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
-				// METES SI QUIERES HACER ++ O --
-				//dh.actualizarStock(idHangarNuevo, nuevo_stock);
+			if (leido == null && nuevo_stock >= 0) {
+
+				dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
 				return da.altaAvion(tAvion);
-			} else if (!leido.getActivo() /*&& nuevo_stock >= 0*/) {
-				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
-				// METES SI QUIERES HACER ++ O --
-				//dh.actualizarStock(idHangarNuevo, nuevo_stock);
+			} else if (!leido.getActivo() && nuevo_stock >= 0) {
+
+				dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
 				tAvion.setId(leido.getId());
 				da.modificarAvion(tAvion);
 				return tAvion.getId();
@@ -42,10 +39,9 @@ public class SAAvionImp implements SAAvion {
 			TAvion leido = da.consultarAvionPorId(idAvion);
 
 			if (leido != null && leido.getActivo()) {
-				// CREAR DAOHANGAR, LEER HANGAR POR ID Y ACTUALIZAR STOCK Y LE
-				// METES SI QUIERES HACER ++ O --
+
 				DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
-				//dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
+				dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
 				return da.bajaAvion(idAvion);
 			}
 		}
@@ -76,12 +72,12 @@ public class SAAvionImp implements SAAvion {
 			DAOHangar dh =  FactoriaIntegracion.getInstance().crearDAOHangar();
 
 			TAvion leido = da.consultarAvionPorId(id);
-			//int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
+			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
 			if (leido != null) {
 				if (leido.getActivo()
 						&& (leido.getMatricula().equals(matricula) || da.consultarAvionPorMatricula(matricula) == null) /*&& nuevo_stock >= 0*/) {
-					//dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
-					//dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
+					dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
+					dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
 					return da.modificarAvion(tAvion);
 				}
 			}
