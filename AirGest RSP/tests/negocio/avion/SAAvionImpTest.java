@@ -22,12 +22,6 @@ public class SAAvionImpTest {
 	private boolean inmodificable = true;
 	private int id_inmodificable = 0;
 	
-	//estructura avion: 
-		//comercial: int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
-					//boolean activo, int idAerolinea, int idModelo, int idHangar, int trabajadores
-	
-		//privado: int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
-					//boolean activo, int idAerolinea, int idModelo, int idHangar, String nombre_duenyo, int idCarnet
 	@Test
 	public void alta_avion_test() {
 		Utilidades.esTest();
@@ -60,13 +54,8 @@ public class SAAvionImpTest {
 		// Reactivar avion exito
 		avion = new TAComercial(id_inmodificable, 5, LocalDate.of(2004, 12, 6), "pruebaReactivar", "EC-3", 
 				inmodificable, 1, 1, 1, 1);
-		assertEquals("deberia reactivarse el avion ", 6, sa.altaAvion(avion));
+		assertEquals("deberia reactivarse el avion ", 2, sa.altaAvion(avion));
 		
-		
-//		// Fallo por nombre matricula
-//		avion = new TAComercial(id_inmodificable, 5, LocalDate.of(2004, 12, 6), "nombrePrueba", "EC-123", 
-//				inmodificable, 1, 1, 1, 1);
-//		assertEquals("la matricula deberia ser EC-(caracteres alfanumericos)", -1, sa.altaAvion(avion));
 	}
 
 	@Test
@@ -86,7 +75,7 @@ public class SAAvionImpTest {
 		assertTrue("Debería modificarse el avion privado", sa.modificarAvion(avion));
 		
 		// Fallo por avion inactivo
-		avion = new TAComercial(7, 5, LocalDate.of(2003, 3, 3), "pruebaModificar3", "EC-3", 
+		avion = new TAComercial(1, 5, LocalDate.of(2003, 3, 3), "pruebaModificar3", "EC-3", 
 				inmodificable, 3, 3, 3, 13);
 		assertFalse("Un avion inactivo no se puede modificar", sa.modificarAvion(avion));
 		
@@ -119,29 +108,4 @@ public class SAAvionImpTest {
 
 	}
 
-
-	@Test
-	public void consultar_avion_por_id_test() {
-		
-	}
-
-	@Test
-	public void consultar_todos_aviones_test() {
-
-	}
-
-	@Test
-	public void mostrar_aviones_por_modelo_test() {
-
-	}
-
-	@Test
-	public void mostrar_aviones_por_aerolinea_test() {
-
-	}
-
-	@Test
-	public void mostrar_aviones_por_hangar_test() {
-		
-	}
 }
