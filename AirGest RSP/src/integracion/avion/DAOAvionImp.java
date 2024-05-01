@@ -53,15 +53,24 @@ public class DAOAvionImp implements DAOAvion {
 		JSONObject jo = data.getJSONObject("fechaFabricacion");
 
 		LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
+		int id = data.getInt("id");
+		int asientos = data.getInt("asientos");
+		String nombre = data.getString("nombre");
+		String matricula = data.getString("matricula");
+		Boolean activo = data.getBoolean("activo");
+		int idAerolinea = data.getInt("idAerolinea");
+		int idModelo = data.getInt("idModelo");
+		int idHangar = data.getInt("idHangar");
+		
 
 		if (data.has("dueño"))
-			avion = new TAPrivado(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
-					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),
-					data.getInt("idModelo"), data.getInt("idHangar"), data.getString("dueño"), data.getInt("idCarnet"));
+			avion = new TAPrivado(id, asientos, fecha, nombre,
+					matricula, activo, idAerolinea,
+					idModelo, idHangar, data.getString("dueño"), data.getInt("idCarnet"));
 		else
-			avion = new TAComercial(data.getInt("id"), data.getInt("asientos"), fecha, data.getString("nombre"),
-					data.getString("matricula"), data.getBoolean("activo"), data.getInt("idAerolinea"),
-					data.getInt("idModelo"), data.getInt("idHangar"), data.getInt("trabajadores"));
+			avion = new TAComercial(id, asientos, fecha, nombre,
+					matricula, activo, idAerolinea,
+					idModelo, idHangar, data.getInt("trabajadores"));
 
 		return avion;
 	}
