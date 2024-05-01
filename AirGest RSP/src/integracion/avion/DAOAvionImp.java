@@ -281,7 +281,7 @@ public class DAOAvionImp implements DAOAvion {
 	}
 
 	@Override
-	public TAvion consultarAvionPorMatricula(String matricula) {
+	public TAvion consultarAvionesPorMatricula(String matricula) {
 		File carpeta = new File(Utilidades.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 

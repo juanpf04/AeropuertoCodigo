@@ -12,7 +12,7 @@ public class SAAvionImp implements SAAvion {
 	public int altaAvion(TAvion tAvion) {
 		if (ValidadorAvion.comprobarDatos(tAvion)) {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
-			TAvion leido = da.consultarAvionPorMatricula(tAvion.getMatricula());
+			TAvion leido = da.consultarAvionesPorMatricula(tAvion.getMatricula());
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
 			
@@ -75,7 +75,7 @@ public class SAAvionImp implements SAAvion {
 			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
 			if (leido != null) {
 				if (leido.getActivo()
-						&& (leido.getMatricula().equals(matricula) || da.consultarAvionPorMatricula(matricula) == null) /*&& nuevo_stock >= 0*/) {
+						&& (leido.getMatricula().equals(matricula) || da.consultarAvionesPorMatricula(matricula) == null) && nuevo_stock >= 0) {
 					dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
 					dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
 					return da.modificarAvion(tAvion);
