@@ -16,18 +16,16 @@ import javax.swing.JTextArea;
 
 import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaResultadoConsultarTodasAerolineas() {
-		super("Resultado");
-		this.setSize(600, 650);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(600, 650);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

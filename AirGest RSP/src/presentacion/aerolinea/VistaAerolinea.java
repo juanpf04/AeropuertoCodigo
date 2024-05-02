@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaAerolinea extends JFrame implements Observador {
 
@@ -24,10 +25,9 @@ public class VistaAerolinea extends JFrame implements Observador {
 
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setTitle("AEROLINEA");
+		UtilidadesP.setAirGestRSP(this);
 		this.setSize(1000, 750);
 
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
