@@ -15,19 +15,17 @@ import javax.swing.JTextArea;
 
 import negocio.avion.TAvion;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarTodosAviones extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaResultadoConsultarTodosAviones() {
-		super("Resultado");
-		this.setSize(600, 650);
-	}
-
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(600, 650);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

@@ -25,6 +25,7 @@ import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -32,13 +33,10 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaAltaAvion() {
-		super("Alta Avion");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		Controlador ctrl = Controlador.getInstance();
 
 		JPanel principal = new JPanel();
