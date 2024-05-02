@@ -4,7 +4,6 @@ package presentacion.hangar;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +16,7 @@ import javax.swing.JTextField;
 
 import negocio.hangar.THangar;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -24,13 +24,9 @@ public class VistaAltaHangar extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaAltaHangar() {
-		super("Alta Hangar");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+			UtilidadesP.setAirGestRSP(this);
+			this.setSize(1000, 750);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));

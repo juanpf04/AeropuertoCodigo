@@ -2,7 +2,6 @@ package presentacion.hangar;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -23,9 +23,9 @@ public class VistaHangar extends JFrame implements Observador {
 
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setTitle("HANGAR");
-		this.setSize(1000, 750); // hace que la ventana no salga tan chiquitita
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

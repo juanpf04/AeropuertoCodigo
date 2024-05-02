@@ -2,7 +2,6 @@ package presentacion.hangar;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,18 +10,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaFalloBajaHangar extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaFalloBajaHangar() {
-		super("Fallo");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
