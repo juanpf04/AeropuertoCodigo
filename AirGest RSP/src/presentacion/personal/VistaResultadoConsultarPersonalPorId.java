@@ -5,9 +5,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 import negocio.personal.TPersonal;
 import presentacion.Observador;
@@ -28,9 +27,10 @@ public class VistaResultadoConsultarPersonalPorId extends JFrame implements Obse
 
 		String personal = datos == null ? "" : ((TPersonal) datos).toString();
 
-		JLabel exito = new JLabel(personal);
+		JTextArea exito = new JTextArea(personal);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		exito.setEditable(false);
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

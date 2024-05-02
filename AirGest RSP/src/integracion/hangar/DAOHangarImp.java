@@ -35,7 +35,7 @@ public class DAOHangarImp implements DAOHangar {
 					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
 			THangar tHangar = new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
 					data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
-			tHangar.setStock(tHangar.getStock() + stock);
+			tHangar.setStock(stock);
 
 			FileWriter archivo = new FileWriter(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json");
 

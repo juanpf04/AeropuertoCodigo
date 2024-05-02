@@ -39,6 +39,7 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		JScrollPane scroll = new JScrollPane(exito);

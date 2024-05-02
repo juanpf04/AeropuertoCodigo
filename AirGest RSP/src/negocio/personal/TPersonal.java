@@ -54,6 +54,6 @@ public class TPersonal {
 	
 	@Override
 	public String toString() {
-		return "id: " + id+ "\n idEmpleado: " + idEmpleado + "\n Área asignada: " + areaAsignada + "\n activo: " + activo;
+		return " id: " + id+ "\n idEmpleado: " + idEmpleado + "\n Área asignada: " + areaAsignada + "\n activo: " + activo;
 	}
 }

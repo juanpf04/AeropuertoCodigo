@@ -30,6 +30,7 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 		JTextArea exito = new JTextArea(avion);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setAlignmentX(CENTER_ALIGNMENT);
+		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);
