@@ -1,6 +1,6 @@
 package integracion;
 
-public class Utilidades {
+public class UtilidadesI {
 
 	public static boolean test = false;
 
@@ -12,7 +12,7 @@ public class Utilidades {
 	public static final String RUTA_TESTS = "recursos/tests/";
 
 	public static final String ruta(String modulo) {
-		if(test)
+		if (test)
 			return RUTA_TESTS + modulo + "/";
 		return RUTA_BASE_DE_DATOS + modulo + "/";
 	}
