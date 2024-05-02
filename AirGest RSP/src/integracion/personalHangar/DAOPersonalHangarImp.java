@@ -13,7 +13,7 @@ public class DAOPersonalHangarImp implements DAOPersonalHangar {
 		try {
 			FileWriter archivo = new FileWriter(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal)
 					+ "_" + String.format("%05d", idHangar) + ".json");
-			archivo.write("{\"idPersonal\":" + idPersonal + ", \"idHangar:\"" + idHangar + "}");
+			archivo.write("{\"idPersonal\":" + idPersonal + ", \"idHangar\":" + idHangar + "}");
 			archivo.close();
 			return true;
 		} catch (IOException e) {

@@ -15,23 +15,6 @@ public class THangar {
 
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param id
-	* @param direccion
-	* @param stock
-	* @param costeDia
-	* @param espacioAlmacenaje
-	* @param activo
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public THangar(int id, String direccion, int stock, float costeDia, int espacioAlmacenaje, boolean activo) {
-		// begin-user-code
-		// TODO Auto-generated constructor stub
-		// end-user-code
-	}
-
 	public THangar(int id, String direccion, int stock, double costeDia, int espacioAlmacenaje, boolean activo) {
 		this.id = id;
 		this.direccion = direccion;
@@ -73,38 +56,12 @@ public class THangar {
 		this.stock = stock;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param costeDia
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void setCosteDia(float costeDia) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
 	public void setCosteDia(double costeDia) {
 		this.costeDia = costeDia;
 	}
 
 	public void setEspacioAlmacenaje(int espacioAlmacenaje) {
 		this.espacioAlmacenaje = espacioAlmacenaje;
-	}
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public JSONObject toJSON() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
 	}
 
 	public boolean getActivo() {

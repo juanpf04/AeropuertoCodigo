@@ -84,7 +84,7 @@ public class SAPersonalImp implements SAPersonal {
 			if (pLeido != null && pLeido.getActivo() && hLeida != null && hLeida.getActivo()) {
 				DAOPersonalHangar dph = FactoriaIntegracion.getInstance().crearDAOPersonalHangar();
 
-				if (!dph.comprobarVinculacion(idPersonal, idHangar)) {
+				if (dph.comprobarVinculacion(idPersonal, idHangar)) {
 					return dph.desvincular(idPersonal, idHangar);
 				}
 			}

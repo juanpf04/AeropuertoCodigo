@@ -17,4 +17,9 @@ public class TPSeguridad extends TPersonal {
 
 		this.numPlaca = numPlaca;
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\n número de placa: " + numPlaca;
+	}
 }
