@@ -21,13 +21,10 @@ public class VistaHangar extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaHangar() {
-		super("HANGAR");
-		this.setSize(1000, 750); // hace que la ventana no salga tan chiquitita
-	}
-
 	@Override
 	public void actualizaVista(Object datos) {
+		this.setTitle("HANGAR");
+		this.setSize(1000, 750); // hace que la ventana no salga tan chiquitita
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());

@@ -23,13 +23,11 @@ public class VistaAerolinea extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 	
-	public VistaAerolinea() {
-		super("AEROLINEA");
-		this.setSize(1000, 750);
-	}
 
 	@Override
 	public void actualizaVista(Object datos) {
+		this.setTitle("AEROLINEA");
+		this.setSize(1000, 750);
 
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
