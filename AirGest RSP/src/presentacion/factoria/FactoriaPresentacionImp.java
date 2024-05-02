@@ -292,10 +292,6 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaConsultarContratosPorAerolinea();
 	}
 
-	public Observador crearVistaConsultarTodosContratos() {
-		return new VistaConsultarTodosContratos();
-	}
-
 	public Observador crearVistaEliminarHangar() {
 		return new VistaEliminarHangar();
 	}
@@ -342,11 +338,6 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador crearVistaModificarAerolinea() {
 		return new VistaModificarAerolinea();
-	}
-
-	@Override
-	public Observador crearVistaConsultarTodosModelos() {
-		return new VistaConsultarTodosContratos();
 	}
 
 	@Override

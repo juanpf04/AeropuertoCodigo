@@ -4,14 +4,8 @@ package presentacion.contrato;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Date;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,20 +14,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import negocio.contrato.TCarrito;
-import negocio.lineaContrato.TLineaContrato;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaEliminarHangar extends JFrame implements Observador {
-
-	public VistaEliminarHangar() {
-		super("Eliminar hangar");
-		this.setSize(1000, 750);
-	}
+	
+	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
 
 		Controlador controlador = Controlador.getInstance();
 		TCarrito carrito = (TCarrito) datos;

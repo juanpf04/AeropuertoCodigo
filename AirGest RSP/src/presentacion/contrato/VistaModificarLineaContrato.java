@@ -4,7 +4,6 @@ package presentacion.contrato;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -21,21 +20,19 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
-import negocio.contrato.TCarrito;
 import negocio.lineaContrato.TLineaContrato;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarLineaContrato extends JFrame implements Observador {
 
-	public VistaModificarLineaContrato() {
-		super("Modificar Linea Contrato");
-		this.setSize(1000, 750);
-	}
+	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
 
 		Controlador controlador = Controlador.getInstance();
 

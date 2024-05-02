@@ -3,10 +3,8 @@ package presentacion.contrato;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -20,24 +18,21 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
-import javax.swing.text.NumberFormatter;
 
 import negocio.contrato.TCarrito;
 import negocio.lineaContrato.TLineaContrato;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAñadirHangar extends JFrame implements Observador {
 
-	public VistaAñadirHangar() {
-		super("Añadir Hangar");
-		this.setSize(1000, 750);
-	}
-
+	private static final long serialVersionUID = 1L;
+	
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
 
 		Controlador controlador = Controlador.getInstance();
 		TCarrito carrito = (TCarrito) datos;

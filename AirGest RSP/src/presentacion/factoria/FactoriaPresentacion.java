@@ -25,8 +25,6 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador crearVistaBajaModelo();
 
-	public abstract Observador crearVistaConsultarTodosModelos();
-
 	public abstract Observador crearVistaResultadoConsultarTodosModelos();
 
 	public abstract Observador crearVistaConsultarModeloPorId();
@@ -90,8 +88,6 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaConsultarContratoPorId();
 
 	public abstract Observador crearVistaConsultarContratoPorAerolinea();
-
-	public abstract Observador crearVistaConsultarTodosContratos();
 
 	public abstract Observador crearVistaEliminarHangar();
 
