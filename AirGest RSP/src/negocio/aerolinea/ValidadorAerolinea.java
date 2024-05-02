@@ -1,4 +1,5 @@
 
+
 package negocio.aerolinea;
 
 public class ValidadorAerolinea {

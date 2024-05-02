@@ -168,5 +168,4 @@ public class VistaAvion extends JFrame implements Observador {
 		this.pack();
 
 	}
-
 }

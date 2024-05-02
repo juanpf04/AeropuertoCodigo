@@ -6,6 +6,7 @@ import negocio.aerolinea.SAAerolinea;
 import negocio.avion.SAAvion;
 import negocio.contrato.SAContrato;
 import negocio.modelo.SAModelo;
+import negocio.personal.SAPersonal;
 
 public abstract class FactoriaNegocio {
 
@@ -25,8 +26,7 @@ public abstract class FactoriaNegocio {
 
 	public abstract SAAerolinea crearSAAerolinea();
 
-	public abstract void crearSAPersonal();
+	public abstract SAPersonal crearSAPersonal();
 
 	public abstract SAContrato crearSAContrato();
-
 }

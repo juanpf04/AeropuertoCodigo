@@ -90,9 +90,16 @@ public class VistaPrincipal extends JFrame implements Observador {
 		botones.add(hangar);
 
 		//-------------------------------------------
-		JButton modificar = new JButton("PERSONAL");
-
-		botones.add(modificar);
+				JButton personal = new JButton("PERSONAL");
+				personal.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+						ctrl.accion(EventosControlador.VISTA_PERSONAL, null);
+					}
+				});
+				personal.setToolTipText("MODULO PERSONAL");
+				botones.add(personal);
 
 		//-------------------------------------------
 		JButton contrato = new JButton("CONTRATO");

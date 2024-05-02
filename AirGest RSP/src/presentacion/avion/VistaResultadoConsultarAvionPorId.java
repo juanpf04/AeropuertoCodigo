@@ -1,5 +1,6 @@
 
 
+
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -42,5 +43,6 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 		this.pack();
 
 	}
+
 
 }

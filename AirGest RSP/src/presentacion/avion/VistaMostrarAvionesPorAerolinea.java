@@ -1,5 +1,6 @@
 
 
+
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -98,5 +99,4 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 		this.setLocation(200, 200);
 		this.pack();
 	}
-
 }

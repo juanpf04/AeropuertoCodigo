@@ -1,5 +1,6 @@
 
 
+
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -65,5 +66,6 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 		this.setLocation(200, 200);
 		this.pack();
 	}
+
 
 }

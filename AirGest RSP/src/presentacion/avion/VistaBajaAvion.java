@@ -101,5 +101,4 @@ public class VistaBajaAvion extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 	}
-
 }

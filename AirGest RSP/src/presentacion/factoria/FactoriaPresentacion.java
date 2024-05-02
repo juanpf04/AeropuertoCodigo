@@ -1,5 +1,6 @@
 
 
+
 package presentacion.factoria;
 
 import presentacion.Observador;
@@ -54,15 +55,7 @@ public abstract class FactoriaPresentacion {
 
 	public abstract Observador crearVistaModelo();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public abstract Observador crearVistaPrincipal();
-
-	public abstract Observador CrearVistaPrincipal();
 
 	public abstract Observador crearVistaFalloAltaAerolinea();
 
@@ -87,166 +80,6 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaBajaAerolinea();
 
 	public abstract Observador crearVistaConsultarAerolineaPorId();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaAltaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaBajaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaModificarPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaVincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaDesvincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaConsultarPersonalPorId();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaConsultarPersonalExistente();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaExitoAltaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaFalloAltaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaExitoBajaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaFalloBajaPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaExitoModificarPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaFalloModificarPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaExitoVincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaFalloVincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaExitoDesvincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaFalloDesvincularPersonal();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaResultadoConsultarPersonalPorId();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public abstract Observador crearVistaResultadoConsultarPersonalExistente();
 
 	public abstract Observador crearVistaContrato();
 
@@ -287,8 +120,6 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaResultadoConsultarContratoPorid();
 
 	public abstract Observador crearVistaModificarAerolinea();
-
-	public abstract Observador crearVistaConsultarTodasAerolineas();
 
 	public abstract Observador crearVistaHangar();//poner esto abstract en diagrama
 
@@ -353,4 +184,45 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaResultadoMostrarAvionesPorHangar();
 
 	public abstract Observador crearVistaResultadoMostrarAvionesPorModelo();
+	
+	public abstract Observador crearVistaPersonal();
+
+	public abstract Observador crearVistaAltaPersonal();
+
+	public abstract Observador crearVistaBajaPersonal();
+
+	public abstract Observador crearVistaModificarPersonal();
+
+	public abstract Observador crearVistaVincularPersonal();
+
+	public abstract Observador crearVistaDesvincularPersonal();
+
+	public abstract Observador crearVistaConsultarPersonalPorId();
+
+	public abstract Observador crearVistaExitoAltaPersonal();
+
+	public abstract Observador crearVistaFalloAltaPersonal();
+
+	public abstract Observador crearVistaExitoBajaPersonal();
+
+	public abstract Observador crearVistaFalloBajaPersonal();
+
+	public abstract Observador crearVistaExitoModificarPersonal();
+
+	public abstract Observador crearVistaFalloModificarPersonal();
+
+	public abstract Observador crearVistaExitoVincularPersonal();
+
+	public abstract Observador crearVistaFalloVincularPersonal();
+
+	public abstract Observador crearVistaExitoDesvincularPersonal();
+
+	public abstract Observador crearVistaFalloDesvincularPersonal();
+	
+	public abstract Observador crearVistaResultadoConsultarPersonalPorId();
+	
+	public abstract Observador crearVistaResultadoConsultarPersonalExistente();
 }
+
+
+

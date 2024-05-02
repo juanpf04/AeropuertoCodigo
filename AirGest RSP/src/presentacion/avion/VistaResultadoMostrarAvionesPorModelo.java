@@ -1,5 +1,6 @@
 
 
+
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -64,5 +65,4 @@ public class VistaResultadoMostrarAvionesPorModelo extends JFrame implements Obs
 		this.setLocation(200, 200);
 		this.pack();
 	}
-
 }

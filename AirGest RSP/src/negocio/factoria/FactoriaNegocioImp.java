@@ -11,6 +11,8 @@ import negocio.contrato.SAContrato;
 import negocio.contrato.SAContratoImp;
 import negocio.modelo.SAModelo;
 import negocio.modelo.SAModeloImp;
+import negocio.personal.SAPersonal;
+import negocio.personal.SAPersonalImp;
 
 public class FactoriaNegocioImp extends FactoriaNegocio {
 
@@ -31,16 +33,8 @@ public class FactoriaNegocioImp extends FactoriaNegocio {
 		return new SAAerolineaImp();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaNegocio#crearSAPersonal()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void crearSAPersonal() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
+	public SAPersonal crearSAPersonal() {
+		return new SAPersonalImp();
 	}
 
 	@Override

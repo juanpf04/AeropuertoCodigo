@@ -1,5 +1,4 @@
 
-
 package integracion.hangar;
 
 import negocio.hangar.THangar;
@@ -153,5 +152,6 @@ public class DAOHangarImp implements DAOHangar {
 		jo.put("activo", hangar.getActivo());
 
 		return jo;
+
 	}
 }

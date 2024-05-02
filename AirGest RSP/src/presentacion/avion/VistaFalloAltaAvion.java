@@ -45,5 +45,4 @@ public class VistaFalloAltaAvion extends JFrame implements Observador {
 		this.pack();
 
 	}
-
 }

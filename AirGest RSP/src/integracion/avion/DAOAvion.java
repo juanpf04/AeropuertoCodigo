@@ -1,4 +1,5 @@
 
+
 package integracion.avion;
 
 import java.util.List;
@@ -30,4 +31,5 @@ public interface DAOAvion {
 	public List<TAvion> consultarAvionesActivosPorAerolinea(int idAerolinea);
 
 	public List<TAvion> consultarAvionesActivosPorHangar(int idHangar);
+
 }

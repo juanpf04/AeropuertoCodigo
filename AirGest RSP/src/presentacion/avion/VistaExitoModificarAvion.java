@@ -1,5 +1,6 @@
 
 
+
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -43,5 +44,4 @@ public class VistaExitoModificarAvion extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 	}
-
 }
