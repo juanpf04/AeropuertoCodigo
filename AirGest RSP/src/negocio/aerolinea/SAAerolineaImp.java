@@ -35,11 +35,11 @@ public class SAAerolineaImp implements SAAerolinea {
 
 			if (leido != null && leido.getActivo()) {
 				DAOAvion dav = FactoriaIntegracion.getInstance().crearDAOAvion();
-				//DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
+				DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
 
-				/*if (dav.comprobarAvionesActivosPorAerolinea(id).isEmpty() && dc.comprobarContratosActivosPorAerolinea(id).isEmpty) {
+				if (dav.consultarAvionesActivosPorAerolinea(id).isEmpty() && dc.leerContratosPorAerolinea(id).isEmpty()) {
 					return da.bajaAerolinea(id);
-				}*/
+				}
 			}
 		}
 		return false;

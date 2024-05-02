@@ -25,7 +25,7 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 
 	public VistaResultadoConsultarTodosAviones() {
 		super("Resultado");
-		this.setSize(1000, 750);
+		this.setSize(600, 650);
 	}
 
 	@Override
@@ -43,9 +43,9 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
-
-		JScrollPane scroll = new JScrollPane(exito);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		exito.setEditable(false);
+		
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
@@ -64,7 +64,6 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 
 

@@ -25,7 +25,7 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 	
 	public VistaResultadoConsultarTodosContratos(){
 		super("Resultado");
-		this.setSize(1000, 750);
+		this.setSize(600, 650);
 	}
 	
 	public void actualizaVista(Object datos) {
@@ -45,8 +45,7 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 		exito.setWrapStyleWord(true); // Ajusta el texto en palabras completas
 		exito.setEditable(false); // Hace que el JTextArea sea de solo lectura
 
-		JScrollPane scroll = new JScrollPane(exito);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño del JScrollPane
 
 		principal.add(scroll, BorderLayout.CENTER);
@@ -69,6 +68,5 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 }

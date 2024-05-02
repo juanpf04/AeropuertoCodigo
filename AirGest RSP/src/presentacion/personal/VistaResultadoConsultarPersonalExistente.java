@@ -18,14 +18,12 @@ import presentacion.Observador;
 
 public class VistaResultadoConsultarPersonalExistente extends JFrame implements Observador {
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	public VistaResultadoConsultarPersonalExistente() {
 		super("Resultado");
-		this.setSize(1000, 750);
+		this.setSize(600, 650);
 	}
 
 	public void actualizaVista(Object datos) {
@@ -42,8 +40,7 @@ public class VistaResultadoConsultarPersonalExistente extends JFrame implements 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);	
-		JScrollPane scroll = new JScrollPane(exito);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
@@ -62,7 +59,6 @@ public class VistaResultadoConsultarPersonalExistente extends JFrame implements 
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 
 	}
 }

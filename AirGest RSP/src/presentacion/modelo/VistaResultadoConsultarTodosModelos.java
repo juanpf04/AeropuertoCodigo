@@ -23,7 +23,7 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 
 	public VistaResultadoConsultarTodosModelos() {
 		super("Resultado");
-		this.setSize(1000, 750);
+		this.setSize(600, 650);
 	}
 
 	public void actualizaVista(Object datos) {
@@ -39,14 +39,11 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
-		//		JLabel imagen = new JLabel();
-		//		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
-		//		principal.add(imagen, BorderLayout.CENTER);
-		//		
-		JScrollPane scroll = new JScrollPane(exito);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
@@ -65,7 +62,6 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 
 	}
 }
