@@ -1,3 +1,4 @@
+
 package negocio.factoria;
 
 import negocio.hangar.SAHangar;
@@ -27,4 +28,5 @@ public abstract class FactoriaNegocio {
 	public abstract void crearSAPersonal();
 
 	public abstract SAContrato crearSAContrato();
+
 }

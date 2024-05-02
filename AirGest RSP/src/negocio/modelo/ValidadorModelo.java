@@ -1,3 +1,4 @@
+
 package negocio.modelo;
 
 public class ValidadorModelo {

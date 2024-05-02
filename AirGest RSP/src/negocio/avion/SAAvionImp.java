@@ -1,110 +1,103 @@
-/**
- * 
- */
+
 package negocio.avion;
 
 import java.util.List;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author javia
-* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-*/
+import integracion.avion.DAOAvion;
+import integracion.factoria.FactoriaIntegracion;
+import integracion.hangar.DAOHangar;
+
+
 public class SAAvionImp implements SAAvion {
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#altaAvion(TAvion tAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
 	public int altaAvion(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		if (ValidadorAvion.comprobarDatos(tAvion)) {
+			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+			TAvion leido = da.consultarAvionesPorMatricula(tAvion.getMatricula());
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
+			
+			if (leido == null && nuevo_stock >= 0) {
+
+				dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
+				return da.altaAvion(tAvion);
+			} else if (!leido.getActivo() && nuevo_stock >= 0) {
+
+				dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
+				tAvion.setId(leido.getId());
+				da.modificarAvion(tAvion);
+				return tAvion.getId();
+			}
+		}
+
+		return -1;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#bajaAvion(int idAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public boolean bajaAvion(int idAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAvion.comprobarId(idAvion)) {
+			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+
+			TAvion leido = da.consultarAvionPorId(idAvion);
+
+			if (leido != null && leido.getActivo()) {
+
+				DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
+				dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
+				return da.bajaAvion(idAvion);
+			}
+		}
+
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#consultarAvionPorId(int idAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public TAvion consultarAvionPorId(int idAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAvion.comprobarId(idAvion)) {
+			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+
+			return da.consultarAvionPorId(idAvion);
+		}
+
 		return null;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#consultarTodosAviones()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List consultarTodosAviones() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TAvion> consultarTodosAviones() {
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarTodosAviones();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#modificarAvion(TAvion tAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public boolean modificarAvion(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		if (ValidadorAvion.comprobarId(tAvion.getId()) && ValidadorAvion.comprobarDatos(tAvion)) {
+			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+			int id = tAvion.getId();
+			String matricula = tAvion.getMatricula();
+			DAOHangar dh =  FactoriaIntegracion.getInstance().crearDAOHangar();
+
+			TAvion leido = da.consultarAvionPorId(id);
+			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
+			if (leido != null) {
+				if (leido.getActivo()
+						&& (leido.getMatricula().equals(matricula) || da.consultarAvionesPorMatricula(matricula) == null) && nuevo_stock >= 0) {
+					dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
+					dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
+					return da.modificarAvion(tAvion);
+				}
+			}
+		}
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#mostrarAvionesPorModelo(int idModelo)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorModelo(int idModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TAvion> mostrarAvionesPorModelo(int idModelo) {
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarAvionesPorModelo(idModelo);
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#mostrarAvionesPorAerolinea(int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorAerolinea(int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea) {
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarAvionesPorAerolinea(idAerolinea);
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see SAAvion#mostrarAvionesPorHangar(int idHangar)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorHangar(int idHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	public List<TAvion> mostrarAvionesPorHangar(int idHangar) {
+		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
+		return da.consultarAvionesPorHangar(idHangar);
 	}
 }

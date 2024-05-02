@@ -1,45 +1,28 @@
-/**
- * 
- */
+
 package negocio.avion;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+import java.time.LocalDate;
+
 public class TAComercial extends TAvion {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
 	private int trabajadores;
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public int getTrabajadores() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+	public TAComercial(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
+			boolean activo, int idAerolinea, int idModelo, int idHangar, int trabajadores) {
+		super(id, numAsientos, fechaFabricacion, nombre, matricula, activo, idAerolinea, idModelo, idHangar);
+		this.trabajadores = trabajadores;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param numTrabajadores
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void setTrabajadores(int numTrabajadores) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	public int getTrabajadores() {
+		return this.trabajadores;
+	}
 
-		// end-user-code
+	public void setTrabajadores(int trabajadores) {
+		this.trabajadores = trabajadores;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nNúmero de trabajadores: " + this.getTrabajadores();
 	}
 }

@@ -1,10 +1,13 @@
 
+
 package presentacion.controlador;
 
 import java.util.List;
 
 import negocio.aerolinea.SAAerolinea;
 import negocio.aerolinea.TAerolinea;
+import negocio.avion.SAAvion;
+import negocio.avion.TAvion;
 import negocio.contrato.SAContrato;
 import negocio.contrato.TCarrito;
 import negocio.contrato.TContrato;
@@ -40,6 +43,7 @@ public class ControladorImp extends Controlador {
 		SAHangar sh;
 		SAAerolinea sa;
 		SAContrato sc;
+		SAAvion sav;
 		Observador vista = null;
 		TCarrito carrito;
 		boolean exito;
@@ -157,39 +161,97 @@ public class ControladorImp extends Controlador {
 			break;
 
 		case VISTA_AVION:// VISTA AVIÓN
+			vista = fp.crearVistaAvion();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_ALTA_AVION:
+			vista = fp.crearVistaAltaAvion();
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_BAJA_AVION:
+			vista = fp.crearVistaBajaAvion();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_AVION_POR_ID:
+			vista = fp.crearVistaConsultarAvionPorId();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_CONSULTAR_TODOS_AVIONES:
 			break;
 		case VISTA_MODIFICAR_AVION:
+			vista = fp.crearVistaModficarAvion();
+			vista.actualizaVista(datos);
 			break;
 		case VISTA_MOSTRAR_AVIONES_POR_MODELO:
+			vista = fp.crearVistaMostrarAvionesPorModelo();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_MOSTRAR_AVIONES_POR_AEROLINEA:
+			vista = fp.crearVistaMostrarAvionesPorAerolinea();
+			vista.actualizaVista(null);
 			break;
 		case VISTA_MOSTRAR_AVIONES_POR_HANGAR:
+			vista = fp.crearVistaMostrarAvionesPorHangar();
+			vista.actualizaVista(null);
 			break;
 
 		case ALTA_AVION:// AVIÓN
+			sav = fn.crearSAAvion();
+			id = sav.altaAvion((TAvion) datos);
+
+			if (id != -1)
+				vista = fp.crearVistaExitoAltaAvion();
+			else
+				vista = fp.crearVistaFalloAltaAvion();
+
+			vista.actualizaVista(id);
 			break;
 		case BAJA_AVION:
+			sav = fn.crearSAAvion();
+			exito = sav.bajaAvion((int) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoBajaAvion();
+			else
+				vista = fp.crearVistaFalloBajaAvion();
+
+			vista.actualizaVista(null);
 			break;
 		case CONSULTAR_AVION_POR_ID:
+			sav = fn.crearSAAvion();
+			vista = fp.crearVistaResultadoConsultarAvionPorId();
+			vista.actualizaVista(sav.consultarAvionPorId((int) datos));
 			break;
 		case CONSULTAR_TODOS_AVIONES:
+			sav = fn.crearSAAvion();
+			vista = fp.crearVistaResultadoConsultarTodosAviones();
+			vista.actualizaVista(sav.consultarTodosAviones());
 			break;
 		case MODIFICAR_AVION:
+			sav = fn.crearSAAvion();
+			exito = sav.modificarAvion((TAvion) datos);
+
+			if (exito)
+				vista = fp.crearVistaExitoModificarAvion();
+			else
+				vista = fp.crearVistaFalloModificarAvion();
+
+			vista.actualizaVista(null);
 			break;
 		case MOSTRAR_AVIONES_POR_MODELO:
+			sav = fn.crearSAAvion();
+			vista = fp.crearVistaResultadoMostrarAvionesPorModelo();
+			vista.actualizaVista(sav.mostrarAvionesPorModelo((int) datos));
 			break;
 		case MOSTRAR_AVIONES_POR_AEROLINEA:
+			sav = fn.crearSAAvion();
+			vista = fp.crearVistaResultadoMostrarAvionesPorAerolinea();
+			vista.actualizaVista(sav.mostrarAvionesPorAerolinea((int) datos));
 			break;
 		case MOSTRAR_AVIONES_POR_HANGAR:
+			sav = fn.crearSAAvion();
+			vista = fp.crearVistaResultadoMostrarAvionesPorHangar();
+			vista.actualizaVista(sav.mostrarAvionesPorHangar((int) datos));
 			break;
 
 		case VISTA_AEROLINEA:// VISTA AEROLÍNEA

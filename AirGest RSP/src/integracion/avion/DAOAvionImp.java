@@ -1,8 +1,11 @@
+
 package integracion.avion;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,49 +14,68 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import integracion.Utilidades;
+import negocio.avion.TAComercial;
+import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
 
 public class DAOAvionImp implements DAOAvion {
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param tAvion
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private JSONObject write(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		JSONObject jo = new JSONObject();
+
+		JSONObject fecha = new JSONObject();
+		fecha.put("dia", tAvion.getFechaFabricacion().getDayOfMonth());
+		fecha.put("mes", tAvion.getFechaFabricacion().getMonthValue());
+		fecha.put("anyo", tAvion.getFechaFabricacion().getYear());
+
+		jo.put("id", tAvion.getId());
+		jo.put("asientos", tAvion.getNumAsientos());
+		jo.put("fechaFabricacion", fecha);
+		jo.put("nombre", tAvion.getNombre());
+		jo.put("matricula", tAvion.getMatricula());
+		jo.put("activo", tAvion.getActivo());
+		jo.put("idModelo", tAvion.getIdModelo());
+		jo.put("idAerolinea", tAvion.getIdAerolinea());
+		jo.put("idHangar", tAvion.getIdHangar());
+
+		if (tAvion instanceof TAComercial)
+			jo.put("trabajadores", ((TAComercial) tAvion).getTrabajadores());
+		else {
+			jo.put("idCarnet", ((TAPrivado) tAvion).getIdCarnet());
+			jo.put("dueño", ((TAPrivado) tAvion).getNombreDuenyo());
+		}
+
+		return jo;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param data
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private TAvion read(JSONObject data) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		TAvion avion;
+
+		JSONObject jo = data.getJSONObject("fechaFabricacion");
+
+		LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
+		int id = data.getInt("id");
+		int asientos = data.getInt("asientos");
+		String nombre = data.getString("nombre");
+		String matricula = data.getString("matricula");
+		Boolean activo = data.getBoolean("activo");
+		int idAerolinea = data.getInt("idAerolinea");
+		int idModelo = data.getInt("idModelo");
+		int idHangar = data.getInt("idHangar");
+		
+
+		if (data.has("dueño"))
+			avion = new TAPrivado(id, asientos, fecha, nombre,
+					matricula, activo, idAerolinea,
+					idModelo, idHangar, data.getString("dueño"), data.getInt("idCarnet"));
+		else
+			avion = new TAComercial(id, asientos, fecha, nombre,
+					matricula, activo, idAerolinea,
+					idModelo, idHangar, data.getInt("trabajadores"));
+
+		return avion;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#mostrarAvionesPorModelo(int idModelo)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorModelo(int idModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
-	}
 
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
 		File carpeta = new File(Utilidades.ruta("avion"));
@@ -64,18 +86,10 @@ public class DAOAvionImp implements DAOAvion {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo) {
+				if (data.getInt("idModelo") == idModelo)
+					aviones.add(this.read(data));
 
-					JSONObject jo = data.getJSONObject("fechaFabricacion");
-
-					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
-							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
-				}
 			} catch (FileNotFoundException e) {
-
 			}
 		}
 
@@ -91,129 +105,202 @@ public class DAOAvionImp implements DAOAvion {
 		for (File f : lista) {
 			try {
 				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
-				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo")) {
+				if (data.getInt("idModelo") == idModelo && data.getBoolean("activo"))
+					aviones.add(this.read(data));
 
-					JSONObject jo = data.getJSONObject("fechaFabricacion");
-
-					LocalDate fecha = LocalDate.of(jo.getInt("anyo"), jo.getInt("mes"), jo.getInt("dia"));
-
-					aviones.add(new TAvion(data.getInt("id"), data.getInt("numAsientos"), fecha,
-							data.getString("nombre"), data.getString("matricula"), data.getBoolean("activo"),
-							data.getInt("idAerolinea"), data.getInt("idModelo"), data.getInt("idHangar")));
-				}
 			} catch (FileNotFoundException e) {
-
 			}
 		}
 
 		return aviones;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#altaAvion(TAvion tAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public int altaAvion(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		try {
+			int id = lista.length + 1;
+
+			tAvion.setId(id);
+
+			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
+
+			archivo.write(this.write(tAvion).toString());
+			archivo.close();
+
+			return id;
+
+		} catch (IOException e) {
+			return -1;
+		}
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#bajaAvion(int idAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public boolean bajaAvion(int idAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	@Override
+	public boolean bajaAvion(int id) {
+		try {
+			JSONObject data = new JSONObject(
+					new JSONTokener(new FileReader(Utilidades.ruta("avion") + String.format("%05d", id) + ".json")));
+
+			data.put("activo", false);
+
+			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
+
+			archivo.write(data.toString());
+			archivo.close();
+
+			return true;
+		} catch (IOException e) {
+		}
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#consultarAvionPorId(int idAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public TAvion consultarAvionPorId(int idAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	@Override
+	public TAvion consultarAvionPorId(int id) {
+		try {
+			JSONObject data = new JSONObject(
+					new JSONTokener(new FileReader(Utilidades.ruta("avion") + String.format("%05d", id) + ".json")));
+			return this.read(data);
+		} catch (FileNotFoundException e) {
+			return null;
+		}
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#consultarTodosAviones()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public Object consultarTodosAviones() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+	@Override
+	public List<TAvion> consultarTodosAviones() {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+
+				aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#modificarAvion(TAvion tAvion)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	@Override
 	public boolean modificarAvion(TAvion tAvion) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
+		try {
+			FileWriter archivo = new FileWriter(
+					Utilidades.ruta("avion") + String.format("%05d", tAvion.getId()) + ".json");
+			archivo.write(this.write(tAvion).toString());
+			archivo.close();
+
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#mostrarAvionesPorAerolinea(int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorAerolinea(int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+	@Override
+	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idAerolinea") == idAerolinea)
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public List<TAvion> consultarAvionesActivosPorAerolinea(int idAerolinea) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idAerolinea") == idAerolinea && data.getBoolean("activo"))
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public List<TAvion> consultarAvionesPorHangar(int idHangar) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idHangar") == idHangar)
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public List<TAvion> consultarAvionesActivosPorHangar(int idHangar) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		List<TAvion> aviones = new ArrayList<>();
+
+		for (File f : lista) {
+			try {
+				JSONObject data = new JSONObject(new JSONTokener(new FileReader(f)));
+				if (data.getInt("idHangar") == idHangar && data.getBoolean("activo"))
+					aviones.add(this.read(data));
+
+			} catch (FileNotFoundException e) {
+			}
+		}
+
+		return aviones;
+	}
+
+	@Override
+	public TAvion consultarAvionesPorMatricula(String matricula) {
+		File carpeta = new File(Utilidades.ruta("avion"));
+		File[] lista = carpeta.listFiles();
+
+		int i = 0;
+		while (i < lista.length) {
+			JSONObject data = new JSONObject();
+			try {
+				data = new JSONObject(new JSONTokener(new FileReader(lista[i])));
+			} catch (FileNotFoundException e) {
+			}
+
+			if (data.getString("matricula").equals(matricula)) {
+				return this.read(data);
+			}
+
+			i++;
+		}
+
 		return null;
-		// end-user-code
-	}
-
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#mostrarAvionesPorHangar(int idHangar)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public List mostrarAvionesPorHangar(int idHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
-	}
-
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#consultarAvionesActivosPorAerolinea(int idAerolinea)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void consultarAvionesActivosPorAerolinea(int idAerolinea) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	* (non-Javadoc)
-	* @see DAOAvion#consultarAvionesActivosPorHangar(int idHangar)
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void consultarAvionesActivosPorHangar(int idHangar) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
 	}
 }

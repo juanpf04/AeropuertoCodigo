@@ -1,77 +1,38 @@
-/**
- * 
- */
+
 package negocio.avion;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author javia
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+import java.time.LocalDate;
+
 public class TAPrivado extends TAvion {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+
 	private String nombreDuenyo;
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	private int idCarnet;
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
+	public TAPrivado(int id, int numAsientos, LocalDate fechaFabricacion, String nombre, String matricula,
+			boolean activo, int idAerolinea, int idModelo, int idHangar, String nombre_duenyo, int idCarnet) {
+		super(id, numAsientos, fechaFabricacion, nombre, matricula, activo, idAerolinea, idModelo, idHangar);
+		this.nombreDuenyo = nombre_duenyo;
+		this.idCarnet = idCarnet;
+	}
+
 	public int getIdCarnet() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return 0;
-		// end-user-code
+		return this.idCarnet;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @return
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public String getNombreDuenyo() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return this.nombreDuenyo;
 	}
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param nombre
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
-	public void setNombreDuenyo(String nombre) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-
-		// end-user-code
-	}
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @param idCarnet
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public void setIdCarnet(int idCarnet) {
-		// begin-user-code
-		// TODO Auto-generated method stub
+		this.idCarnet = idCarnet;
+	}
 
-		// end-user-code
+	public void setNombreDuenyo(String nombre_duenyo) {
+		this.nombreDuenyo = nombre_duenyo;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nNombre dueño: " + this.getNombreDuenyo() + "\nId carnet: " + this.getIdCarnet();
 	}
 }

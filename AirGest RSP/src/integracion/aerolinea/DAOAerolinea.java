@@ -1,3 +1,4 @@
+
 package integracion.aerolinea;
 
 import negocio.aerolinea.TAerolinea;
@@ -16,4 +17,5 @@ public interface DAOAerolinea {
 	public boolean bajaAerolinea(int id);
 
 	public List<TAerolinea> consultarTodasAerolineas();
+
 }

@@ -1,4 +1,5 @@
 
+
 package presentacion.factoria;
 
 import presentacion.VistaPrincipal;
@@ -16,6 +17,25 @@ import presentacion.aerolinea.VistaFalloModificarAerolinea;
 import presentacion.aerolinea.VistaModificarAerolinea;
 import presentacion.aerolinea.VistaResultadoConsultarAerolineaPorId;
 import presentacion.aerolinea.VistaResultadoConsultarTodasAerolineas;
+import presentacion.avion.VistaAltaAvion;
+import presentacion.avion.VistaAvion;
+import presentacion.avion.VistaBajaAvion;
+import presentacion.avion.VistaConsultarAvionPorId;
+import presentacion.avion.VistaExitoAltaAvion;
+import presentacion.avion.VistaExitoBajaAvion;
+import presentacion.avion.VistaExitoModificarAvion;
+import presentacion.avion.VistaFalloAltaAvion;
+import presentacion.avion.VistaFalloBajaAvion;
+import presentacion.avion.VistaFalloModificarAvion;
+import presentacion.avion.VistaModificarAvion;
+import presentacion.avion.VistaMostrarAvionesPorAerolinea;
+import presentacion.avion.VistaMostrarAvionesPorHangar;
+import presentacion.avion.VistaMostrarAvionesPorModelo;
+import presentacion.avion.VistaResultadoConsultarAvionPorId;
+import presentacion.avion.VistaResultadoConsultarTodosAviones;
+import presentacion.avion.VistaResultadoMostrarAvionesPorAerolinea;
+import presentacion.avion.VistaResultadoMostrarAvionesPorHangar;
+import presentacion.avion.VistaResultadoMostrarAvionesPorModelo;
 import presentacion.contrato.VistaAbrirContrato;
 import presentacion.contrato.VistaAñadirHangar;
 import presentacion.contrato.VistaCarrito;
@@ -197,232 +217,80 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaFalloModificarHangar();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaAltaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaAltaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaAltaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaBajaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaBajaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaBajaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaConsultarAvionPorId()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaConsultarAvionPorId() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaConsultarAvionPorId();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoAltaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoAltaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoAltaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoBajaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoBajaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoBajaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaExitoModificarAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaExitoModificarAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaExitoModificarAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloAltaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloAltaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloAltaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloBajaAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloBajaAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloBajaAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaFalloModificarAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaFalloModificarAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaFalloModificarAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaModficarAvion()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaModficarAvion() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaModificarAvion();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorAerolinea()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaMostrarAvionesPorAerolinea() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaMostrarAvionesPorAerolinea();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorHangar()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaMostrarAvionesPorHangar() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaMostrarAvionesPorHangar();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaMostrarAvionesPorModelo()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaMostrarAvionesPorModelo() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaMostrarAvionesPorModelo();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoConsultarAvionPorId()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoConsultarAvionPorId() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoConsultarAvionPorId();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoConsultarTodosAviones()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoConsultarTodosAviones() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoConsultarTodosAviones();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorAerolinea()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoMostrarAvionesPorAerolinea() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoMostrarAvionesPorAerolinea();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorHangar()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoMostrarAvionesPorHangar() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoMostrarAvionesPorHangar();
 	}
 
-	/** 
-	* (non-Javadoc)
-	* @see FactoriaPresentacion#crearVistaResultadoMostrarAvionesPorModelo()
-	* @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	*/
 	public Observador crearVistaResultadoMostrarAvionesPorModelo() {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return null;
-		// end-user-code
+		return new VistaResultadoMostrarAvionesPorModelo();
 	}
 
 	public Observador crearVistaFalloAltaAerolinea() {
