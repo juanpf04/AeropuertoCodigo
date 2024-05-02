@@ -35,9 +35,9 @@ public class SAHangarImp implements SAHangar {
 			if (leido != null && leido.getActivo()) {
 				DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 
-				//				if (da.consultarAvionesActivosPorModelo(id).isEmpty()) {
-				//					return dh.bajaHangar(id);
-				//				}
+				if (da.consultarAvionesActivosPorHangar(id).isEmpty()) {
+					return dh.bajaHangar(id);
+				}
 			}
 		}
 
