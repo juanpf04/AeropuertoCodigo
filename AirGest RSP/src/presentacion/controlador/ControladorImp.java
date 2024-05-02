@@ -25,7 +25,6 @@ import presentacion.Observador;
 
 public class ControladorImp extends Controlador {
 
-
 	public void accion(EventosControlador evento, Object datos) {
 		FactoriaPresentacion fp = FactoriaPresentacion.getInstance();
 		FactoriaNegocio fn = FactoriaNegocio.getInstance();
@@ -261,10 +260,11 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaConsultarAerolineaPorId();
 			vista.actualizaVista(null);
 			break;
-		/*case VISTA_CONSULTAR_TODOS_AEROLINEAS:
-			vista = fp.crearVistaConsultarTodasAerolineas();
-			vista.actualizaVista(null);
-			break;*/
+		/*
+		 * case VISTA_CONSULTAR_TODOS_AEROLINEAS: vista =
+		 * fp.crearVistaConsultarTodasAerolineas(); vista.actualizaVista(null);
+		 * break;
+		 */
 		case VISTA_MODIFICAR_AEROLINEA:
 			vista = fp.crearVistaModificarAerolinea();
 			vista.actualizaVista(null);
@@ -367,10 +367,10 @@ public class ControladorImp extends Controlador {
 			sc = fn.crearSAContrato();
 			carrito = (TCarrito) datos;
 			id = sc.cerrarContrato(carrito);
-			if (id != -1){
+			if (id != -1) {
 				vista = fp.crearVistaExitoCerrarContrato();
 				vista.actualizaVista(id);
-			} else{
+			} else {
 				vista = fp.crearVistaFalloCerrarContrato();
 				vista.actualizaVista(null);
 			}
@@ -389,25 +389,25 @@ public class ControladorImp extends Controlador {
 			break;
 		case MODIFICAR_CONTRATO:
 			sc = fn.crearSAContrato();
-			if (sc.modificarContrato((TContrato)datos)){
+			if (sc.modificarContrato((TContrato) datos)) {
 				vista = fp.crearVistaExitoModificarContrato();
-			} else{
+			} else {
 				vista = fp.crearVistaFalloModificarContrato();
 			}
 			vista.actualizaVista(null);
 			break;
 		case MODIFICAR_LINEA_CONTRATO:
 			sc = fn.crearSAContrato();
-			if (sc.modificarLineaContrato((TLineaContrato) datos)){
+			if (sc.modificarLineaContrato((TLineaContrato) datos)) {
 				vista = fp.crearVistaExitoModificarLineaContrato();
-			} else{
+			} else {
 				vista = fp.crearVistaFalloModificarLineaContrato();
 			}
 			vista.actualizaVista(null);
 			break;
 		case MOSTRAR_CONTRATOS_POR_AEROLINEA:
 			sc = fn.crearSAContrato();
-			List<TContrato> cs = sc.consultarContratosPorAerolinea((int)datos);
+			List<TContrato> cs = sc.consultarContratosPorAerolinea((int) datos);
 			vista = fp.crearVistaResultadoConsultarContratosPorAerolinea();
 			vista.actualizaVista(cs);
 			break;
@@ -428,10 +428,11 @@ public class ControladorImp extends Controlador {
 			vista = fp.crearVistaConsultarHangarPorId();
 			vista.actualizaVista(null);
 			break;
-		//		case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR TODOS HANGARES
-		//			vista = fp.crearVistaResultadoConsultarTodosHangares();
-		//			vista.actualizaVista(null);
-		//			break;
+		// case VISTA_CONSULTAR_TODOS_HANGARES: ESTO EN LA PROPOA DE CONSUTAR
+		// TODOS HANGARES
+		// vista = fp.crearVistaResultadoConsultarTodosHangares();
+		// vista.actualizaVista(null);
+		// break;
 		case VISTA_MODIFICAR_HANGAR:
 			vista = fp.crearVistaModificarHangar();
 			vista.actualizaVista(null);
@@ -592,9 +593,6 @@ public class ControladorImp extends Controlador {
 			vista.actualizaVista(null);
 
 			break;
-		default:
-			break;
 		}
 	}
 }
-
