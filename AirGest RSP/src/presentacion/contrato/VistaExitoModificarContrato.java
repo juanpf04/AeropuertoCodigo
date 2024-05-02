@@ -41,8 +41,5 @@ public class VistaExitoModificarContrato extends JFrame implements Observador {
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-		
-		Controlador c = Controlador.getInstance();
-		c.accion(EventosControlador.VISTA_CONTRATO, null);
 	}
 }

@@ -42,7 +42,5 @@ public class VistaExitoCerrarContrato extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 		
-		Controlador controlador = Controlador.getInstance();
-		controlador.accion(EventosControlador.VISTA_CONTRATO, null);
 	}
 }

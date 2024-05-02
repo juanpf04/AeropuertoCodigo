@@ -42,7 +42,5 @@ public class VistaFalloModificarContrato extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 		
-		Controlador c = Controlador.getInstance();
-		c.accion(EventosControlador.VISTA_CONTRATO, null);
 	}
 }

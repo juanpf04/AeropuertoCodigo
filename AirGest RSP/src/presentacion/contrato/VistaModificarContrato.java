@@ -107,7 +107,7 @@ public class VistaModificarContrato extends JFrame implements Observador {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				controlador.accion(EventosControlador.VISTA_CARRITO, carrito);
+				controlador.accion(EventosControlador.VISTA_CONTRATO, carrito);
 			}
 
 		});

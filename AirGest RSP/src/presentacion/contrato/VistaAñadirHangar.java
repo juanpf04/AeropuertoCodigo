@@ -1,4 +1,3 @@
-
 package presentacion.contrato;
 
 import java.awt.BorderLayout;
