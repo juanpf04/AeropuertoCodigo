@@ -1,5 +1,3 @@
-
-
 package presentacion.aerolinea;
 
 import java.awt.Dimension;
@@ -20,6 +18,8 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaConsultarAerolineaPorId extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
 
 	public VistaConsultarAerolineaPorId() {
 		super("Consultar aerolinea por id");

@@ -1,6 +1,3 @@
-
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -19,7 +16,6 @@ import javax.swing.JTextArea;
 import negocio.avion.TAvion;
 import presentacion.Observador;
 
-
 public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
@@ -34,6 +30,7 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<TAvion> aviones = (List<TAvion>) datos;
 
 		String s = "";
@@ -43,12 +40,13 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
-	
+
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

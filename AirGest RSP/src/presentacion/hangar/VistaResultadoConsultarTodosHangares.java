@@ -14,10 +14,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import negocio.hangar.THangar;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 
 public class VistaResultadoConsultarTodosHangares extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
+	
 	public VistaResultadoConsultarTodosHangares() {
 		super("Resultado");
 		this.setSize(600, 650);
@@ -28,6 +30,7 @@ public class VistaResultadoConsultarTodosHangares extends JFrame implements Obse
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<THangar> hangares = (List<THangar>) datos;
 
 		String s = "";

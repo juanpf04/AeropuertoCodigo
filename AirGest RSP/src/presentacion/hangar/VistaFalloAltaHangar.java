@@ -13,6 +13,9 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaFalloAltaHangar extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaFalloAltaHangar() {
 		super("Fallo");
 		this.setSize(1000, 750);

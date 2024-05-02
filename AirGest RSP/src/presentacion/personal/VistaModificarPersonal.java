@@ -23,9 +23,6 @@ import presentacion.controlador.EventosControlador;
 
 public class VistaModificarPersonal extends JFrame implements Observador {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public VistaModificarPersonal() {

@@ -1,4 +1,3 @@
-
 package presentacion.hangar;
 
 import java.awt.BorderLayout;
@@ -16,13 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import negocio.hangar.THangar;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarHangar extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+	
 	public VistaModificarHangar() {
 		super("Modificar Hangar");
 		this.setSize(1000, 750);

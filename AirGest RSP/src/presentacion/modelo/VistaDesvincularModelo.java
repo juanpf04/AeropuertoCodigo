@@ -20,6 +20,8 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaDesvincularModelo extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
 
 	public VistaDesvincularModelo() {
 		super("Desvincular Modelo");

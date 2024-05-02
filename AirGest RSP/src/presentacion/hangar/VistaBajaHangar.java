@@ -19,6 +19,8 @@ import presentacion.controlador.EventosControlador;
 
 public class VistaBajaHangar extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+	
 	public VistaBajaHangar() {
 		super("Baja Hangar");
 		this.setSize(1000, 750);

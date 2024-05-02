@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,6 +13,8 @@ import negocio.modelo.TModelo;
 import presentacion.Observador;
 
 public class VistaResultadoConsultarModeloPorId extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaResultadoConsultarModeloPorId() {
 		super("Resultado");

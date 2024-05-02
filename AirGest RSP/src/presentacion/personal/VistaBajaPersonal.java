@@ -19,9 +19,6 @@ import presentacion.controlador.EventosControlador;
 
 public class VistaBajaPersonal extends JFrame implements Observador {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public VistaBajaPersonal() {

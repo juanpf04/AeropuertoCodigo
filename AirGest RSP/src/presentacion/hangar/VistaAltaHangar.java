@@ -16,12 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import negocio.hangar.THangar;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAltaHangar extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
+	
 	public VistaAltaHangar() {
 		super("Alta Hangar");
 		this.setSize(1000, 750);

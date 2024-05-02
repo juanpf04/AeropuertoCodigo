@@ -22,9 +22,6 @@ import presentacion.controlador.EventosControlador;
 
 public class VistaDesvincularPersonal extends JFrame implements Observador {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public VistaDesvincularPersonal() {

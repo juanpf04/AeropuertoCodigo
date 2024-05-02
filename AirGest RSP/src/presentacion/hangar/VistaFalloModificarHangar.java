@@ -1,4 +1,3 @@
-
 package presentacion.hangar;
 
 import java.awt.BorderLayout;
@@ -14,6 +13,8 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaFalloModificarHangar extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaFalloModificarHangar() {
 		super("Fallo");

@@ -15,6 +15,8 @@ import presentacion.Observador;
 
 public class VistaFalloModificarAerolinea extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+	
 	public VistaFalloModificarAerolinea() {
 		super("Fallo");
 		this.setSize(1000, 750);

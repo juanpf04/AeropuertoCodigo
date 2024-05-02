@@ -10,6 +10,8 @@ import presentacion.Observador;
 
 public class VistaExitoAltaModelo extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+
 	public VistaExitoAltaModelo() {
 		super("Exito");
 		this.setSize(1000, 750);

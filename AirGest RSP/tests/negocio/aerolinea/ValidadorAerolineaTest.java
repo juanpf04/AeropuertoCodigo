@@ -5,23 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import integracion.Utilidades;
-import negocio.modelo.TModelo;
-import negocio.modelo.ValidadorModelo;
 
 public class ValidadorAerolineaTest {
 
-private boolean noImporta = true;
-	
+	private boolean noImporta = true;
+
 	@Test
 	public void comprobar_aerolinea_test() {
 		Utilidades.esTest();
-		
+
 		TAerolinea aerolinea = new TAerolinea(1, "puerco", noImporta);
 
 		assertTrue("puerco", ValidadorAerolinea.comprobarAerolinea(aerolinea));
 	}
-	
-	
+
 	@Test
 	public void comprobar_id_test() {
 		Utilidades.esTest();
@@ -30,7 +27,7 @@ private boolean noImporta = true;
 		assertFalse("no puede tener id 0", ValidadorAerolinea.comprobarId(0));
 		assertFalse("no puede tener id negativo", ValidadorAerolinea.comprobarId(-1));
 	}
-	
+
 	@Test
 	public void comprobar_nombre_test() {
 		Utilidades.esTest();
@@ -40,9 +37,5 @@ private boolean noImporta = true;
 		assertFalse("mal1", ValidadorAerolinea.comprobarNombre("!hola"));
 		assertFalse("mal2", ValidadorAerolinea.comprobarNombre("boeing7-747"));
 		assertFalse("mal3", ValidadorAerolinea.comprobarNombre("_987"));
-	
-	
-		
 	}
-	
 }

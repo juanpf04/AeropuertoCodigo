@@ -14,13 +14,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaVincularModelo extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaVincularModelo() {
 		super("Vincular Modelo");
@@ -86,7 +87,8 @@ public class VistaVincularModelo extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

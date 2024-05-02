@@ -14,9 +14,6 @@ import presentacion.Observador;
 
 public class VistaExitoVincularPersonal extends JFrame implements Observador {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public VistaExitoVincularPersonal() {

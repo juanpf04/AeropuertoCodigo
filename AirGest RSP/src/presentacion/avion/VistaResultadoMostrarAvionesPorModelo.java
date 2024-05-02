@@ -1,6 +1,3 @@
-
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -33,6 +30,7 @@ public class VistaResultadoMostrarAvionesPorModelo extends JFrame implements Obs
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<TAvion> aviones = (List<TAvion>) datos;
 
 		String s = "";
@@ -47,7 +45,8 @@ public class VistaResultadoMostrarAvionesPorModelo extends JFrame implements Obs
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

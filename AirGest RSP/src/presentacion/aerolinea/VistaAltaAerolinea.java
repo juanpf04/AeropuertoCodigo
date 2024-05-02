@@ -1,5 +1,3 @@
-
-
 package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
@@ -17,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import negocio.aerolinea.TAerolinea;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
@@ -68,7 +65,8 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

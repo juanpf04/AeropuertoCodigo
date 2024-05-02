@@ -13,15 +13,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaPrincipal extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
+
 	public VistaPrincipal() {
 		super("AirGest RSP");
-		this.setSize(8000, 2000); //hace que la ventana no salga tan chiquitita
+		this.setSize(8000, 2000); // hace que la ventana no salga tan chiquitita
 	}
 
 	@Override
@@ -30,9 +32,13 @@ public class VistaPrincipal extends JFrame implements Observador {
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel modulo = new JLabel("AIRGEST RSP"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
+		JLabel modulo = new JLabel("AIRGEST RSP"); // titulo de la ventana en la
+													// que estamos, apareceran
+													// las funciones de modelo
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS
+		modulo.setHorizontalAlignment(SwingConstants.CENTER); // ESTO ES LO QUE
+																// LO CENTRA,
+																// SWINGCONSTANTS
 		principal.add(modulo, BorderLayout.PAGE_START);
 
 		JPanel botones = new JPanel();
@@ -40,7 +46,7 @@ public class VistaPrincipal extends JFrame implements Observador {
 
 		Controlador ctrl = Controlador.getInstance();
 
-		//-------------------------------------------
+		// -------------------------------------------
 
 		JButton modelo = new JButton("MODELO");
 		modelo.addActionListener(new ActionListener() {
@@ -53,7 +59,7 @@ public class VistaPrincipal extends JFrame implements Observador {
 		modelo.setToolTipText("MODULO MODELO");
 		botones.add(modelo);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton avion = new JButton("AVION");
 		avion.addActionListener(new ActionListener() {
 			@Override
@@ -65,7 +71,7 @@ public class VistaPrincipal extends JFrame implements Observador {
 		avion.setToolTipText("MODULO AVION");
 		botones.add(avion);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton aerolinea = new JButton("AEROLINEA");
 		aerolinea.addActionListener(new ActionListener() {
 			@Override
@@ -77,7 +83,7 @@ public class VistaPrincipal extends JFrame implements Observador {
 		aerolinea.setToolTipText("MODULO AEROLINEA");
 		botones.add(aerolinea);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton hangar = new JButton("HANGAR");
 		hangar.addActionListener(new ActionListener() {
 			@Override
@@ -89,22 +95,22 @@ public class VistaPrincipal extends JFrame implements Observador {
 		hangar.setToolTipText("MODULO HANGAR");
 		botones.add(hangar);
 
-		//-------------------------------------------
-				JButton personal = new JButton("PERSONAL");
-				personal.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-						ctrl.accion(EventosControlador.VISTA_PERSONAL, null);
-					}
-				});
-				personal.setToolTipText("MODULO PERSONAL");
-				botones.add(personal);
+		// -------------------------------------------
+		JButton personal = new JButton("PERSONAL");
+		personal.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ctrl.accion(EventosControlador.VISTA_PERSONAL, null);
+			}
+		});
+		personal.setToolTipText("MODULO PERSONAL");
+		botones.add(personal);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton contrato = new JButton("CONTRATO");
 		contrato.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();

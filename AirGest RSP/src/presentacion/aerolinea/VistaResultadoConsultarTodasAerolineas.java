@@ -19,6 +19,8 @@ import presentacion.Observador;
 
 public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+
 	public VistaResultadoConsultarTodasAerolineas() {
 		super("Resultado");
 		this.setSize(600, 650);
@@ -29,6 +31,7 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<TAerolinea> aerolineas = (List<TAerolinea>) datos;
 
 		String s = "";
@@ -39,8 +42,9 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 		exito.setEditable(false);
-		
-		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS");

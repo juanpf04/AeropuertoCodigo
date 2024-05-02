@@ -20,6 +20,8 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarModelo extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
 
 	public VistaModificarModelo() {
 		super("Modificar Modelo");

@@ -9,9 +9,6 @@ import java.io.File;
 import org.junit.Test;
 
 import integracion.Utilidades;
-import negocio.modelo.SAModelo;
-import negocio.modelo.SAModeloImp;
-import negocio.modelo.TModelo;
 
 public class SAHangarImpTest {
 	private boolean inmodificable = true;

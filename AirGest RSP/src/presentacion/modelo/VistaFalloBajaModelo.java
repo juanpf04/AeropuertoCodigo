@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaFalloBajaModelo extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
 
 	public VistaFalloBajaModelo() {
 		super("Fallo");

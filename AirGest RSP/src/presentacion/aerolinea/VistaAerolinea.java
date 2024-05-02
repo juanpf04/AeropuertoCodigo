@@ -17,11 +17,12 @@ import javax.swing.SwingConstants;
 
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
-import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 
 public class VistaAerolinea extends JFrame implements Observador {
 
+	private static final long serialVersionUID = 1L;
+	
 	public VistaAerolinea() {
 		super("AEROLINEA");
 		this.setSize(1000, 750);

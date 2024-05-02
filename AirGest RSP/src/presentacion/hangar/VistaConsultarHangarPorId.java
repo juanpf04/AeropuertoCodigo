@@ -18,6 +18,8 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaConsultarHangarPorId extends JFrame implements Observador {
+	
+	private static final long serialVersionUID = 1L;
 
 	public VistaConsultarHangarPorId() {
 		super("Consultar hangar por id");

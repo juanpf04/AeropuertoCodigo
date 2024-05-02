@@ -9,10 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import integracion.Utilidades;
-import integracion.modelo.DAOModelo;
-import integracion.modelo.DAOModeloImp;
 import negocio.hangar.THangar;
-import negocio.modelo.TModelo;
 
 public class DAOHangarImpTest {
 	@Test

@@ -1,6 +1,3 @@
-
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -19,7 +16,6 @@ import javax.swing.JTextArea;
 import negocio.avion.TAvion;
 import presentacion.Observador;
 
-
 public class VistaResultadoMostrarAvionesPorAerolinea extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
@@ -34,6 +30,7 @@ public class VistaResultadoMostrarAvionesPorAerolinea extends JFrame implements 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<TAvion> aviones = (List<TAvion>) datos;
 
 		String s = "";
@@ -45,10 +42,12 @@ public class VistaResultadoMostrarAvionesPorAerolinea extends JFrame implements 
 		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
-		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

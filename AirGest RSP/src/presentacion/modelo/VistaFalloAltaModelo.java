@@ -3,21 +3,19 @@ package presentacion.modelo;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
-import presentacion.controlador.Controlador;
-import presentacion.controlador.EventosControlador;
 
 public class VistaFalloAltaModelo extends JFrame implements Observador {
+
+	private static final long serialVersionUID = 1L;
 
 	public VistaFalloAltaModelo() {
 		super("Fallo");

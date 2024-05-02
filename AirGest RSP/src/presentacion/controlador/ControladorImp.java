@@ -1,5 +1,3 @@
-
-
 package presentacion.controlador;
 
 import java.util.List;
@@ -593,6 +591,8 @@ public class ControladorImp extends Controlador {
 
 			vista.actualizaVista(null);
 
+			break;
+		default:
 			break;
 		}
 	}
