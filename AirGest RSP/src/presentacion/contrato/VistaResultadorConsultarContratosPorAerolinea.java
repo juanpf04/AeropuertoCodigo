@@ -24,12 +24,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaResultadorConsultarContratosPorAerolinea extends JFrame implements Observador {
-	
-	public VistaResultadorConsultarContratosPorAerolinea(){
+
+	public VistaResultadorConsultarContratosPorAerolinea() {
 		super("Contratos por aerolinea");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -49,11 +49,13 @@ public class VistaResultadorConsultarContratosPorAerolinea extends JFrame implem
 
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño del JScrollPane
+		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño
+															// del JScrollPane
 
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

@@ -14,7 +14,7 @@ import negocio.hangar.THangar;
 import presentacion.Observador;
 
 public class VistaResultadoConsultarHangarPorId extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public VistaResultadoConsultarHangarPorId() {

@@ -16,12 +16,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaExitoCerrarContrato extends JFrame implements Observador {
-	
-	public VistaExitoCerrarContrato(){
+
+	public VistaExitoCerrarContrato() {
 		super("Exito");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -41,6 +41,6 @@ public class VistaExitoCerrarContrato extends JFrame implements Observador {
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-		
+
 	}
 }

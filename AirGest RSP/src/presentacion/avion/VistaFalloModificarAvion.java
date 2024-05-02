@@ -1,6 +1,4 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -15,9 +13,8 @@ import javax.swing.SwingConstants;
 
 import presentacion.Observador;
 
-
 public class VistaFalloModificarAvion extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public VistaFalloModificarAvion() {

@@ -5,14 +5,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class ValidadorHangarTest {
 private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_datos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		THangar hangar = new THangar(0, "kjfhjksa", 4, 50.8, 4, noImporta);
 
@@ -22,7 +22,7 @@ private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue(" id 1 deberia ser valido", ValidadorHangar.comprobarId(1));
 		assertFalse("no puede tener id 0", ValidadorHangar.comprobarId(0));
@@ -31,14 +31,14 @@ private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_direccion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		assertTrue("el nombre debería ser valido", ValidadorHangar.comprobarDireccion("Hola 123"));
 		
 	}
 	
 	@Test
 	public void comprobar_stock_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("1", ValidadorHangar.comprobarStock(23));
 		assertFalse("2", ValidadorHangar.comprobarStock(-3));
@@ -47,7 +47,7 @@ private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_costeDia_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("1", ValidadorHangar.comprobarCosteDia(23.23));
 		assertFalse("2", ValidadorHangar.comprobarCosteDia(-3));
@@ -56,7 +56,7 @@ private boolean noImporta = true;
 	
 	@Test
 	public void comprobar_espacioAlmacenaje_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("1", ValidadorHangar.comprobarEspacioAlmacenaje(23));
 		assertFalse("2", ValidadorHangar.comprobarEspacioAlmacenaje(-3));

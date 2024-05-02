@@ -17,20 +17,22 @@ import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
-public class VistaContrato extends JFrame implements Observador{
+public class VistaContrato extends JFrame implements Observador {
 
-	public VistaContrato(){
+	public VistaContrato() {
 		super("CONTRATO");
 		this.setSize(1000, 750);
 	}
-	
+
 	@Override
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel modulo = new JLabel("CONTRATO"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
+		JLabel modulo = new JLabel("CONTRATO"); // titulo de la ventana en la
+												// que estamos, apareceran las
+												// funciones de modelo
 		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		modulo.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(modulo, BorderLayout.PAGE_START);
@@ -50,7 +52,7 @@ public class VistaContrato extends JFrame implements Observador{
 		});
 		botones.add(abrir);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultar = new JButton("CONSULTAR CONTRATO POR ID");
 		consultar.addActionListener(new ActionListener() {
 			@Override
@@ -61,7 +63,7 @@ public class VistaContrato extends JFrame implements Observador{
 		});
 		botones.add(consultar);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarTodos = new JButton("CONSULTAR CONTRATOS");
 
 		consultarTodos.addActionListener(new ActionListener() {
@@ -73,7 +75,7 @@ public class VistaContrato extends JFrame implements Observador{
 		});
 		botones.add(consultarTodos);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton modificarContrato = new JButton("MODIFICAR CONTRATO");
 
 		modificarContrato.addActionListener(new ActionListener() {
@@ -85,7 +87,7 @@ public class VistaContrato extends JFrame implements Observador{
 
 		botones.add(modificarContrato);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton modificarLinea = new JButton("MODIFICAR LINEA CONTRATO");
 
 		modificarLinea.addActionListener(new ActionListener() {
@@ -98,7 +100,7 @@ public class VistaContrato extends JFrame implements Observador{
 
 		botones.add(modificarLinea);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarPorAerolinea = new JButton("CONSULTAR CONTRATOS POR AEROLINEA");
 
 		consultarPorAerolinea.addActionListener(new ActionListener() {
@@ -113,9 +115,10 @@ public class VistaContrato extends JFrame implements Observador{
 
 		principal.add(botones, BorderLayout.CENTER);
 
-		//-----------------------------------------------------
+		// -----------------------------------------------------
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -133,7 +136,7 @@ public class VistaContrato extends JFrame implements Observador{
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-		
+
 	}
 
 }

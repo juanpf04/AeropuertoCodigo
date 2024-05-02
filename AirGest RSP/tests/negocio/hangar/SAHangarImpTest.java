@@ -8,7 +8,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class SAHangarImpTest {
 	private boolean inmodificable = true;
@@ -16,13 +16,13 @@ public class SAHangarImpTest {
 
 	@Test
 	public void alta_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAHangar sh = new SAHangarImp();
 
 		// Prueba exitosa
 		THangar hangar = new THangar(id_inmodificable, "holi", 4, 50.8, 4, inmodificable);
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 		assertEquals("debería darse de alta el hangar", lista.length + 1, sh.altaHangar(hangar));
 
@@ -37,7 +37,7 @@ public class SAHangarImpTest {
 	
 	@Test
 	public void baja_hangar_test() {//TODAVÍA NO SE PUEDE COMPROBAR
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAHangar sh = new SAHangarImp();
 
@@ -56,7 +56,7 @@ public class SAHangarImpTest {
 	
 	@Test
 	public void modificar_hangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAHangar sh = new SAHangarImp();
 

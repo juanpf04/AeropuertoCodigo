@@ -5,14 +5,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.modelo.ValidadorModelo;
 
 public class ValidadorPersonalTest {
 
 	@Test
 	public void comprobarDatosTest() {
-	    Utilidades.esTest();
+	    UtilidadesI.esTest();
 	    
 	    TPersonal personal;
 	    
@@ -38,7 +38,7 @@ public class ValidadorPersonalTest {
 
 	@Test
 	public void comprobarIdTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue(" id 1 deberia ser valido", ValidadorModelo.comprobarId(1));
 		assertFalse("no puede tener id 0", ValidadorModelo.comprobarId(0));

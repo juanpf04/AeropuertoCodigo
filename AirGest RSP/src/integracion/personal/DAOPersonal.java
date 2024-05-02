@@ -5,15 +5,16 @@ import java.util.List;
 
 public interface DAOPersonal {
 
-	public int AltaPersonal(TPersonal tPersonal);
+	public int altaPersonal(TPersonal tPersonal);
 
-	public boolean BajaPersonal(int id);
+	public boolean bajaPersonal(int id);
 
-	public boolean ModificarPersonal(TPersonal tPersonal);
+	public boolean modificarPersonal(TPersonal tPersonal);
 
-	public TPersonal ConsultarPersonalPorId(int id);
-	
-	public TPersonal ConsultarPersonalPorIdEmpleado(int  idEmpleado);
+	public TPersonal consultarPersonalPorId(int id);
 
-	public List<TPersonal> ConsultarPersonalExistente();
+	public TPersonal consultarPersonalPorIdEmpleado(int idEmpleado);
+
+	public List<TPersonal> consultarPersonalExistente();
+
 }

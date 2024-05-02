@@ -2,7 +2,6 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,14 +20,10 @@ public class VistaPrincipal extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaPrincipal() {
-		super("AirGest RSP");
-		this.setSize(8000, 2000); // hace que la ventana no salga tan chiquitita
-	}
-
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(8000, 2000); // hace que la ventana no salga tan chiquitita
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

@@ -37,7 +37,8 @@ public class SAAerolineaImp implements SAAerolinea {
 				DAOAvion dav = FactoriaIntegracion.getInstance().crearDAOAvion();
 				DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
 
-				if (dav.consultarAvionesActivosPorAerolinea(id).isEmpty() && dc.leerContratosPorAerolinea(id).isEmpty()) {
+				if (dav.consultarAvionesActivosPorAerolinea(id).isEmpty()
+						&& dc.leerContratosPorAerolinea(id).isEmpty()) {
 					return da.bajaAerolinea(id);
 				}
 			}

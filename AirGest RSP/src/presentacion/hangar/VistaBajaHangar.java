@@ -20,7 +20,7 @@ import presentacion.controlador.EventosControlador;
 public class VistaBajaHangar extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public VistaBajaHangar() {
 		super("Baja Hangar");
 		this.setSize(1000, 750);
@@ -70,7 +70,8 @@ public class VistaBajaHangar extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

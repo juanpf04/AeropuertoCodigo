@@ -1,6 +1,4 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -29,12 +27,12 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 		super("Consultar aviones por aerolinea");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
+
 		JPanel panelFuncion = new JPanel();
 		JLabel funcion = new JLabel("Consultar aviones por aerolinea");
 		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
@@ -74,7 +72,8 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 			}
 		});
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -91,7 +90,7 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 		panelBotones.add(aceptar);
 		principal.add(panelFuncion, BorderLayout.NORTH);
 		principal.add(centro, BorderLayout.CENTER);
-		
+
 		principal.add(panelBotones, BorderLayout.SOUTH);
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

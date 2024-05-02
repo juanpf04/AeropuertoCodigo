@@ -22,12 +22,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaResultadoConsultarTodosContratos extends JFrame implements Observador {
-	
-	public VistaResultadoConsultarTodosContratos(){
+
+	public VistaResultadoConsultarTodosContratos() {
 		super("Resultado");
 		this.setSize(600, 650);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -45,12 +45,15 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 		exito.setWrapStyleWord(true); // Ajusta el texto en palabras completas
 		exito.setEditable(false); // Hace que el JTextArea sea de solo lectura
 
-		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño del JScrollPane
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño
+															// del JScrollPane
 
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

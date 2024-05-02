@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class SAAerolineaImpTest {
 
@@ -14,13 +14,13 @@ public class SAAerolineaImpTest {
 
 	@Test
 	public void alta_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAAerolinea sa = new SAAerolineaImp();
 
 		// Prueba exitosa
 		TAerolinea aerolinea = new TAerolinea(id_inmodificable, "dos", inmodificable);
-		File carpeta = new File(Utilidades.ruta("aerolinea"));
+		File carpeta = new File(UtilidadesI.ruta("aerolinea"));
 		File[] lista = carpeta.listFiles();
 		assertEquals("debería darse de alta la aerolinea", lista.length + 1, sa.altaAerolinea(aerolinea));
 		aerolinea = new TAerolinea(id_inmodificable, "tres", inmodificable);
@@ -41,7 +41,7 @@ public class SAAerolineaImpTest {
 
 	@Test
 	public void modificar_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAAerolinea sa = new SAAerolineaImp();
 
@@ -65,7 +65,7 @@ public class SAAerolineaImpTest {
 
 	@Test
 	public void baja_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAAerolinea sa = new SAAerolineaImp();
 

@@ -21,9 +21,9 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAltaHangar extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public VistaAltaHangar() {
 		super("Alta Hangar");
 		this.setSize(1000, 750);
@@ -99,7 +99,18 @@ public class VistaAltaHangar extends JFrame implements Observador {
 				try {
 					String dirLeido = textoDir.getText();
 					int stockLeido = Integer.parseInt(textoStock.getText());
-					double costeLeido = Double.parseDouble(textocosteDia.getText());//tiene que ser con ., no con , xq sino da error
+					double costeLeido = Double.parseDouble(textocosteDia.getText());// tiene
+																					// que
+																					// ser
+																					// con
+																					// .,
+																					// no
+																					// con
+																					// ,
+																					// xq
+																					// sino
+																					// da
+																					// error
 					int espacioLeido = Integer.parseInt(textoespacioAlmacenaje.getText());
 					THangar transfer = new THangar(0, dirLeido, stockLeido, costeLeido, espacioLeido, true);
 					controlador.accion(EventosControlador.ALTA_HANGAR, transfer);
@@ -115,7 +126,8 @@ public class VistaAltaHangar extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

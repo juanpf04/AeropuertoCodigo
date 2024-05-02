@@ -1,5 +1,3 @@
-
-
 package integracion.avion;
 
 import java.io.File;
@@ -14,7 +12,7 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
@@ -63,23 +61,19 @@ public class DAOAvionImp implements DAOAvion {
 		int idAerolinea = data.getInt("idAerolinea");
 		int idModelo = data.getInt("idModelo");
 		int idHangar = data.getInt("idHangar");
-		
 
 		if (data.has("dueño"))
-			avion = new TAPrivado(id, asientos, fecha, nombre,
-					matricula, activo, idAerolinea,
-					idModelo, idHangar, data.getString("dueño"), data.getInt("idCarnet"));
+			avion = new TAPrivado(id, asientos, fecha, nombre, matricula, activo, idAerolinea, idModelo, idHangar,
+					data.getString("dueño"), data.getInt("idCarnet"));
 		else
-			avion = new TAComercial(id, asientos, fecha, nombre,
-					matricula, activo, idAerolinea,
-					idModelo, idHangar, data.getInt("trabajadores"));
+			avion = new TAComercial(id, asientos, fecha, nombre, matricula, activo, idAerolinea, idModelo, idHangar,
+					data.getInt("trabajadores"));
 
 		return avion;
 	}
 
-
 	public List<TAvion> consultarAvionesPorModelo(int idModelo) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -98,7 +92,7 @@ public class DAOAvionImp implements DAOAvion {
 	}
 
 	public List<TAvion> consultarAvionesActivosPorModelo(int idModelo) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -118,7 +112,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public int altaAvion(TAvion tAvion) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		try {
@@ -126,7 +120,7 @@ public class DAOAvionImp implements DAOAvion {
 
 			tAvion.setId(id);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("avion") + String.format("%05d", id) + ".json");
 
 			archivo.write(this.write(tAvion).toString());
 			archivo.close();
@@ -142,11 +136,11 @@ public class DAOAvionImp implements DAOAvion {
 	public boolean bajaAvion(int id) {
 		try {
 			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("avion") + String.format("%05d", id) + ".json")));
+					new JSONTokener(new FileReader(UtilidadesI.ruta("avion") + String.format("%05d", id) + ".json")));
 
 			data.put("activo", false);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("avion") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("avion") + String.format("%05d", id) + ".json");
 
 			archivo.write(data.toString());
 			archivo.close();
@@ -161,7 +155,7 @@ public class DAOAvionImp implements DAOAvion {
 	public TAvion consultarAvionPorId(int id) {
 		try {
 			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("avion") + String.format("%05d", id) + ".json")));
+					new JSONTokener(new FileReader(UtilidadesI.ruta("avion") + String.format("%05d", id) + ".json")));
 			return this.read(data);
 		} catch (FileNotFoundException e) {
 			return null;
@@ -170,7 +164,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarTodosAviones() {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -192,7 +186,7 @@ public class DAOAvionImp implements DAOAvion {
 	public boolean modificarAvion(TAvion tAvion) {
 		try {
 			FileWriter archivo = new FileWriter(
-					Utilidades.ruta("avion") + String.format("%05d", tAvion.getId()) + ".json");
+					UtilidadesI.ruta("avion") + String.format("%05d", tAvion.getId()) + ".json");
 			archivo.write(this.write(tAvion).toString());
 			archivo.close();
 
@@ -204,7 +198,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarAvionesPorAerolinea(int idAerolinea) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -224,7 +218,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarAvionesActivosPorAerolinea(int idAerolinea) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -244,7 +238,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarAvionesPorHangar(int idHangar) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -264,7 +258,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public List<TAvion> consultarAvionesActivosPorHangar(int idHangar) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		List<TAvion> aviones = new ArrayList<>();
@@ -284,7 +278,7 @@ public class DAOAvionImp implements DAOAvion {
 
 	@Override
 	public TAvion consultarAvionesPorMatricula(String matricula) {
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		int i = 0;
@@ -305,4 +299,5 @@ public class DAOAvionImp implements DAOAvion {
 		return null;
 
 	}
+
 }

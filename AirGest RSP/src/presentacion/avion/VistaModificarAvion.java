@@ -1,6 +1,4 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -54,7 +52,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.LINE_AXIS));
 		principal.add(centro, BorderLayout.CENTER);
-		
+
 		JPanel panelBotones = new JPanel();
 		principal.add(panelBotones, BorderLayout.SOUTH);
 
@@ -72,7 +70,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 					ctrl.accion(EventosControlador.VISTA_MODIFICAR_AVION, "COMERCIAL");
 				}
 			});
-			
+
 			comercial.setAlignmentX(CENTER_ALIGNMENT);
 			botones.add(comercial);
 
@@ -96,10 +94,10 @@ public class VistaModificarAvion extends JFrame implements Observador {
 		} else { // TODO
 			JPanel panelEtiquetas = new JPanel();
 			panelEtiquetas.setLayout(new BoxLayout(panelEtiquetas, BoxLayout.PAGE_AXIS));
-			
+
 			JPanel panelTexto = new JPanel();
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
-			
+
 			JLabel etiquetaId = new JLabel("Id: ");
 			etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoId = new JTextField();
@@ -110,7 +108,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			panelTexto.add(textoId);
 			centro.add(panelEtiquetas);
 			centro.add(panelTexto);
-			
+
 			JLabel etiquetaNombre = new JLabel("Nombre: ");
 			etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoNombre = new JTextField();
@@ -131,20 +129,28 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			panelEtiquetas.add(etiquetaMatricula);
 			panelTexto.add(textoMatricula);
 
-			
 			// SPINNER O COMBOBOX PARA LA FECHA
 			JLabel etiquetaFecha = new JLabel("Fecha de Fabricación: ");
 			etiquetaFecha.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			LocalDate currentDate = LocalDate.now();
-			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());//pasarlo a Date para el spinner
-			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate, java.util.Calendar.DAY_OF_MONTH);
+			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());// pasarlo
+																										// a
+																										// Date
+																										// para
+																										// el
+																										// spinner
+			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate,
+					java.util.Calendar.DAY_OF_MONTH);
 			JSpinner spinner = new JSpinner(model);
 			spinner.setMaximumSize(new Dimension(200, 30));
 			spinner.setMinimumSize(new Dimension(200, 30));
 			spinner.setPreferredSize(new Dimension(200, 30));
-		    JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");//formato de la fecha
-		    spinner.setEditor(editor);
-		    panelEtiquetas.add(etiquetaFecha);
+			JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");// formato
+																						// de
+																						// la
+																						// fecha
+			spinner.setEditor(editor);
+			panelEtiquetas.add(etiquetaFecha);
 			panelTexto.add(spinner);
 
 			JLabel etiquetaAsientos = new JLabel("Número de asientos:    ");
@@ -155,7 +161,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textoAsientos.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaAsientos);
 			panelTexto.add(textoAsientos);
-			
+
 			JLabel etiquetaAerolinea = new JLabel("Id aerolínea:    ");
 			etiquetaAerolinea.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoAerolinea = new JTextField();
@@ -164,8 +170,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textoAerolinea.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaAerolinea);
 			panelTexto.add(textoAerolinea);
-			
-			
+
 			JLabel etiquetaModelo = new JLabel("Id modelo:    ");
 			etiquetaModelo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textomodelo = new JTextField();
@@ -174,8 +179,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textomodelo.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaModelo);
 			panelTexto.add(textomodelo);
-			
-			
+
 			JLabel etiquetaHangar = new JLabel("Id hangar:    ");
 			etiquetaHangar.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoHangar = new JTextField();
@@ -184,8 +188,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textoHangar.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaHangar);
 			panelTexto.add(textoHangar);
-			
-			
+
 			JLabel etiquetaTrabajadores = new JLabel("Número de trabajadores:    ");
 			etiquetaTrabajadores.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoTrabajadores = new JTextField();
@@ -193,7 +196,6 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textoTrabajadores.setMinimumSize(new Dimension(200, 30));
 			textoTrabajadores.setPreferredSize(new Dimension(200, 30));
 
-		
 			JLabel etiquetaDuenyo = new JLabel("Dueño:    ");
 			etiquetaDuenyo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoDuenyo = new JTextField();
@@ -201,7 +203,6 @@ public class VistaModificarAvion extends JFrame implements Observador {
 			textoDuenyo.setMinimumSize(new Dimension(200, 30));
 			textoDuenyo.setPreferredSize(new Dimension(200, 30));
 
-			
 			JLabel etiquetaCarnet = new JLabel("Id carnet:    ");
 			etiquetaCarnet.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoCarnet = new JTextField();
@@ -225,7 +226,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					try{
+					try {
 						int idLeido = Integer.valueOf(textoId.getText());
 						String nombre = textoNombre.getText();
 						String matricula = textoMatricula.getText();
@@ -234,9 +235,13 @@ public class VistaModificarAvion extends JFrame implements Observador {
 						int idHangar = Integer.valueOf(textoHangar.getText());
 						int idModelo = Integer.valueOf(textomodelo.getText());
 						Date seleccion = (Date) spinner.getValue();
-						ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());//para transformar date a localDate
+						ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());// para
+																											// transformar
+																											// date
+																											// a
+																											// localDate
 						LocalDate fecha = zonedDateTime.toLocalDate();
-						
+
 						TAvion transfer;
 						if (datos == "COMERCIAL") {
 							int trabajadores = Integer.valueOf(textoTrabajadores.getText());
@@ -245,20 +250,19 @@ public class VistaModificarAvion extends JFrame implements Observador {
 						} else {
 							String nombre_duenyo = textoDuenyo.getText();
 							int idCarnet = Integer.valueOf(textoCarnet.getText());
-							transfer = new TAPrivado(idLeido, numAsientos, fecha, nombre, matricula, true,
-									idAerolinea, idModelo, idHangar, nombre_duenyo, idCarnet);
+							transfer = new TAPrivado(idLeido, numAsientos, fecha, nombre, matricula, true, idAerolinea,
+									idModelo, idHangar, nombre_duenyo, idCarnet);
 						}
 						ctrl.accion(EventosControlador.MODIFICAR_AVION, transfer);
-					}catch(Exception ex)
-					{
-						
+					} catch (Exception ex) {
+
 					}
 				}
 
 			});
 
 			panelBotones.add(aceptar);
-			
+
 		}
 
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana

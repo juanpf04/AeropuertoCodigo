@@ -22,12 +22,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaModificarContrato extends JFrame implements Observador {
-	
-	public VistaModificarContrato(){
+
+	public VistaModificarContrato() {
 		super("Modificar contrato");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 
@@ -54,7 +54,7 @@ public class VistaModificarContrato extends JFrame implements Observador {
 		id.add(etiquetaId);
 		id.add(textoId);
 		centro.add(id);
-		
+
 		JPanel aerolinea = new JPanel();
 		aerolinea.setLayout(new BoxLayout(aerolinea, BoxLayout.LINE_AXIS));
 		JLabel etiquetaAerolinea = new JLabel("id aerolinea: ");
@@ -66,7 +66,7 @@ public class VistaModificarContrato extends JFrame implements Observador {
 		aerolinea.add(etiquetaAerolinea);
 		aerolinea.add(textoAerolinea);
 		centro.add(aerolinea);
-		
+
 		JPanel precio = new JPanel();
 		precio.setLayout(new BoxLayout(precio, BoxLayout.LINE_AXIS));
 		JLabel etiquetaPrecio = new JLabel("precio: ");
@@ -78,29 +78,30 @@ public class VistaModificarContrato extends JFrame implements Observador {
 		precio.add(etiquetaPrecio);
 		precio.add(textoPrecio);
 		centro.add(precio);
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int id_contrato = Integer.parseInt(textoId.getText());
 					int id_aerolinea = Integer.parseInt(textoAerolinea.getText());
 					double precio = Double.parseDouble(textoPrecio.getText());
 					TContrato c = new TContrato(id_contrato, id_aerolinea, precio);
 					controlador.accion(EventosControlador.MODIFICAR_CONTRATO, c);
 					dispose();
-				} catch (NumberFormatException n){
-					
+				} catch (NumberFormatException n) {
+
 				}
 			}
 
 		});
 
 		centro.add(aceptar);
-		
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -111,13 +112,12 @@ public class VistaModificarContrato extends JFrame implements Observador {
 			}
 
 		});
-	    
-	    
-	    principal.add(funcion);
+
+		principal.add(funcion);
 		principal.add(centro);
 		principal.add(atras, BorderLayout.PAGE_END);
-	    
-	    this.setContentPane(principal);
+
+		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);

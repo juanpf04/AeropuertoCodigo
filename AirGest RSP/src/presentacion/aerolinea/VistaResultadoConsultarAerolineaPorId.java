@@ -1,5 +1,4 @@
 
-
 package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
@@ -17,7 +16,7 @@ import presentacion.Observador;
 public class VistaResultadoConsultarAerolineaPorId extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public VistaResultadoConsultarAerolineaPorId() {
 		super("Resultado");
 		this.setSize(1000, 750);

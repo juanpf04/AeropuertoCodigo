@@ -8,19 +8,19 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.hangar.THangar;
 
 public class DAOHangarImpTest {
 	@Test
 	public void alta_hangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOHangar dh = new DAOHangarImp();
 
 		THangar hangar = new THangar(0, "paseo hola", 4, 50.8, 4, true);
 
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("No ha devuelto el id correcto", lista.length + 1, dh.altaHangar(hangar));
@@ -28,7 +28,7 @@ public class DAOHangarImpTest {
 	
 	@Test
 	public void baja_hangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOHangar dh = new DAOHangarImp();
 
@@ -37,7 +37,7 @@ public class DAOHangarImpTest {
 	
 	@Test
 	public void leer_hangar_por_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOHangar dh = new DAOHangarImp();
 
@@ -46,13 +46,13 @@ public class DAOHangarImpTest {
 	
 	@Test
 	public void consultar_todos_hangares_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOHangar dh = new DAOHangarImp();
 
 		List<THangar> hangares = dh.consultarTodosHangares();
 
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("tiene que haber tantos modelos como ficheros", lista.length, hangares.size());
@@ -60,7 +60,7 @@ public class DAOHangarImpTest {
 	
 	@Test
 	public void modificar_hangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOHangar dh = new DAOHangarImp();
 
 		THangar hangar = new THangar(1, "paseo adios", 4, 50.8, 4, true);
@@ -70,7 +70,7 @@ public class DAOHangarImpTest {
 	
 	@Test
 	public void actualizar_stock_test(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOHangar dh = new DAOHangarImp();
 		
 		assertTrue("No encuentra hangar", dh.actualizarStock(1, -1));

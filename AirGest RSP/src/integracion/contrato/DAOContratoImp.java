@@ -1,5 +1,3 @@
-
-
 package integracion.contrato;
 
 import negocio.contrato.TContrato;
@@ -14,12 +12,12 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class DAOContratoImp implements DAOContrato {
 
 	public int altaContrato(TContrato tContrato) {
-		File carpeta = new File(Utilidades.ruta("contrato"));
+		File carpeta = new File(UtilidadesI.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
 
 		try {
@@ -27,7 +25,7 @@ public class DAOContratoImp implements DAOContrato {
 
 			tContrato.setId(id);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("contrato") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("contrato") + String.format("%05d", id) + ".json");
 
 			archivo.write(toJSON(tContrato).toString());
 			archivo.close();
@@ -41,8 +39,8 @@ public class DAOContratoImp implements DAOContrato {
 
 	public TContrato leerContratoPorId(int id) {
 		try {
-			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("contrato") + String.format("%05d", id) + ".json")));
+			JSONObject data = new JSONObject(new JSONTokener(
+					new FileReader(UtilidadesI.ruta("contrato") + String.format("%05d", id) + ".json")));
 			return new TContrato(data.getInt("id"), data.getInt("id_aerolinea"), data.getDouble("precio"));
 		} catch (FileNotFoundException e) {
 			return null;
@@ -50,7 +48,7 @@ public class DAOContratoImp implements DAOContrato {
 	}
 
 	public List<TContrato> leerTodosContratos() {
-		File carpeta = new File(Utilidades.ruta("contrato"));
+		File carpeta = new File(UtilidadesI.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
 
 		List<TContrato> contratos = new ArrayList<>();
@@ -67,9 +65,9 @@ public class DAOContratoImp implements DAOContrato {
 	}
 
 	public List<TContrato> leerContratosPorAerolinea(int id_aerolinea) {
-		File carpeta = new File(Utilidades.ruta("contrato"));
+		File carpeta = new File(UtilidadesI.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
-		
+
 		List<TContrato> contratos = new ArrayList<>();
 
 		int i = 0;
@@ -93,7 +91,7 @@ public class DAOContratoImp implements DAOContrato {
 	public boolean modificarContrato(TContrato tContrato) {
 		try {
 			FileWriter archivo = new FileWriter(
-					Utilidades.ruta("contrato") + String.format("%05d", tContrato.getId()) + ".json");
+					UtilidadesI.ruta("contrato") + String.format("%05d", tContrato.getId()) + ".json");
 			archivo.write(toJSON(tContrato).toString());
 			archivo.close();
 
@@ -112,4 +110,5 @@ public class DAOContratoImp implements DAOContrato {
 
 		return jo;
 	}
+
 }

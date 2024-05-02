@@ -1,5 +1,3 @@
-
-
 package integracion.contrato;
 
 import negocio.contrato.TContrato;
@@ -16,4 +14,5 @@ public interface DAOContrato {
 	public List<TContrato> leerContratosPorAerolinea(int id_aerolinea);
 
 	public boolean modificarContrato(TContrato tContrato);
+
 }

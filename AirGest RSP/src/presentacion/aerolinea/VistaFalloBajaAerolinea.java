@@ -16,7 +16,7 @@ import presentacion.Observador;
 public class VistaFalloBajaAerolinea extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();

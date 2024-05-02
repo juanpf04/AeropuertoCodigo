@@ -1,4 +1,3 @@
-
 package integracion.factoria;
 
 import integracion.modelo.DAOModelo;
@@ -34,8 +33,9 @@ public abstract class FactoriaIntegracion {
 	public abstract DAOHangar crearDAOHangar();
 
 	public abstract DAOContrato crearDAOContrato();
-	
+
 	public abstract DAOLineaContrato crearDAOLineaContrato();
 
 	public abstract DAOPersonal crearDAOPersonal();
+
 }

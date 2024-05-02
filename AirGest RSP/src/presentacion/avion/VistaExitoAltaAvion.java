@@ -1,6 +1,4 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -14,9 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaExitoAltaAvion extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public VistaExitoAltaAvion() {
@@ -35,7 +34,7 @@ public class VistaExitoAltaAvion extends JFrame implements Observador {
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		JLabel imagen = new JLabel();
-		imagen.setIcon(new ImageIcon("recursos/iconos/exito.png"));
+		imagen.setIcon(UtilidadesP.getIcon("exito"));
 		principal.add(imagen, BorderLayout.CENTER);
 
 		this.setContentPane(principal);

@@ -1,6 +1,4 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -15,7 +13,6 @@ import javax.swing.SwingConstants;
 
 import presentacion.Observador;
 
-
 public class VistaFalloBajaAvion extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
@@ -24,7 +21,7 @@ public class VistaFalloBajaAvion extends JFrame implements Observador {
 		super("Fallo");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();

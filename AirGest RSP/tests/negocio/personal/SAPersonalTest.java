@@ -6,14 +6,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.personalHangar.TPersonalHangar;
 
 public class SAPersonalTest {
 
 	@Test
 	public void altaPersonalTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		TPersonal personal = new TPLimpieza(0, 5, "fsdfds", true, "algo");
@@ -25,7 +25,7 @@ public class SAPersonalTest {
 
 	@Test
 	public void bajaPersonalTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		
@@ -36,7 +36,7 @@ public class SAPersonalTest {
 
 	@Test
 	public void vincularPersonalTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		TPersonalHangar tph = new TPersonalHangar(2, 2);
@@ -53,7 +53,7 @@ public class SAPersonalTest {
 
 	@Test
 	public void desvincularPersonalTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		TPersonalHangar tph = new TPersonalHangar(1, 1);
@@ -69,7 +69,7 @@ public class SAPersonalTest {
 
 	@Test
 	public void modificarPersonalTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		TPersonal personal = new TPLimpieza(5, 111, "modificacion", true, "modificacion2");
@@ -84,7 +84,7 @@ public class SAPersonalTest {
 
 	@Test
 	public void consultarPersonalPorIdTest() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAPersonal sp = new SAPersonalImp();
 		

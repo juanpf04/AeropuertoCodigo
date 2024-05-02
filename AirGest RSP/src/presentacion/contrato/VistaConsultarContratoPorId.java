@@ -19,12 +19,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaConsultarContratoPorId extends JFrame implements Observador {
-	
-	public VistaConsultarContratoPorId(){
+
+	public VistaConsultarContratoPorId() {
 		super("Consultar contrato por id");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -68,7 +68,8 @@ public class VistaConsultarContratoPorId extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

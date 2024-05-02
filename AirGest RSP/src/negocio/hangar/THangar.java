@@ -1,9 +1,7 @@
-
 package negocio.hangar;
 
-import org.json.JSONObject;
-
 public class THangar {
+
 	private int id;
 	private String direccion;
 	private int stock;
@@ -12,7 +10,6 @@ public class THangar {
 	private boolean activo;
 
 	public THangar() {
-
 	}
 
 	public THangar(int id, String direccion, int stock, double costeDia, int espacioAlmacenaje, boolean activo) {
@@ -77,4 +74,5 @@ public class THangar {
 		return "id: " + this.id + "\n" + "direccion: " + direccion + "\nstock: " + stock + "\ncosteDia: " + costeDia
 				+ "\nespacioAlmacenaje:" + espacioAlmacenaje + "\nactivo: " + activo + "\n";
 	}
+	
 }

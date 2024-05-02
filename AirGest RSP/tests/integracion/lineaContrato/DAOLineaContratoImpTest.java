@@ -9,13 +9,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.lineaContrato.TLineaContrato;
 
 public class DAOLineaContratoImpTest {
 	@Test
 	public void alta_linea_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOLineaContrato dc = new DAOLineaContratoImp();
 
@@ -29,7 +29,7 @@ public class DAOLineaContratoImpTest {
 	
 	@Test
 	public void modificar_linea_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOLineaContrato dc = new DAOLineaContratoImp();
 
 		LocalDate fecha_ini = LocalDate.of(2024, 4, 12);
@@ -42,7 +42,7 @@ public class DAOLineaContratoImpTest {
 	
 	@Test 
 	public void consultar_lineas_por_contrato_test(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOLineaContrato dc = new DAOLineaContratoImp();
 		
@@ -53,7 +53,7 @@ public class DAOLineaContratoImpTest {
 	
 	@Test 
 	public void consultar_lineas_por_hangar_test(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOLineaContrato dc = new DAOLineaContratoImp();
 		
@@ -64,7 +64,7 @@ public class DAOLineaContratoImpTest {
 	
 	@Test
 	public void leer_linea_contrato_test(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOLineaContrato dc = new DAOLineaContratoImp();
 		

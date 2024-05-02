@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class ValidadorModeloTest {
 	
@@ -12,7 +12,7 @@ public class ValidadorModeloTest {
 	
 	@Test
 	public void comprobar_datos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		TModelo modelo = new TModelo(1, "boeing-888", "PPM-98", noImporta);
 
@@ -22,7 +22,7 @@ public class ValidadorModeloTest {
 	
 	@Test
 	public void comprobar_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue(" id 1 deberia ser valido", ValidadorModelo.comprobarId(1));
 		assertFalse("no puede tener id 0", ValidadorModelo.comprobarId(0));
@@ -31,7 +31,7 @@ public class ValidadorModeloTest {
 	
 	@Test
 	public void comprobar_nombre_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("boeing-747 deberia ser un nombre valido", ValidadorModelo.comprobarNombre("boeing-747"));
 		assertFalse("mal1", ValidadorModelo.comprobarNombre("boeing7-747"));
@@ -50,7 +50,7 @@ public class ValidadorModeloTest {
 	
 	@Test
 	public void comprobar_motor_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("1", ValidadorModelo.comprobarMotor("DFB-77"));
 		assertFalse("2", ValidadorModelo.comprobarMotor("GME-dd"));

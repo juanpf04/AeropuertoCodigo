@@ -1,6 +1,4 @@
 
-
-
 package presentacion.factoria;
 
 import presentacion.Observador;
@@ -110,18 +108,19 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaFalloModificarLineaContrato();
 
 	public abstract Observador crearVistaModificarContrato();
-	
+
 	public abstract Observador crearVistaModificarLineaContrato();
 
 	public abstract Observador crearVistaResultadoConsultarContratosPorAerolinea();
 
 	public abstract Observador crearVistaResultadoConsultarTodosContratos();
-	
+
 	public abstract Observador crearVistaResultadoConsultarContratoPorid();
 
 	public abstract Observador crearVistaModificarAerolinea();
 
-	public abstract Observador crearVistaHangar();//poner esto abstract en diagrama
+	public abstract Observador crearVistaHangar();// poner esto abstract en
+													// diagrama
 
 	public abstract Observador crearVistaAltaHangar();
 
@@ -184,7 +183,7 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaResultadoMostrarAvionesPorHangar();
 
 	public abstract Observador crearVistaResultadoMostrarAvionesPorModelo();
-	
+
 	public abstract Observador crearVistaPersonal();
 
 	public abstract Observador crearVistaAltaPersonal();
@@ -218,11 +217,8 @@ public abstract class FactoriaPresentacion {
 	public abstract Observador crearVistaExitoDesvincularPersonal();
 
 	public abstract Observador crearVistaFalloDesvincularPersonal();
-	
+
 	public abstract Observador crearVistaResultadoConsultarPersonalPorId();
-	
+
 	public abstract Observador crearVistaResultadoConsultarPersonalExistente();
 }
-
-
-

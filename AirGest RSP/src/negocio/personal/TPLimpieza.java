@@ -17,7 +17,7 @@ public class TPLimpieza extends TPersonal {
 
 		this.rol = rol;
 	}
-	
+
 	@Override
 	public String toString() {
 		return super.toString() + "\n rol: " + rol;

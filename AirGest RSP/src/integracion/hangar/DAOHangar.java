@@ -1,4 +1,3 @@
-
 package integracion.hangar;
 
 import negocio.hangar.THangar;
@@ -19,4 +18,5 @@ public interface DAOHangar {
 	public boolean modificarHangar(THangar tHangar);
 
 	public THangar leerHangarPorDireccion(String direccion);
+
 }

@@ -1,4 +1,3 @@
-
 package integracion.hangar;
 
 import negocio.hangar.THangar;
@@ -14,14 +13,14 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class DAOHangarImp implements DAOHangar {
 
 	public THangar leerHangarPorId(int id) {
 		try {
 			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
+					new JSONTokener(new FileReader(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json")));
 			return new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
 					data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
 		} catch (FileNotFoundException e) {
@@ -32,12 +31,12 @@ public class DAOHangarImp implements DAOHangar {
 	public boolean actualizarStock(int id, int stock) {
 		try {
 			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
+					new JSONTokener(new FileReader(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json")));
 			THangar tHangar = new THangar(data.getInt("id"), data.getString("direccion"), data.getInt("stock"),
 					data.getFloat("costeDia"), data.getInt("espacioAlmacenaje"), data.getBoolean("activo"));
 			tHangar.setStock(stock);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json");
 
 			archivo.write(toJSON(tHangar).toString());
 			archivo.close();
@@ -49,7 +48,7 @@ public class DAOHangarImp implements DAOHangar {
 	}
 
 	public int altaHangar(THangar tHangar) {
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 
 		try {
@@ -57,7 +56,7 @@ public class DAOHangarImp implements DAOHangar {
 
 			tHangar.setId(id);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json");
 
 			archivo.write(toJSON(tHangar).toString());
 			archivo.close();
@@ -72,11 +71,11 @@ public class DAOHangarImp implements DAOHangar {
 	public boolean bajaHangar(int id) {
 		try {
 			JSONObject data = new JSONObject(
-					new JSONTokener(new FileReader(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json")));
+					new JSONTokener(new FileReader(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json")));
 
 			data.put("activo", false);
 
-			FileWriter archivo = new FileWriter(Utilidades.ruta("hangar") + String.format("%05d", id) + ".json");
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("hangar") + String.format("%05d", id) + ".json");
 
 			archivo.write(data.toString());
 			archivo.close();
@@ -88,7 +87,7 @@ public class DAOHangarImp implements DAOHangar {
 	}
 
 	public List<THangar> consultarTodosHangares() {
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 
 		List<THangar> hangares = new ArrayList<>();
@@ -108,7 +107,7 @@ public class DAOHangarImp implements DAOHangar {
 	public boolean modificarHangar(THangar tHangar) {
 		try {
 			FileWriter archivo = new FileWriter(
-					Utilidades.ruta("hangar") + String.format("%05d", tHangar.getId()) + ".json");
+					UtilidadesI.ruta("hangar") + String.format("%05d", tHangar.getId()) + ".json");
 			archivo.write(toJSON(tHangar).toString());
 			archivo.close();
 
@@ -119,7 +118,7 @@ public class DAOHangarImp implements DAOHangar {
 	}
 
 	public THangar leerHangarPorDireccion(String direccion) {
-		File carpeta = new File(Utilidades.ruta("hangar"));
+		File carpeta = new File(UtilidadesI.ruta("hangar"));
 		File[] lista = carpeta.listFiles();
 
 		int i = 0;
@@ -154,4 +153,5 @@ public class DAOHangarImp implements DAOHangar {
 		return jo;
 
 	}
+
 }

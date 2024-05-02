@@ -10,7 +10,6 @@ import presentacion.contrato.*;
 import presentacion.Observador;
 import presentacion.VistaPrincipal;
 
-
 public class FactoriaPresentacionImp extends FactoriaPresentacion {
 
 	public Observador crearVistaAltaModelo() {
@@ -268,7 +267,7 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 	public Observador crearVistaConsultarAerolineaPorId() {
 		return new VistaConsultarAerolineaPorId();
 	}
-	
+
 	public Observador crearVistaContrato() {
 		return new VistaContrato();
 	}
@@ -349,12 +348,12 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 	public Observador crearVistaConsultarTodosModelos() {
 		return new VistaConsultarTodosContratos();
 	}
-	
+
 	@Override
-	public Observador crearVistaResultadoConsultarContratoPorid(){
+	public Observador crearVistaResultadoConsultarContratoPorid() {
 		return new VistaResultadoConsultarContratoPorId();
 	}
-	
+
 	public Observador crearVistaPersonal() {
 		return new VistaPersonal();
 	}
@@ -431,5 +430,4 @@ public class FactoriaPresentacionImp extends FactoriaPresentacion {
 		return new VistaResultadoConsultarPersonalExistente();
 	}
 
-	
 }

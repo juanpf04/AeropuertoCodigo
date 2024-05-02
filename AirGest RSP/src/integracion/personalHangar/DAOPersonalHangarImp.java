@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class DAOPersonalHangarImp implements DAOPersonalHangar {
 
 	@Override
 	public boolean vincular(int idPersonal, int idHangar) {
 		try {
-			FileWriter archivo = new FileWriter(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal)
+			FileWriter archivo = new FileWriter(UtilidadesI.ruta("personalHangar") + String.format("%05d", idPersonal)
 					+ "_" + String.format("%05d", idHangar) + ".json");
 			archivo.write("{\"idPersonal\":" + idPersonal + ", \"idHangar\":" + idHangar + "}");
 			archivo.close();
@@ -25,7 +25,7 @@ public class DAOPersonalHangarImp implements DAOPersonalHangar {
 
 	@Override
 	public boolean desvincular(int idPersonal, int idHangar) {
-		File f = new File(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
+		File f = new File(UtilidadesI.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
 				+ String.format("%05d", idHangar) + ".json");
 
 		if (f.exists()) {
@@ -37,9 +37,10 @@ public class DAOPersonalHangarImp implements DAOPersonalHangar {
 
 	@Override
 	public boolean comprobarVinculacion(int idPersonal, int idHangar) {
-		File f = new File(Utilidades.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
+		File f = new File(UtilidadesI.ruta("personalHangar") + String.format("%05d", idPersonal) + "_"
 				+ String.format("%05d", idHangar) + ".json");
 
 		return f.exists();
 	}
+
 }

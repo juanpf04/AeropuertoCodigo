@@ -1,5 +1,4 @@
 
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -55,7 +54,7 @@ public class VistaBajaAvion extends JFrame implements Observador {
 		id.add(etiquetaId);
 		id.add(textoId);
 		centro.add(id);
-		
+
 		JPanel panelBotones = new JPanel();
 		panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.PAGE_AXIS));
 
@@ -81,7 +80,8 @@ public class VistaBajaAvion extends JFrame implements Observador {
 		principal.add(panelFuncion, BorderLayout.NORTH);
 		principal.add(centro, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

@@ -58,27 +58,28 @@ public class VistaEliminarHangar extends JFrame implements Observador {
 		id.add(etiquetaId);
 		id.add(textoId);
 		centro.add(id);
-		
+
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int id_hangar = Integer.parseInt(textoId.getText());
 					carrito.eliminarLinea(id_hangar);
 					controlador.accion(EventosControlador.VISTA_CARRITO, carrito);
 					dispose();
-				} catch (NumberFormatException n){
-					
+				} catch (NumberFormatException n) {
+
 				}
 			}
 
 		});
 
 		centro.add(aceptar);
-		
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -89,13 +90,12 @@ public class VistaEliminarHangar extends JFrame implements Observador {
 			}
 
 		});
-	    
-	    
-	    principal.add(funcion);
+
+		principal.add(funcion);
 		principal.add(centro);
 		principal.add(atras, BorderLayout.PAGE_END);
-	    
-	    this.setContentPane(principal);
+
+		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);

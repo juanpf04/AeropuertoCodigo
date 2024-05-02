@@ -91,7 +91,7 @@ public class VistaModificarPersonal extends JFrame implements Observador {
 
 			JPanel panelTexto = new JPanel();
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
-			
+
 			JLabel etiquetaId = new JLabel("Id: ");
 			etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoId = new JTextField();

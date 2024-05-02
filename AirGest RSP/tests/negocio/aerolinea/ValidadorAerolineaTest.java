@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 public class ValidadorAerolineaTest {
 
@@ -12,7 +12,7 @@ public class ValidadorAerolineaTest {
 
 	@Test
 	public void comprobar_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		TAerolinea aerolinea = new TAerolinea(1, "puerco", noImporta);
 
@@ -21,7 +21,7 @@ public class ValidadorAerolineaTest {
 
 	@Test
 	public void comprobar_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue(" id 1 deberia ser valido", ValidadorAerolinea.comprobarId(1));
 		assertFalse("no puede tener id 0", ValidadorAerolinea.comprobarId(0));
@@ -30,7 +30,7 @@ public class ValidadorAerolineaTest {
 
 	@Test
 	public void comprobar_nombre_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("miguelito deberia valer", ValidadorAerolinea.comprobarNombre("miguelito"));
 		assertFalse("letras y numeros", ValidadorAerolinea.comprobarNombre("TAP AIR PORTUGAL 20"));

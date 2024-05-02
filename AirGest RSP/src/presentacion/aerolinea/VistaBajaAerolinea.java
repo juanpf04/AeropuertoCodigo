@@ -18,7 +18,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaBajaAerolinea extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
@@ -65,7 +65,8 @@ public class VistaBajaAerolinea extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -82,6 +83,6 @@ public class VistaBajaAerolinea extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();//fdsf
+		this.pack();// fdsf
 	}
 }

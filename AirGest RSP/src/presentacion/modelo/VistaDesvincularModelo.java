@@ -20,7 +20,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaDesvincularModelo extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public VistaDesvincularModelo() {
@@ -87,7 +87,8 @@ public class VistaDesvincularModelo extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

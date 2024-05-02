@@ -1,5 +1,4 @@
 
-
 package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
@@ -22,7 +21,6 @@ import presentacion.Observador;
 public class VistaAerolinea extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
-	
 
 	@Override
 	public void actualizaVista(Object datos) {
@@ -54,7 +52,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		alta.setToolTipText("Aqui das de alta una aerolinea crack");
 		botones.add(alta);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton baja = new JButton("BAJA DE AEROLINEA");
 		baja.addActionListener(new ActionListener() {
 			@Override
@@ -66,7 +64,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		baja.setToolTipText("Aqui das de baja una aerolinea crack");
 		botones.add(baja);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarID = new JButton("CONSULTAR AEROLINEA POR ID");
 
 		consultarID.addActionListener(new ActionListener() {
@@ -78,7 +76,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		});
 		botones.add(consultarID);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton consultarTodas = new JButton("CONSULTAR TODAS LAS AEROLINEAS");
 
 		consultarTodas.addActionListener(new ActionListener() {
@@ -90,7 +88,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 
 		botones.add(consultarTodas);
 
-		//-------------------------------------------
+		// -------------------------------------------
 		JButton modificar = new JButton("MODIFICAR AEROLINEA");
 
 		modificar.addActionListener(new ActionListener() {
@@ -105,7 +103,8 @@ public class VistaAerolinea extends JFrame implements Observador {
 
 		principal.add(botones, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

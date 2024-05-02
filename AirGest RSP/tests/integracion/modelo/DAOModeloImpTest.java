@@ -7,14 +7,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.modelo.TModelo;
 
 public class DAOModeloImpTest {
 
 	@Test
 	public void leer_modelo_por_nombre_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOModelo dm = new DAOModeloImp();
 
@@ -23,13 +23,13 @@ public class DAOModeloImpTest {
 
 	@Test
 	public void alta_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOModelo dm = new DAOModeloImp();
 
 		TModelo modelo = new TModelo(0, "nombre", "motor", true);
 
-		File carpeta = new File(Utilidades.ruta("modelo"));
+		File carpeta = new File(UtilidadesI.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("No ha devuelto el id correcto", lista.length + 1, dm.altaModelo(modelo));
@@ -37,7 +37,7 @@ public class DAOModeloImpTest {
 
 	@Test
 	public void modificar_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOModelo dm = new DAOModeloImp();
 
 		TModelo modelo = new TModelo(1, "florencia", "hola", true);
@@ -47,7 +47,7 @@ public class DAOModeloImpTest {
 
 	@Test
 	public void baja_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOModelo dm = new DAOModeloImp();
 
@@ -56,13 +56,13 @@ public class DAOModeloImpTest {
 
 	@Test
 	public void consultar_todos_modelos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOModelo dm = new DAOModeloImp();
 
 		List<TModelo> modelos = dm.consultarTodosModelos();
 
-		File carpeta = new File(Utilidades.ruta("modelo"));
+		File carpeta = new File(UtilidadesI.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("tiene que haber tantos modelos como ficheros", lista.length, modelos.size());
@@ -70,7 +70,7 @@ public class DAOModeloImpTest {
 	
 	@Test
 	public void leer_modelo_por_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOModelo dm = new DAOModeloImp();
 

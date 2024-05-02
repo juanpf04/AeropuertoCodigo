@@ -21,12 +21,12 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaConsultarContratosPorAerolinea extends JFrame implements Observador {
-	
-	public VistaConsultarContratosPorAerolinea(){
+
+	public VistaConsultarContratosPorAerolinea() {
 		super("Contratos por aerolinea");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -62,7 +62,7 @@ public class VistaConsultarContratosPorAerolinea extends JFrame implements Obser
 					controlador.accion(EventosControlador.MOSTRAR_CONTRATOS_POR_AEROLINEA, id);
 					dispose();
 				} catch (NumberFormatException n) {
-					
+
 				}
 			}
 
@@ -72,7 +72,8 @@ public class VistaConsultarContratosPorAerolinea extends JFrame implements Obser
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

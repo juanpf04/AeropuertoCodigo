@@ -1,4 +1,3 @@
-
 package integracion.lineaContrato;
 
 import java.io.File;
@@ -13,17 +12,17 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import integracion.Utilidades;
-import negocio.contrato.TContrato;
+import integracion.UtilidadesI;
 import negocio.lineaContrato.TLineaContrato;
 
-public class DAOLineaContratoImp implements DAOLineaContrato{
+public class DAOLineaContratoImp implements DAOLineaContrato {
 
 	@Override
 	public boolean altaLineaContrato(TLineaContrato tLineaContrato) {
 		try {
-			FileWriter archivo = new FileWriter(Utilidades.ruta("lineaContrato") + String.format("%05d", tLineaContrato.getIdContrato())
-					+ "_" + String.format("%05d", tLineaContrato.getIdHangar()) + ".json");
+			FileWriter archivo = new FileWriter(
+					UtilidadesI.ruta("lineaContrato") + String.format("%05d", tLineaContrato.getIdContrato()) + "_"
+							+ String.format("%05d", tLineaContrato.getIdHangar()) + ".json");
 			archivo.write(toJSON(tLineaContrato).toString());
 			archivo.close();
 			return true;
@@ -38,8 +37,8 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 	public boolean modificarLineaContrato(TLineaContrato tLineaContrato) {
 		try {
 			FileWriter archivo = new FileWriter(
-					Utilidades.ruta("lineaContrato") + String.format("%05d", tLineaContrato.getIdContrato())
-					+ "_" + String.format("%05d", tLineaContrato.getIdHangar()) + ".json");
+					UtilidadesI.ruta("lineaContrato") + String.format("%05d", tLineaContrato.getIdContrato()) + "_"
+							+ String.format("%05d", tLineaContrato.getIdHangar()) + ".json");
 			archivo.write(toJSON(tLineaContrato).toString());
 			archivo.close();
 
@@ -51,9 +50,9 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 
 	@Override
 	public List<TLineaContrato> leerLineasPorContrato(int id_contrato) {
-		File carpeta = new File(Utilidades.ruta("lineaContrato"));
+		File carpeta = new File(UtilidadesI.ruta("lineaContrato"));
 		File[] lista = carpeta.listFiles();
-		
+
 		List<TLineaContrato> lineas = new ArrayList<>();
 
 		int i = 0;
@@ -67,11 +66,12 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 			if (data.getInt("id_contrato") == id_contrato) {
 				JSONObject fi = data.getJSONObject("fecha_ini");
 				LocalDate fecha_ini = LocalDate.of(fi.getInt("anyo"), fi.getInt("mes"), fi.getInt("dia"));
-				
+
 				JSONObject ff = data.getJSONObject("fecha_fin");
 				LocalDate fecha_fin = LocalDate.of(ff.getInt("anyo"), ff.getInt("mes"), ff.getInt("dia"));
-				
-				lineas.add(new TLineaContrato(data.getInt("id_contrato"), data.getInt("id_hangar"), fecha_ini, fecha_fin, data.getDouble("precio")));
+
+				lineas.add(new TLineaContrato(data.getInt("id_contrato"), data.getInt("id_hangar"), fecha_ini,
+						fecha_fin, data.getDouble("precio")));
 			}
 
 			i++;
@@ -82,9 +82,9 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 
 	@Override
 	public List<TLineaContrato> leerLineasPorHangar(int id_hangar) {
-		File carpeta = new File(Utilidades.ruta("lineaContrato"));
+		File carpeta = new File(UtilidadesI.ruta("lineaContrato"));
 		File[] lista = carpeta.listFiles();
-		
+
 		List<TLineaContrato> lineas = new ArrayList<>();
 
 		int i = 0;
@@ -98,11 +98,12 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 			if (data.getInt("id_hangar") == id_hangar) {
 				JSONObject fi = data.getJSONObject("fecha_ini");
 				LocalDate fecha_ini = LocalDate.of(fi.getInt("anyo"), fi.getInt("mes"), fi.getInt("dia"));
-				
+
 				JSONObject ff = data.getJSONObject("fecha_fin");
 				LocalDate fecha_fin = LocalDate.of(ff.getInt("anyo"), ff.getInt("mes"), ff.getInt("dia"));
-				
-				lineas.add(new TLineaContrato(data.getInt("id_contrato"), data.getInt("id_hangar"), fecha_ini, fecha_fin, data.getDouble("precio")));
+
+				lineas.add(new TLineaContrato(data.getInt("id_contrato"), data.getInt("id_hangar"), fecha_ini,
+						fecha_fin, data.getDouble("precio")));
 			}
 
 			i++;
@@ -110,38 +111,37 @@ public class DAOLineaContratoImp implements DAOLineaContrato{
 
 		return lineas;
 	}
-	
+
 	@Override
 	public boolean leerLineaContrato(int id_contrato, int id_hangar) {
-		File f = new File(Utilidades.ruta("lineaContrato") + String.format("%05d", id_contrato) + "_"
+		File f = new File(UtilidadesI.ruta("lineaContrato") + String.format("%05d", id_contrato) + "_"
 				+ String.format("%05d", id_hangar) + ".json");
 
 		return f.exists();
 	}
-	
-	private JSONObject toJSON(TLineaContrato linea){
+
+	private JSONObject toJSON(TLineaContrato linea) {
 		JSONObject jo = new JSONObject();
-		
+
 		jo.put("id_contrato", linea.getIdContrato());
 		jo.put("id_hangar", linea.getIdHangar());
-		
+
 		JSONObject fecha_ini = new JSONObject();
 		fecha_ini.put("dia", linea.getFechaIni().getDayOfMonth());
 		fecha_ini.put("mes", linea.getFechaIni().getMonthValue());
 		fecha_ini.put("anyo", linea.getFechaIni().getYear());
 		jo.put("fecha_ini", fecha_ini);
-		
+
 		JSONObject fecha_fin = new JSONObject();
 		fecha_fin.put("dia", linea.getFechaFin().getDayOfMonth());
 		fecha_fin.put("mes", linea.getFechaFin().getMonthValue());
 		fecha_fin.put("anyo", linea.getFechaFin().getYear());
 		jo.put("fecha_fin", fecha_fin);
-		
+
 		jo.put("precio", linea.getPrecio());
-		
-		
+
 		return jo;
-		
+
 	}
 
 }

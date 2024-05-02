@@ -8,14 +8,14 @@ import java.util.List;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.lineaContrato.TLineaContrato;
 
 public class SAContratoImpTest {
 
 	@Test
 	public void modificar_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAContrato sc = new SAContratoImp();
 
@@ -34,7 +34,7 @@ public class SAContratoImpTest {
 
 	@Test
 	public void consultar_contrato_por_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAContrato sc = new SAContratoImp();
 
@@ -49,7 +49,7 @@ public class SAContratoImpTest {
 
 	@Test
 	public void consultar_contratos_por_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAContrato sc = new SAContratoImp();
 
@@ -64,7 +64,7 @@ public class SAContratoImpTest {
 
 	@Test
 	public void cerrar_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAContrato sc = new SAContratoImp();
 
@@ -169,7 +169,7 @@ public class SAContratoImpTest {
 
 	@Test
 	public void modificar_linea_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAContrato sc = new SAContratoImp();
 

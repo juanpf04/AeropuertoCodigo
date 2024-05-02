@@ -14,13 +14,12 @@ import javax.swing.JTextArea;
 import negocio.contrato.TInfoContrato;
 import presentacion.Observador;
 
-
 public class VistaResultadoConsultarContratoPorId extends JFrame implements Observador {
-	public VistaResultadoConsultarContratoPorId(){
+	public VistaResultadoConsultarContratoPorId() {
 		super("Resultado");
 		this.setSize(1000, 750);
 	}
-	
+
 	public void actualizaVista(Object datos) {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
@@ -36,7 +35,8 @@ public class VistaResultadoConsultarContratoPorId extends JFrame implements Obse
 
 		JScrollPane scroll = new JScrollPane(exito);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño del JScrollPane
+		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño
+															// del JScrollPane
 		principal.add(scroll, BorderLayout.CENTER);
 
 		this.setContentPane(principal);

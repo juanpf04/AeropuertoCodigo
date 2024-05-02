@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import presentacion.Observador;
 
 public class VistaExitoAltaAerolinea extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {

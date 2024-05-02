@@ -17,9 +17,9 @@ import negocio.hangar.THangar;
 import presentacion.Observador;
 
 public class VistaResultadoConsultarTodosHangares extends JFrame implements Observador {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public VistaResultadoConsultarTodosHangares() {
 		super("Resultado");
 		this.setSize(600, 650);
@@ -41,12 +41,13 @@ public class VistaResultadoConsultarTodosHangares extends JFrame implements Obse
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 		exito.setEditable(false);
-		
-		
-		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
