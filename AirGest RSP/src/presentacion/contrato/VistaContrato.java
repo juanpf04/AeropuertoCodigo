@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
@@ -42,6 +43,7 @@ public class VistaContrato extends JFrame implements Observador{
 		JLabel contrato = new JLabel("CONTRATO"); //titulo de la ventana en la que estamos, apareceran las funciones de contrato 
 		contrato.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		contrato.setHorizontalAlignment(SwingConstants.CENTER);
+		contrato.setBorder(new LineBorder(Color.BLACK,2));
 		panel_label_contrato.add(contrato);
 		
 		JSeparator separador_contrato= new JSeparator(SwingConstants.CENTER);

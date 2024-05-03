@@ -41,18 +41,20 @@ public class VistaModelo extends JFrame implements Observador {
 		JPanel page_start_panel = new JPanel();
 		page_start_panel.setLayout(new BoxLayout(page_start_panel,BoxLayout.PAGE_AXIS));
 		
-		JPanel panel_label_modulo = new JPanel();
-		JLabel modulo = new JLabel("MODELO"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
-		modulo.setBorder(new CompoundBorder(new LineBorder(Color.BLACK, 1), new MatteBorder(5,3,7,10, Color.ORANGE)));   // opciones de título
-		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_label_modulo.add(modulo);
+		JPanel panel_label_modelo = new JPanel();
+		JLabel modelo = new JLabel("MODELO"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
+		//modelo.setBorder(new CompoundBorder(new LineBorder(Color.BLACK, 1), new MatteBorder(5,3,7,10, Color.ORANGE)));   // OPCION 2 
+		modelo.setBorder(new LineBorder(Color.BLACK,2));
+		modelo.setFont(new Font("Comic Sans", Font.BOLD, 30));
+		modelo.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JSeparator separador_modulo = new JSeparator(SwingConstants.CENTER);
-		separador_modulo.setBorder(new MatteBorder(1,1,10,10, Color.BLACK));
-		separador_modulo.setPreferredSize(new Dimension(0,2));
-		page_start_panel.add(panel_label_modulo);
-		page_start_panel.add(separador_modulo);
+		panel_label_modelo.add(modelo);
+		
+		JSeparator separador_modelo = new JSeparator(SwingConstants.CENTER);
+		separador_modelo.setBorder(new MatteBorder(1,1,10,10, Color.BLACK));
+		separador_modelo.setPreferredSize(new Dimension(0,2));
+		page_start_panel.add(panel_label_modelo);
+		page_start_panel.add(separador_modelo);
 		principal.add(page_start_panel, BorderLayout.PAGE_START);
 
 		JPanel botones = new JPanel();

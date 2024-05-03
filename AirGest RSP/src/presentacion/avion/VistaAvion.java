@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
@@ -46,6 +47,7 @@ public class VistaAvion extends JFrame implements Observador {
 		JLabel avion = new JLabel("AVION"); //titulo de la ventana en la que estamos, apareceran las funciones de avion 
 		avion.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		avion.setHorizontalAlignment(SwingConstants.CENTER);
+		avion.setBorder(new LineBorder(Color.BLACK,2));
 		panel_label_avion.add(avion);
 
 		JSeparator separador_avion = new JSeparator(SwingConstants.CENTER);

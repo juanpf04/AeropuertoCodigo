@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
@@ -41,6 +42,7 @@ public class VistaHangar extends JFrame implements Observador{
 		JLabel hangar = new JLabel("HANGAR"); //titulo de la ventana en la que estamos, apareceran las funciones de hangar 
 		hangar.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		hangar.setHorizontalAlignment(SwingConstants.CENTER);
+		hangar.setBorder(new LineBorder(Color.BLACK,2));
 		panel_label_hangar.add(hangar);
 		
 		JSeparator separador_hangar = new JSeparator(SwingConstants.CENTER);

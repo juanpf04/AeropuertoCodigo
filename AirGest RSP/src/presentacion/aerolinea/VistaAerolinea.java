@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.controlador.Controlador;
@@ -46,6 +47,7 @@ public class VistaAerolinea extends JFrame implements Observador {
 		JLabel aerolinea = new JLabel("AEROLINEA"); //titulo de la ventana en la que estamos, apareceran las funciones de aerolinea 
 		aerolinea.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		aerolinea.setHorizontalAlignment(SwingConstants.CENTER);
+		aerolinea.setBorder(new LineBorder(Color.BLACK,2));
 		panel_label_aerolinea.add(aerolinea);
 		
 		JSeparator separador_aerolinea = new JSeparator(SwingConstants.CENTER);

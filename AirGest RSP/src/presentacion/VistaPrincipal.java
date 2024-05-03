@@ -42,9 +42,7 @@ public class VistaPrincipal extends JFrame implements Observador {
 		
 		JPanel panel_label_titulo = new JPanel();
 		JLabel titulo = new JLabel("AIRGEST RSP"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
-		titulo.setBorder(//new CompoundBorder(new LineBorder(Color.BLACK, 1)); 
-				//new MatteBorder(5,3,2,5, Color.BLACK));
-				new LineBorder(Color.BLACK,2));   // opciones de título
+		titulo.setBorder(new LineBorder(Color.BLACK,2)); 
 		
 		titulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS

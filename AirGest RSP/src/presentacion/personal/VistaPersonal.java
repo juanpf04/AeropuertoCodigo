@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
@@ -46,6 +47,7 @@ public class VistaPersonal extends JFrame implements Observador {
 		JLabel personal = new JLabel("PERSONAL"); //titulo de la ventana en la que estamos, apareceran las funciones de personal 
 		personal.setFont(new Font("Comic Sans", Font.BOLD, 30));
 		personal.setHorizontalAlignment(SwingConstants.CENTER);
+		personal.setBorder(new LineBorder(Color.BLACK,2));
 		panel_label_personal.add(personal);
 		
 		JSeparator separador_personal = new JSeparator(SwingConstants.CENTER);
