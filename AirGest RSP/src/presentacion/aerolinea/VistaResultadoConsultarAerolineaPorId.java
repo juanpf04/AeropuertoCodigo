@@ -3,7 +3,6 @@ package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
