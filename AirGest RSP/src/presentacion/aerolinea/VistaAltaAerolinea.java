@@ -1,6 +1,6 @@
 package presentacion.aerolinea;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
@@ -25,13 +28,24 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(375, 170);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-		JLabel funcion = new JLabel("Alta Aerolinea");
-		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Alta Aerolinea");
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
+		principal.add(funcion);
+		
 
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
@@ -49,7 +63,8 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		centro.add(nombre);
 
 		Controlador controlador = Controlador.getInstance();
-
+		
+		JSplitPane botones = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
@@ -61,11 +76,14 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 			}
 
 		});
+		aceptar.setMaximumSize(new Dimension(100, 30));
+		aceptar.setPreferredSize(new Dimension(100, 30));
+		botones.setMaximumSize(new Dimension(190, 30));
+		botones.setPreferredSize(new Dimension(190, 30));
 
 		centro.add(aceptar);
-		principal.add(funcion);
 		principal.add(centro);
-
+		
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
 												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
@@ -78,12 +96,16 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 			}
 
 		});
-		principal.add(atras, BorderLayout.PAGE_END);
+		atras.setMaximumSize(new Dimension(90, 30));
+		atras.setPreferredSize(new Dimension(90, 30));
+
+		botones.add(aceptar);
+		botones.add(atras);
+		principal.add(botones);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 }

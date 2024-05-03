@@ -1,6 +1,6 @@
 package presentacion.modelo;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.modeloAerolinea.TModeloAerolinea;
 import presentacion.Observador;
@@ -25,43 +28,66 @@ public class VistaVincularModelo extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(470, 250);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-		JLabel funcion = new JLabel("Vincular Modelo");
-		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
-
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
 		JPanel centro = new JPanel();
-		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
-
-		JPanel idModelo = new JPanel();
-		idModelo.setLayout(new BoxLayout(idModelo, BoxLayout.LINE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Vincular Modelo");
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
+		
+		JPanel panel_etiquetas = new JPanel();
+		panel_etiquetas.setLayout(new BoxLayout(panel_etiquetas, BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_textfield = new JPanel();
+		panel_textfield.setLayout(new BoxLayout(panel_textfield, BoxLayout.PAGE_AXIS));
+		
+		
 		JLabel etiquetaIdModelo = new JLabel("idModelo: ");
-		etiquetaIdModelo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaIdModelo.setFont(new Font("Tahoma", Font.BOLD, 23));
 		JTextField textoIdModelo = new JTextField();
 		textoIdModelo.setMaximumSize(new Dimension(200, 30));
 		textoIdModelo.setMinimumSize(new Dimension(200, 30));
 		textoIdModelo.setPreferredSize(new Dimension(200, 30));
-		idModelo.add(etiquetaIdModelo);
-		idModelo.add(textoIdModelo);
-		centro.add(idModelo);
+		textoIdModelo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		panel_etiquetas.add(etiquetaIdModelo);
+		panel_textfield.add(textoIdModelo);
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
 
-		JPanel idAerolinea = new JPanel();
-		idAerolinea.setLayout(new BoxLayout(idAerolinea, BoxLayout.LINE_AXIS));
+		
 		JLabel etiquetaIdAerolinea = new JLabel("idAerolínea: ");
-		etiquetaIdAerolinea.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaIdAerolinea.setFont(new Font("Tahoma", Font.BOLD, 23));
 		JTextField textoIdAerolinea = new JTextField();
 		textoIdAerolinea.setMaximumSize(new Dimension(200, 30));
 		textoIdAerolinea.setMinimumSize(new Dimension(200, 30));
 		textoIdAerolinea.setPreferredSize(new Dimension(200, 30));
-		idAerolinea.add(etiquetaIdAerolinea);
-		idAerolinea.add(textoIdAerolinea);
-		centro.add(idAerolinea);
+		textoIdAerolinea.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		panel_etiquetas.add(etiquetaIdAerolinea);
+		panel_textfield.add(textoIdAerolinea);
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
+		
+		
+		principal.add(funcion);
+		principal.add(centro);
+		
 
 		Controlador controlador = Controlador.getInstance();
-
+		JSplitPane botones = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
@@ -78,10 +104,13 @@ public class VistaVincularModelo extends JFrame implements Observador {
 			}
 
 		});
+		aceptar.setMaximumSize(new Dimension(100, 30));
+		aceptar.setPreferredSize(new Dimension(100, 30));
+		botones.setMaximumSize(new Dimension(190, 30));
+		botones.setPreferredSize(new Dimension(190, 30));
 
-		centro.add(aceptar);
-		principal.add(funcion);
-		principal.add(centro);
+
+
 
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
 												// principal
@@ -95,12 +124,17 @@ public class VistaVincularModelo extends JFrame implements Observador {
 			}
 
 		});
-		principal.add(atras, BorderLayout.PAGE_END);
+		atras.setMaximumSize(new Dimension(90, 30));
+		atras.setPreferredSize(new Dimension(90, 30));
+
+		botones.add(aceptar);
+		botones.add(atras);
+		principal.add(botones);
 
 		this.setContentPane(principal);
+		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 }

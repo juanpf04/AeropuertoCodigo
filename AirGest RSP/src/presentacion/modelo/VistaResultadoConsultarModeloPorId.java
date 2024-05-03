@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import negocio.modelo.TModelo;
@@ -25,9 +26,10 @@ public class VistaResultadoConsultarModeloPorId extends JFrame implements Observ
 
 		String modelo = datos == null ? "" : ((TModelo) datos).toString();
 
-		JLabel exito = new JLabel(modelo);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		JTextArea exito = new JTextArea(modelo);
+		exito.setEditable(false);
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

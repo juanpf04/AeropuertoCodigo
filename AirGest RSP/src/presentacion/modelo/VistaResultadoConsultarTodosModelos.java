@@ -34,7 +34,7 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 			s += mo.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
