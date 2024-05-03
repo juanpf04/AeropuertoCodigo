@@ -15,7 +15,4 @@ public class ValidadorPersonal {
 		return valido;
 	}
 
-	public static boolean comprobarId(int id) {
-		return id > 0;
-	}
 }

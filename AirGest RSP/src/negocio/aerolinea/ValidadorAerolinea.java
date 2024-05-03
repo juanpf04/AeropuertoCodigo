@@ -1,4 +1,3 @@
-
 package negocio.aerolinea;
 
 public class ValidadorAerolinea {
@@ -7,11 +6,8 @@ public class ValidadorAerolinea {
 		return comprobarNombre(tAerolinea.getNombre());
 	}
 
-	public static boolean comprobarId(int id) {
-		return id > 0;
-	}
-
 	public static boolean comprobarNombre(String nombre) {
 		return nombre.matches("[a-zA-Z]+");
 	}
+
 }

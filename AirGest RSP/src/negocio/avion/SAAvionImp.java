@@ -1,4 +1,3 @@
-
 package negocio.avion;
 
 import java.util.List;
@@ -6,6 +5,7 @@ import java.util.List;
 import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
+import negocio.UtilidadesN;
 
 public class SAAvionImp implements SAAvion {
 
@@ -33,7 +33,7 @@ public class SAAvionImp implements SAAvion {
 	}
 
 	public boolean bajaAvion(int idAvion) {
-		if (ValidadorAvion.comprobarId(idAvion)) {
+		if (UtilidadesN.comprobarId(idAvion)) {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 
 			TAvion leido = da.consultarAvionPorId(idAvion);
@@ -50,7 +50,7 @@ public class SAAvionImp implements SAAvion {
 	}
 
 	public TAvion consultarAvionPorId(int idAvion) {
-		if (ValidadorAvion.comprobarId(idAvion)) {
+		if (UtilidadesN.comprobarId(idAvion)) {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 
 			return da.consultarAvionPorId(idAvion);
@@ -65,7 +65,7 @@ public class SAAvionImp implements SAAvion {
 	}
 
 	public boolean modificarAvion(TAvion tAvion) {
-		if (ValidadorAvion.comprobarId(tAvion.getId()) && ValidadorAvion.comprobarDatos(tAvion)) {
+		if (UtilidadesN.comprobarId(tAvion.getId()) && ValidadorAvion.comprobarDatos(tAvion)) {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 			int id = tAvion.getId();
 			String matricula = tAvion.getMatricula();
@@ -99,4 +99,5 @@ public class SAAvionImp implements SAAvion {
 		DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 		return da.consultarAvionesPorHangar(idHangar);
 	}
+
 }

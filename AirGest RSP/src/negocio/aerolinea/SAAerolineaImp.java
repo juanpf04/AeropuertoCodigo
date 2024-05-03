@@ -1,4 +1,3 @@
-
 package negocio.aerolinea;
 
 import java.util.List;
@@ -7,6 +6,7 @@ import integracion.aerolinea.DAOAerolinea;
 import integracion.avion.DAOAvion;
 import integracion.contrato.DAOContrato;
 import integracion.factoria.FactoriaIntegracion;
+import negocio.UtilidadesN;
 
 public class SAAerolineaImp implements SAAerolinea {
 
@@ -28,7 +28,7 @@ public class SAAerolineaImp implements SAAerolinea {
 	}
 
 	public boolean bajaAerolinea(int id) {
-		if (ValidadorAerolinea.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
 
 			TAerolinea leido = da.leerAerolineaPorId(id);
@@ -47,7 +47,7 @@ public class SAAerolineaImp implements SAAerolinea {
 	}
 
 	public TAerolinea consultarAerolineaPorId(int id) {
-		if (ValidadorAerolinea.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
 
 			return da.leerAerolineaPorId(id);
@@ -89,4 +89,5 @@ public class SAAerolineaImp implements SAAerolinea {
 
 		return null;
 	}
+
 }

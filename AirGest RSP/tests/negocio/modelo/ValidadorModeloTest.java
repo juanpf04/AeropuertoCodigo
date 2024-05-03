@@ -18,17 +18,7 @@ public class ValidadorModeloTest {
 
 		assertTrue("fasfa", ValidadorModelo.comprobarDatos(modelo));
 	}
-	
-	
-	@Test
-	public void comprobar_id_test() {
-		UtilidadesI.esTest();
 
-		assertTrue(" id 1 deberia ser valido", ValidadorModelo.comprobarId(1));
-		assertFalse("no puede tener id 0", ValidadorModelo.comprobarId(0));
-		assertFalse("no puede tener id negativo", ValidadorModelo.comprobarId(-1));
-	}
-	
 	@Test
 	public void comprobar_nombre_test() {
 		UtilidadesI.esTest();

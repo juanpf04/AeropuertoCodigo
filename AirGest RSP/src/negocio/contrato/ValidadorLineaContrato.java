@@ -1,4 +1,3 @@
-
 package negocio.contrato;
 
 import negocio.lineaContrato.TLineaContrato;

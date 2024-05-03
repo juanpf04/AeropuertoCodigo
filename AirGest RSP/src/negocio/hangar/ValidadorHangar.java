@@ -9,10 +9,6 @@ public class ValidadorHangar {
 				&& comprobarEspacioAlmacenaje(tHangar.getEspacioAlmacenaje());
 	}
 
-	public static boolean comprobarId(int id) {
-		return id > 0;
-	}
-
 	public static boolean comprobarDireccion(String direccion) {
 		return direccion.matches("[a-zA-Z0-9 ]+");
 	}
