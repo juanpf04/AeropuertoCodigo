@@ -2,7 +2,6 @@ package presentacion.modelo;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -14,18 +13,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarTodosModelos extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaResultadoConsultarTodosModelos() {
-		super("Resultado");
-		this.setSize(600, 650);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(600, 650);
+
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
