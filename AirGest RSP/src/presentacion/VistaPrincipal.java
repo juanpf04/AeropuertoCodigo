@@ -1,7 +1,10 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,9 +14,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
-import presentacion.factoria.FactoriaPresentacion;
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
@@ -21,7 +28,7 @@ import presentacion.controlador.EventosControlador;
 public class VistaPrincipal extends JFrame implements Observador {
 	public VistaPrincipal() {
 		super("AirGest RSP");
-		this.setSize(8000, 2000); //hace que la ventana no salga tan chiquitita
+		this.setSize(320, 300); //hace que la ventana no salga tan chiquitita
 	}
 
 	@Override
@@ -29,14 +36,29 @@ public class VistaPrincipal extends JFrame implements Observador {
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-
-		JLabel modulo = new JLabel("AIRGEST RSP"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
-		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS
-		principal.add(modulo, BorderLayout.PAGE_START);
+		
+		JPanel page_start_panel = new JPanel();
+		page_start_panel.setLayout(new BoxLayout(page_start_panel,BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_label_titulo = new JPanel();
+		JLabel titulo = new JLabel("AIRGEST RSP"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
+		titulo.setBorder(//new CompoundBorder(new LineBorder(Color.BLACK, 1)); 
+				//new MatteBorder(5,3,2,5, Color.BLACK));
+				new LineBorder(Color.BLACK,2));   // opciones de título
+		
+		titulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER); //ESTO ES LO QUE LO CENTRA, SWINGCONSTANTS
+		panel_label_titulo.add(titulo);
+		
+		JSeparator separador_titulo = new JSeparator(SwingConstants.CENTER);
+		separador_titulo.setBorder(new MatteBorder(1,1,10,10, Color.BLACK));
+		separador_titulo.setPreferredSize(new Dimension(0,2));
+		page_start_panel.add(panel_label_titulo);
+		page_start_panel.add(separador_titulo);
+		principal.add(page_start_panel, BorderLayout.PAGE_START);
 
 		JPanel botones = new JPanel();
-		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
+		botones.setLayout(new GridLayout(0,1, 1, 7));
 
 		Controlador ctrl = Controlador.getInstance();
 
@@ -117,10 +139,10 @@ public class VistaPrincipal extends JFrame implements Observador {
 		principal.add(botones, BorderLayout.CENTER);
 
 		this.setContentPane(principal);
+		this.setResizable(false); // no se puede modificar la ventana
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 
 	}
 }

@@ -1,7 +1,10 @@
 package presentacion.contrato;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
 import presentacion.controlador.Controlador;
@@ -20,8 +25,8 @@ import presentacion.controlador.EventosControlador;
 public class VistaContrato extends JFrame implements Observador{
 
 	public VistaContrato(){
-		super("CONTRATO");
-		this.setSize(1000, 750);
+		super("Airgest RSP");
+		this.setSize(400, 370);
 	}
 	
 	@Override
@@ -30,13 +35,25 @@ public class VistaContrato extends JFrame implements Observador{
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
-		JLabel modulo = new JLabel("CONTRATO"); //titulo de la ventana en la que estamos, apareceran las funciones de modelo 
-		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER);
-		principal.add(modulo, BorderLayout.PAGE_START);
-
+		JPanel page_start_panel = new JPanel();
+		page_start_panel.setLayout(new BoxLayout(page_start_panel,BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_label_contrato = new JPanel();
+		JLabel contrato = new JLabel("CONTRATO"); //titulo de la ventana en la que estamos, apareceran las funciones de contrato 
+		contrato.setFont(new Font("Comic Sans", Font.BOLD, 30));
+		contrato.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_label_contrato.add(contrato);
+		
+		JSeparator separador_contrato= new JSeparator(SwingConstants.CENTER);
+		separador_contrato.setBorder(new MatteBorder(1,1,10,10, Color.BLACK));
+		separador_contrato.setPreferredSize(new Dimension(0,2));
+		page_start_panel.add(panel_label_contrato);
+		page_start_panel.add(separador_contrato);
+		principal.add(page_start_panel, BorderLayout.PAGE_START);
+		
+		
 		JPanel botones = new JPanel();
-		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
+		botones.setLayout(new GridLayout(0, 1, 7, 7));
 
 		Controlador ctrl = Controlador.getInstance();
 
@@ -114,7 +131,8 @@ public class VistaContrato extends JFrame implements Observador{
 		principal.add(botones, BorderLayout.CENTER);
 
 		//-----------------------------------------------------
-
+		
+		JPanel panel_atras = new JPanel();
 		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
@@ -126,13 +144,14 @@ public class VistaContrato extends JFrame implements Observador{
 			}
 
 		});
-		principal.add(atras, BorderLayout.PAGE_END);
+		panel_atras.add(atras);
+		principal.add(panel_atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
+		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 		
 	}
 
