@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 
 
 public class ValidadorAvionTest {
@@ -16,7 +16,7 @@ public class ValidadorAvionTest {
 
 	@Test
 	public void comprobar_datos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue("Avion comercial correcto", ValidadorAvion.comprobarDatos(new TAComercial(0, 80,
 				LocalDate.of(2000, 6, 22), "avionComercial", "EC-123", noImporta, 1, 1, 1, 10)));
@@ -27,7 +27,7 @@ public class ValidadorAvionTest {
 
 	@Test
 	public void comprobar_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		assertTrue(" id 1 deberia ser valido", ValidadorAvion.comprobarId(1));
 		assertFalse("no puede tener id 0", ValidadorAvion.comprobarId(0));
@@ -36,7 +36,7 @@ public class ValidadorAvionTest {
 	
 	@Test
 	public void comprobarComercial_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		assertTrue("Avion comercial correcto", ValidadorAvion.comprobarComercial(new TAComercial(0, 80,
 				LocalDate.of(2000, 6, 22), "avionComercial", "EC-123", noImporta, 1, 1, 1, 10)));
@@ -44,7 +44,7 @@ public class ValidadorAvionTest {
 	
 	@Test
 	public void comprobarPrivado_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		assertTrue("Avion privado correcto", ValidadorAvion.comprobarPrivado(new TAPrivado(0, 8,
 				LocalDate.of(2000, 6, 22), "avionPrivado", "EC-12", noImporta, 1, 1, 1, "charlie", 23423)));
@@ -52,7 +52,7 @@ public class ValidadorAvionTest {
 	
 	@Test
 	public void comprobarInfo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		assertTrue("Avion correcto", ValidadorAvion.comprobarInfo(new TAvion(0, 8,
 				LocalDate.of(2000, 6, 22), "avionPrivado", "EC-12", noImporta, 1, 1, 1)));
 	}
@@ -60,7 +60,7 @@ public class ValidadorAvionTest {
 	@Test
 	public void comprobarCarnet_test()
 	{
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		//Carnet valido
 		assertTrue("Id carnet correcto", ValidadorAvion.comprobarCarnet(new TAPrivado(0, 8,
 				LocalDate.of(2000, 6, 22), "avionPrivado", "EC-12", noImporta, 1, 1, 1, "charlie", 23423)));
@@ -77,7 +77,7 @@ public class ValidadorAvionTest {
 	@Test
 	public void comprobarTrabajadores_test()
 	{
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		//Trabajadores valido
 		assertTrue("numTrabajadores", ValidadorAvion.comprobarTrabajadores(new TAComercial(0, 80,
 				LocalDate.of(2000, 6, 22), "avionComercial", "EC-123", noImporta, 1, 1, 1, 10)));
@@ -93,7 +93,7 @@ public class ValidadorAvionTest {
 
 	@Test
 	public void comprobarAsientos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		//numAsientos valido
 		assertTrue(" numAsientos 1 deberia ser valido", ValidadorAvion.comprobarAsientos(1));
@@ -106,7 +106,7 @@ public class ValidadorAvionTest {
 	@Test
 	public void comprobarHangar_test()
 	{
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		//idHangar valido
 		assertTrue("idHangar 1 deberia ser valido", ValidadorAvion.comprobarHangar(1));
@@ -119,7 +119,7 @@ public class ValidadorAvionTest {
 	@Test
 	public void comprobarAerolinea_test()
 	{
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		//idAerolinea valido
 		assertTrue("idAerolinea 1 deberia ser valido", ValidadorAvion.comprobarAerolinea(1));
@@ -132,7 +132,7 @@ public class ValidadorAvionTest {
 	@Test
 	public void comprobarModelo_test()
 	{
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		//idModelo valido
 		assertTrue("idModelo 1 deberia ser valido", ValidadorAvion.comprobarModelo(1));
@@ -144,7 +144,7 @@ public class ValidadorAvionTest {
 	
 	@Test
 	public void comprobarMatricula_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		//matricula valido
 		assertTrue("matrícula deberia ser valido", ValidadorAvion.comprobarMatricula("EC-1"));

@@ -1,5 +1,3 @@
-
-
 package negocio.avion;
 
 import java.util.List;
@@ -21,4 +19,5 @@ public interface SAAvion {
 	public List<TAvion> mostrarAvionesPorAerolinea(int idAerolinea);
 
 	public List<TAvion> mostrarAvionesPorHangar(int idHangar);
+	
 }

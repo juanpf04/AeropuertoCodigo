@@ -8,19 +8,19 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.contrato.TContrato;
 
 public class DAOContratoImpTest {
 	@Test
 	public void alta_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOContrato dc = new DAOContratoImp();
 
 		TContrato contrato = new TContrato(0, 1, 234.4);
 
-		File carpeta = new File(Utilidades.ruta("contrato"));
+		File carpeta = new File(UtilidadesI.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("No ha devuelto el id correcto", lista.length + 1, dc.altaContrato(contrato));
@@ -28,7 +28,7 @@ public class DAOContratoImpTest {
 	
 	@Test
 	public void leer_contrato_por_id_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOContrato dc = new DAOContratoImp();
 
@@ -37,13 +37,13 @@ public class DAOContratoImpTest {
 	
 	@Test
 	public void consultar_todos_contratos_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOContrato dc = new DAOContratoImp();
 
 		List<TContrato> contratos = dc.leerTodosContratos();
 
-		File carpeta = new File(Utilidades.ruta("contrato"));
+		File carpeta = new File(UtilidadesI.ruta("contrato"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("tiene que haber tantos contratos como ficheros", lista.length, contratos.size());
@@ -51,7 +51,7 @@ public class DAOContratoImpTest {
 	
 	@Test 
 	public void consultar_contratos_por_aerolinea_test(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOContrato dc = new DAOContratoImp();
 		
@@ -62,7 +62,7 @@ public class DAOContratoImpTest {
 	
 	@Test
 	public void modificar_contrato_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOContrato dc = new DAOContratoImp();
 
 		TContrato contrato = new TContrato(1, 2, 100);

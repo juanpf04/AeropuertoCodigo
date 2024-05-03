@@ -1,12 +1,9 @@
 
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -25,16 +23,13 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaMostrarAvionesPorAerolinea() {
-		super("Consultar aviones por aerolinea");
-		this.setSize(1000, 750);
-	}
-	
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
+
 		JPanel panelFuncion = new JPanel();
 		JLabel funcion = new JLabel("Consultar aviones por aerolinea");
 		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
@@ -74,7 +69,8 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 			}
 		});
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -91,7 +87,7 @@ public class VistaMostrarAvionesPorAerolinea extends JFrame implements Observado
 		panelBotones.add(aceptar);
 		principal.add(panelFuncion, BorderLayout.NORTH);
 		principal.add(centro, BorderLayout.CENTER);
-		
+
 		principal.add(panelBotones, BorderLayout.SOUTH);
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

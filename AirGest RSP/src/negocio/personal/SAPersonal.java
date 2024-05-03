@@ -4,7 +4,7 @@ import negocio.personalHangar.TPersonalHangar;
 import java.util.List;
 
 public interface SAPersonal {
-	
+
 	public int altaPersonal(TPersonal tPersonal);
 
 	public boolean bajaPersonal(int id);
@@ -18,4 +18,5 @@ public interface SAPersonal {
 	public TPersonal consultarPersonalPorId(int id);
 
 	public List<TPersonal> consultarPersonalExistente();
+	
 }

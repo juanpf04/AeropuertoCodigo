@@ -1,5 +1,4 @@
 
-
 package negocio.avion;
 
 import java.util.List;
@@ -7,7 +6,6 @@ import java.util.List;
 import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
-
 
 public class SAAvionImp implements SAAvion {
 
@@ -17,7 +15,7 @@ public class SAAvionImp implements SAAvion {
 			TAvion leido = da.consultarAvionesPorMatricula(tAvion.getMatricula());
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
-			
+
 			if (leido == null && nuevo_stock >= 0) {
 
 				dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
@@ -71,13 +69,13 @@ public class SAAvionImp implements SAAvion {
 			DAOAvion da = FactoriaIntegracion.getInstance().crearDAOAvion();
 			int id = tAvion.getId();
 			String matricula = tAvion.getMatricula();
-			DAOHangar dh =  FactoriaIntegracion.getInstance().crearDAOHangar();
+			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 
 			TAvion leido = da.consultarAvionPorId(id);
 			int nuevo_stock = dh.leerHangarPorId(tAvion.getIdHangar()).getStock() - 1;
 			if (leido != null) {
-				if (leido.getActivo()
-						&& (leido.getMatricula().equals(matricula) || da.consultarAvionesPorMatricula(matricula) == null) && nuevo_stock >= 0) {
+				if (leido.getActivo() && (leido.getMatricula().equals(matricula)
+						|| da.consultarAvionesPorMatricula(matricula) == null) && nuevo_stock >= 0) {
 					dh.actualizarStock(leido.getIdHangar(), dh.leerHangarPorId(leido.getIdHangar()).getStock() + 1);
 					dh.actualizarStock(tAvion.getIdHangar(), nuevo_stock);
 					return da.modificarAvion(tAvion);

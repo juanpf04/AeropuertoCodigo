@@ -1,4 +1,3 @@
-
 package integracion.factoria;
 
 import integracion.aerolinea.DAOAerolinea;
@@ -22,18 +21,22 @@ import integracion.personalHangar.DAOPersonalHangarImp;
 
 public class FactoriaIntegracionImp extends FactoriaIntegracion {
 
+	@Override
 	public DAOModelo crearDAOModelo() {
 		return new DAOModeloImp();
 	}
 
+	@Override
 	public DAOAvion crearDAOAvion() {
 		return new DAOAvionImp();
 	}
 
+	@Override
 	public DAOAerolinea crearDAOAerolinea() {
 		return new DAOAerolineaImp();
 	}
 
+	@Override
 	public DAOModeloAerolinea crearDAOModeloAerolinea() {
 		return new DAOModeloAerolineaImp();
 	}
@@ -43,19 +46,24 @@ public class FactoriaIntegracionImp extends FactoriaIntegracion {
 		return new DAOHangarImp();
 	}
 
+	@Override
 	public DAOContrato crearDAOContrato() {
 		return new DAOContratoImp();
 	}
 
+	@Override
 	public DAOPersonal crearDAOPersonal() {
 		return new DAOPersonalImp();
 	}
-	
+
+	@Override
 	public DAOPersonalHangar crearDAOPersonalHangar() {
 		return new DAOPersonalHangarImp();
 	}
 
+	@Override
 	public DAOLineaContrato crearDAOLineaContrato() {
 		return new DAOLineaContratoImp();
 	}
+
 }

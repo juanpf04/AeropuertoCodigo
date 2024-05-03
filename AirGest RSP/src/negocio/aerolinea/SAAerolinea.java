@@ -1,5 +1,3 @@
-
-
 package negocio.aerolinea;
 
 import java.util.List;
@@ -15,4 +13,5 @@ public interface SAAerolinea {
 	public List<TAerolinea> consultarTodasAerolineas();
 
 	public boolean modificarAerolinea(TAerolinea tAerolinea);
+	
 }

@@ -7,20 +7,20 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.aerolinea.TAerolinea;
 
 public class DAOAerolineaImpTest {
 	
 	@Test
 	public void alta_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
 		TAerolinea aerolinea = new TAerolinea(3, "tres", true);
 
-		File carpeta = new File(Utilidades.ruta("aerolinea"));
+		File carpeta = new File(UtilidadesI.ruta("aerolinea"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("No ha devuelto el id correcto", lista.length + 1, da.altaAerolinea(aerolinea));
@@ -28,7 +28,7 @@ public class DAOAerolineaImpTest {
 	
 	@Test
 	public void leerAerolineaPorIdTest(){
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		DAOAerolinea da = new DAOAerolineaImp();
 		
@@ -42,7 +42,7 @@ public class DAOAerolineaImpTest {
 
 	@Test
 	public void leer_aerolinea_por_nombre_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
@@ -52,7 +52,7 @@ public class DAOAerolineaImpTest {
 	
 	@Test
 	public void modificar_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOAerolinea da = new DAOAerolineaImp();
 
 		TAerolinea aerolinea = new TAerolinea(1, "unoMODIFICADO",true);
@@ -62,7 +62,7 @@ public class DAOAerolineaImpTest {
 
 	@Test
 	public void baja_aerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
@@ -71,13 +71,13 @@ public class DAOAerolineaImpTest {
 
 	@Test
 	public void consultar_todas_aerolineas_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAerolinea da = new DAOAerolineaImp();
 
 		List<TAerolinea> aerolineas = da.consultarTodasAerolineas();
 
-		File carpeta = new File(Utilidades.ruta("aerolinea"));
+		File carpeta = new File(UtilidadesI.ruta("aerolinea"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("tiene que haber tantas aerolineas como ficheros", lista.length, aerolineas.size());

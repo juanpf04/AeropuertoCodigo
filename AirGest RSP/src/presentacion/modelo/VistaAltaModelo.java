@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,18 +21,18 @@ import javax.swing.border.LineBorder;
 
 import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAltaModelo extends JFrame implements Observador {
 
-	public VistaAltaModelo() {
-		super("Airgest RSP");
-		this.setSize(1000, 750);
-	}
+	private static final long serialVersionUID = 1L;
 
+	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
@@ -46,10 +46,10 @@ public class VistaAltaModelo extends JFrame implements Observador {
 
 		SpringLayout layout = new SpringLayout();
 		JPanel centro = new JPanel();
-		centro.setLayout(layout);//BoxLayout(centro, BoxLayout.PAGE_AXIS)
+		centro.setLayout(layout);// BoxLayout(centro, BoxLayout.PAGE_AXIS)
 
-		//JPanel nombre = new JPanel();
-		//nombre.setLayout(new BoxLayout(nombre, BoxLayout.LINE_AXIS));
+		// JPanel nombre = new JPanel();
+		// nombre.setLayout(new BoxLayout(nombre, BoxLayout.LINE_AXIS));
 		JLabel etiquetaNombre = new JLabel("nombre:");
 		etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		JTextField textoNombre = new JTextField();
@@ -59,10 +59,10 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		centro.add(etiquetaNombre);
 		centro.add(textoNombre);
 		layout.putConstraint(SpringLayout.WEST, textoNombre, 5, SpringLayout.EAST, etiquetaNombre);
-		//centro.add(nombre);
+		// centro.add(nombre);
 
-		//JPanel motor = new JPanel();
-		//motor.setLayout(new BoxLayout(motor, BoxLayout.LINE_AXIS));
+		// JPanel motor = new JPanel();
+		// motor.setLayout(new BoxLayout(motor, BoxLayout.LINE_AXIS));
 		JLabel etiquetaMotor = new JLabel("motor:");
 		etiquetaMotor.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		JTextField textoMotor = new JTextField();
@@ -74,11 +74,10 @@ public class VistaAltaModelo extends JFrame implements Observador {
 		layout.putConstraint(SpringLayout.WEST, textoMotor, 22, SpringLayout.EAST, etiquetaMotor);
 		centro.add(etiquetaMotor);
 		centro.add(textoMotor);
-		//centro.add(motor);
+		// centro.add(motor);
 
 		Controlador controlador = Controlador.getInstance();
-		
-		
+
 		principal.add(funcion);
 		principal.add(centro);
 		JSplitPane botones = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -94,13 +93,14 @@ public class VistaAltaModelo extends JFrame implements Observador {
 			}
 
 		});
-		
+
 		aceptar.setMaximumSize(new Dimension(60, 40));
 		aceptar.setPreferredSize(new Dimension(60, 40));
 		botones.setMaximumSize(new Dimension(140, 40));
-		botones.setPreferredSize(new Dimension(140,40));
+		botones.setPreferredSize(new Dimension(140, 40));
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -111,14 +111,14 @@ public class VistaAltaModelo extends JFrame implements Observador {
 			}
 
 		});
-		
+
 		atras.setMaximumSize(new Dimension(60, 40));
 		atras.setPreferredSize(new Dimension(60, 40));
-		
+
 		botones.add(aceptar);
 		botones.add(atras);
 		principal.add(botones, BorderLayout.PAGE_END);
-		
+
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);

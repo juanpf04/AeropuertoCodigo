@@ -7,4 +7,5 @@ public interface DAOPersonalHangar {
 	public boolean desvincular(int idPersonal, int idHangar);
 
 	public boolean comprobarVinculacion(int idPersonal, int idHangar);
+
 }

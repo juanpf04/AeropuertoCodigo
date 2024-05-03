@@ -1,11 +1,9 @@
 
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -26,6 +24,7 @@ import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -33,18 +32,15 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaAltaAvion() {
-		super("Alta Avion");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		Controlador ctrl = Controlador.getInstance();
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
-		
+
 		JPanel panelFuncion = new JPanel();
 		JLabel funcion = new JLabel("Alta Avion");
 		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
@@ -56,15 +52,16 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		centro.setLayout(new BoxLayout(centro, BoxLayout.LINE_AXIS));
 		centro.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(centro, BorderLayout.CENTER);
-		
+
 		JPanel panelBotones = new JPanel();
 		principal.add(panelBotones, BorderLayout.SOUTH);
 		panelBotones.setAlignmentX(CENTER_ALIGNMENT);
 
-		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -73,7 +70,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 				else
 					ctrl.accion(EventosControlador.VISTA_ALTA_AVION, null);
 			}
-			
+
 		});
 		panelBotones.add(atras);
 
@@ -91,7 +88,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 					ctrl.accion(EventosControlador.VISTA_ALTA_AVION, "COMERCIAL");
 				}
 			});
-			
+
 			comercial.setAlignmentX(CENTER_ALIGNMENT);
 			botones.add(comercial);
 
@@ -114,15 +111,15 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			principal.add(botones, BorderLayout.SOUTH);
 
 			// -----------------------------------------------------
-		} else { // 
+		} else { //
 			JPanel panelEtiquetas = new JPanel();
 			panelEtiquetas.setLayout(new BoxLayout(panelEtiquetas, BoxLayout.PAGE_AXIS));
 			panelEtiquetas.setAlignmentX(CENTER_ALIGNMENT);
-			
+
 			JPanel panelTexto = new JPanel();
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
 			panelTexto.setAlignmentX(CENTER_ALIGNMENT);
-			
+
 			JLabel etiquetaNombre = new JLabel("Nombre: ");
 			etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoNombre = new JTextField();
@@ -143,20 +140,28 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			panelEtiquetas.add(etiquetaMatricula);
 			panelTexto.add(textoMatricula);
 
-			
 			// SPINNER O COMBOBOX PARA LA FECHA
 			JLabel etiquetaFecha = new JLabel("Fecha de Fabricación: ");
 			etiquetaFecha.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			LocalDate currentDate = LocalDate.now();
-			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());//pasarlo a Date para el spinner
-			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate, java.util.Calendar.DAY_OF_MONTH);
+			Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());// pasarlo
+																										// a
+																										// Date
+																										// para
+																										// el
+																										// spinner
+			SpinnerDateModel model = new SpinnerDateModel(initialDate, null, initialDate,
+					java.util.Calendar.DAY_OF_MONTH);
 			JSpinner spinner = new JSpinner(model);
 			spinner.setMaximumSize(new Dimension(200, 30));
 			spinner.setMinimumSize(new Dimension(200, 30));
 			spinner.setPreferredSize(new Dimension(200, 30));
-		    JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");//formato de la fecha
-		    spinner.setEditor(editor);
-		    panelEtiquetas.add(etiquetaFecha);
+			JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");// formato
+																						// de
+																						// la
+																						// fecha
+			spinner.setEditor(editor);
+			panelEtiquetas.add(etiquetaFecha);
 			panelTexto.add(spinner);
 
 			JLabel etiquetaAsientos = new JLabel("Número de asientos:    ");
@@ -167,7 +172,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoAsientos.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaAsientos);
 			panelTexto.add(textoAsientos);
-			
+
 			JLabel etiquetaAerolinea = new JLabel("Id aerolínea:    ");
 			etiquetaAerolinea.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoAerolinea = new JTextField();
@@ -176,8 +181,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoAerolinea.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaAerolinea);
 			panelTexto.add(textoAerolinea);
-			
-			
+
 			JLabel etiquetaModelo = new JLabel("Id modelo:    ");
 			etiquetaModelo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textomodelo = new JTextField();
@@ -186,8 +190,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textomodelo.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaModelo);
 			panelTexto.add(textomodelo);
-			
-			
+
 			JLabel etiquetaHangar = new JLabel("Id hangar:    ");
 			etiquetaHangar.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoHangar = new JTextField();
@@ -196,8 +199,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoHangar.setPreferredSize(new Dimension(200, 30));
 			panelEtiquetas.add(etiquetaHangar);
 			panelTexto.add(textoHangar);
-			
-			
+
 			JLabel etiquetaTrabajadores = new JLabel("Número de trabajadores:    ");
 			etiquetaTrabajadores.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoTrabajadores = new JTextField();
@@ -205,7 +207,6 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoTrabajadores.setMinimumSize(new Dimension(200, 30));
 			textoTrabajadores.setPreferredSize(new Dimension(200, 30));
 
-		
 			JLabel etiquetaDuenyo = new JLabel("Dueño:    ");
 			etiquetaDuenyo.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoDuenyo = new JTextField();
@@ -213,7 +214,6 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			textoDuenyo.setMinimumSize(new Dimension(200, 30));
 			textoDuenyo.setPreferredSize(new Dimension(200, 30));
 
-			
 			JLabel etiquetaCarnet = new JLabel("Id carnet:    ");
 			etiquetaCarnet.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 			JTextField textoCarnet = new JTextField();
@@ -237,7 +237,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					try{
+					try {
 						String nombre = textoNombre.getText();
 						String matricula = textoMatricula.getText();
 						int numAsientos = Integer.valueOf(textoAsientos.getText());
@@ -245,33 +245,35 @@ public class VistaAltaAvion extends JFrame implements Observador {
 						int idHangar = Integer.valueOf(textoHangar.getText());
 						int idModelo = Integer.valueOf(textomodelo.getText());
 						Date seleccion = (Date) spinner.getValue();
-						ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());//para transformar date a localDate
+						ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());// para
+																											// transformar
+																											// date
+																											// a
+																											// localDate
 						LocalDate fecha = zonedDateTime.toLocalDate();
-						
+
 						TAvion transfer;
 						if (datos == "COMERCIAL") {
 							int trabajadores = Integer.valueOf(textoTrabajadores.getText());
-							transfer = new TAComercial(0, numAsientos, fecha, nombre, matricula, true,
-									idAerolinea, idModelo, idHangar, trabajadores);
+							transfer = new TAComercial(0, numAsientos, fecha, nombre, matricula, true, idAerolinea,
+									idModelo, idHangar, trabajadores);
 						} else {
 							String nombre_duenyo = textoDuenyo.getText();
 							int idCarnet = Integer.valueOf(textoCarnet.getText());
-							transfer = new TAPrivado(0, numAsientos, fecha, nombre, matricula, true,
-									idAerolinea, idModelo, idHangar, nombre_duenyo, idCarnet);
+							transfer = new TAPrivado(0, numAsientos, fecha, nombre, matricula, true, idAerolinea,
+									idModelo, idHangar, nombre_duenyo, idCarnet);
 						}
 						ctrl.accion(EventosControlador.ALTA_AVION, transfer);
-					}catch(Exception ex)
-					{
+					} catch (Exception ex) {
 						ctrl.accion(EventosControlador.ALTA_AVION, null);
 					}
 				}
 
 			});
-			
-			panelBotones.add(aceptar);
-			
-		}
 
+			panelBotones.add(aceptar);
+
+		}
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -279,5 +281,5 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.pack();
 	}
-	
+
 }

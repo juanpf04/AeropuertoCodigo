@@ -3,7 +3,6 @@ package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -16,19 +15,20 @@ import javax.swing.JTextArea;
 
 import negocio.aerolinea.TAerolinea;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Observador {
 
-	public VistaResultadoConsultarTodasAerolineas() {
-		super("Resultado");
-		this.setSize(1000, 750);
-	}
+	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(600, 650);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
+		@SuppressWarnings("unchecked")
 		List<TAerolinea> aerolineas = (List<TAerolinea>) datos;
 
 		String s = "";
@@ -38,9 +38,10 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 		JTextArea exito = new JTextArea(s);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
+		exito.setEditable(false);
 
-		JScrollPane scroll = new JScrollPane(exito);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		JScrollPane scroll = new JScrollPane(exito, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		principal.add(scroll, BorderLayout.CENTER);
 
 		JButton atras = new JButton("ATRAS");
@@ -59,7 +60,6 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 
 	}
 }

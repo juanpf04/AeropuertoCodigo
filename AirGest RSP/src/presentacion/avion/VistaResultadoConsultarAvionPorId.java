@@ -1,11 +1,7 @@
-
-
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,19 +9,16 @@ import javax.swing.JTextArea;
 
 import negocio.avion.TAvion;
 import presentacion.Observador;
-
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarAvionPorId extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaResultadoConsultarAvionPorId() {
-		super("Resultado");
-		this.setSize(1000, 750);
-	}
-	
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
@@ -34,6 +27,7 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 		JTextArea exito = new JTextArea(avion);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setAlignmentX(CENTER_ALIGNMENT);
+		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);
@@ -43,6 +37,5 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 		this.pack();
 
 	}
-
 
 }

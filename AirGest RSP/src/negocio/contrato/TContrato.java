@@ -1,5 +1,4 @@
 
-
 package negocio.contrato;
 
 public class TContrato {
@@ -7,7 +6,7 @@ public class TContrato {
 	private int id;
 
 	private int id_aerolinea;
-	
+
 	private double precio;
 
 	public TContrato() {
@@ -19,8 +18,8 @@ public class TContrato {
 		this.id_aerolinea = id_aerolinea;
 		this.precio = precio;
 	}
-	
-	public TContrato(int id_aerolinea){
+
+	public TContrato(int id_aerolinea) {
 		this.id_aerolinea = id_aerolinea;
 	}
 
@@ -47,8 +46,8 @@ public class TContrato {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	
+
 	public String toString() {
 		return "id: " + this.id + "\nid_aerolinea: " + this.id_aerolinea + "\nprecio: " + this.precio;
-	} 
+	}
 }

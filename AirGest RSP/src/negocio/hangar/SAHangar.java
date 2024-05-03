@@ -1,4 +1,3 @@
-
 package negocio.hangar;
 
 import java.util.List;
@@ -14,4 +13,5 @@ public interface SAHangar {
 	public List<THangar> consultarTodosHangares();
 
 	public boolean modificarHangar(THangar tHangar);
+	
 }

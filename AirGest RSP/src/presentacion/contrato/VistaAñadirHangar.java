@@ -1,13 +1,10 @@
-
 package presentacion.contrato;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -21,25 +18,22 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
-import javax.swing.text.NumberFormatter;
 
 import negocio.contrato.TCarrito;
 import negocio.lineaContrato.TLineaContrato;
-import negocio.modelo.TModelo;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaAñadirHangar extends JFrame implements Observador {
-	
-	public VistaAñadirHangar(){
-		super("Añadir Hangar");
-		this.setSize(1000, 750);
-	}
+
+	private static final long serialVersionUID = 1L;
 	
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
-		
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+
 		Controlador controlador = Controlador.getInstance();
 		TCarrito carrito = (TCarrito) datos;
 
@@ -63,26 +57,34 @@ public class VistaAñadirHangar extends JFrame implements Observador {
 		id.add(etiquetaId);
 		id.add(textoId);
 		centro.add(id);
-		
+
 		JPanel fecha_ini = new JPanel();
 		fecha_ini.setLayout(new BoxLayout(fecha_ini, BoxLayout.LINE_AXIS));
 		JLabel etiquetaIni = new JLabel("fecha inicio: ");
 		etiquetaIni.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		LocalDate currentDate = LocalDate.now();
-		Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());//pasarlo a Date para el spinner
+		Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());// pasarlo
+																									// a
+																									// Date
+																									// para
+																									// el
+																									// spinner
 		SpinnerDateModel model = new SpinnerDateModel(initialDate, null, null, java.util.Calendar.DAY_OF_MONTH);
 		JSpinner spinnerIni = new JSpinner(model);
 		spinnerIni.setMaximumSize(new Dimension(200, 30));
 		spinnerIni.setMinimumSize(new Dimension(200, 30));
 		spinnerIni.setPreferredSize(new Dimension(200, 30));
-	    JSpinner.DateEditor editor = new JSpinner.DateEditor(spinnerIni, "dd/MM/yyyy");//formato de la fecha
-	    spinnerIni.setEditor(editor);
-	    fecha_ini.add(etiquetaIni);
-	    fecha_ini.add(spinnerIni);
-	    centro.add(fecha_ini);
-	    
-	    JPanel fecha_fin = new JPanel();
-	    fecha_fin.setLayout(new BoxLayout(fecha_fin, BoxLayout.LINE_AXIS));
+		JSpinner.DateEditor editor = new JSpinner.DateEditor(spinnerIni, "dd/MM/yyyy");// formato
+																						// de
+																						// la
+																						// fecha
+		spinnerIni.setEditor(editor);
+		fecha_ini.add(etiquetaIni);
+		fecha_ini.add(spinnerIni);
+		centro.add(fecha_ini);
+
+		JPanel fecha_fin = new JPanel();
+		fecha_fin.setLayout(new BoxLayout(fecha_fin, BoxLayout.LINE_AXIS));
 		JLabel etiquetaFin = new JLabel("fecha fin: ");
 		etiquetaFin.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		SpinnerDateModel model2 = new SpinnerDateModel(initialDate, null, null, java.util.Calendar.DAY_OF_MONTH);
@@ -90,21 +92,28 @@ public class VistaAñadirHangar extends JFrame implements Observador {
 		spinnerFin.setMaximumSize(new Dimension(200, 30));
 		spinnerFin.setMinimumSize(new Dimension(200, 30));
 		spinnerFin.setPreferredSize(new Dimension(200, 30));
-	    JSpinner.DateEditor editor2 = new JSpinner.DateEditor(spinnerFin, "dd/MM/yyyy");//formato de la fecha
-	    spinnerFin.setEditor(editor2);
-	    fecha_fin.add(etiquetaFin);
-	    fecha_fin.add(spinnerFin);
-	    centro.add(fecha_fin);
-	    
-	    JButton aceptar = new JButton("ACEPTAR");
+		JSpinner.DateEditor editor2 = new JSpinner.DateEditor(spinnerFin, "dd/MM/yyyy");// formato
+																						// de
+																						// la
+																						// fecha
+		spinnerFin.setEditor(editor2);
+		fecha_fin.add(etiquetaFin);
+		fecha_fin.add(spinnerFin);
+		centro.add(fecha_fin);
+
+		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					int id_hangar = Integer.parseInt(textoId.getText());
 					Date seleccion = (Date) spinnerIni.getValue();
-					ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());//para transformar date a localDate
+					ZonedDateTime zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());// para
+																										// transformar
+																										// date
+																										// a
+																										// localDate
 					LocalDate fecha_ini = zonedDateTime.toLocalDate();
 					seleccion = (Date) spinnerFin.getValue();
 					zonedDateTime = seleccion.toInstant().atZone(ZoneId.systemDefault());
@@ -113,16 +122,17 @@ public class VistaAñadirHangar extends JFrame implements Observador {
 					carrito.anyadirLinea(linea);
 					controlador.accion(EventosControlador.VISTA_CARRITO, carrito);
 					dispose();
-				} catch (NumberFormatException n){
-					
+				} catch (NumberFormatException n) {
+
 				}
 			}
 
 		});
 
 		centro.add(aceptar);
-		
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 
@@ -133,13 +143,12 @@ public class VistaAñadirHangar extends JFrame implements Observador {
 			}
 
 		});
-	    
-	    
-	    principal.add(funcion);
+
+		principal.add(funcion);
 		principal.add(centro);
 		principal.add(atras, BorderLayout.PAGE_END);
-	    
-	    this.setContentPane(principal);
+
+		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);

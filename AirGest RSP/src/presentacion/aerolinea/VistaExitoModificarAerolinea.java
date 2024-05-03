@@ -1,10 +1,8 @@
 
-
 package presentacion.aerolinea;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,16 +11,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaExitoModificarAerolinea extends JFrame implements Observador {
 
-	public VistaExitoModificarAerolinea() {
-		super("Exito");
-		this.setSize(1000, 750);
-	}
+	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 

@@ -3,7 +3,6 @@ package presentacion.modelo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,21 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.modelo.TModelo;
 import negocio.modeloAerolinea.TModeloAerolinea;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaVincularModelo extends JFrame implements Observador {
 
-	public VistaVincularModelo() {
-		super("Vincular Modelo");
-		this.setSize(1000, 750);
-	}
+	private static final long serialVersionUID = 1L;
 
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
@@ -86,7 +83,8 @@ public class VistaVincularModelo extends JFrame implements Observador {
 		principal.add(funcion);
 		principal.add(centro);
 
-		JButton atras = new JButton("ATRAS"); //boton para volver a la ventana principal
+		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
+												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
 		atras.addActionListener(new ActionListener() {
 

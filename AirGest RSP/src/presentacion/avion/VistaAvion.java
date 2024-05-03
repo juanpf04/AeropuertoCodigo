@@ -1,4 +1,3 @@
-
 package presentacion.avion;
 
 import java.awt.BorderLayout;
@@ -6,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +19,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -28,14 +27,11 @@ public class VistaAvion extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaAvion() {
-		super("Airgest RSP");
-		this.setSize(430, 390); // hace que la ventana no salga tan chiquitita
-	}
-
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(430, 390); // hace que la ventana no salga tan chiquitita
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 		

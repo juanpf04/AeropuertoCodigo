@@ -3,7 +3,6 @@ package presentacion.contrato;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,18 +11,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import presentacion.Observador;
-import presentacion.controlador.Controlador;
-import presentacion.controlador.EventosControlador;
+import presentacion.UtilidadesP;
 
 public class VistaExitoCerrarContrato extends JFrame implements Observador {
-	
-	public VistaExitoCerrarContrato(){
-		super("Exito");
-		this.setSize(1000, 750);
-	}
+
+	private static final long serialVersionUID = 1L;
 	
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
@@ -41,8 +38,6 @@ public class VistaExitoCerrarContrato extends JFrame implements Observador {
 		this.setVisible(true);
 		this.setLocation(200, 200);
 		this.pack();
-		
-		Controlador controlador = Controlador.getInstance();
-		controlador.accion(EventosControlador.VISTA_CONTRATO, null);
+
 	}
 }

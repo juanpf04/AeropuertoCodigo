@@ -2,38 +2,32 @@ package presentacion.personal;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 import negocio.personal.TPersonal;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 
 public class VistaResultadoConsultarPersonalPorId extends JFrame implements Observador {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public VistaResultadoConsultarPersonalPorId() {
-		super("Resultado");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
 		String personal = datos == null ? "" : ((TPersonal) datos).toString();
 
-		JLabel exito = new JLabel(personal);
+		JTextArea exito = new JTextArea(personal);
 		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		exito.setEditable(false);
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

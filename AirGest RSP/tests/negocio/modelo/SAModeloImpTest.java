@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.modeloAerolinea.TModeloAerolinea;
 
 public class SAModeloImpTest {
@@ -16,13 +16,13 @@ public class SAModeloImpTest {
 
 	@Test
 	public void alta_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAModelo sm = new SAModeloImp();
 
 		// Prueba exitosa
 		TModelo modelo = new TModelo(id_inmodificable, "boeing-900", "EFV-32", inmodificable);
-		File carpeta = new File(Utilidades.ruta("modelo"));
+		File carpeta = new File(UtilidadesI.ruta("modelo"));
 		File[] lista = carpeta.listFiles();
 		assertEquals("debería darse de alta el modelo", lista.length + 1, sm.altaModelo(modelo));
 
@@ -37,7 +37,7 @@ public class SAModeloImpTest {
 
 	@Test
 	public void modificar_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAModelo sm = new SAModeloImp();
 
@@ -61,7 +61,7 @@ public class SAModeloImpTest {
 
 	@Test
 	public void baja_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAModelo sm = new SAModeloImp();
 
@@ -80,7 +80,7 @@ public class SAModeloImpTest {
 
 	@Test
 	public void vincular_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAModelo sm = new SAModeloImp();
 		TModeloAerolinea tma = new TModeloAerolinea();
@@ -98,7 +98,7 @@ public class SAModeloImpTest {
 
 	@Test
 	public void desvincular_modelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAModelo sm = new SAModeloImp();
 		TModeloAerolinea tma = new TModeloAerolinea();

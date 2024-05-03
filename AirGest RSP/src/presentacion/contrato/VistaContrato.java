@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,19 +19,18 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaContrato extends JFrame implements Observador{
 
-	public VistaContrato(){
-		super("Airgest RSP");
-		this.setSize(400, 370);
-	}
-	
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(400, 370);
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
@@ -156,5 +154,6 @@ public class VistaContrato extends JFrame implements Observador{
 		this.setLocation(200, 200);
 		
 	}
-
+	
 }
+

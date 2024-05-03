@@ -1,5 +1,3 @@
-
-
 package integracion.avion;
 
 import java.util.List;

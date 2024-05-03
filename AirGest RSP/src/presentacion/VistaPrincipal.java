@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,8 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
@@ -26,14 +23,13 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
 public class VistaPrincipal extends JFrame implements Observador {
-	public VistaPrincipal() {
-		super("AirGest RSP");
-		this.setSize(320, 300); //hace que la ventana no salga tan chiquitita
-	}
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);	
+		this.setSize(320, 300); //hace que la ventana no salga tan chiquitita
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 		
@@ -141,6 +137,5 @@ public class VistaPrincipal extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-
 	}
 }

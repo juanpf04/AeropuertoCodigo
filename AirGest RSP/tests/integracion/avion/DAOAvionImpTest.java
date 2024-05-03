@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.avion.TAComercial;
 import negocio.avion.TAPrivado;
 import negocio.avion.TAvion;
@@ -17,7 +17,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesPorModelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -33,7 +33,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesActivosPorModelo_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -48,7 +48,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionPorId_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -57,7 +57,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesPorMatricula_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -66,13 +66,13 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarTodosAviones_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
 		List<TAvion> aviones = da.consultarTodosAviones();
 
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		assertEquals("tiene que haber tantos aviones como ficheros", lista.length, aviones.size());
@@ -80,7 +80,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesPorAerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -95,7 +95,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesPorHangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -106,7 +106,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesActivosPorAerolinea_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -121,7 +121,7 @@ public class DAOAvionImpTest {
 
 	@Test
 	public void consultarAvionesActivosPorHangar_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 
@@ -132,10 +132,10 @@ public class DAOAvionImpTest {
 	
 	@Test
 	public void altaAvion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 
 		TAvion avion = new TAComercial(0, 5, LocalDate.of(2004, 12, 6), "nombrePrueba", "EC-1234", 
@@ -151,7 +151,7 @@ public class DAOAvionImpTest {
 	
 	@Test
 	public void modificarAvion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		DAOAvion da = new DAOAvionImp();
 
 		TAvion avion = new TAComercial(5, 5, LocalDate.of(2004, 12, 6), "nombrePruebaModif", "EC-123ASD", 
@@ -167,7 +167,7 @@ public class DAOAvionImpTest {
 	
 	@Test
 	public void bajaAvion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		DAOAvion da = new DAOAvionImp();
 

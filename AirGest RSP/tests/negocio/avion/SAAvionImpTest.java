@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import integracion.Utilidades;
+import integracion.UtilidadesI;
 import negocio.avion.SAAvion;
 import negocio.avion.SAAvionImp;
 import negocio.avion.TAvion;
@@ -24,14 +24,14 @@ public class SAAvionImpTest {
 	
 	@Test
 	public void alta_avion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAAvion sa = new SAAvionImp();
 
 		// Prueba exitosa comercial
 		TAvion avion = new TAComercial(id_inmodificable, 5, LocalDate.of(2004, 12, 6), "nombrePrueba", "EC-1", 
 				inmodificable, 1, 1, 1, 1);
-		File carpeta = new File(Utilidades.ruta("avion"));
+		File carpeta = new File(UtilidadesI.ruta("avion"));
 		File[] lista = carpeta.listFiles();
 		assertEquals("debería darse de alta el avion comercial", lista.length + 1, sa.altaAvion(avion));
 		
@@ -60,7 +60,7 @@ public class SAAvionImpTest {
 
 	@Test
 	public void modificar_avion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 		
 		SAAvion sa = new SAAvionImp();
 		
@@ -93,7 +93,7 @@ public class SAAvionImpTest {
 	
 	@Test
 	public void baja_avion_test() {
-		Utilidades.esTest();
+		UtilidadesI.esTest();
 
 		SAAvion sa = new SAAvionImp();
 		
