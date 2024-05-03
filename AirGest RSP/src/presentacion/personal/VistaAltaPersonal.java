@@ -3,7 +3,6 @@ package presentacion.personal;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +17,7 @@ import negocio.personal.TPLimpieza;
 import negocio.personal.TPSeguridad;
 import negocio.personal.TPersonal;
 import presentacion.Observador;
+import presentacion.UtilidadesP;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.EventosControlador;
 
@@ -25,13 +25,10 @@ public class VistaAltaPersonal extends JFrame implements Observador {
 
 	private static final long serialVersionUID = 1L;
 
-	public VistaAltaPersonal() {
-		super("Alta Personal");
-		this.setSize(1000, 750);
-	}
-
 	public void actualizaVista(Object datos) {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("recursos/iconos/avion.png"));
+		UtilidadesP.setAirGestRSP(this);
+		this.setSize(1000, 750);
+
 		Controlador ctrl = Controlador.getInstance();
 
 		JPanel principal = new JPanel();
