@@ -37,7 +37,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(370, 250);
+		this.setSize(450, 250);
 		
 		Controlador ctrl = Controlador.getInstance();
 
