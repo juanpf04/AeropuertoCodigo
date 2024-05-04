@@ -1,8 +1,9 @@
 package presentacion.personal;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.personal.TPLimpieza;
 import negocio.personal.TPSeguridad;
@@ -27,28 +30,39 @@ public class VistaAltaPersonal extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
-
+		this.setSize(450, 250);
+		
 		Controlador ctrl = Controlador.getInstance();
 
-		JPanel principal = new JPanel();
-		principal.setLayout(new BorderLayout());
 
-		JLabel funcion = new JLabel("Alta Personal");
-		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
-		funcion.setAlignmentX(CENTER_ALIGNMENT);
-		principal.add(funcion, BorderLayout.NORTH);
+		JPanel principal = new JPanel();
+		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
+
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Alta Personal");
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
+		principal.add(funcion);
 
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.LINE_AXIS));
-		principal.add(centro, BorderLayout.CENTER);
+		centro.setAlignmentX(CENTER_ALIGNMENT);
+		principal.add(centro);
 
 		JPanel panelBotones = new JPanel();
-		principal.add(panelBotones, BorderLayout.SOUTH);
+		principal.add(panelBotones);
+		panelBotones.setAlignmentX(CENTER_ALIGNMENT);
 
 		if (datos == null) {
 			JPanel botones = new JPanel();
-			botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
+			botones.setLayout(new GridLayout(0,1,8,8));
 
 			// -------------------------------------------
 			JButton seguridad = new JButton("PERSONAL DE SEGURIDAD");
@@ -79,7 +93,7 @@ public class VistaAltaPersonal extends JFrame implements Observador {
 			botones.add(limpieza);
 			botones.add(panelBotones);
 
-			principal.add(botones, BorderLayout.SOUTH);
+			principal.add(botones);
 
 			// -----------------------------------------------------
 		} else {
@@ -90,38 +104,43 @@ public class VistaAltaPersonal extends JFrame implements Observador {
 			panelTexto.setLayout(new BoxLayout(panelTexto, BoxLayout.PAGE_AXIS));
 
 			JLabel etiquetaIdEmpleado = new JLabel("Id de empleado: ");
-			etiquetaIdEmpleado.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			etiquetaIdEmpleado.setFont(new Font("Tahoma", Font.BOLD, 25));
 			JTextField textoIdEmpleado = new JTextField();
 			textoIdEmpleado.setMaximumSize(new Dimension(200, 30));
 			textoIdEmpleado.setMinimumSize(new Dimension(200, 30));
 			textoIdEmpleado.setPreferredSize(new Dimension(200, 30));
+			textoIdEmpleado.setFont(new Font("Tahoma", Font.BOLD, 18));
+			textoIdEmpleado.setToolTipText("numero natural sin el 0");
 			panelEtiquetas.add(etiquetaIdEmpleado);
 			panelTexto.add(textoIdEmpleado);
 			centro.add(panelEtiquetas);
 			centro.add(panelTexto);
 
 			JLabel etiquetaAreaAsignada = new JLabel("Área asignada:    ");
-			etiquetaAreaAsignada.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			etiquetaAreaAsignada.setFont(new Font("Tahoma", Font.BOLD, 25));
 			JTextField textoAreaAsignada = new JTextField();
 			textoAreaAsignada.setMaximumSize(new Dimension(200, 30));
 			textoAreaAsignada.setMinimumSize(new Dimension(200, 30));
 			textoAreaAsignada.setPreferredSize(new Dimension(200, 30));
+			textoAreaAsignada.setFont(new Font("Tahoma", Font.BOLD, 18));
 			panelEtiquetas.add(etiquetaAreaAsignada);
 			panelTexto.add(textoAreaAsignada);
 
 			JLabel etiquetaRol = new JLabel("Rol:    ");
-			etiquetaRol.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			etiquetaRol.setFont(new Font("Tahoma", Font.BOLD, 25));
 			JTextField textoRol = new JTextField();
 			textoRol.setMaximumSize(new Dimension(200, 30));
 			textoRol.setMinimumSize(new Dimension(200, 30));
 			textoRol.setPreferredSize(new Dimension(200, 30));
+			textoRol.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 			JLabel etiquetaNumPlaca = new JLabel("Número de placa:    ");
-			etiquetaNumPlaca.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+			etiquetaNumPlaca.setFont(new Font("Tahoma", Font.BOLD, 25));
 			JTextField textoNumPlaca = new JTextField();
 			textoNumPlaca.setMaximumSize(new Dimension(200, 30));
 			textoNumPlaca.setMinimumSize(new Dimension(200, 30));
 			textoNumPlaca.setPreferredSize(new Dimension(200, 30));
+			textoNumPlaca.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 			if ("LIMPIEZA" == datos) {
 				panelEtiquetas.add(etiquetaRol);
@@ -182,6 +201,6 @@ public class VistaAltaPersonal extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
+		this.setResizable(false);
 	}
 }

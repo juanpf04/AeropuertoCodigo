@@ -26,7 +26,7 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(600, 650);
+		this.setSize(400, 450);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
@@ -39,7 +39,7 @@ public class VistaResultadoConsultarTodosContratos extends JFrame implements Obs
 			s += c.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		exito.setLineWrap(true); // Habilita el ajuste automático de línea
 		exito.setWrapStyleWord(true); // Ajusta el texto en palabras completas
 		exito.setEditable(false); // Hace que el JTextArea sea de solo lectura

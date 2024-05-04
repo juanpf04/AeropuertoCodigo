@@ -64,7 +64,6 @@ public class VistaBajaAvion extends JFrame implements Observador {
 		Controlador controlador = Controlador.getInstance();
 
 		JButton aceptar = new JButton("ACEPTAR");
-		aceptar.setAlignmentX(CENTER_ALIGNMENT);
 		aceptar.addActionListener(new ActionListener() {
 
 			@Override

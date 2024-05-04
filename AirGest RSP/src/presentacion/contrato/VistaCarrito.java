@@ -2,8 +2,10 @@
 package presentacion.contrato;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.contrato.TCarrito;
 import negocio.lineaContrato.TLineaContrato;
@@ -29,32 +32,26 @@ public class VistaCarrito extends JFrame implements Observador {
 	
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
-		
+		TCarrito carrito = (TCarrito) datos;
+		this.setSize(600, 552);
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-		TCarrito carrito = (TCarrito) datos;
-
-		JLabel modulo = new JLabel("Carrito aerolinea " + carrito.getIdAerolinea()); // titulo
-																						// de
-																						// la
-																						// ventana
-																						// en
-																						// la
-																						// que
-																						// estamos,
-																						// apareceran
-																						// las
-																						// funciones
-																						// de
-																						// modelo
-		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER);
-		principal.add(modulo, BorderLayout.PAGE_START);
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Carrito aerolinea " + carrito.getIdAerolinea());
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
+		principal.add(funcion);
 
 		JPanel botones = new JPanel();
-		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
+		botones.setLayout(new GridLayout(0,1,5,5));
 
 		Controlador ctrl = Controlador.getInstance();
 
@@ -102,7 +99,7 @@ public class VistaCarrito extends JFrame implements Observador {
 		}
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		exito.setLineWrap(true); // Habilita el ajuste automático de línea
 		exito.setWrapStyleWord(true); // Ajusta el texto en palabras completas
 		exito.setEditable(false); // Hace que el JTextArea sea de solo lectura
@@ -111,10 +108,11 @@ public class VistaCarrito extends JFrame implements Observador {
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setPreferredSize(new Dimension(500, 300)); // Ajusta el tamaño
 															// del JScrollPane
-		principal.add(scroll, BorderLayout.CENTER);
+		principal.add(scroll);
 
 		// -----------------------------------------------------
-
+		
+		JPanel panel_atras = new JPanel();
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
 												// principal
 		atras.setToolTipText("Esto vuelve a la ventana anterior");
@@ -127,12 +125,14 @@ public class VistaCarrito extends JFrame implements Observador {
 			}
 
 		});
-		principal.add(atras, BorderLayout.PAGE_END);
+		panel_atras.setAlignmentX(CENTER_ALIGNMENT);
+		panel_atras.add(atras);
+		principal.add(panel_atras);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
+		this.setResizable(false);
 	}
 }

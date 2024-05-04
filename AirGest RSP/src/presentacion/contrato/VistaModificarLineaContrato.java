@@ -1,7 +1,7 @@
 
 package presentacion.contrato;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,8 +17,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.lineaContrato.TLineaContrato;
 import presentacion.Observador;
@@ -32,47 +35,64 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(450, 300);
 
 		Controlador controlador = Controlador.getInstance();
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-		JLabel funcion = new JLabel("Modificar Linea Contrato");
-		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
-
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
 		JPanel centro = new JPanel();
-		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Modificar linea de Contrato");
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
 
-		JPanel id_contrato = new JPanel();
-		id_contrato.setLayout(new BoxLayout(id_contrato, BoxLayout.LINE_AXIS));
+		JPanel panel_etiquetas = new JPanel();
+		panel_etiquetas.setLayout(new BoxLayout(panel_etiquetas, BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_textfield = new JPanel();
+		panel_textfield.setLayout(new BoxLayout(panel_textfield, BoxLayout.PAGE_AXIS));
+		
 		JLabel etiquetaContrato = new JLabel("id contrato: ");
-		etiquetaContrato.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaContrato.setFont(new Font("Tahoma", Font.BOLD, 23));
 		JTextField textoContrato = new JTextField();
 		textoContrato.setMaximumSize(new Dimension(200, 30));
 		textoContrato.setMinimumSize(new Dimension(200, 30));
 		textoContrato.setPreferredSize(new Dimension(200, 30));
-		id_contrato.add(etiquetaContrato);
-		id_contrato.add(textoContrato);
-		centro.add(id_contrato);
+		textoContrato.setFont(new Font("Tahoma", Font.BOLD, 18));
+		panel_etiquetas.add(etiquetaContrato);
+		panel_textfield.add(textoContrato);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
 
-		JPanel id = new JPanel();
-		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
+
+		
 		JLabel etiquetaId = new JLabel("id hangar: ");
-		etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaId.setFont(new Font("Tahoma", Font.BOLD, 23));
 		JTextField textoId = new JTextField();
 		textoId.setMaximumSize(new Dimension(200, 30));
 		textoId.setMinimumSize(new Dimension(200, 30));
 		textoId.setPreferredSize(new Dimension(200, 30));
-		id.add(etiquetaId);
-		id.add(textoId);
-		centro.add(id);
+		textoId.setFont(new Font("Tahoma", Font.BOLD, 18));
+		panel_etiquetas.add(etiquetaId);
+		panel_textfield.add(textoId);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
 
-		JPanel fecha_ini = new JPanel();
-		fecha_ini.setLayout(new BoxLayout(fecha_ini, BoxLayout.LINE_AXIS));
+		
 		JLabel etiquetaIni = new JLabel("fecha inicio: ");
-		etiquetaIni.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaIni.setFont(new Font("Tahoma", Font.BOLD, 23));
 		LocalDate currentDate = LocalDate.now();
 		Date initialDate = Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant());// pasarlo
 																									// a
@@ -90,14 +110,17 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 																						// la
 																						// fecha
 		spinnerIni.setEditor(editor);
-		fecha_ini.add(etiquetaIni);
-		fecha_ini.add(spinnerIni);
-		centro.add(fecha_ini);
+		
+		panel_etiquetas.add(etiquetaIni);
+		panel_textfield.add(spinnerIni);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
 
 		JPanel fecha_fin = new JPanel();
 		fecha_fin.setLayout(new BoxLayout(fecha_fin, BoxLayout.LINE_AXIS));
 		JLabel etiquetaFin = new JLabel("fecha fin: ");
-		etiquetaFin.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaFin.setFont(new Font("Tahoma", Font.BOLD, 23));
 		SpinnerDateModel model2 = new SpinnerDateModel(initialDate, null, null, java.util.Calendar.DAY_OF_MONTH);
 		JSpinner spinnerFin = new JSpinner(model2);
 		spinnerFin.setMaximumSize(new Dimension(200, 30));
@@ -108,10 +131,16 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 																						// la
 																						// fecha
 		spinnerFin.setEditor(editor2);
-		fecha_fin.add(etiquetaFin);
-		fecha_fin.add(spinnerFin);
-		centro.add(fecha_fin);
+		panel_etiquetas.add(etiquetaFin);
+		panel_textfield.add(spinnerFin);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
+		
+		principal.add(funcion);
+		principal.add(centro);
 
+		JSplitPane botones = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
@@ -140,7 +169,10 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 
 		});
 
-		centro.add(aceptar);
+		aceptar.setMaximumSize(new Dimension(100, 30));
+		aceptar.setPreferredSize(new Dimension(100, 30));
+		botones.setMaximumSize(new Dimension(190, 30));
+		botones.setPreferredSize(new Dimension(190, 30));
 
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
 												// principal
@@ -155,14 +187,16 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 
 		});
 
-		principal.add(funcion);
-		principal.add(centro);
-		principal.add(atras, BorderLayout.PAGE_END);
+		atras.setMaximumSize(new Dimension(90, 30));
+		atras.setPreferredSize(new Dimension(90, 30));
+
+		botones.add(aceptar);
+		botones.add(atras);
+		principal.add(botones);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 }

@@ -53,12 +53,13 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		JPanel nombre = new JPanel();
 		nombre.setLayout(new BoxLayout(nombre, BoxLayout.LINE_AXIS));
 		JLabel etiquetaNombre = new JLabel("nombre: ");
-		etiquetaNombre.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaNombre.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JTextField textoNombre = new JTextField();
 		textoNombre.setMaximumSize(new Dimension(200, 30));
 		textoNombre.setMinimumSize(new Dimension(200, 30));
 		textoNombre.setPreferredSize(new Dimension(200, 30));
 		textoNombre.setToolTipText("nombre");
+		textoNombre.setFont(new Font("Tahoma", Font.BOLD, 18));
 		nombre.add(etiquetaNombre);
 		nombre.add(textoNombre);
 		centro.add(nombre);
@@ -108,5 +109,6 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
+		this.setResizable(false);
 	}
 }

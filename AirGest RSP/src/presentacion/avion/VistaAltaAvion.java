@@ -1,7 +1,6 @@
 
 package presentacion.avion;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -38,7 +37,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(320, 200);
+		this.setSize(370, 250);
 		
 		Controlador ctrl = Controlador.getInstance();
 
@@ -306,6 +305,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
+		this.setResizable(false);
 		this.pack();
 	}
 

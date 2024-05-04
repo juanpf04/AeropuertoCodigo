@@ -22,7 +22,7 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(400, 450);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
@@ -35,7 +35,7 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 			s += a.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);
 
@@ -54,13 +54,12 @@ public class VistaResultadoMostrarAvionesPorHangar extends JFrame implements Obs
 			}
 		});
 
-		principal.add(atras, BorderLayout.SOUTH);
+		principal.add(atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
 	}
 
 }

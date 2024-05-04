@@ -1,6 +1,7 @@
 package presentacion.personal;
 
-import java.awt.BorderLayout;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import negocio.modeloAerolinea.TModeloAerolinea;
 import negocio.personalHangar.TPersonalHangar;
@@ -26,43 +30,64 @@ public class VistaDesvincularPersonal extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(470, 250);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
-		JLabel funcion = new JLabel("Desvincular Personal");
-		funcion.setFont(new Font("Times New Roman", Font.ITALIC, 85));
-
+		JPanel funcion = new JPanel();
+		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
+		
 		JPanel centro = new JPanel();
-		centro.setLayout(new BoxLayout(centro, BoxLayout.PAGE_AXIS));
-
-		JPanel idPersonal = new JPanel();
-		idPersonal.setLayout(new BoxLayout(idPersonal, BoxLayout.LINE_AXIS));
+		
+		JPanel panel_titulo = new JPanel();
+		JLabel titulo = new JLabel("Desvincular Personal");
+		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
+		titulo.setBorder(new LineBorder(Color.BLACK, 2));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_titulo.add(titulo);
+		
+		funcion.add(panel_titulo);
+		
+		JPanel panel_etiquetas = new JPanel();
+		panel_etiquetas.setLayout(new BoxLayout(panel_etiquetas, BoxLayout.PAGE_AXIS));
+		
+		JPanel panel_textfield = new JPanel();
+		panel_textfield.setLayout(new BoxLayout(panel_textfield, BoxLayout.PAGE_AXIS));
+		
 		JLabel etiquetaIdPersonal = new JLabel("idPersonal: ");
-		etiquetaIdPersonal.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaIdPersonal.setFont(new Font("Tahoma", Font.BOLD, 24));
 		JTextField textoIdPersonal = new JTextField();
 		textoIdPersonal.setMaximumSize(new Dimension(200, 30));
 		textoIdPersonal.setMinimumSize(new Dimension(200, 30));
 		textoIdPersonal.setPreferredSize(new Dimension(200, 30));
-		idPersonal.add(etiquetaIdPersonal);
-		idPersonal.add(textoIdPersonal);
-		centro.add(idPersonal);
+		textoIdPersonal.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		panel_etiquetas.add(etiquetaIdPersonal);
+		panel_textfield.add(textoIdPersonal);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
 
-		JPanel idHangar = new JPanel();
-		idHangar.setLayout(new BoxLayout(idHangar, BoxLayout.LINE_AXIS));
 		JLabel etiquetaIdHangar = new JLabel("idHangar: ");
-		etiquetaIdHangar.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaIdHangar.setFont(new Font("Tahoma", Font.BOLD, 24));
 		JTextField textoIdHangar = new JTextField();
 		textoIdHangar.setMaximumSize(new Dimension(200, 30));
 		textoIdHangar.setMinimumSize(new Dimension(200, 30));
 		textoIdHangar.setPreferredSize(new Dimension(200, 30));
-		idHangar.add(etiquetaIdHangar);
-		idHangar.add(textoIdHangar);
-		centro.add(idHangar);
-
+		textoIdHangar.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		panel_etiquetas.add(etiquetaIdHangar);
+		panel_textfield.add(textoIdHangar);
+		
+		centro.add(panel_etiquetas);
+		centro.add(panel_textfield);
+		
+		principal.add(funcion);
+		principal.add(centro);
+		
 		Controlador controlador = Controlador.getInstance();
-
+		JSplitPane botones = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		JButton aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 
@@ -80,9 +105,10 @@ public class VistaDesvincularPersonal extends JFrame implements Observador {
 
 		});
 
-		centro.add(aceptar);
-		principal.add(funcion);
-		principal.add(centro);
+		aceptar.setMaximumSize(new Dimension(100, 30));
+		aceptar.setPreferredSize(new Dimension(100, 30));
+		botones.setMaximumSize(new Dimension(190, 30));
+		botones.setPreferredSize(new Dimension(190, 30));
 
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
 												// principal
@@ -96,12 +122,17 @@ public class VistaDesvincularPersonal extends JFrame implements Observador {
 			}
 
 		});
-		principal.add(atras, BorderLayout.PAGE_END);
+		atras.setMaximumSize(new Dimension(90, 30));
+		atras.setPreferredSize(new Dimension(90, 30));
+
+		botones.add(aceptar);
+		botones.add(atras);
+		principal.add(botones);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
+		this.setResizable(false);
 	}
 }

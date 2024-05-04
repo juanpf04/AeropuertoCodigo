@@ -23,7 +23,7 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 	@Override
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(600, 650);
+		this.setSize(400, 450);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
@@ -36,7 +36,7 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 			s += av.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new  Font("Tahoma", Font.PLAIN, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 		exito.setEditable(false);
 
@@ -55,7 +55,7 @@ public class VistaResultadoConsultarTodosAviones extends JFrame implements Obser
 			}
 		});
 
-		principal.add(atras, BorderLayout.SOUTH);
+		principal.add(atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

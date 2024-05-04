@@ -17,7 +17,6 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
@@ -25,7 +24,7 @@ public class VistaResultadoConsultarAvionPorId extends JFrame implements Observa
 		String avion = datos == null ? "" : ((TAvion) datos).toString();
 
 		JTextArea exito = new JTextArea(avion);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		exito.setAlignmentX(CENTER_ALIGNMENT);
 		exito.setEditable(false);
 		principal.add(exito, BorderLayout.PAGE_START);

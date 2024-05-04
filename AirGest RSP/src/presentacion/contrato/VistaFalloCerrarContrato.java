@@ -21,13 +21,13 @@ public class VistaFalloCerrarContrato extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(600, 660);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
 		JLabel exito = new JLabel("Cerrar contrato fallido! :(");
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 29));
 		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);
 
@@ -39,7 +39,7 @@ public class VistaFalloCerrarContrato extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
-		this.pack();
+		this.setResizable(false);
 
 		Controlador controlador = Controlador.getInstance();
 		controlador.accion(EventosControlador.VISTA_CONTRATO, null);

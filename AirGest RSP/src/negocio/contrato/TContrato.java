@@ -48,6 +48,6 @@ public class TContrato {
 	}
 
 	public String toString() {
-		return "id: " + this.id + "\nid_aerolinea: " + this.id_aerolinea + "\nprecio: " + this.precio;
+		return "id: " + this.id + "\nid_aerolinea: " + this.id_aerolinea + "\nprecio: " + this.precio + "\n";
 	}
 }

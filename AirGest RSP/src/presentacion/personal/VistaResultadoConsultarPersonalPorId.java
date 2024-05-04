@@ -25,10 +25,11 @@ public class VistaResultadoConsultarPersonalPorId extends JFrame implements Obse
 		String personal = datos == null ? "" : ((TPersonal) datos).toString();
 
 		JTextArea exito = new JTextArea(personal);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
 		exito.setEditable(false);
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
+
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

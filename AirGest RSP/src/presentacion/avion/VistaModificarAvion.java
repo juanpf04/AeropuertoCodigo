@@ -49,7 +49,7 @@ public class VistaModificarAvion extends JFrame implements Observador {
 		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
 		
 		JPanel panel_titulo = new JPanel();
-		JLabel titulo = new JLabel("Alta Avion");
+		JLabel titulo = new JLabel("Modificar Avion");
 		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titulo.setBorder(new LineBorder(Color.BLACK, 2));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);

@@ -30,8 +30,6 @@ public class VistaAltaHangar extends JFrame implements Observador {
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
 
-		UtilidadesP.setAirGestRSP(this);
-
 		JPanel principal = new JPanel();
 		principal.setLayout(new BoxLayout(principal, BoxLayout.PAGE_AXIS));
 
