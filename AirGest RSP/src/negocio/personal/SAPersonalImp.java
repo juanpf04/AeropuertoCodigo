@@ -1,5 +1,6 @@
 package negocio.personal;
 
+import negocio.UtilidadesN;
 import negocio.hangar.THangar;
 import negocio.personalHangar.TPersonalHangar;
 import negocio.personalHangar.ValidadorPersonalHangar;
@@ -32,7 +33,7 @@ public class SAPersonalImp implements SAPersonal {
 
 	@Override
 	public boolean bajaPersonal(int id) {
-		if (ValidadorPersonal.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOPersonal dp = FactoriaIntegracion.getInstance().crearDAOPersonal();
 
 			TPersonal leido = dp.consultarPersonalPorId(id);
@@ -95,7 +96,7 @@ public class SAPersonalImp implements SAPersonal {
 
 	@Override
 	public boolean modificarPersonal(TPersonal tPersonal) {
-		if (ValidadorPersonal.comprobarId(tPersonal.getId()) && ValidadorPersonal.comprobarDatos(tPersonal)) {
+		if (UtilidadesN.comprobarId(tPersonal.getId()) && ValidadorPersonal.comprobarDatos(tPersonal)) {
 			DAOPersonal dp = FactoriaIntegracion.getInstance().crearDAOPersonal();
 			int id = tPersonal.getId();
 			int idEmpleado = tPersonal.getIdEmpleado();
@@ -114,7 +115,7 @@ public class SAPersonalImp implements SAPersonal {
 
 	@Override
 	public TPersonal consultarPersonalPorId(int id) {
-		if (ValidadorPersonal.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOPersonal dp = FactoriaIntegracion.getInstance().crearDAOPersonal();
 
 			return dp.consultarPersonalPorId(id);

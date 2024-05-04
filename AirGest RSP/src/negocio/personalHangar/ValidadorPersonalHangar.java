@@ -1,8 +1,11 @@
 package negocio.personalHangar;
 
+import negocio.UtilidadesN;
+
 public class ValidadorPersonalHangar {
 
 	public static boolean comprobarDatos(TPersonalHangar tPersonalHangar) {
-		return tPersonalHangar.getIdHangar() > 0 && tPersonalHangar.getIdPersonal() > 0;
+		return UtilidadesN.comprobarId(tPersonalHangar.getIdHangar())
+				&& UtilidadesN.comprobarId(tPersonalHangar.getIdPersonal());
 	}
 }

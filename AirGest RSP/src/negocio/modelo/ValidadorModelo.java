@@ -1,21 +1,9 @@
-
 package negocio.modelo;
 
 public class ValidadorModelo {
 
-	public static boolean comprobarModelo(TModelo tModelo) {
-		// begin-user-code
-		// TODO Auto-generated method stub
-		return false;
-		// end-user-code
-	}
-
 	public static boolean comprobarDatos(TModelo tModelo) {
 		return comprobarNombre(tModelo.getNombre()) && comprobarMotor(tModelo.getMotor());
-	}
-
-	public static boolean comprobarId(int id) {
-		return id > 0;
 	}
 
 	public static boolean comprobarNombre(String nombre) {
@@ -29,4 +17,5 @@ public class ValidadorModelo {
 		return motor.matches("^[A-Z]{3}+-[0-9]{2}+$"); // 3 letras mayusculas y
 														// 2 dígitos
 	}
+
 }

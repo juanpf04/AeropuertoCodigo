@@ -20,15 +20,6 @@ public class ValidadorAerolineaTest {
 	}
 
 	@Test
-	public void comprobar_id_test() {
-		UtilidadesI.esTest();
-
-		assertTrue(" id 1 deberia ser valido", ValidadorAerolinea.comprobarId(1));
-		assertFalse("no puede tener id 0", ValidadorAerolinea.comprobarId(0));
-		assertFalse("no puede tener id negativo", ValidadorAerolinea.comprobarId(-1));
-	}
-
-	@Test
 	public void comprobar_nombre_test() {
 		UtilidadesI.esTest();
 

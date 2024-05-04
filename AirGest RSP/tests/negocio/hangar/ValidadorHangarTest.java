@@ -8,8 +8,8 @@ import org.junit.Test;
 import integracion.UtilidadesI;
 
 public class ValidadorHangarTest {
-private boolean noImporta = true;
-	
+	private boolean noImporta = true;
+
 	@Test
 	public void comprobar_datos_test() {
 		UtilidadesI.esTest();
@@ -18,24 +18,14 @@ private boolean noImporta = true;
 
 		assertTrue("fasfa", ValidadorHangar.comprobarDatos(hangar));
 	}
-	
-	
-	@Test
-	public void comprobar_id_test() {
-		UtilidadesI.esTest();
 
-		assertTrue(" id 1 deberia ser valido", ValidadorHangar.comprobarId(1));
-		assertFalse("no puede tener id 0", ValidadorHangar.comprobarId(0));
-		assertFalse("no puede tener id negativo", ValidadorHangar.comprobarId(-1));
-	}
-	
 	@Test
 	public void comprobar_direccion_test() {
 		UtilidadesI.esTest();
 		assertTrue("el nombre debería ser valido", ValidadorHangar.comprobarDireccion("Hola 123"));
-		
+
 	}
-	
+
 	@Test
 	public void comprobar_stock_test() {
 		UtilidadesI.esTest();
@@ -44,7 +34,7 @@ private boolean noImporta = true;
 		assertFalse("2", ValidadorHangar.comprobarStock(-3));
 		assertTrue("3", ValidadorHangar.comprobarStock(0));
 	}
-	
+
 	@Test
 	public void comprobar_costeDia_test() {
 		UtilidadesI.esTest();
@@ -53,7 +43,7 @@ private boolean noImporta = true;
 		assertFalse("2", ValidadorHangar.comprobarCosteDia(-3));
 		assertTrue("3", ValidadorHangar.comprobarCosteDia(0.9));
 	}
-	
+
 	@Test
 	public void comprobar_espacioAlmacenaje_test() {
 		UtilidadesI.esTest();

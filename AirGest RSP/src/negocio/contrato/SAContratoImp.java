@@ -1,4 +1,3 @@
-
 package negocio.contrato;
 
 import java.time.LocalDate;
@@ -12,8 +11,8 @@ import integracion.contrato.DAOContrato;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
 import integracion.lineaContrato.DAOLineaContrato;
+import negocio.UtilidadesN;
 import negocio.aerolinea.TAerolinea;
-import negocio.aerolinea.ValidadorAerolinea;
 import negocio.hangar.THangar;
 import negocio.lineaContrato.TLineaContrato;
 
@@ -93,7 +92,7 @@ public class SAContratoImp implements SAContrato {
 	}
 
 	public TInfoContrato consultarContratoPorId(int id) {
-		if (ValidadorContrato.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOContrato dc = FactoriaIntegracion.getInstance().crearDAOContrato();
 
 			TContrato contrato = dc.leerContratoPorId(id);
@@ -195,7 +194,7 @@ public class SAContratoImp implements SAContrato {
 
 	public List<TContrato> consultarContratosPorAerolinea(int id_aerolinea) {
 		List<TContrato> contratos = new ArrayList<>();
-		if (ValidadorAerolinea.comprobarId(id_aerolinea)) {
+		if (UtilidadesN.comprobarId(id_aerolinea)) {
 			DAOAerolinea da = FactoriaIntegracion.getInstance().crearDAOAerolinea();
 
 			TAerolinea aerolinea = da.leerAerolineaPorId(id_aerolinea);
@@ -208,4 +207,5 @@ public class SAContratoImp implements SAContrato {
 
 		return contratos;
 	}
+
 }

@@ -1,4 +1,3 @@
-
 package negocio.hangar;
 
 import java.util.List;
@@ -6,6 +5,7 @@ import java.util.List;
 import integracion.avion.DAOAvion;
 import integracion.factoria.FactoriaIntegracion;
 import integracion.hangar.DAOHangar;
+import negocio.UtilidadesN;
 
 public class SAHangarImp implements SAHangar {
 
@@ -27,7 +27,7 @@ public class SAHangarImp implements SAHangar {
 	}
 
 	public boolean bajaHangar(int id) {
-		if (ValidadorHangar.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 
 			THangar leido = dh.leerHangarPorId(id);
@@ -45,7 +45,7 @@ public class SAHangarImp implements SAHangar {
 	}
 
 	public THangar consultarHangarPorId(int id) {
-		if (ValidadorHangar.comprobarId(id)) {
+		if (UtilidadesN.comprobarId(id)) {
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 
 			return dh.leerHangarPorId(id);
@@ -60,7 +60,7 @@ public class SAHangarImp implements SAHangar {
 	}
 
 	public boolean modificarHangar(THangar tHangar) {
-		if (ValidadorHangar.comprobarId(tHangar.getId()) && ValidadorHangar.comprobarDatos(tHangar)) {
+		if (UtilidadesN.comprobarId(tHangar.getId()) && ValidadorHangar.comprobarDatos(tHangar)) {
 			DAOHangar dh = FactoriaIntegracion.getInstance().crearDAOHangar();
 
 			int id = tHangar.getId();
@@ -77,4 +77,5 @@ public class SAHangarImp implements SAHangar {
 		}
 		return false;
 	}
+
 }
