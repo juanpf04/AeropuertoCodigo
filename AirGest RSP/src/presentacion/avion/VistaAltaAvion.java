@@ -50,7 +50,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		funcion.setLayout(new BoxLayout(funcion,BoxLayout.PAGE_AXIS));
 		
 		JPanel panel_titulo = new JPanel();
-		JLabel titulo = new JLabel("Alta Modelo");
+		JLabel titulo = new JLabel("Alta Avion");
 		titulo.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titulo.setBorder(new LineBorder(Color.BLACK, 2));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -62,10 +62,10 @@ public class VistaAltaAvion extends JFrame implements Observador {
 		JPanel centro = new JPanel();
 		centro.setLayout(new BoxLayout(centro, BoxLayout.LINE_AXIS));
 		centro.setAlignmentX(CENTER_ALIGNMENT);
-		principal.add(centro, BorderLayout.CENTER);
+		principal.add(centro);
 
 		JPanel panelBotones = new JPanel();
-		principal.add(panelBotones, BorderLayout.SOUTH);
+		principal.add(panelBotones);
 		panelBotones.setAlignmentX(CENTER_ALIGNMENT);
 
 		JButton atras = new JButton("ATRAS"); // boton para volver a la ventana
@@ -87,7 +87,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 
 		if (datos == null) {
 			JPanel botones = new JPanel();
-			botones.setLayout(new GridLayout(0,1,5,5));
+			botones.setLayout(new GridLayout(0,1,8,8));
 
 			// -------------------------------------------
 			JButton comercial = new JButton("AVION COMERCIAL");
@@ -119,7 +119,7 @@ public class VistaAltaAvion extends JFrame implements Observador {
 			botones.add(privado);
 			botones.add(panelBotones);
 
-			principal.add(botones, BorderLayout.SOUTH);
+			principal.add(botones);
 
 			// -----------------------------------------------------
 		} else { //
