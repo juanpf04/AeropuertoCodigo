@@ -19,13 +19,13 @@ public class VistaFalloModificarAerolinea extends JFrame implements Observador {
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
+		this.setSize(600, 660);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
 		JLabel exito = new JLabel("Modificación de Aerolinea fallida! :(");
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 29));
 		exito.setHorizontalAlignment(SwingConstants.CENTER);
 		principal.add(exito, BorderLayout.PAGE_START);
 

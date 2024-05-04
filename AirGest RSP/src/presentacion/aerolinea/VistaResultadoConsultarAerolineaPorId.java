@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import negocio.aerolinea.TAerolinea;
@@ -19,16 +20,16 @@ public class VistaResultadoConsultarAerolineaPorId extends JFrame implements Obs
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(600, 650);
 		
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
 		String aerolinea = datos == null ? "" : ((TAerolinea) datos).toString();
 
-		JLabel exito = new JLabel(aerolinea);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		JTextArea exito = new JTextArea(aerolinea);
+		exito.setEditable(false);
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

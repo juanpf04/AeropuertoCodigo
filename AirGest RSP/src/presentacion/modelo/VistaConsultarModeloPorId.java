@@ -46,7 +46,7 @@ public class VistaConsultarModeloPorId extends JFrame implements Observador {
 		JPanel id = new JPanel();
 		id.setLayout(new BoxLayout(id, BoxLayout.LINE_AXIS));
 		JLabel etiquetaId = new JLabel("id: ");
-		etiquetaId.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		etiquetaId.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		JTextField textoId = new JTextField();
 		textoId.setMaximumSize(new Dimension(200, 30));
 		textoId.setMinimumSize(new Dimension(200, 30));
@@ -103,5 +103,6 @@ public class VistaConsultarModeloPorId extends JFrame implements Observador {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLocation(200, 200);
+		this.setResizable(false);
 	}
 }

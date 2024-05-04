@@ -53,7 +53,7 @@ public class VistaResultadoConsultarTodosModelos extends JFrame implements Obser
 			}
 		});
 
-		principal.add(atras, BorderLayout.SOUTH);
+		principal.add(atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

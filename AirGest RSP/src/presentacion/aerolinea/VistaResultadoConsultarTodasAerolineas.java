@@ -36,7 +36,7 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 			s += ae.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 		exito.setEditable(false);
 
@@ -54,7 +54,7 @@ public class VistaResultadoConsultarTodasAerolineas extends JFrame implements Ob
 			}
 		});
 
-		principal.add(atras, BorderLayout.SOUTH);
+		principal.add(atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

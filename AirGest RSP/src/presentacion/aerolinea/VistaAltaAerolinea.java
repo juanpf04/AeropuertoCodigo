@@ -58,6 +58,7 @@ public class VistaAltaAerolinea extends JFrame implements Observador {
 		textoNombre.setMaximumSize(new Dimension(200, 30));
 		textoNombre.setMinimumSize(new Dimension(200, 30));
 		textoNombre.setPreferredSize(new Dimension(200, 30));
+		textoNombre.setToolTipText("nombre");
 		nombre.add(etiquetaNombre);
 		nombre.add(textoNombre);
 		centro.add(nombre);

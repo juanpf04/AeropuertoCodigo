@@ -54,13 +54,6 @@ public class VistaHangar extends JFrame implements Observador {
 		page_start_panel.add(separador_hangar);
 		principal.add(page_start_panel, BorderLayout.PAGE_START);
 
-		JLabel modulo = new JLabel("HANGAR"); // titulo de la ventana en la que
-												// estamos, apareceran las
-												// funciones de modelo
-		modulo.setFont(new Font("Comic Sans", Font.BOLD, 30));
-		modulo.setHorizontalAlignment(SwingConstants.CENTER);
-		principal.add(modulo, BorderLayout.PAGE_START);
-
 		JPanel botones = new JPanel();
 		botones.setLayout(new GridLayout(0, 1, 7, 7));
 

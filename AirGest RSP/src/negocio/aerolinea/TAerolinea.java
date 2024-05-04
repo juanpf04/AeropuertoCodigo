@@ -56,6 +56,6 @@ public class TAerolinea {
 	}
 
 	public String toString() {
-		return "id: " + this.id + "\nnombre: " + this.nombre + "\nactivo: " + this.activo;
+		return "id: " + this.id + "\nnombre: " + this.nombre + "\nactivo: " + this.activo + "\n";
 	}
 }

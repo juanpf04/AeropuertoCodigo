@@ -5,9 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 import negocio.hangar.THangar;
 import presentacion.Observador;
@@ -19,16 +18,16 @@ public class VistaResultadoConsultarHangarPorId extends JFrame implements Observ
 
 	public void actualizaVista(Object datos) {
 		UtilidadesP.setAirGestRSP(this);
-		this.setSize(1000, 750);
 
 		JPanel principal = new JPanel();
 		principal.setLayout(new BorderLayout());
 
 		String hangar = datos == null ? "" : ((THangar) datos).toString();
 
-		JLabel exito = new JLabel(hangar);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 35));
-		exito.setHorizontalAlignment(SwingConstants.CENTER);
+		JTextArea exito = new JTextArea(hangar);
+		exito.setEditable(false);
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		exito.setAlignmentX(CENTER_ALIGNMENT);
 		principal.add(exito, BorderLayout.PAGE_START);
 
 		this.setContentPane(principal);

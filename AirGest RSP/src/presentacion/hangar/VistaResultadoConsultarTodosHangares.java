@@ -35,7 +35,7 @@ public class VistaResultadoConsultarTodosHangares extends JFrame implements Obse
 			s += ha.toString() + "\n";
 
 		JTextArea exito = new JTextArea(s);
-		exito.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		exito.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		principal.add(exito, BorderLayout.PAGE_START);
 		exito.setEditable(false);
 
@@ -54,7 +54,7 @@ public class VistaResultadoConsultarTodosHangares extends JFrame implements Obse
 			}
 		});
 
-		principal.add(atras, BorderLayout.SOUTH);
+		principal.add(atras, BorderLayout.PAGE_END);
 
 		this.setContentPane(principal);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
