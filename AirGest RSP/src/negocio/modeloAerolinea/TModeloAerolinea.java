@@ -34,15 +34,6 @@ public class TModeloAerolinea {
 		this.idAerolinea = idAerolinea;
 	}
 
-	public JSONObject toJSON() {
-		JSONObject jo = new JSONObject();
-
-		jo.put("idModelo", this.idModelo);
-		jo.put("idAerolinea", this.idAerolinea);
-
-		return jo;
-	}
-
 	public String toString() {
 		return "idModelo: " + this.idModelo + "\nidAerolinea: " + this.idAerolinea;
 	}

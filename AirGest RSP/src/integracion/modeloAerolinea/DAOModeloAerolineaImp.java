@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.json.JSONObject;
+
 import integracion.UtilidadesI;
 import negocio.modeloAerolinea.TModeloAerolinea;
 
@@ -14,7 +16,7 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 			TModeloAerolinea tma = new TModeloAerolinea(idModelo, idAerolinea);
 			FileWriter archivo = new FileWriter(UtilidadesI.ruta("modeloAerolinea") + String.format("%05d", idModelo)
 					+ "_" + String.format("%05d", idAerolinea) + ".json");
-			archivo.write(tma.toJSON().toString());
+			archivo.write(toJSON(tma).toString());
 			archivo.close();
 			return true;
 		} catch (IOException e) {
@@ -42,4 +44,13 @@ public class DAOModeloAerolineaImp implements DAOModeloAerolinea {
 		return f.exists();
 	}
 
+
+	private JSONObject toJSON(TModeloAerolinea tma) {
+		JSONObject jo = new JSONObject();
+
+		jo.put("idModelo", tma.getIdModelo());
+		jo.put("idAerolinea", tma.getIdAerolinea());
+
+		return jo;
+	}
 }

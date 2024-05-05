@@ -55,6 +55,4 @@ public class TModelo {
 	public String toString() {
 		return " id: " + this.id + "\n" + " nombre: " + nombre + "\n motor: " + motor + "\n activo: " + activo + "\n";
 	}
-
-
 }
