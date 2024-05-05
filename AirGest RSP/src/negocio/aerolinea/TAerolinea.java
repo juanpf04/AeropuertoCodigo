@@ -1,7 +1,6 @@
 
 package negocio.aerolinea;
 
-import org.json.JSONObject;
 
 public class TAerolinea {
 
@@ -43,16 +42,6 @@ public class TAerolinea {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
-	}
-
-	public JSONObject toJSON() {
-		JSONObject jo = new JSONObject();
-
-		jo.put("id", this.id);
-		jo.put("nombre", this.nombre);
-		jo.put("activo", this.activo);
-
-		return jo;
 	}
 
 	public String toString() {
