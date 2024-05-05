@@ -21,7 +21,7 @@ public class ValidadorAvion {
 
 	public static boolean comprobarPrivado(TAPrivado tPriv) {
 
-		return comprobarInfo(tPriv) && comprobarCarnet(tPriv);
+		return comprobarInfo(tPriv) && comprobarCarnet(tPriv) && comprobarDuenyo(tPriv);
 	}
 
 	public static boolean comprobarInfo(TAvion tAvion) {
@@ -32,6 +32,10 @@ public class ValidadorAvion {
 
 	public static boolean comprobarCarnet(TAPrivado tPriv) {
 		return tPriv.getIdCarnet() > 0;
+	}
+
+	public static boolean comprobarDuenyo(TAPrivado tPriv) {
+		return tPriv.getNombreDuenyo() != null && !tPriv.getNombreDuenyo().isEmpty();
 	}
 
 	public static boolean comprobarTrabajadores(TAComercial tComercial) {
