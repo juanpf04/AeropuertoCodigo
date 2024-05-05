@@ -51,7 +51,7 @@ public class DAOModeloImp implements DAOModelo {
 
 			FileWriter archivo = new FileWriter(UtilidadesI.ruta("modelo") + String.format("%05d", id) + ".json");
 
-			archivo.write(tModelo.toJSON().toString());
+			archivo.write(toJSON(tModelo).toString());
 			archivo.close();
 
 			return id;
@@ -65,7 +65,7 @@ public class DAOModeloImp implements DAOModelo {
 		try {
 			FileWriter archivo = new FileWriter(
 					UtilidadesI.ruta("modelo") + String.format("%05d", tModelo.getId()) + ".json");
-			archivo.write(tModelo.toJSON().toString());
+			archivo.write(toJSON(tModelo).toString());
 			archivo.close();
 
 			return true;
@@ -119,6 +119,17 @@ public class DAOModeloImp implements DAOModelo {
 		} catch (FileNotFoundException e) {
 			return null;
 		}
+	}
+	
+	private JSONObject toJSON(TModelo tModelo){
+		JSONObject jo = new JSONObject();
+
+		jo.put("id", tModelo.getId());
+		jo.put("nombre", tModelo.getNombre());
+		jo.put("motor", tModelo.getMotor());
+		jo.put("activo", tModelo.getActivo());
+
+		return jo;
 	}
 
 }

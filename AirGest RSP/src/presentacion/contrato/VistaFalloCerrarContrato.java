@@ -41,7 +41,5 @@ public class VistaFalloCerrarContrato extends JFrame implements Observador {
 		this.setLocation(200, 200);
 		this.setResizable(false);
 
-		Controlador controlador = Controlador.getInstance();
-		controlador.accion(EventosControlador.VISTA_CONTRATO, null);
 	}
 }

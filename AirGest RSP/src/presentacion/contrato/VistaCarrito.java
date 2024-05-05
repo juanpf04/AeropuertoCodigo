@@ -82,7 +82,7 @@ public class VistaCarrito extends JFrame implements Observador {
 		cerrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				//dispose();
 				ctrl.accion(EventosControlador.CERRAR_CONTRATO, carrito);
 			}
 		});

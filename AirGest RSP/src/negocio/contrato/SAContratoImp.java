@@ -63,7 +63,7 @@ public class SAContratoImp implements SAContrato {
 			double precioContrato = 0;
 
 			for (TLineaContrato linea : tCarrito.getLineasContrato()) {
-				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin()) + 1;
 				THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
 				precioContrato += diasDiferencia * hangar.getCosteDia();
 			}
@@ -74,7 +74,7 @@ public class SAContratoImp implements SAContrato {
 			int id = dc.altaContrato(contrato);
 
 			for (TLineaContrato linea : tCarrito.getLineasContrato()) {
-				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+				long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin()) + 1;
 				THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
 				linea.setPrecio(diasDiferencia * hangar.getCosteDia());
 				linea.setIdContrato(id);
@@ -169,7 +169,7 @@ public class SAContratoImp implements SAContrato {
 					THangar hangar = dh.leerHangarPorId(linea.getIdHangar());
 
 					if (hangar != null && hangar.getActivo()) {
-						long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin());
+						long diasDiferencia = ChronoUnit.DAYS.between(linea.getFechaIni(), linea.getFechaFin()) + 1;
 						linea.setPrecio(diasDiferencia * hangar.getCosteDia());
 						dl.modificarLineaContrato(linea);
 

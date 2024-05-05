@@ -56,14 +56,5 @@ public class TModelo {
 		return " id: " + this.id + "\n" + " nombre: " + nombre + "\n motor: " + motor + "\n activo: " + activo + "\n";
 	}
 
-	public JSONObject toJSON() {
-		JSONObject jo = new JSONObject();
 
-		jo.put("id", this.id);
-		jo.put("nombre", this.nombre);
-		jo.put("motor", this.motor);
-		jo.put("activo", this.activo);
-
-		return jo;
-	}
 }
