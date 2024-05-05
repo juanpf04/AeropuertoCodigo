@@ -41,7 +41,5 @@ public class VistaExitoModificarLineaContrato extends JFrame implements Observad
 		this.setLocation(200, 200);
 		this.setResizable(false);
 
-		Controlador c = Controlador.getInstance();
-		c.accion(EventosControlador.VISTA_CONTRATO, null);
 	}
 }

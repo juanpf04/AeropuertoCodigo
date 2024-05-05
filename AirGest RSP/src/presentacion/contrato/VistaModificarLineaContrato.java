@@ -161,7 +161,6 @@ public class VistaModificarLineaContrato extends JFrame implements Observador {
 					LocalDate fecha_fin = zonedDateTime.toLocalDate();
 					TLineaContrato linea = new TLineaContrato(id_contrato, id_hangar, fecha_ini, fecha_fin, 0);
 					controlador.accion(EventosControlador.MODIFICAR_LINEA_CONTRATO, linea);
-					dispose();
 				} catch (NumberFormatException n) {
 
 				}
