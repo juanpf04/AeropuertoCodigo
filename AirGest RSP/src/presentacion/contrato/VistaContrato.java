@@ -96,6 +96,7 @@ public class VistaContrato extends JFrame implements Observador{
 		modificarContrato.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				ctrl.accion(EventosControlador.VISTA_MODIFICAR_CONTRATO, null);
 			}
 		});
@@ -141,6 +142,7 @@ public class VistaContrato extends JFrame implements Observador{
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				ctrl.accion(EventosControlador.VISTA_PRINCIPAL, null);
+				dispose();
 			}
 
 		});
