@@ -1,1 +1,16 @@
-{"trabajadores":8,"fechaFabricacion":{"mes":4,"dia":28,"anyo":2024},"asientos":30,"matricula":"EC-444","idAerolinea":2,"id":3,"idModelo":1,"nombre":"asa","activo":true,"idHangar":1}
+{
+	"trabajadores": 15,
+	"fechaFabricacion": {
+		"mes": 2,
+		"dia": 5,
+		"anyo": 2024
+	},
+	"asientos": 25,
+	"matricula": "EC-345",
+	"idAerolinea": 1,
+	"id": 3,
+	"idModelo": 5,
+	"nombre": "Voyager",
+	"activo": true,
+	"idHangar": 1
+}
