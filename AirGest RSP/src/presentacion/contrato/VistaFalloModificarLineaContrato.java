@@ -12,8 +12,6 @@ import javax.swing.SwingConstants;
 
 import presentacion.Observador;
 import presentacion.UtilidadesP;
-import presentacion.controlador.Controlador;
-import presentacion.controlador.EventosControlador;
 
 public class VistaFalloModificarLineaContrato extends JFrame implements Observador {
 

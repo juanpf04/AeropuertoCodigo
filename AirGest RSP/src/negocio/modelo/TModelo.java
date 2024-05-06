@@ -1,12 +1,13 @@
 package negocio.modelo;
 
-import org.json.JSONObject;
-
 public class TModelo {
 
 	private int id;
+	
 	private String nombre;
+	
 	private String motor;
+	
 	private boolean activo;
 
 	public TModelo() {
@@ -55,4 +56,5 @@ public class TModelo {
 	public String toString() {
 		return " id: " + this.id + "\n" + " nombre: " + nombre + "\n motor: " + motor + "\n activo: " + activo + "\n";
 	}
+	
 }
